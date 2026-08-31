@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Gorro de fiesta -->
+    <path
+        android:fillColor="#FFD166"
+        android:pathData="M54,32 L38,74 L70,74 Z" />
+    <path
+        android:fillColor="#EF476F"
+        android:pathData="M54,32 L47.5,49 L60.5,49 Z" />
+    <path
+        android:fillColor="#06D6A0"
+        android:pathData="M44.5,60 L42,66.5 L66,66.5 L63.5,60 Z" />
+
+    <!-- Pompón -->
+    <path
+        android:fillColor="#EF476F"
+        android:pathData="M54,24 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+
+    <!-- Confeti -->
+    <path
+        android:fillColor="#06D6A0"
+        android:pathData="M30,38 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#118AB2"
+        android:pathData="M74,36 l7,4 -4,7 -7,-4 Z" />
+    <path
+        android:fillColor="#FFD166"
+        android:pathData="M28,60 l6,-3 3,6 -6,3 Z" />
+    <path
+        android:fillColor="#EF476F"
+        android:pathData="M78,62 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,26 l4,0 0,4 -4,0 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70,72 l4,0 0,4 -4,0 Z" />
+</vector>
