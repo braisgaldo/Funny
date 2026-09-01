@@ -12,3 +12,6 @@ captures/
 # Fichero de trabajo del volcado de claves de i18n
 claves.txt
 docs/out/
+
+# Los binarios de la ficha se generan; viven en la GitHub Release
+docs/google_play/binarios/

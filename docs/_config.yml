@@ -1,0 +1,28 @@
+# Configuracion de GitHub Pages.
+#
+# La politica de privacidad tiene que estar en una URL publica: Google Play la
+# exige. Pages sirve esta carpeta gratis, asi que la fuente de la documentacion y
+# la pagina del proyecto son lo mismo y no pueden desincronizarse.
+#
+# Para activarlo: Settings -> Pages -> Source: main, carpeta /docs.
+
+title: Funny
+description: >-
+  Juego de fiesta para Android. 12 juegos, 3 modos, 13 idiomas.
+  Sin internet, sin anuncios y sin recoger datos.
+lang: es
+
+theme: jekyll-theme-minimal
+
+# Lo que no es documentacion publica: scripts, salidas y material de tienda.
+exclude:
+  - out/
+  - generar-docs.py
+  - google_play/generar-ficha.py
+  - google_play/generar-graficos.py
+  - google_play/preparar-binarios.py
+  - google_play/binarios/
+  - google_play/__pycache__/
+
+# Enlaces sin la extension .html
+permalink: pretty

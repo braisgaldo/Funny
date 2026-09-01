@@ -1,0 +1,20 @@
+Capturas de las politicas de pago consultadas
+=============================================
+
+Aqui van las capturas, con fecha, de las politicas que sostienen la declaracion
+de «compras integradas: No». El punto 4.4.1 de la plantilla lo exige, y con
+razon: si una revision cuestiona la donacion, hay que poder ensenar que apartado
+decia que y cuando se leyo.
+
+Que guardar, con este nombre:
+
+  play-payments-AAAA-MM-DD.png        Google Play Payments Policy
+  appstore-3.1.1-AAAA-MM-DD.png       App Store Review Guidelines 3.1.1
+  appstore-3.2.1-AAAA-MM-DD.png       App Store Review Guidelines 3.2.1
+
+Y anotar en docs/GUIA-PUBLICACION.md, apartado 3, la tabla con el apartado exacto
+citado y la fecha.
+
+ESTA CARPETA ESTA VACIA A PROPOSITO. No se han consultado todavia, y rellenar la
+tabla con datos inventados seria peor que dejarla en blanco: daria por hecho un
+paso que hay que hacer justo antes de subir la app, no meses antes.
