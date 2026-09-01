@@ -65,7 +65,7 @@ class MotorJuego(
         )
     }
 
-    /** Arranca el Reto en solitario: diez pruebas seguidas y una marca personal. */
+    /** Arranca el Reto en solitario: las pruebas que diga la modalidad, seguidas. */
     fun empezarSolitario(estado: EstadoJuego, jugador: Participante): EstadoJuego {
         val base =
             estado.copy(

@@ -50,7 +50,7 @@ internal val catalogoJapones =
                 MODO_INDIVIDUAL to "個人戦",
                 MODO_INDIVIDUAL_DETALLE to "2〜8人、それぞれ自分のコマでチームなし。演じるお題では手番の人が演じ、残りが当てます。",
                 MODO_SOLITARIO to "ひとりチャレンジ",
-                MODO_SOLITARIO_DETALLE to "あなたと時計の勝負：お題が10連続、そして破るべき自己記録。ボードなし、観客がいなくても遊べるゲームだけ。",
+                MODO_SOLITARIO_DETALLE to "あなたと時計の勝負：お題が連続で出題、そして破るべき自己記録。ボードなし、観客がいなくても遊べるゲームだけ。",
                 PARTICIPANTES_TITULO_EQUIPOS to "チーム",
                 PARTICIPANTES_TITULO_INDIVIDUAL to "プレイヤー",
                 PARTICIPANTES_TITULO_SOLITARIO to "お名前は？",
@@ -168,7 +168,7 @@ internal val catalogoJapones =
                 VICTORIA_SOLITARIO_MEJOR to "自己記録：%1\$d",
                 VICTORIA_SOLITARIO_RECORD to "自己記録を更新！",
                 SOLITARIO_TITULO to "ひとりチャレンジ",
-                SOLITARIO_SUBTITULO to "お題10問。あなたと時計の勝負。",
+                SOLITARIO_SUBTITULO to "お題を連続で。あなたと時計の勝負。",
                 SOLITARIO_PROGRESO to "%2\$d問中%1\$d問目",
                 SOLITARIO_RONDAS to "お題",
                 SOLITARIO_EMPEZAR to "チャレンジ開始",
@@ -272,7 +272,7 @@ internal val catalogoJapones =
                 AYUDA_FAQ_1_P to "インターネットは必要？",
                 AYUDA_FAQ_1_R to "いりません。Funnyは完全にオフラインで動きます。複数のスマホの接続は端末間のBluetoothとWi-Fi Directで、どのネットワークも通りません。",
                 AYUDA_FAQ_2_P to "ひとりでも遊べる？",
-                AYUDA_FAQ_2_R to "はい：ひとりチャレンジはお題10連続で、自己記録つきです。観客がいらないゲームだけが登場します。",
+                AYUDA_FAQ_2_R to "はい：ひとりチャレンジはお題が連続で出題され、自己記録つきです。観客がいらないゲームだけが登場します。",
                 AYUDA_FAQ_3_P to "お金はかかる？ロックされている部分は？",
                 AYUDA_FAQ_3_R to "ロックされている部分はなく、別に手に入れるものもありません。気に入ったら設定からコーヒーをごちそうできますが、ゲームの中はまったく変わりません。",
                 AYUDA_FAQ_4_P to "データを集めますか？",
@@ -308,7 +308,7 @@ internal val catalogoJapones =
                 TOUR_BIENVENIDA_TEXTO to "12のゲーム、3つの遊び方、インターネットは不要。2分ですべて説明します。いつでもスキップできます。",
                 TOUR_MODOS_TITULO to "3つの遊び方",
                 TOUR_MODOS_TEXTO to
-                    "チーム戦は定番：2〜6チームで、演じる人が順番に回ります。個人戦は同じですが、それぞれが自分のコマを持ち、2〜8人。ひとりチャレンジはお題10問を時" +
+                    "チーム戦は定番：2〜6チームで、演じる人が順番に回ります。個人戦は同じですが、それぞれが自分のコマを持ち、2〜8人。ひとりチャレンジはお題を連続で時" +
                     "計と勝負、ひとりで、自己記録つきです。",
                 TOUR_TABLERO_TITULO to "ボード",
                 TOUR_TABLERO_TEXTO to

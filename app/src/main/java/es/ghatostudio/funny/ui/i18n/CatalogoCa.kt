@@ -53,9 +53,9 @@ internal val catalogoCatalan =
                     "taula.",
                 MODO_SOLITARIO to "Repte en solitari",
                 MODO_SOLITARIO_DETALLE to
-                    "Tu contra el rellotge: deu proves seguides i una marca personal per " +
-                    "batre. Sense tauler i només amb els jocs que es poden jugar sense " +
-                    "ningú davant.",
+                    "Tu contra el rellotge: una tanda de proves seguides i una marca " +
+                    "personal per batre. Sense tauler i només amb els jocs que es poden " +
+                    "jugar sense ningú davant.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Equips",
                 PARTICIPANTES_TITULO_INDIVIDUAL to "Jugadors",
                 PARTICIPANTES_TITULO_SOLITARIO to "Com et dius?",
@@ -179,7 +179,7 @@ internal val catalogoCatalan =
                 VICTORIA_SOLITARIO_MEJOR to "La teva millor marca: %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "Marca personal nova!",
                 SOLITARIO_TITULO to "Repte en solitari",
-                SOLITARIO_SUBTITULO to "Deu proves. Tu contra el rellotge.",
+                SOLITARIO_SUBTITULO to "Una tanda de proves. Tu contra el rellotge.",
                 SOLITARIO_PROGRESO to "Prova %1\$d de %2\$d",
                 SOLITARIO_RONDAS to "Proves",
                 SOLITARIO_EMPEZAR to "COMENÇA EL REPTE",
@@ -303,8 +303,8 @@ internal val catalogoCatalan =
                     "servir Bluetooth i wifi directe entre ells, sense passar per cap xarxa.",
                 AYUDA_FAQ_2_P to "Es pot jugar una sola persona?",
                 AYUDA_FAQ_2_R to
-                    "Sí: el repte en solitari són deu proves seguides amb marca personal. Només hi " +
-                    "entren els jocs que no necessiten públic.",
+                    "Sí: el repte en solitari és una tanda de proves seguides amb marca personal. " +
+                    "Només hi entren els jocs que no necessiten públic.",
                 AYUDA_FAQ_3_P to "Costa alguna cosa? Hi ha res bloquejat?",
                 AYUDA_FAQ_3_R to
                     "No hi ha res bloquejat ni res per aconseguir a part. Si t'agrada, pots " +
@@ -353,8 +353,8 @@ internal val catalogoCatalan =
                 TOUR_MODOS_TEXTO to
                     "Per equips és el clàssic: de 2 a 6 equips i va rotant qui actua. " +
                     "Individual és el mateix però cada persona porta la seva fitxa, de 2 a 8. I " +
-                    "el repte en solitari són deu proves contra el rellotge, tu sol, amb marca " +
-                    "personal.",
+                    "el repte en solitari és una tanda de proves contra el rellotge, tu sol, " +
+                    "amb marca personal.",
                 TOUR_TABLERO_TITULO to "El tauler",
                 TOUR_TABLERO_TEXTO to
                     "Cada fitxa comença a la SORTIDA. Al teu torn tires el dau, avances d'1 a " +

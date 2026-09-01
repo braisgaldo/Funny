@@ -53,7 +53,7 @@ internal val catalogoEuskera =
                     "gainerakoek asmatzen.",
                 MODO_SOLITARIO to "Bakarkako erronka",
                 MODO_SOLITARIO_DETALLE to
-                    "Zu erlojuaren aurka: hamar proba jarraian eta hausteko marka " +
+                    "Zu erlojuaren aurka: proba sail bat jarraian eta hausteko marka " +
                     "pertsonal bat. Taularik gabe eta inor aurrean gabe jolas daitezkeen " +
                     "jokoekin bakarrik.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Taldeak",
@@ -179,7 +179,7 @@ internal val catalogoEuskera =
                 VICTORIA_SOLITARIO_MEJOR to "Zure marka onena: %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "Marka pertsonal berria!",
                 SOLITARIO_TITULO to "Bakarkako erronka",
-                SOLITARIO_SUBTITULO to "Hamar proba. Zu erlojuaren aurka.",
+                SOLITARIO_SUBTITULO to "Proba sail bat. Zu erlojuaren aurka.",
                 SOLITARIO_PROGRESO to "%2\$d-tik %1\$d. proba",
                 SOLITARIO_RONDAS to "Probak",
                 SOLITARIO_EMPEZAR to "HASI ERRONKA",
@@ -308,7 +308,7 @@ internal val catalogoEuskera =
                     "sarerik zeharkatu gabe.",
                 AYUDA_FAQ_2_P to "Pertsona bakar batek jolas dezake?",
                 AYUDA_FAQ_2_R to
-                    "Bai: bakarkako erronka hamar proba jarraian dira, marka pertsonalarekin. " +
+                    "Bai: bakarkako erronka proba sail bat da, jarraian, marka pertsonalarekin. " +
                     "Publikoa behar ez duten jokoak bakarrik sartzen dira.",
                 AYUDA_FAQ_3_P to "Zerbait kostatzen du? Blokeatuta dago zerbait?",
                 AYUDA_FAQ_3_R to
@@ -358,7 +358,7 @@ internal val catalogoEuskera =
                 TOUR_MODOS_TEXTO to
                     "Taldeka klasikoa da: 2 eta 6 talde artean eta nork antzezten duen txandaka " +
                     "doa. Banaka berdina da baina pertsona bakoitzak bere fitxa darama, 2 eta 8 " +
-                    "artean. Eta bakarkako erronka hamar proba dira erlojuaren aurka, zu " +
+                    "artean. Eta bakarkako erronka proba sail bat da erlojuaren aurka, zu " +
                     "bakarrik, marka pertsonalarekin.",
                 TOUR_TABLERO_TITULO to "Taula",
                 TOUR_TABLERO_TEXTO to

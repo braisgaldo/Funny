@@ -55,7 +55,7 @@ internal val catalogoIngles =
                     "In the acting games, whoever's turn it is performs and everyone else guesses.",
                 MODO_SOLITARIO to "Solo challenge",
                 MODO_SOLITARIO_DETALLE to
-                    "You against the clock: ten games in a row and a personal best to beat. " +
+                    "You against the clock: a run of games back to back and a personal best to beat. " +
                     "No board, and only the games that work without an audience.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Teams",
                 PARTICIPANTES_TITULO_INDIVIDUAL to "Players",
@@ -182,7 +182,7 @@ internal val catalogoIngles =
                 VICTORIA_SOLITARIO_MEJOR to "Your best: %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "New personal best!",
                 SOLITARIO_TITULO to "Solo challenge",
-                SOLITARIO_SUBTITULO to "Ten rounds. You against the clock.",
+                SOLITARIO_SUBTITULO to "A run of rounds. You against the clock.",
                 SOLITARIO_PROGRESO to "Round %1\$d of %2\$d",
                 SOLITARIO_RONDAS to "Rounds",
                 SOLITARIO_EMPEZAR to "START THE CHALLENGE",
@@ -307,7 +307,8 @@ internal val catalogoIngles =
                     "and Wi-Fi Direct between them, without going through any network.",
                 AYUDA_FAQ_2_P to "Can one person play alone?",
                 AYUDA_FAQ_2_R to
-                    "Yes: the solo challenge is ten rounds in a row with a personal best. " +
+                    "Yes: the solo challenge is a run of rounds back to back with a " +
+                    "personal best. " +
                     "Only the games that don't need an audience take part.",
                 AYUDA_FAQ_3_P to "Does it cost anything? Is anything locked?",
                 AYUDA_FAQ_3_R to
@@ -353,7 +354,7 @@ internal val catalogoIngles =
                 TOUR_MODOS_TEXTO to
                     "Teams is the classic: 2 to 6 teams, taking turns to act. Individual is the same " +
                     "but each person has their own token, 2 to 8 of you. And the solo challenge is " +
-                    "ten rounds against the clock, on your own, with a personal best.",
+                    "a run of rounds against the clock, on your own, with a personal best.",
                 TOUR_TABLERO_TITULO to "The board",
                 TOUR_TABLERO_TEXTO to
                     "Every token starts at START. On your turn you roll the die, move 1 to 3 squares, " +

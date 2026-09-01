@@ -53,7 +53,7 @@ internal val catalogoFrances =
                     "devinent.",
                 MODO_SOLITARIO to "Défi en solo",
                 MODO_SOLITARIO_DETALLE to
-                    "Vous contre le chrono : dix épreuves d'affilée et un record " +
+                    "Vous contre le chrono : une série d'épreuves d'affilée et un record " +
                     "personnel à battre. Sans plateau et seulement avec les jeux qui " +
                     "marchent sans public.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Équipes",
@@ -179,7 +179,7 @@ internal val catalogoFrances =
                 VICTORIA_SOLITARIO_MEJOR to "Votre record : %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "Nouveau record personnel !",
                 SOLITARIO_TITULO to "Défi en solo",
-                SOLITARIO_SUBTITULO to "Dix épreuves. Vous contre le chrono.",
+                SOLITARIO_SUBTITULO to "Une série d'épreuves. Vous contre le chrono.",
                 SOLITARIO_PROGRESO to "Épreuve %1\$d sur %2\$d",
                 SOLITARIO_RONDAS to "Épreuves",
                 SOLITARIO_EMPEZAR to "COMMENCER LE DÉFI",
@@ -310,7 +310,7 @@ internal val catalogoFrances =
                     "aucun réseau.",
                 AYUDA_FAQ_2_P to "Peut-on jouer seul ?",
                 AYUDA_FAQ_2_R to
-                    "Oui : le défi en solo, ce sont dix épreuves d'affilée avec un record " +
+                    "Oui : le défi en solo, c'est une série d'épreuves d'affilée avec un record " +
                     "personnel. Seuls les jeux qui n'ont pas besoin de public y participent.",
                 AYUDA_FAQ_3_P to "Est-ce que ça coûte quelque chose ? Y a-t-il du contenu bloqué ?",
                 AYUDA_FAQ_3_R to
@@ -360,8 +360,8 @@ internal val catalogoFrances =
                 TOUR_MODOS_TEXTO to
                     "En équipes, c'est le classique : de 2 à 6 équipes, chacun son tour de " +
                     "jouer. Individuel, c'est pareil mais chaque personne a son pion, de 2 à 8. " +
-                    "Et le défi en solo, ce sont dix épreuves contre le chrono, tout seul, avec " +
-                    "un record personnel.",
+                    "Et le défi en solo, c'est une série d'épreuves contre le chrono, tout " +
+                    "seul, avec un record personnel.",
                 TOUR_TABLERO_TITULO to "Le plateau",
                 TOUR_TABLERO_TEXTO to
                     "Chaque pion part du DÉPART. À votre tour, vous lancez le dé, avancez de " +

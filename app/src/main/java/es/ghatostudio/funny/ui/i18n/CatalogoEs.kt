@@ -53,7 +53,7 @@ internal val catalogoCastellano =
                     "En las pruebas de actuar, quien tiene el turno actúa y adivina el resto de la mesa.",
                 MODO_SOLITARIO to "Reto en solitario",
                 MODO_SOLITARIO_DETALLE to
-                    "Tú contra el reloj: diez pruebas seguidas y una marca personal que batir. " +
+                    "Tú contra el reloj: una tanda de pruebas seguidas y una marca personal que batir. " +
                     "Sin tablero y solo con los juegos que se pueden jugar sin nadie delante.",
                 // ------------------------------------------------------- participantes
                 PARTICIPANTES_TITULO_EQUIPOS to "Equipos",
@@ -187,7 +187,7 @@ internal val catalogoCastellano =
                 VICTORIA_SOLITARIO_RECORD to "¡Marca personal nueva!",
                 // ---------------------------------------------------------- solitario
                 SOLITARIO_TITULO to "Reto en solitario",
-                SOLITARIO_SUBTITULO to "Diez pruebas. Tú contra el reloj.",
+                SOLITARIO_SUBTITULO to "Una tanda de pruebas. Tú contra el reloj.",
                 SOLITARIO_PROGRESO to "Prueba %1\$d de %2\$d",
                 SOLITARIO_RONDAS to "Pruebas",
                 SOLITARIO_EMPEZAR to "EMPEZAR EL RETO",
@@ -318,8 +318,8 @@ internal val catalogoCastellano =
                     "wifi directo entre ellos, sin pasar por ninguna red.",
                 AYUDA_FAQ_2_P to "¿Se puede jugar una sola persona?",
                 AYUDA_FAQ_2_R to
-                    "Sí: el reto en solitario son diez pruebas seguidas con marca personal. " +
-                    "Solo entran los juegos que no necesitan público.",
+                    "Sí: el reto en solitario es una tanda de pruebas seguidas con marca " +
+                    "personal. Solo entran los juegos que no necesitan público.",
                 AYUDA_FAQ_3_P to "¿Cuesta algo? ¿Hay algo bloqueado?",
                 AYUDA_FAQ_3_R to
                     "No hay nada bloqueado ni nada que conseguir aparte. Si te gusta, puedes invitarme " +
@@ -366,7 +366,8 @@ internal val catalogoCastellano =
                 TOUR_MODOS_TEXTO to
                     "Por equipos es lo clásico: de 2 a 6 equipos y va rotando quién actúa. " +
                     "Individual es lo mismo pero cada persona lleva su ficha, de 2 a 8. " +
-                    "Y el reto en solitario son diez pruebas contra el reloj, tú solo, con marca personal.",
+                    "Y el reto en solitario es una tanda de pruebas contra el reloj, tú " +
+                    "solo, con marca personal.",
                 TOUR_TABLERO_TITULO to "El tablero",
                 TOUR_TABLERO_TEXTO to
                     "Cada ficha empieza en la SALIDA. En tu turno tiras el dado, avanzas de 1 a 3 " +

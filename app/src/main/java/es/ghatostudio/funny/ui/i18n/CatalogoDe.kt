@@ -52,9 +52,9 @@ internal val catalogoAleman =
                     "Aufgaben zum Vorspielen spielt vor, wer dran ist, und der Rest rät.",
                 MODO_SOLITARIO to "Solo-Herausforderung",
                 MODO_SOLITARIO_DETALLE to
-                    "Du gegen die Uhr: zehn Aufgaben in Folge und ein persönlicher Rekord " +
-                    "zum Schlagen. Ohne Spielbrett und nur mit den Spielen, die ohne " +
-                    "Publikum funktionieren.",
+                    "Du gegen die Uhr: eine Reihe Aufgaben in Folge und ein persönlicher " +
+                    "Rekord zum Schlagen. Ohne Spielbrett und nur mit den Spielen, die " +
+                    "ohne Publikum funktionieren.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Teams",
                 PARTICIPANTES_TITULO_INDIVIDUAL to "Spieler",
                 PARTICIPANTES_TITULO_SOLITARIO to "Wie heißt du?",
@@ -178,7 +178,7 @@ internal val catalogoAleman =
                 VICTORIA_SOLITARIO_MEJOR to "Dein Rekord: %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "Neuer persönlicher Rekord!",
                 SOLITARIO_TITULO to "Solo-Herausforderung",
-                SOLITARIO_SUBTITULO to "Zehn Aufgaben. Du gegen die Uhr.",
+                SOLITARIO_SUBTITULO to "Eine Reihe Aufgaben. Du gegen die Uhr.",
                 SOLITARIO_PROGRESO to "Aufgabe %1\$d von %2\$d",
                 SOLITARIO_RONDAS to "Aufgaben",
                 SOLITARIO_EMPEZAR to "HERAUSFORDERUNG STARTEN",
@@ -308,8 +308,9 @@ internal val catalogoAleman =
                     "nutzt Bluetooth und WLAN Direct zwischen ihnen, ohne über ein Netz zu gehen.",
                 AYUDA_FAQ_2_P to "Kann man allein spielen?",
                 AYUDA_FAQ_2_R to
-                    "Ja: die Solo-Herausforderung sind zehn Aufgaben in Folge mit persönlichem " +
-                    "Rekord. Es kommen nur die Spiele vor, die kein Publikum brauchen.",
+                    "Ja: die Solo-Herausforderung ist eine Reihe Aufgaben in Folge mit " +
+                    "persönlichem Rekord. Es kommen nur die Spiele vor, die kein Publikum " +
+                    "brauchen.",
                 AYUDA_FAQ_3_P to "Kostet etwas? Ist etwas gesperrt?",
                 AYUDA_FAQ_3_R to
                     "Nichts ist gesperrt und es gibt nichts extra zu bekommen. Wenn es dir " +
@@ -358,8 +359,8 @@ internal val catalogoAleman =
                 TOUR_MODOS_TEXTO to
                     "In Teams ist der Klassiker: 2 bis 6 Teams, und wer vorspielt, wechselt " +
                     "durch. Einzeln ist dasselbe, aber jede Person hat ihre Figur, 2 bis 8. Und " +
-                    "die Solo-Herausforderung sind zehn Aufgaben gegen die Uhr, allein, mit " +
-                    "persönlichem Rekord.",
+                    "die Solo-Herausforderung ist eine Reihe Aufgaben gegen die Uhr, allein, " +
+                    "mit persönlichem Rekord.",
                 TOUR_TABLERO_TITULO to "Das Spielbrett",
                 TOUR_TABLERO_TEXTO to
                     "Jede Figur startet am START. In deinem Zug würfelst du, rückst 1 bis 3 " +

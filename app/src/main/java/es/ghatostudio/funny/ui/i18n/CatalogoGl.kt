@@ -52,9 +52,9 @@ internal val catalogoGallego =
                     "de actuar, quen ten a quenda actúa e adiviña o resto da mesa.",
                 MODO_SOLITARIO to "Reto en solitario",
                 MODO_SOLITARIO_DETALLE to
-                    "Ti contra o reloxo: dez probas seguidas e unha marca persoal que " +
-                    "bater. Sen taboleiro e só cos xogos que se poden xogar sen ninguén " +
-                    "diante.",
+                    "Ti contra o reloxo: unha tanda de probas seguidas e unha marca " +
+                    "persoal que bater. Sen taboleiro e só cos xogos que se poden xogar " +
+                    "sen ninguén diante.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Equipos",
                 PARTICIPANTES_TITULO_INDIVIDUAL to "Xogadores",
                 PARTICIPANTES_TITULO_SOLITARIO to "Como te chamas?",
@@ -174,7 +174,7 @@ internal val catalogoGallego =
                 VICTORIA_SOLITARIO_MEJOR to "A túa mellor marca: %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "¡Marca persoal nova!",
                 SOLITARIO_TITULO to "Reto en solitario",
-                SOLITARIO_SUBTITULO to "Dez probas. Ti contra o reloxo.",
+                SOLITARIO_SUBTITULO to "Unha tanda de probas. Ti contra o reloxo.",
                 SOLITARIO_PROGRESO to "Proba %1\$d de %2\$d",
                 SOLITARIO_RONDAS to "Probas",
                 SOLITARIO_EMPEZAR to "EMPEZAR O RETO",
@@ -294,8 +294,8 @@ internal val catalogoGallego =
                     "Bluetooth e wifi directo entre eles, sen pasar por ningunha rede.",
                 AYUDA_FAQ_2_P to "Pódese xogar unha soa persoa?",
                 AYUDA_FAQ_2_R to
-                    "Si: o reto en solitario son dez probas seguidas con marca persoal. Só entran " +
-                    "os xogos que non necesitan público.",
+                    "Si: o reto en solitario é unha tanda de probas seguidas con marca persoal. Só " +
+                    "entran os xogos que non necesitan público.",
                 AYUDA_FAQ_3_P to "Custa algo? Hai algo bloqueado?",
                 AYUDA_FAQ_3_R to
                     "Non hai nada bloqueado nin nada que conseguir aparte. Se che gusta, podes " +
@@ -341,7 +341,8 @@ internal val catalogoGallego =
                 TOUR_MODOS_TEXTO to
                     "Por equipos é o clásico: de 2 a 6 equipos e vai rotando quen actúa. " +
                     "Individual é o mesmo pero cada persoa leva a súa ficha, de 2 a 8. E o reto " +
-                    "en solitario son dez probas contra o reloxo, ti só, con marca persoal.",
+                    "en solitario é unha tanda de probas contra o reloxo, ti só, con marca " +
+                    "persoal.",
                 TOUR_TABLERO_TITULO to "O taboleiro",
                 TOUR_TABLERO_TEXTO to
                     "Cada ficha empeza na SAÍDA. Na túa quenda tiras o dado, avanzas de 1 a 3 " +

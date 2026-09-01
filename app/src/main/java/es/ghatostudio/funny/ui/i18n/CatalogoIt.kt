@@ -52,9 +52,9 @@ internal val catalogoItaliano =
                     "prove da recitare, gioca chi ha il turno e indovinano gli altri.",
                 MODO_SOLITARIO to "Sfida in solitaria",
                 MODO_SOLITARIO_DETALLE to
-                    "Tu contro il cronometro: dieci prove di fila e un record personale " +
-                    "da battere. Senza tabellone e solo con i giochi che funzionano senza " +
-                    "pubblico.",
+                    "Tu contro il cronometro: una serie di prove di fila e un record " +
+                    "personale da battere. Senza tabellone e solo con i giochi che " +
+                    "funzionano senza pubblico.",
                 PARTICIPANTES_TITULO_EQUIPOS to "Squadre",
                 PARTICIPANTES_TITULO_INDIVIDUAL to "Giocatori",
                 PARTICIPANTES_TITULO_SOLITARIO to "Come ti chiami?",
@@ -176,7 +176,7 @@ internal val catalogoItaliano =
                 VICTORIA_SOLITARIO_MEJOR to "Il tuo record: %1\$d",
                 VICTORIA_SOLITARIO_RECORD to "Nuovo record personale!",
                 SOLITARIO_TITULO to "Sfida in solitaria",
-                SOLITARIO_SUBTITULO to "Dieci prove. Tu contro il cronometro.",
+                SOLITARIO_SUBTITULO to "Una serie di prove. Tu contro il cronometro.",
                 SOLITARIO_PROGRESO to "Prova %1\$d di %2\$d",
                 SOLITARIO_RONDAS to "Prove",
                 SOLITARIO_EMPEZAR to "INIZIA LA SFIDA",
@@ -304,7 +304,7 @@ internal val catalogoItaliano =
                     "e wifi diretto fra loro, senza passare da nessuna rete.",
                 AYUDA_FAQ_2_P to "Si può giocare da soli?",
                 AYUDA_FAQ_2_R to
-                    "Sì: la sfida in solitaria sono dieci prove di fila con record personale. " +
+                    "Sì: la sfida in solitaria è una serie di prove di fila con record personale. " +
                     "Partecipano solo i giochi che non hanno bisogno di pubblico.",
                 AYUDA_FAQ_3_P to "Costa qualcosa? C'è qualcosa di bloccato?",
                 AYUDA_FAQ_3_R to
@@ -354,8 +354,8 @@ internal val catalogoItaliano =
                 TOUR_MODOS_TEXTO to
                     "A squadre è il classico: da 2 a 6 squadre e si alterna chi recita. " +
                     "Individuale è lo stesso ma ognuno ha la sua pedina, da 2 a 8. E la sfida " +
-                    "in solitaria sono dieci prove contro il cronometro, da solo, con record " +
-                    "personale.",
+                    "in solitaria è una serie di prove contro il cronometro, da solo, con " +
+                    "record personale.",
                 TOUR_TABLERO_TITULO to "Il tabellone",
                 TOUR_TABLERO_TEXTO to
                     "Ogni pedina parte dalla PARTENZA. Al tuo turno tiri il dado, avanzi da 1 " +
