@@ -4,8 +4,8 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -96,14 +96,14 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
         sheetState = estadoHoja,
         containerColor = Superficie,
         contentColor = TextoFuerte,
-        dragHandle = null
+        dragHandle = null,
     ) {
         Column(
             Modifier
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 24.dp, vertical = 26.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             EntradaEscalonada(0) { TazaDeCafe() }
 
@@ -114,7 +114,7 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
                     t[Clave.CAFE_TITULO],
                     style = MaterialTheme.typography.headlineLarge,
                     color = TextoFuerte,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
 
@@ -126,14 +126,14 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
                         t[Clave.CAFE_TEXTO],
                         style = MaterialTheme.typography.bodyLarge,
                         color = TextoTenue,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(8.dp))
                     Text(
                         t[Clave.CAFE_SIN_DESBLOQUEOS],
                         style = MaterialTheme.typography.bodyMedium,
                         color = TextoTenue,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
             }
@@ -145,10 +145,11 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
                     texto = "☕   ${t[Clave.CAFE_BOTON]}",
                     onClick = {
                         sonidos.caricia()
-                        val abierto = Sistema.abrirEnNavegador(
-                            contexto,
-                            BuildConfig.ENLACE_DONACION
-                        )
+                        val abierto =
+                            Sistema.abrirEnNavegador(
+                                contexto,
+                                BuildConfig.ENLACE_DONACION,
+                            )
                         if (abierto) {
                             vm.vueltaDelNavegadorDeDonacion()
                             vm.avisar(t[Clave.CAFE_GRACIAS])
@@ -158,7 +159,7 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
                         }
                     },
                     color = Primario,
-                    colorTexto = p.sobrePrimario
+                    colorTexto = p.sobrePrimario,
                 )
             }
 
@@ -169,7 +170,7 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
             EntradaEscalonada(4) {
                 Row(
                     Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                    horizontalArrangement = Arrangement.SpaceEvenly,
                 ) {
                     BotonSuave(t[Clave.ACCION_AHORA_NO]) { vm.cerrarHojaCafe() }
                     BotonSuave(t[Clave.CAFE_NO_VOLVER]) { vm.noVolverAOfrecerCafe() }
@@ -181,7 +182,7 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
             EntradaEscalonada(5) {
                 Column(
                     Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Row(
                         Modifier
@@ -189,18 +190,18 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
                             .clickable { qrVisible = !qrVisible }
                             .heightIn(min = AREA_TACTIL_MINIMA)
                             .padding(horizontal = 16.dp, vertical = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(
                             t[Clave.CAFE_OTRO_DISPOSITIVO],
                             style = MaterialTheme.typography.labelLarge,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                         Spacer(Modifier.width(8.dp))
                         Text(
                             if (qrVisible) "▴" else "▾",
                             style = MaterialTheme.typography.labelLarge,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                     }
 
@@ -212,27 +213,29 @@ fun HojaCafe(vm: JuegoViewModel, sonidos: Sonidos) {
                                     .clip(RoundedCornerShape(18.dp))
                                     .background(SuperficieAlta)
                                     .border(1.dp, Contorno, RoundedCornerShape(18.dp))
-                                    .padding(12.dp)
+                                    .padding(12.dp),
                             ) {
                                 CodigoQr(
                                     datos = BuildConfig.ENLACE_DONACION,
-                                    descripcion = t[Clave.CAFE_QR_DESCRIPCION]
+                                    descripcion = t[Clave.CAFE_QR_DESCRIPCION],
                                 )
                             }
                             Spacer(Modifier.height(10.dp))
                             BotonSuave(
-                                texto = if (mensajeCopiado) {
-                                    t[Clave.CAFE_ENLACE_COPIADO]
-                                } else {
-                                    t[Clave.ACCION_COPIAR]
-                                },
-                                color = if (mensajeCopiado) Acento else TextoTenue
+                                texto =
+                                    if (mensajeCopiado) {
+                                        t[Clave.CAFE_ENLACE_COPIADO]
+                                    } else {
+                                        t[Clave.ACCION_COPIAR]
+                                    },
+                                color = if (mensajeCopiado) Acento else TextoTenue,
                             ) {
-                                val copiado = Sistema.copiarAlPortapapeles(
-                                    contexto,
-                                    t[Clave.CAFE_TITULO],
-                                    BuildConfig.ENLACE_DONACION
-                                )
+                                val copiado =
+                                    Sistema.copiarAlPortapapeles(
+                                        contexto,
+                                        t[Clave.CAFE_TITULO],
+                                        BuildConfig.ENLACE_DONACION,
+                                    )
                                 if (copiado) {
                                     mensajeCopiado = true
                                     sonidos.toque()
@@ -269,18 +272,19 @@ private fun TazaDeCafe() {
     val fase by transicion.animateFloat(
         initialValue = 0f,
         targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = CICLO_VAPOR_MS),
-            repeatMode = RepeatMode.Restart
-        ),
-        label = "faseVapor"
+        animationSpec =
+            infiniteRepeatable(
+                animation = tween(durationMillis = CICLO_VAPOR_MS),
+                repeatMode = RepeatMode.Restart,
+            ),
+        label = "faseVapor",
     )
     val avance = if (animar) fase else 0.5f
 
     Canvas(
         Modifier
             .size(128.dp)
-            .semantics { contentDescription = t[Clave.CAFE_ILUSTRACION_DESCRIPCION] }
+            .semantics { contentDescription = t[Clave.CAFE_ILUSTRACION_DESCRIPCION] },
     ) {
         val ancho = size.width
         val alto = size.height
@@ -299,16 +303,17 @@ private fun TazaDeCafe() {
             for (paso in 0..pasos) {
                 val fraccion = paso / pasos.toFloat()
                 val y = base - alturaVapor * fraccion
-                val onda = kotlin.math.sin(
-                    ((fraccion + avance + desfase) * 2f * Math.PI).toFloat()
-                )
+                val onda =
+                    kotlin.math.sin(
+                        ((fraccion + avance + desfase) * 2f * Math.PI).toFloat(),
+                    )
                 val puntoX = x + onda * amplitud * fraccion
                 if (paso == 0) camino.moveTo(puntoX, y) else camino.lineTo(puntoX, y)
             }
             drawPath(
                 path = camino,
                 color = p.textoTenue.copy(alpha = 0.55f - indice * 0.12f),
-                style = Stroke(width = grosor * 0.6f, cap = StrokeCap.Round)
+                style = Stroke(width = grosor * 0.6f, cap = StrokeCap.Round),
             )
         }
 
@@ -318,7 +323,7 @@ private fun TazaDeCafe() {
             start = Offset(ancho * 0.12f, alto * 0.90f),
             end = Offset(ancho * 0.88f, alto * 0.90f),
             strokeWidth = grosor,
-            cap = StrokeCap.Round
+            cap = StrokeCap.Round,
         )
 
         // --- cuerpo de la taza: un trapecio redondeado dibujado a mano ---
@@ -326,23 +331,24 @@ private fun TazaDeCafe() {
         val derecha = ancho * 0.70f
         val arriba = alto * 0.42f
         val abajo = alto * 0.84f
-        val taza = Path().apply {
-            moveTo(izquierda, arriba)
-            lineTo(derecha, arriba)
-            lineTo(derecha - ancho * 0.045f, abajo)
-            quadraticBezierTo(
-                (izquierda + derecha) / 2f,
-                abajo + alto * 0.06f,
-                izquierda + ancho * 0.045f,
-                abajo
-            )
-            close()
-        }
+        val taza =
+            Path().apply {
+                moveTo(izquierda, arriba)
+                lineTo(derecha, arriba)
+                lineTo(derecha - ancho * 0.045f, abajo)
+                quadraticBezierTo(
+                    (izquierda + derecha) / 2f,
+                    abajo + alto * 0.06f,
+                    izquierda + ancho * 0.045f,
+                    abajo,
+                )
+                close()
+            }
         drawPath(path = taza, color = p.primario.copy(alpha = 0.22f))
         drawPath(
             path = taza,
             color = p.primario,
-            style = Stroke(width = grosor, cap = StrokeCap.Round)
+            style = Stroke(width = grosor, cap = StrokeCap.Round),
         )
 
         // --- café dentro ---
@@ -351,18 +357,19 @@ private fun TazaDeCafe() {
             start = Offset(izquierda + grosor, arriba + grosor * 0.9f),
             end = Offset(derecha - grosor, arriba + grosor * 0.9f),
             strokeWidth = grosor * 1.1f,
-            cap = StrokeCap.Round
+            cap = StrokeCap.Round,
         )
 
         // --- asa ---
-        val asa = Path().apply {
-            moveTo(derecha, alto * 0.52f)
-            quadraticBezierTo(ancho * 0.92f, alto * 0.60f, derecha, alto * 0.70f)
-        }
+        val asa =
+            Path().apply {
+                moveTo(derecha, alto * 0.52f)
+                quadraticBezierTo(ancho * 0.92f, alto * 0.60f, derecha, alto * 0.70f)
+            }
         drawPath(
             path = asa,
             color = p.primario,
-            style = Stroke(width = grosor, cap = StrokeCap.Round)
+            style = Stroke(width = grosor, cap = StrokeCap.Round),
         )
     }
 }

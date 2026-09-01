@@ -52,11 +52,11 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
         Column(
             Modifier.fillMaxSize().padding(26.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text(
                 if (estado.superada) "🎉" else "😵",
-                style = MaterialTheme.typography.displayLarge
+                style = MaterialTheme.typography.displayLarge,
             )
             Spacer(Modifier.height(10.dp))
             Text(
@@ -67,7 +67,7 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
                 },
                 style = MaterialTheme.typography.headlineLarge,
                 color = color,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
 
             Spacer(Modifier.height(20.dp))
@@ -75,7 +75,7 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
             Tarjeta(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     Modifier.fillMaxWidth().padding(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     when {
                         esSolitario -> {
@@ -83,16 +83,16 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
                                 t.con(
                                     Clave.SOLITARIO_PROGRESO,
                                     estado.rondaSolitario,
-                                    estado.rondasSolitario
+                                    estado.rondasSolitario,
                                 ),
                                 style = MaterialTheme.typography.titleMedium,
-                                color = TextoFuerte
+                                color = TextoFuerte,
                             )
                             Spacer(Modifier.height(8.dp))
                             Text(
                                 t.plural(ClavePlural.PUNTOS, estado.puntosSolitario),
                                 style = MaterialTheme.typography.headlineMedium,
-                                color = Acento
+                                color = Acento,
                             )
                         }
 
@@ -103,7 +103,7 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
                                 "${participante.emoji}  ${nombreDelActivo(estado)}",
                                 style = MaterialTheme.typography.headlineMedium,
                                 color = p.colorDeParticipante(participante.indiceColor),
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
                             )
                             Spacer(Modifier.height(10.dp))
                             Text(
@@ -116,7 +116,7 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
                                 },
                                 style = MaterialTheme.typography.bodyLarge,
                                 color = TextoTenue,
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
                             )
                         }
                     }
@@ -126,14 +126,15 @@ fun PantallaResultado(vm: JuegoViewModel, sonidos: Sonidos) {
             Spacer(Modifier.height(26.dp))
 
             BotonGrande(
-                texto = if (estado.ganador != null) {
-                    t[Clave.RESULTADO_VER_RESULTADO]
-                } else {
-                    t[Clave.RESULTADO_SIGUIENTE_TURNO]
-                },
+                texto =
+                    if (estado.ganador != null) {
+                        t[Clave.RESULTADO_VER_RESULTADO]
+                    } else {
+                        t[Clave.RESULTADO_SIGUIENTE_TURNO]
+                    },
                 onClick = { vm.siguienteTurno() },
                 color = color,
-                colorTexto = p.textoSobre(color)
+                colorTexto = p.textoSobre(color),
             )
         }
     }
@@ -149,7 +150,7 @@ private fun ResumenDeRonda(vm: JuegoViewModel) {
     Text(
         t[Clave.RONDA_TODOS_RESUMEN],
         style = MaterialTheme.typography.titleMedium,
-        color = TextoFuerte
+        color = TextoFuerte,
     )
     Spacer(Modifier.height(12.dp))
 
@@ -157,7 +158,7 @@ private fun ResumenDeRonda(vm: JuegoViewModel) {
         Text(
             t[Clave.RONDA_TODOS_NADIE],
             style = MaterialTheme.typography.bodyLarge,
-            color = TextoTenue
+            color = TextoTenue,
         )
         return
     }
@@ -166,7 +167,7 @@ private fun ResumenDeRonda(vm: JuegoViewModel) {
         val participante = estado.participantes.getOrNull(indice) ?: return@forEach
         Row(
             Modifier.fillMaxWidth().padding(vertical = 4.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(participante.emoji, style = MaterialTheme.typography.titleLarge)
             Spacer(Modifier.width(10.dp))
@@ -174,12 +175,12 @@ private fun ResumenDeRonda(vm: JuegoViewModel) {
                 nombreEnIndice(estado, indice),
                 style = MaterialTheme.typography.titleMedium,
                 color = p.colorDeParticipante(participante.indiceColor),
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
             )
             Text(
                 t.con(Clave.TABLERO_CASILLA, participante.posicion),
                 style = MaterialTheme.typography.bodyMedium,
-                color = TextoTenue
+                color = TextoTenue,
             )
         }
     }

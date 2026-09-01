@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -37,7 +36,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import es.ghatostudio.funny.BuildConfig
 import es.ghatostudio.funny.datos.CopiaSeguridad
@@ -92,29 +90,31 @@ fun PantallaAjustes(vm: JuegoViewModel) {
 
     // Exportar: el selector del sistema decide dónde se guarda. Funny no pide
     // permisos de almacenamiento en ningún momento.
-    val lanzadorExportar = rememberLauncherForActivityResult(
-        ActivityResultContracts.CreateDocument(CopiaSeguridad.MIME)
-    ) { uri ->
-        if (uri == null) return@rememberLauncherForActivityResult
-        val bien = copia.exportarA(uri, ajustes, estado.participantes)
-        vm.avisar(
-            if (bien) t[Clave.COPIA_EXPORTAR_HECHO] else t[Clave.COPIA_EXPORTAR_ERROR]
-        )
-    }
-
-    val lanzadorImportar = rememberLauncherForActivityResult(
-        ActivityResultContracts.OpenDocument()
-    ) { uri ->
-        if (uri == null) return@rememberLauncherForActivityResult
-        when (val resultado = copia.leer(uri)) {
-            is CopiaSeguridad.Resultado.Bien -> importando = resultado
-            CopiaSeguridad.Resultado.FormatoInvalido ->
-                vm.avisar(t[Clave.COPIA_IMPORTAR_ERROR_FORMATO])
-
-            is CopiaSeguridad.Resultado.EsquemaFuturo ->
-                vm.avisar(t[Clave.COPIA_IMPORTAR_ERROR_VERSION])
+    val lanzadorExportar =
+        rememberLauncherForActivityResult(
+            ActivityResultContracts.CreateDocument(CopiaSeguridad.MIME),
+        ) { uri ->
+            if (uri == null) return@rememberLauncherForActivityResult
+            val bien = copia.exportarA(uri, ajustes, estado.participantes)
+            vm.avisar(
+                if (bien) t[Clave.COPIA_EXPORTAR_HECHO] else t[Clave.COPIA_EXPORTAR_ERROR],
+            )
         }
-    }
+
+    val lanzadorImportar =
+        rememberLauncherForActivityResult(
+            ActivityResultContracts.OpenDocument(),
+        ) { uri ->
+            if (uri == null) return@rememberLauncherForActivityResult
+            when (val resultado = copia.leer(uri)) {
+                is CopiaSeguridad.Resultado.Bien -> importando = resultado
+                CopiaSeguridad.Resultado.FormatoInvalido ->
+                    vm.avisar(t[Clave.COPIA_IMPORTAR_ERROR_FORMATO])
+
+                is CopiaSeguridad.Resultado.EsquemaFuturo ->
+                    vm.avisar(t[Clave.COPIA_IMPORTAR_ERROR_VERSION])
+            }
+        }
 
     importando?.let { pendiente ->
         DialogoImportar(
@@ -123,11 +123,12 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                 copia.respaldar(ajustes, estado.participantes)
                 vm.reemplazarDatos(
                     ajustes = pendiente.ajustes,
-                    participantes = copia.fusionar(
-                        actuales = estado.participantes,
-                        importados = pendiente.participantes,
-                        maximo = MAXIMO_PARTICIPANTES
-                    )
+                    participantes =
+                        copia.fusionar(
+                            actuales = estado.participantes,
+                            importados = pendiente.participantes,
+                            maximo = MAXIMO_PARTICIPANTES,
+                        ),
                 )
                 importando = null
                 vm.avisar(t[Clave.COPIA_IMPORTAR_HECHO])
@@ -138,7 +139,7 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                 importando = null
                 vm.avisar(t[Clave.COPIA_IMPORTAR_HECHO])
             },
-            onCancelar = { importando = null }
+            onCancelar = { importando = null },
         )
     }
 
@@ -147,15 +148,16 @@ fun PantallaAjustes(vm: JuegoViewModel) {
             Cabecera(
                 titulo = t[Clave.AJUSTES_TITULO],
                 subtitulo = t[Clave.AJUSTES_SUBTITULO],
-                onVolver = { vm.ir(Pantalla.INICIO) }
+                onVolver = { vm.ir(Pantalla.INICIO) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 // ------------------------------------------------ apariencia
                 TituloDeSeccion(t[Clave.AJUSTES_APARIENCIA])
@@ -165,18 +167,18 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                             titulo = t[Clave.AJUSTES_TEMA],
                             detalle = t[ajustes.tema.claveNombre],
                             onClick = { vm.ir(Pantalla.TEMA) },
-                            derecha = { MuestraDeTema(ajustes.tema) }
+                            derecha = { MuestraDeTema(ajustes.tema) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.AJUSTES_IDIOMA],
                             detalle = vm.idioma.endonimo,
                             onClick = { vm.ir(Pantalla.IDIOMA) },
-                            derecha = { InsigniaDeIdioma(vm.idioma) }
+                            derecha = { InsigniaDeIdioma(vm.idioma) },
                         )
                         FilaInterruptor(
                             titulo = t[Clave.AJUSTES_ANIMACIONES],
                             detalle = t[Clave.AJUSTES_ANIMACIONES_DETALLE],
-                            activo = ajustes.animaciones
+                            activo = ajustes.animaciones,
                         ) { vm.actualizarAjustes(ajustes.copy(animaciones = it)) }
                     }
                 }
@@ -188,18 +190,18 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                         Text(
                             t[Clave.AJUSTES_RITMO],
                             style = MaterialTheme.typography.titleMedium,
-                            color = TextoFuerte
+                            color = TextoFuerte,
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
                             t[Clave.AJUSTES_RITMO_DETALLE],
                             style = MaterialTheme.typography.bodyMedium,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                         Spacer(Modifier.height(12.dp))
                         SelectorSegmentado(
                             opciones = Ritmo.entries.map { t[it.claveNombre] },
-                            seleccion = Ritmo.entries.indexOf(ajustes.ritmo)
+                            seleccion = Ritmo.entries.indexOf(ajustes.ritmo),
                         ) { indice ->
                             vm.actualizarAjustes(ajustes.copy(ritmo = Ritmo.entries[indice]))
                         }
@@ -209,22 +211,22 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                         Text(
                             t[Clave.AJUSTES_DURACION],
                             style = MaterialTheme.typography.titleMedium,
-                            color = TextoFuerte
+                            color = TextoFuerte,
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
                             t.con(
                                 Clave.AJUSTES_DURACION_DETALLE,
                                 ajustes.duracion.casillas,
-                                t[ajustes.duracion.claveDetalle]
+                                t[ajustes.duracion.claveDetalle],
                             ),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                         Spacer(Modifier.height(12.dp))
                         SelectorSegmentado(
                             opciones = Duracion.entries.map { t[it.claveNombre] },
-                            seleccion = Duracion.entries.indexOf(ajustes.duracion)
+                            seleccion = Duracion.entries.indexOf(ajustes.duracion),
                         ) { indice ->
                             vm.actualizarAjustes(ajustes.copy(duracion = Duracion.entries[indice]))
                         }
@@ -237,13 +239,13 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                         Text(
                             t[Clave.AJUSTES_JUEGOS_ACTIVOS],
                             style = MaterialTheme.typography.titleMedium,
-                            color = TextoFuerte
+                            color = TextoFuerte,
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
                             t[Clave.AJUSTES_JUEGOS_ACTIVOS_DETALLE],
                             style = MaterialTheme.typography.bodyMedium,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                         Spacer(Modifier.height(6.dp))
                         val jugables = vm.contenidoActual.juegosJugables
@@ -251,15 +253,15 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                             t.con(
                                 Clave.AJUSTES_JUEGOS_CONTADOR,
                                 jugables.count { it !in ajustes.juegosDesactivados },
-                                jugables.size
+                                jugables.size,
                             ),
                             style = MaterialTheme.typography.labelLarge,
-                            color = Primario
+                            color = Primario,
                         )
                         Spacer(Modifier.height(12.dp))
                         FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                            verticalArrangement = Arrangement.spacedBy(8.dp),
                         ) {
                             jugables.forEach { juego ->
                                 InterruptorDeJuego(
@@ -267,7 +269,7 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                                     activo = juego !in ajustes.juegosDesactivados,
                                     onPulsar = {
                                         vm.alternarJuego(juego, t[Clave.AJUSTES_JUEGOS_MINIMO])
-                                    }
+                                    },
                                 )
                             }
                         }
@@ -279,12 +281,12 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                         FilaInterruptor(
                             titulo = t[Clave.AJUSTES_SONIDO],
                             detalle = t[Clave.AJUSTES_SONIDO_DETALLE],
-                            activo = ajustes.sonido
+                            activo = ajustes.sonido,
                         ) { vm.actualizarAjustes(ajustes.copy(sonido = it)) }
                         FilaInterruptor(
                             titulo = t[Clave.AJUSTES_VIBRACION],
                             detalle = t[Clave.AJUSTES_VIBRACION_DETALLE],
-                            activo = ajustes.vibracion
+                            activo = ajustes.vibracion,
                         ) { vm.actualizarAjustes(ajustes.copy(vibracion = it)) }
                     }
                 }
@@ -297,7 +299,7 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                             titulo = t[Clave.AJUSTES_EXPORTAR],
                             detalle = t[Clave.AJUSTES_EXPORTAR_DETALLE],
                             onClick = { lanzadorExportar.launch(copia.nombreSugerido()) },
-                            derecha = { Text("⬆", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("⬆", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.AJUSTES_IMPORTAR],
@@ -307,10 +309,10 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                             // fichero con doble extensión como `.funny.bak`.
                             onClick = {
                                 lanzadorImportar.launch(
-                                    arrayOf(CopiaSeguridad.MIME, "application/octet-stream", "*/*")
+                                    arrayOf(CopiaSeguridad.MIME, "application/octet-stream", "*/*"),
                                 )
                             },
-                            derecha = { Text("⬇", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("⬇", style = MaterialTheme.typography.titleLarge) },
                         )
                     }
                 }
@@ -323,7 +325,7 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                             titulo = t[Clave.AJUSTES_APOYAR],
                             detalle = t[Clave.AJUSTES_APOYAR_DETALLE],
                             onClick = { vm.abrirHojaCafe(automatica = false) },
-                            derecha = { Text("☕", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("☕", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.AJUSTES_COMPARTIR],
@@ -332,28 +334,28 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                                 Sistema.compartirTexto(
                                     context = contexto,
                                     texto = "${t[Clave.APP_LEMA]}\n${BuildConfig.PAGINA_PROYECTO}",
-                                    titulo = t[Clave.ACCION_COMPARTIR]
+                                    titulo = t[Clave.ACCION_COMPARTIR],
                                 )
                             },
-                            derecha = { Text("↗", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("↗", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.AJUSTES_TOUR],
                             detalle = t[Clave.AJUSTES_TOUR_DETALLE],
                             onClick = { vm.ir(Pantalla.TOUR) },
-                            derecha = { Text("🧭", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("🧭", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.AJUSTES_AYUDA],
                             detalle = t[Clave.AJUSTES_AYUDA_DETALLE],
                             onClick = { vm.ir(Pantalla.AYUDA) },
-                            derecha = { Text("❔", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("❔", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.AJUSTES_ACERCA_DE],
                             detalle = t[Clave.AJUSTES_ACERCA_DE_DETALLE],
                             onClick = { vm.ir(Pantalla.ACERCA_DE) },
-                            derecha = { Text("ℹ", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("ℹ", style = MaterialTheme.typography.titleLarge) },
                         )
                     }
                 }
@@ -369,23 +371,23 @@ fun PantallaAjustes(vm: JuegoViewModel) {
 fun MuestraDeTema(
     id: TemaId,
     modifier: Modifier = Modifier,
-    seleccionado: Boolean = false
+    seleccionado: Boolean = false,
 ) {
     val t = textos()
     val muestra = paletaDe(id)
     val descripcion = t.con(Clave.A11Y_TEMA_MUESTRA, t[id.claveNombre])
     Row(
-        modifier = modifier
-            .clip(RoundedCornerShape(10.dp))
-            .background(muestra.fondo)
-            .border(
-                width = if (seleccionado) 3.dp else 1.dp,
-                color = if (seleccionado) Primario else Contorno,
-                shape = RoundedCornerShape(10.dp)
-            )
-            .padding(6.dp)
-            .semantics { contentDescription = descripcion },
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        modifier =
+            modifier
+                .clip(RoundedCornerShape(10.dp))
+                .background(muestra.fondo)
+                .border(
+                    width = if (seleccionado) 3.dp else 1.dp,
+                    color = if (seleccionado) Primario else Contorno,
+                    shape = RoundedCornerShape(10.dp),
+                ).padding(6.dp)
+                .semantics { contentDescription = descripcion },
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         listOf(muestra.primario, muestra.acento, muestra.textoFuerte).forEach { color ->
             Box(Modifier.size(12.dp).clip(CircleShape).background(color))
@@ -399,31 +401,31 @@ private fun InterruptorDeJuego(juego: Juego, activo: Boolean, onPulsar: () -> Un
     val t = textos()
     val color = paleta().colorDe(juego)
     Row(
-        modifier = Modifier
-            .clip(RoundedCornerShape(50))
-            .background(if (activo) color.copy(alpha = 0.2f) else SuperficieAlta)
-            .border(
-                width = 1.5.dp,
-                color = if (activo) color.copy(alpha = 0.7f) else Contorno,
-                shape = RoundedCornerShape(50)
-            )
-            .clickable { onPulsar() }
-            .heightIn(min = AREA_TACTIL_MINIMA)
-            .padding(horizontal = 14.dp, vertical = 10.dp),
-        verticalAlignment = Alignment.CenterVertically
+        modifier =
+            Modifier
+                .clip(RoundedCornerShape(50))
+                .background(if (activo) color.copy(alpha = 0.2f) else SuperficieAlta)
+                .border(
+                    width = 1.5.dp,
+                    color = if (activo) color.copy(alpha = 0.7f) else Contorno,
+                    shape = RoundedCornerShape(50),
+                ).clickable { onPulsar() }
+                .heightIn(min = AREA_TACTIL_MINIMA)
+                .padding(horizontal = 14.dp, vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(juego.emoji, style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.width(8.dp))
         Text(
             t.nombreDe(juego),
             style = MaterialTheme.typography.labelLarge,
-            color = if (activo) color else TextoTenue
+            color = if (activo) color else TextoTenue,
         )
         Spacer(Modifier.width(8.dp))
         Text(
             if (activo) "✓" else "✕",
             style = MaterialTheme.typography.labelLarge,
-            color = if (activo) Exito else TextoTenue
+            color = if (activo) Exito else TextoTenue,
         )
     }
 }
@@ -438,7 +440,7 @@ private fun DialogoImportar(
     fecha: String,
     onFusionar: () -> Unit,
     onReemplazar: () -> Unit,
-    onCancelar: () -> Unit
+    onCancelar: () -> Unit,
 ) {
     val t = textos()
     AlertDialog(
@@ -453,30 +455,30 @@ private fun DialogoImportar(
                     Text(
                         t.con(Clave.COPIA_CABECERA_DETALLE, fecha, BuildConfig.VERSION_NAME),
                         style = MaterialTheme.typography.labelLarge,
-                        color = Primario
+                        color = Primario,
                     )
                     Spacer(Modifier.height(10.dp))
                 }
                 Text(
                     t[Clave.COPIA_IMPORTAR_AVISO],
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
                 Spacer(Modifier.height(14.dp))
                 BotonGrande(
                     texto = t[Clave.COPIA_IMPORTAR_FUSIONAR],
                     onClick = onFusionar,
                     color = SuperficieAlta,
-                    colorTexto = TextoFuerte
+                    colorTexto = TextoFuerte,
                 )
                 Spacer(Modifier.height(8.dp))
                 BotonGrande(
                     texto = t[Clave.COPIA_IMPORTAR_REEMPLAZAR],
-                    onClick = onReemplazar
+                    onClick = onReemplazar,
                 )
             }
         },
         confirmButton = {},
-        dismissButton = { BotonSuave(t[Clave.ACCION_CANCELAR], onClick = onCancelar) }
+        dismissButton = { BotonSuave(t[Clave.ACCION_CANCELAR], onClick = onCancelar) },
     )
 }

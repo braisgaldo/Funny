@@ -36,75 +36,94 @@ fun interface FuenteContenido {
  * de ahí al castellano. Un juego sin contenido no rompe nada: `Contenido`
  * devuelve cero cartas y la partida simplemente no lo saca al tablero.
  */
-class ContenidoDeAssets(private val context: Context) : FuenteContenido {
-
+class ContenidoDeAssets(
+    private val context: Context,
+) : FuenteContenido {
     override fun cargar(idioma: String): Contenido {
         val carpetas = carpetasParaIdioma(idioma)
         return Contenido(
             mimica = textos(carpetas, "mimica.json", "palabras"),
             dibujo = textos(carpetas, "dibujo.json", "palabras"),
-            eventos = objetos(carpetas, "cuando.json", "eventos") { o ->
-                EventoCuando(
-                    texto = o.getString("texto"),
-                    anio = o.getInt("anio"),
-                    tema = o.optString("tema", "")
-                )
-            },
-            preguntas = objetos(carpetas, "preguntas.json", "preguntas") { o ->
-                PreguntaTrivial(
-                    texto = o.getString("texto"),
-                    opciones = listaDeTextos(o.getJSONArray("opciones")),
-                    correcta = o.getInt("correcta"),
-                    tema = o.optString("tema", "")
-                )
-            },
-            tabu = objetos(carpetas, "tabu.json", "cartas") { o ->
-                CartaTabu(
-                    palabra = o.getString("palabra"),
-                    prohibidas = listaDeTextos(o.getJSONArray("prohibidas"))
-                )
-            },
-            retos = objetos(carpetas, "retos.json", "retos") { o ->
-                RetoRapido(texto = o.getString("texto"), objetivo = o.getInt("objetivo"))
-            },
-            emojis = objetos(carpetas, "emojis.json", "cartas") { o ->
-                CartaEmojis(
-                    emojis = o.getString("emojis"),
-                    respuesta = o.getString("respuesta"),
-                    senuelos = listaDeTextos(o.getJSONArray("senuelos")),
-                    tipo = o.optString("tipo", "")
-                )
-            },
-            afirmaciones = objetos(carpetas, "verdadero_falso.json", "afirmaciones") { o ->
-                Afirmacion(
-                    texto = o.getString("texto"),
-                    esVerdadera = o.getBoolean("verdadera"),
-                    explicacion = o.optString("explicacion", "")
-                )
-            },
-            trabalenguas = objetos(carpetas, "trabalenguas.json", "trabalenguas") { o ->
-                Trabalenguas(
-                    texto = o.getString("texto"),
-                    repeticiones = o.optInt("repeticiones", 2)
-                )
-            },
-            ordenar = objetos(carpetas, "ordena.json", "retos") { o ->
-                RetoOrdenar(
-                    enunciado = o.getString("enunciado"),
-                    elementos = listaDeTextos(o.getJSONArray("elementos")),
-                    criterio = o.optString("criterio", "")
-                )
-            },
-            canciones = objetos(carpetas, "canta.json", "canciones") { o ->
-                Cancion(
-                    titulo = o.getString("titulo"),
-                    artista = o.getString("artista"),
-                    pista = o.optString("pista", "")
-                )
-            },
-            desafios = objetos(carpetas, "desafios.json", "desafios") { o ->
-                Desafio(texto = o.getString("texto"), nivel = o.optInt("nivel", 1))
-            }
+            eventos =
+                objetos(carpetas, "cuando.json", "eventos") { o ->
+                    EventoCuando(
+                        texto = o.getString("texto"),
+                        anio = o.getInt("anio"),
+                        tema = o.optString("tema", ""),
+                    )
+                },
+            preguntas =
+                objetos(carpetas, "preguntas.json", "preguntas") { o ->
+                    PreguntaTrivial(
+                        texto = o.getString("texto"),
+                        opciones = listaDeTextos(o.getJSONArray("opciones")),
+                        correcta = o.getInt("correcta"),
+                        tema = o.optString("tema", ""),
+                    )
+                },
+            tabu =
+                objetos(carpetas, "tabu.json", "cartas") { o ->
+                    CartaTabu(
+                        palabra = o.getString("palabra"),
+                        prohibidas = listaDeTextos(o.getJSONArray("prohibidas")),
+                    )
+                },
+            retos =
+                objetos(carpetas, "retos.json", "retos") { o ->
+                    RetoRapido(texto = o.getString("texto"), objetivo = o.getInt("objetivo"))
+                },
+            emojis =
+                objetos(carpetas, "emojis.json", "cartas") { o ->
+                    CartaEmojis(
+                        emojis = o.getString("emojis"),
+                        respuesta = o.getString("respuesta"),
+                        senuelos = listaDeTextos(o.getJSONArray("senuelos")),
+                        tipo = o.optString("tipo", ""),
+                    )
+                },
+            afirmaciones =
+                objetos(carpetas, "verdadero_falso.json", "afirmaciones") { o ->
+                    Afirmacion(
+                        texto = o.getString("texto"),
+                        esVerdadera = o.getBoolean("verdadera"),
+                        explicacion = o.optString("explicacion", ""),
+                    )
+                },
+            trabalenguas =
+                objetos(
+                    carpetas,
+                    "trabalenguas.json",
+                    "trabalenguas",
+                ) { o ->
+                    Trabalenguas(
+                        texto = o.getString("texto"),
+                        repeticiones = o.optInt("repeticiones", 2),
+                    )
+                },
+            ordenar =
+                objetos(carpetas, "ordena.json", "retos") { o ->
+                    RetoOrdenar(
+                        enunciado = o.getString("enunciado"),
+                        elementos = listaDeTextos(o.getJSONArray("elementos")),
+                        criterio = o.optString("criterio", ""),
+                    )
+                },
+            canciones =
+                objetos(carpetas, "canta.json", "canciones") { o ->
+                    Cancion(
+                        titulo = o.getString("titulo"),
+                        artista = o.getString("artista"),
+                        pista = o.optString("pista", ""),
+                    )
+                },
+            desafios =
+                objetos(
+                    carpetas,
+                    "desafios.json",
+                    "desafios",
+                ) { o ->
+                    Desafio(texto = o.getString("texto"), nivel = o.optInt("nivel", 1))
+                },
         )
     }
 
@@ -115,9 +134,13 @@ class ContenidoDeAssets(private val context: Context) : FuenteContenido {
     private fun leerPrimeroQueExista(carpetas: List<String>, fichero: String): String? {
         for (carpeta in carpetas) {
             val ruta = "$carpeta/$fichero"
-            val texto = runCatching {
-                context.assets.open(ruta).bufferedReader(Charsets.UTF_8).use { it.readText() }
-            }.getOrNull()
+            val texto =
+                runCatching {
+                    context.assets
+                        .open(ruta)
+                        .bufferedReader(Charsets.UTF_8)
+                        .use { it.readText() }
+                }.getOrNull()
             if (texto != null) return texto
         }
         return null
@@ -127,7 +150,7 @@ class ContenidoDeAssets(private val context: Context) : FuenteContenido {
         carpetas: List<String>,
         fichero: String,
         clave: String,
-        construir: (JSONObject) -> T
+        construir: (JSONObject) -> T,
     ): List<T> {
         val bruto = leerPrimeroQueExista(carpetas, fichero) ?: return emptyList()
         return runCatching {
@@ -139,14 +162,26 @@ class ContenidoDeAssets(private val context: Context) : FuenteContenido {
                     .onFailure { Log.w(ETIQUETA, "Carta $i de $fichero mal formada", it) }
                     .getOrNull()
             }
-        }.onFailure { Log.w(ETIQUETA, "No se ha podido leer $fichero", it) }.getOrDefault(emptyList())
+        }.onFailure {
+            Log.w(
+                ETIQUETA,
+                "No se ha podido leer $fichero",
+                it,
+            )
+        }.getOrDefault(emptyList())
     }
 
     private fun textos(carpetas: List<String>, fichero: String, clave: String): List<String> {
         val bruto = leerPrimeroQueExista(carpetas, fichero) ?: return emptyList()
         return runCatching {
             listaDeTextos(JSONObject(bruto).getJSONArray(clave))
-        }.onFailure { Log.w(ETIQUETA, "No se ha podido leer $fichero", it) }.getOrDefault(emptyList())
+        }.onFailure {
+            Log.w(
+                ETIQUETA,
+                "No se ha podido leer $fichero",
+                it,
+            )
+        }.getOrDefault(emptyList())
     }
 
     private fun listaDeTextos(array: JSONArray): List<String> =

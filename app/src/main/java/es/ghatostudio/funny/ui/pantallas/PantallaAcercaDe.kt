@@ -50,33 +50,34 @@ fun PantallaAcercaDe(vm: JuegoViewModel) {
         Column(Modifier.fillMaxSize()) {
             Cabecera(
                 titulo = t[Clave.ACERCA_TITULO],
-                onVolver = { vm.ir(Pantalla.AJUSTES) }
+                onVolver = { vm.ir(Pantalla.AJUSTES) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 Column(
                     Modifier.fillMaxWidth().padding(vertical = 12.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text("🎉", style = MaterialTheme.typography.displayMedium)
                     Spacer(Modifier.height(6.dp))
                     Text(
                         t[Clave.ACERCA_AUTOR],
                         style = MaterialTheme.typography.titleMedium,
-                        color = TextoFuerte
+                        color = TextoFuerte,
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
                         t[Clave.ACERCA_SIN_ANUNCIOS],
                         style = MaterialTheme.typography.bodyMedium,
                         color = Acento,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
 
@@ -98,7 +99,7 @@ fun PantallaAcercaDe(vm: JuegoViewModel) {
                             onClick = {
                                 Sistema.abrirEnNavegador(contexto, ENLACE_PRIVACIDAD)
                             },
-                            derecha = { Text("↗", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("↗", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.ACERCA_CODIGO],
@@ -106,7 +107,7 @@ fun PantallaAcercaDe(vm: JuegoViewModel) {
                             onClick = {
                                 Sistema.abrirEnNavegador(contexto, BuildConfig.REPOSITORIO)
                             },
-                            derecha = { Text("↗", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("↗", style = MaterialTheme.typography.titleLarge) },
                         )
                         FilaAjuste(
                             titulo = t[Clave.ACERCA_CONTACTO],
@@ -115,10 +116,10 @@ fun PantallaAcercaDe(vm: JuegoViewModel) {
                                 Sistema.escribirCorreo(
                                     contexto,
                                     BuildConfig.CORREO_CONTACTO,
-                                    "Funny ${BuildConfig.VERSION_NAME}" // literal-ok
+                                    "Funny ${BuildConfig.VERSION_NAME}", // literal-ok
                                 )
                             },
-                            derecha = { Text("✉", style = MaterialTheme.typography.titleLarge) }
+                            derecha = { Text("✉", style = MaterialTheme.typography.titleLarge) },
                         )
                     }
                 }
@@ -128,7 +129,7 @@ fun PantallaAcercaDe(vm: JuegoViewModel) {
                         Text(
                             t[Clave.ACERCA_LICENCIAS_TERCEROS],
                             style = MaterialTheme.typography.titleMedium,
-                            color = TextoFuerte
+                            color = TextoFuerte,
                         )
                         Spacer(Modifier.height(10.dp))
                         // Se mantiene a mano y a propósito: son cinco librerías
@@ -140,13 +141,13 @@ fun PantallaAcercaDe(vm: JuegoViewModel) {
                                     nombre,
                                     style = MaterialTheme.typography.bodyMedium,
                                     color = TextoFuerte,
-                                    modifier = Modifier.weight(1f)
+                                    modifier = Modifier.weight(1f),
                                 )
                                 Spacer(Modifier.width(8.dp))
                                 Text(
                                     licencia,
                                     style = MaterialTheme.typography.bodyMedium,
-                                    color = TextoTenue
+                                    color = TextoTenue,
                                 )
                             }
                         }
@@ -166,7 +167,7 @@ private fun Dato(etiqueta: String, valor: String) {
             etiqueta,
             style = MaterialTheme.typography.bodyMedium,
             color = TextoTenue,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
         )
         Spacer(Modifier.width(12.dp))
         Text(valor, style = MaterialTheme.typography.bodyMedium, color = TextoFuerte)
@@ -177,10 +178,11 @@ private const val LICENCIA = "GPL-3.0-or-later" // literal-ok: identificador SPD
 private const val ENLACE_PRIVACIDAD = "https://braisgaldo.github.io/Funny/privacidad.html"
 
 /** Nombre de la librería y su licencia. Ninguna es de pagos: ver ADR-0004. */
-private val LICENCIAS_TERCEROS = listOf(
-    "Jetpack Compose · AndroidX" to "Apache-2.0",
-    "Kotlin · kotlinx.coroutines" to "Apache-2.0",
-    "Google Play Services (Nearby)" to "Android SDK Terms",
-    "qrcode-kotlin" to "MIT",
-    "AndroidX Browser (Custom Tabs)" to "Apache-2.0"
-)
+private val LICENCIAS_TERCEROS =
+    listOf(
+        "Jetpack Compose · AndroidX" to "Apache-2.0",
+        "Kotlin · kotlinx.coroutines" to "Apache-2.0",
+        "Google Play Services (Nearby)" to "Android SDK Terms",
+        "qrcode-kotlin" to "MIT",
+        "AndroidX Browser (Custom Tabs)" to "Apache-2.0",
+    )

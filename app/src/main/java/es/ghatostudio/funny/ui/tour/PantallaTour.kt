@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -61,16 +60,21 @@ private enum class PasoTour(
     val claveTitulo: Clave,
     val claveTexto: Clave,
     val emoji: String,
-    val ilustracion: Ilustracion
+    val ilustracion: Ilustracion,
 ) {
-    BIENVENIDA(Clave.TOUR_BIENVENIDA_TITULO, Clave.TOUR_BIENVENIDA_TEXTO, "🎉", Ilustracion.NINGUNA),
+    BIENVENIDA(
+        Clave.TOUR_BIENVENIDA_TITULO,
+        Clave.TOUR_BIENVENIDA_TEXTO,
+        "🎉",
+        Ilustracion.NINGUNA,
+    ),
     MODOS(Clave.TOUR_MODOS_TITULO, Clave.TOUR_MODOS_TEXTO, "🎭", Ilustracion.MODOS),
     TABLERO(Clave.TOUR_TABLERO_TITULO, Clave.TOUR_TABLERO_TEXTO, "🎲", Ilustracion.TABLERO),
     CASILLAS(Clave.TOUR_CASILLAS_TITULO, Clave.TOUR_CASILLAS_TEXTO, "🃏", Ilustracion.NINGUNA),
     JUEGOS(Clave.TOUR_JUEGOS_TITULO, Clave.TOUR_JUEGOS_TEXTO, "🕹", Ilustracion.JUEGOS),
     SALON(Clave.TOUR_SALON_TITULO, Clave.TOUR_SALON_TEXTO, "📱", Ilustracion.SALON),
     AJUSTES(Clave.TOUR_AJUSTES_TITULO, Clave.TOUR_AJUSTES_TEXTO, "⚙", Ilustracion.NINGUNA),
-    FINAL(Clave.TOUR_FINAL_TITULO, Clave.TOUR_FINAL_TEXTO, "✅", Ilustracion.NINGUNA)
+    FINAL(Clave.TOUR_FINAL_TITULO, Clave.TOUR_FINAL_TEXTO, "✅", Ilustracion.NINGUNA),
 }
 
 private enum class Ilustracion { NINGUNA, MODOS, TABLERO, JUEGOS, SALON }
@@ -100,12 +104,12 @@ fun PantallaTour(vm: JuegoViewModel) {
             // Cabecera: progreso y salida. Siempre visibles.
             Row(
                 Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp),
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     t.con(Clave.TOUR_PROGRESO, indice + 1, pasos.size),
                     style = MaterialTheme.typography.labelLarge,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
                 Spacer(Modifier.weight(1f))
                 BotonSuave(t[Clave.TOUR_SALTAR]) { terminar() }
@@ -114,11 +118,12 @@ fun PantallaTour(vm: JuegoViewModel) {
             BarraDeProgreso(indice, pasos.size, Modifier.padding(horizontal = 20.dp))
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 22.dp, vertical = 18.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 22.dp, vertical = 18.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 // `key`-menos: el índice como clave de la entrada escalonada
                 // basta para que cada paso vuelva a aparecer con su animación.
@@ -131,7 +136,7 @@ fun PantallaTour(vm: JuegoViewModel) {
                         t[paso.claveTitulo],
                         style = MaterialTheme.typography.headlineLarge,
                         color = TextoFuerte,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
                 Spacer(Modifier.height(10.dp))
@@ -140,7 +145,7 @@ fun PantallaTour(vm: JuegoViewModel) {
                         t[paso.claveTexto],
                         style = MaterialTheme.typography.bodyLarge,
                         color = TextoTenue,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
 
@@ -161,7 +166,7 @@ fun PantallaTour(vm: JuegoViewModel) {
 
             Row(
                 Modifier.fillMaxWidth().padding(20.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 if (indice > 0) {
                     Box(Modifier.weight(1f)) {
@@ -169,18 +174,19 @@ fun PantallaTour(vm: JuegoViewModel) {
                             texto = t[Clave.TOUR_ANTERIOR],
                             onClick = { indice-- },
                             color = SuperficieAlta,
-                            colorTexto = TextoFuerte
+                            colorTexto = TextoFuerte,
                         )
                     }
                 }
                 Box(Modifier.weight(if (indice > 0) 1.4f else 1f)) {
                     BotonGrande(
-                        texto = if (esUltimo) {
-                            t[Clave.TOUR_TERMINAR]
-                        } else {
-                            t[Clave.TOUR_SIGUIENTE]
-                        },
-                        onClick = { if (esUltimo) terminar() else indice++ }
+                        texto =
+                            if (esUltimo) {
+                                t[Clave.TOUR_TERMINAR]
+                            } else {
+                                t[Clave.TOUR_SIGUIENTE]
+                            },
+                        onClick = { if (esUltimo) terminar() else indice++ },
                     )
                 }
             }
@@ -192,12 +198,12 @@ fun PantallaTour(vm: JuegoViewModel) {
 private fun BarraDeProgreso(indice: Int, total: Int, modifier: Modifier = Modifier) {
     Row(
         modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         repeat(total) { i ->
             val lleno by animateFloatAsState(
                 targetValue = if (i <= indice) 1f else 0f,
-                label = "progresoTour"
+                label = "progresoTour",
             )
             Box(
                 Modifier
@@ -205,8 +211,8 @@ private fun BarraDeProgreso(indice: Int, total: Int, modifier: Modifier = Modifi
                     .height(5.dp)
                     .clip(RoundedCornerShape(3.dp))
                     .background(
-                        if (lleno > 0.5f) Primario else SuperficieAlta
-                    )
+                        if (lleno > 0.5f) Primario else SuperficieAlta,
+                    ),
             )
         }
     }
@@ -217,13 +223,13 @@ private fun IlustracionModos() {
     val t = textos()
     Column(
         Modifier.fillMaxWidth(),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+        verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         Modo.entries.forEach { modo ->
             Tarjeta(modifier = Modifier.fillMaxWidth()) {
                 Row(
                     Modifier.fillMaxWidth().padding(14.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(modo.emoji, style = MaterialTheme.typography.headlineMedium)
                     Spacer(Modifier.width(14.dp))
@@ -231,12 +237,12 @@ private fun IlustracionModos() {
                         Text(
                             t[modo.claveNombre],
                             style = MaterialTheme.typography.titleMedium,
-                            color = TextoFuerte
+                            color = TextoFuerte,
                         )
                         Text(
                             t[modo.claveDetalle],
                             style = MaterialTheme.typography.bodyMedium,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                     }
                 }
@@ -250,16 +256,17 @@ private fun IlustracionModos() {
 private fun IlustracionTablero() {
     val t = textos()
     val p = paleta()
-    val casillas = listOf(
-        "🚩" to p.casillaNeutra,
-        Juego.MIMICA.emoji to p.colorDe(Juego.MIMICA),
-        Juego.PREGUNTAS.emoji to p.colorDe(Juego.PREGUNTAS),
-        "🃏" to p.acento,
-        Juego.EMOJIS.emoji to p.colorDe(Juego.EMOJIS),
-        "👥" to p.casillaTodos,
-        Juego.ORDENA.emoji to p.colorDe(Juego.ORDENA),
-        "🏁" to p.primario
-    )
+    val casillas =
+        listOf(
+            "🚩" to p.casillaNeutra,
+            Juego.MIMICA.emoji to p.colorDe(Juego.MIMICA),
+            Juego.PREGUNTAS.emoji to p.colorDe(Juego.PREGUNTAS),
+            "🃏" to p.acento,
+            Juego.EMOJIS.emoji to p.colorDe(Juego.EMOJIS),
+            "👥" to p.casillaTodos,
+            Juego.ORDENA.emoji to p.colorDe(Juego.ORDENA),
+            "🏁" to p.primario,
+        )
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             casillas.take(4).forEach { (emoji, color) -> CasillaDemo(emoji, color) }
@@ -272,7 +279,7 @@ private fun IlustracionTablero() {
         Text(
             "${t[Clave.TABLERO_SALIDA]}  →  ${t[Clave.TABLERO_META]}",
             style = MaterialTheme.typography.labelLarge,
-            color = TextoTenue
+            color = TextoTenue,
         )
     }
 }
@@ -285,7 +292,7 @@ private fun CasillaDemo(emoji: String, color: androidx.compose.ui.graphics.Color
             .clip(RoundedCornerShape(12.dp))
             .background(color.copy(alpha = 0.18f))
             .border(1.5.dp, color.copy(alpha = 0.6f), RoundedCornerShape(12.dp)),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(emoji, style = MaterialTheme.typography.titleLarge)
     }
@@ -316,7 +323,7 @@ private fun IlustracionJuegos(vm: JuegoViewModel) {
                             Text(
                                 t.nombreDe(juego),
                                 style = MaterialTheme.typography.titleMedium,
-                                color = color
+                                color = color,
                             )
                             Spacer(Modifier.width(8.dp))
                             if (juego.valeEnSolitario) {
@@ -333,13 +340,13 @@ private fun IlustracionJuegos(vm: JuegoViewModel) {
                         Text(
                             t.lemaDe(juego),
                             style = MaterialTheme.typography.labelLarge,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
                             t.instruccionesDe(juego),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = TextoTenue
+                            color = TextoTenue,
                         )
                     }
                 }
@@ -363,7 +370,7 @@ private fun Etiquetita(emoji: String) {
         Modifier
             .clip(CircleShape)
             .background(SuperficieAlta)
-            .padding(horizontal = 6.dp, vertical = 2.dp)
+            .padding(horizontal = 6.dp, vertical = 2.dp),
     ) {
         Text(emoji, style = MaterialTheme.typography.bodyMedium)
     }
@@ -390,14 +397,14 @@ private fun IlustracionSalon() {
                 .background(p.primario.copy(alpha = 0.18f))
                 .border(2.dp, p.primario, RoundedCornerShape(16.dp))
                 .padding(horizontal = 20.dp, vertical = 14.dp),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("📺", style = MaterialTheme.typography.headlineLarge)
                 Text(
                     t[Clave.SALON_ROL_HUB],
                     style = MaterialTheme.typography.labelLarge,
-                    color = p.primario
+                    color = p.primario,
                 )
             }
         }
@@ -413,14 +420,14 @@ private fun IlustracionSalon() {
                         .background(color.copy(alpha = 0.18f))
                         .border(1.5.dp, color, RoundedCornerShape(14.dp))
                         .padding(horizontal = 12.dp, vertical = 10.dp),
-                    contentAlignment = Alignment.Center
+                    contentAlignment = Alignment.Center,
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text("📱", style = MaterialTheme.typography.titleLarge)
                         Text(
                             t[Clave.SALON_ROL_MANDO],
                             style = MaterialTheme.typography.bodyMedium,
-                            color = color
+                            color = color,
                         )
                     }
                 }
@@ -431,7 +438,7 @@ private fun IlustracionSalon() {
             t[Clave.SALON_SIN_RED],
             style = MaterialTheme.typography.bodyMedium,
             color = TextoTenue,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
     }
 }

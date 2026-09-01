@@ -9,7 +9,6 @@ import es.ghatostudio.funny.dominio.Juego
 import es.ghatostudio.funny.dominio.MAXIMO_PARTICIPANTES
 import es.ghatostudio.funny.dominio.Modo
 import es.ghatostudio.funny.dominio.Pantalla
-import es.ghatostudio.funny.dominio.Participante
 import es.ghatostudio.funny.dominio.Prueba
 import es.ghatostudio.funny.dominio.salon.DispositivoSalon
 import es.ghatostudio.funny.dominio.salon.Mensaje
@@ -34,7 +33,6 @@ import kotlinx.coroutines.launch
  * radio: eso queda anotado en el informe del hito y en docs/ARCHITECTURE.md.
  */
 class SalonViewModel : ViewModel() {
-
     data class Estado(
         val rol: RolSalon? = null,
         val miNombre: String = "",
@@ -47,7 +45,7 @@ class SalonViewModel : ViewModel() {
         /** Lo que este mando tiene que enseñar. Null si es el hub. */
         val vista: VistaDelMando? = null,
         val fallo: TransporteSalon.Causa? = null,
-        val permisosQueFaltan: List<String> = emptyList()
+        val permisosQueFaltan: List<String> = emptyList(),
     ) {
         val esHub: Boolean get() = rol == RolSalon.HUB
         val esMando: Boolean get() = rol == RolSalon.MANDO
@@ -67,12 +65,15 @@ class SalonViewModel : ViewModel() {
     fun abrirComoHub(
         nuevoTransporte: TransporteSalon,
         nombre: String,
-        juegoViewModel: JuegoViewModel
+        juegoViewModel: JuegoViewModel,
     ) {
         cerrar()
         juego = juegoViewModel
         transporte = nuevoTransporte
         estado = Estado(rol = RolSalon.HUB, miNombre = nombre)
+        // La mesa arranca vacía: los participantes de un salón son los móviles
+        // que se conectan, no fichas creadas de antemano.
+        juegoViewModel.prepararSalon()
         if (!comprobarPermisos(nuevoTransporte)) return
         escuchar(nuevoTransporte)
         nuevoTransporte.anunciarse(nombre)
@@ -90,11 +91,12 @@ class SalonViewModel : ViewModel() {
     private fun comprobarPermisos(t: TransporteSalon): Boolean {
         val faltan = t.permisosQueFaltan()
         if (faltan.isNotEmpty()) {
-            estado = estado.copy(
-                permisosQueFaltan = faltan,
-                fallo = TransporteSalon.Causa.PERMISOS,
-                buscando = false
-            )
+            estado =
+                estado.copy(
+                    permisosQueFaltan = faltan,
+                    fallo = TransporteSalon.Causa.PERMISOS,
+                    buscando = false,
+                )
             return false
         }
         if (!t.estaDisponible()) {
@@ -125,19 +127,22 @@ class SalonViewModel : ViewModel() {
     // ---------------------------------------------------------------- escucha
 
     private fun escuchar(t: TransporteSalon) {
-        escucha = viewModelScope.launch {
-            t.sucesos.collect { suceso -> atender(suceso) }
-        }
+        escucha =
+            viewModelScope.launch {
+                t.sucesos.collect { suceso -> atender(suceso) }
+            }
     }
 
     private fun atender(suceso: TransporteSalon.Suceso) {
         when (suceso) {
             is TransporteSalon.Suceso.Encontrado -> {
                 if (estado.encontrados.any { it.id == suceso.id }) return
-                estado = estado.copy(
-                    encontrados = estado.encontrados +
-                        DispositivoSalon(suceso.id, suceso.nombre)
-                )
+                estado =
+                    estado.copy(
+                        encontrados =
+                            estado.encontrados +
+                                DispositivoSalon(suceso.id, suceso.nombre),
+                    )
             }
 
             is TransporteSalon.Suceso.Conectado -> {
@@ -150,9 +155,10 @@ class SalonViewModel : ViewModel() {
 
             is TransporteSalon.Suceso.Desconectado -> {
                 if (estado.esHub) {
-                    estado = estado.copy(
-                        dispositivos = estado.dispositivos.filterNot { it.id == suceso.id }
-                    )
+                    estado =
+                        estado.copy(
+                            dispositivos = estado.dispositivos.filterNot { it.id == suceso.id },
+                        )
                     difundirSalon()
                 } else {
                     estado = estado.copy(conectado = false, vista = null)
@@ -168,29 +174,35 @@ class SalonViewModel : ViewModel() {
 
     private fun recibir(de: String, mensaje: Mensaje) {
         when (mensaje) {
-            is Mensaje.Hola -> if (estado.esHub) {
-                // El nombre bueno es el que manda el mando, no el del endpoint.
-                estado = estado.copy(
-                    dispositivos = estado.dispositivos.map {
-                        if (it.id == de) it.copy(nombre = mensaje.nombre) else it
-                    }
-                )
-                difundirSalon()
-            }
+            is Mensaje.Hola ->
+                if (estado.esHub) {
+                    // El nombre bueno es el que manda el mando, no el del endpoint.
+                    estado =
+                        estado.copy(
+                            dispositivos =
+                                estado.dispositivos.map {
+                                    if (it.id == de) it.copy(nombre = mensaje.nombre) else it
+                                },
+                        )
+                    difundirSalon()
+                }
 
             is Mensaje.Accion -> if (estado.esHub) aplicarAccion(de, mensaje)
 
-            is Mensaje.Salon -> if (estado.esMando) {
-                estado = estado.copy(dispositivos = mensaje.dispositivos, conectado = true)
-            }
+            is Mensaje.Salon ->
+                if (estado.esMando) {
+                    estado = estado.copy(dispositivos = mensaje.dispositivos, conectado = true)
+                }
 
-            is Mensaje.Vista -> if (estado.esMando) {
-                estado = estado.copy(vista = mensaje.vista)
-            }
+            is Mensaje.Vista ->
+                if (estado.esMando) {
+                    estado = estado.copy(vista = mensaje.vista)
+                }
 
-            Mensaje.Adios -> if (estado.esMando) {
-                estado = estado.copy(conectado = false, vista = null)
-            }
+            Mensaje.Adios ->
+                if (estado.esMando) {
+                    estado = estado.copy(conectado = false, vista = null)
+                }
 
             is Mensaje.Desconocido -> Unit
         }
@@ -207,14 +219,18 @@ class SalonViewModel : ViewModel() {
         // Cada móvil que entra es una persona con su ficha. En un salón el modo
         // natural es el individual: repartir móviles por equipos y luego pasarlos
         // dentro del equipo sería lo peor de los dos mundos.
-        vm.elegirModo(Modo.INDIVIDUAL)
         vm.anadirParticipanteDeSalon(dispositivo.nombre, dispositivo.id)
 
-        val idParticipante = vm.estado.participantes.lastOrNull()?.id
-        estado = estado.copy(
-            dispositivos = estado.dispositivos +
-                dispositivo.copy(idParticipante = idParticipante)
-        )
+        val idParticipante =
+            vm.estado.participantes
+                .lastOrNull()
+                ?.id
+        estado =
+            estado.copy(
+                dispositivos =
+                    estado.dispositivos +
+                        dispositivo.copy(idParticipante = idParticipante),
+            )
         difundirSalon()
         difundirVistas()
     }
@@ -236,10 +252,11 @@ class SalonViewModel : ViewModel() {
                 difundirSalon()
             }
 
-            TipoAccion.TIRAR -> if (esSuTurno) {
-                vm.lanzarDado()
-                vm.continuarTrasDado()
-            }
+            TipoAccion.TIRAR ->
+                if (esSuTurno) {
+                    vm.lanzarDado()
+                    vm.continuarTrasDado()
+                }
 
             TipoAccion.EMPEZAR_PRUEBA -> if (esSuTurno) vm.empezarPrueba()
 
@@ -251,19 +268,22 @@ class SalonViewModel : ViewModel() {
                 }
             }
 
-            TipoAccion.RESPONDER -> if (estadoJuego.pantalla == Pantalla.RONDA_TODOS) {
-                anotarRespuestaDeRonda(de, accion.entero)
-            } else if (esSuTurno) {
-                vm.resolverPrueba(superada = accion.entero == 1, puntos = accion.entero)
-            }
+            TipoAccion.RESPONDER ->
+                if (estadoJuego.pantalla == Pantalla.RONDA_TODOS) {
+                    anotarRespuestaDeRonda(de, accion.entero)
+                } else if (esSuTurno) {
+                    vm.resolverPrueba(superada = accion.entero == 1, puntos = accion.entero)
+                }
 
-            TipoAccion.TERMINAR -> if (esSuTurno) {
-                vm.resolverPrueba(superada = accion.entero > 0, puntos = accion.entero)
-            }
+            TipoAccion.TERMINAR ->
+                if (esSuTurno) {
+                    vm.resolverPrueba(superada = accion.entero > 0, puntos = accion.entero)
+                }
 
-            TipoAccion.VEREDICTO -> if (esSuTurno) {
-                vm.resolverPrueba(superada = accion.entero == 1)
-            }
+            TipoAccion.VEREDICTO ->
+                if (esSuTurno) {
+                    vm.resolverPrueba(superada = accion.entero == 1)
+                }
         }
         difundirVistas()
     }
@@ -285,20 +305,22 @@ class SalonViewModel : ViewModel() {
         if (respuestasDeRonda.size < esperados) return
 
         val correcta = correctaDeLaPrueba(vm)
-        val aciertos = vm.estado.participantes.map { participante ->
-            val respuesta = participante.dispositivo?.let { respuestasDeRonda[it] } ?: -1
-            correcta != null && respuesta == correcta
-        }
+        val aciertos =
+            vm.estado.participantes.map { participante ->
+                val respuesta = participante.dispositivo?.let { respuestasDeRonda[it] } ?: -1
+                correcta != null && respuesta == correcta
+            }
         respuestasDeRonda.clear()
         vm.resolverRondaDeTodos(aciertos)
     }
 
-    private fun correctaDeLaPrueba(vm: JuegoViewModel): Int? = when (val p = vm.estado.prueba) {
-        is Prueba.DePreguntas -> p.pregunta.correcta
-        is Prueba.DeCuando -> p.opciones.indexOf(p.evento.anio)
-        is Prueba.DeEmojis -> p.correcta
-        else -> null
-    }
+    private fun correctaDeLaPrueba(vm: JuegoViewModel): Int? =
+        when (val p = vm.estado.prueba) {
+            is Prueba.DePreguntas -> p.pregunta.correcta
+            is Prueba.DeCuando -> p.opciones.indexOf(p.evento.anio)
+            is Prueba.DeEmojis -> p.correcta
+            else -> null
+        }
 
     fun difundirSalon() {
         val vm = juego ?: return
@@ -306,8 +328,8 @@ class SalonViewModel : ViewModel() {
             Mensaje.Salon(
                 dispositivos = estado.dispositivos,
                 modo = vm.estado.modo,
-                partidaEnCurso = vm.estado.partidaEnCurso
-            )
+                partidaEnCurso = vm.estado.partidaEnCurso,
+            ),
         )
     }
 
@@ -329,25 +351,28 @@ class SalonViewModel : ViewModel() {
         // El contenido privado (la palabra de mímica, la carta de tabú, la
         // palabra a dibujar) va SOLO al móvil de quien actúa. Es la razón de ser
         // del salón: nadie ve por error lo que no debe.
-        val privado = if (esSuTurno && juegoActual?.soloActuante == true) {
-            when (val prueba = e.prueba) {
-                is Prueba.DeMimica -> prueba.palabras
-                is Prueba.DeDibujo -> prueba.palabras
-                is Prueba.DeTabu -> prueba.cartas.map { carta ->
-                    (listOf(carta.palabra) + carta.prohibidas).joinToString(SEPARADOR_TABU)
+        val privado =
+            if (esSuTurno && juegoActual?.soloActuante == true) {
+                when (val prueba = e.prueba) {
+                    is Prueba.DeMimica -> prueba.palabras
+                    is Prueba.DeDibujo -> prueba.palabras
+                    is Prueba.DeTabu ->
+                        prueba.cartas.map { carta ->
+                            (listOf(carta.palabra) + carta.prohibidas).joinToString(SEPARADOR_TABU)
+                        }
+                    is Prueba.DeTrabalenguas -> listOf(prueba.trabalenguas.texto)
+                    is Prueba.DeCanta ->
+                        listOf(
+                            prueba.cancion.titulo,
+                            prueba.cancion.artista,
+                            prueba.cancion.pista,
+                        )
+                    is Prueba.DeDesafio -> listOf(prueba.desafio.texto)
+                    else -> emptyList()
                 }
-                is Prueba.DeTrabalenguas -> listOf(prueba.trabalenguas.texto)
-                is Prueba.DeCanta -> listOf(
-                    prueba.cancion.titulo,
-                    prueba.cancion.artista,
-                    prueba.cancion.pista
-                )
-                is Prueba.DeDesafio -> listOf(prueba.desafio.texto)
-                else -> emptyList()
+            } else {
+                emptyList()
             }
-        } else {
-            emptyList()
-        }
 
         // En una ronda de todos, cada mando ve el enunciado y responde en el suyo.
         val enRonda = e.pantalla == Pantalla.RONDA_TODOS
@@ -363,23 +388,25 @@ class SalonViewModel : ViewModel() {
             contenidoPrivado = privado,
             enunciado = enunciado,
             opciones = opciones,
-            respuestaEnviada = respuestasDeRonda.containsKey(dispositivo.id)
+            respuestaEnviada = respuestasDeRonda.containsKey(dispositivo.id),
         )
     }
 
-    private fun enunciadoDe(prueba: Prueba?): String? = when (prueba) {
-        is Prueba.DePreguntas -> prueba.pregunta.texto
-        is Prueba.DeCuando -> prueba.evento.texto
-        is Prueba.DeEmojis -> prueba.carta.emojis
-        else -> null
-    }
+    private fun enunciadoDe(prueba: Prueba?): String? =
+        when (prueba) {
+            is Prueba.DePreguntas -> prueba.pregunta.texto
+            is Prueba.DeCuando -> prueba.evento.texto
+            is Prueba.DeEmojis -> prueba.carta.emojis
+            else -> null
+        }
 
-    private fun opcionesDe(prueba: Prueba?): List<String> = when (prueba) {
-        is Prueba.DePreguntas -> prueba.pregunta.opciones
-        is Prueba.DeCuando -> prueba.opciones.map { it.toString() }
-        is Prueba.DeEmojis -> prueba.opciones
-        else -> emptyList()
-    }
+    private fun opcionesDe(prueba: Prueba?): List<String> =
+        when (prueba) {
+            is Prueba.DePreguntas -> prueba.pregunta.opciones
+            is Prueba.DeCuando -> prueba.opciones.map { it.toString() }
+            is Prueba.DeEmojis -> prueba.opciones
+            else -> emptyList()
+        }
 
     // ----------------------------------------------------------------- mando
 

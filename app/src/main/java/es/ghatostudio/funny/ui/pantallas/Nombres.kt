@@ -18,12 +18,13 @@ import es.ghatostudio.funny.ui.i18n.textos
  * una forma distinta.
  */
 @Composable
-fun nombrePorDefecto(t: Textos, numero: Int, modo: Modo): String = when {
-    modo != Modo.EQUIPOS -> t.con(Clave.PARTICIPANTES_JUGADOR_POR_DEFECTO, numero)
-    numero == 1 -> t[Clave.PARTICIPANTES_EQUIPO_1_POR_DEFECTO]
-    numero == 2 -> t[Clave.PARTICIPANTES_EQUIPO_2_POR_DEFECTO]
-    else -> t.con(Clave.PARTICIPANTES_EQUIPO_POR_DEFECTO, numero)
-}
+fun nombrePorDefecto(t: Textos, numero: Int, modo: Modo): String =
+    when {
+        modo != Modo.EQUIPOS -> t.con(Clave.PARTICIPANTES_JUGADOR_POR_DEFECTO, numero)
+        numero == 1 -> t[Clave.PARTICIPANTES_EQUIPO_1_POR_DEFECTO]
+        numero == 2 -> t[Clave.PARTICIPANTES_EQUIPO_2_POR_DEFECTO]
+        else -> t.con(Clave.PARTICIPANTES_EQUIPO_POR_DEFECTO, numero)
+    }
 
 /** Nombre visible del participante que está en la posición [indice] de la lista. */
 @Composable

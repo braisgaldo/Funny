@@ -53,7 +53,7 @@ private fun PruebaConVeredicto(
     enunciado: String,
     encabezado: String,
     sonidos: Sonidos,
-    detalle: (@Composable () -> Unit)? = null
+    detalle: (@Composable () -> Unit)? = null,
 ) {
     val t = textos()
     val p = paleta()
@@ -74,14 +74,14 @@ private fun PruebaConVeredicto(
         enMarcha = !terminada && !seAcaboElTiempo,
         sonidos = sonidos,
         marcador = null,
-        onTiempoAgotado = { seAcaboElTiempo = true }
+        onTiempoAgotado = { seAcaboElTiempo = true },
     ) {
         Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 TarjetaPalabra(
                     texto = enunciado,
                     color = color,
-                    encabezado = encabezado
+                    encabezado = encabezado,
                 )
                 if (detalle != null) {
                     Spacer(Modifier.height(14.dp))
@@ -97,7 +97,7 @@ private fun PruebaConVeredicto(
             style = MaterialTheme.typography.titleMedium,
             color = TextoFuerte,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
         Spacer(Modifier.height(4.dp))
         Text(
@@ -109,7 +109,7 @@ private fun PruebaConVeredicto(
             style = MaterialTheme.typography.bodyMedium,
             color = TextoTenue,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
 
         Spacer(Modifier.height(12.dp))
@@ -118,12 +118,12 @@ private fun PruebaConVeredicto(
             BotonPrueba(
                 texto = t[Clave.PRUEBA_VEREDICTO_NO_LOGRADO],
                 color = Fallo,
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
             ) { cerrar(false) }
             BotonPrueba(
                 texto = t[Clave.PRUEBA_VEREDICTO_LOGRADO],
                 color = Exito,
-                modifier = Modifier.weight(1.4f)
+                modifier = Modifier.weight(1.4f),
             ) { cerrar(true) }
         }
 
@@ -139,17 +139,19 @@ fun PruebaTrabalenguas(vm: JuegoViewModel, trabalenguas: Trabalenguas, sonidos: 
         vm = vm,
         juego = Juego.TRABALENGUAS,
         enunciado = trabalenguas.texto,
-        encabezado = t.plural(ClavePlural.REPETICIONES, trabalenguas.repeticiones)
-            .uppercase(t.locale),
+        encabezado =
+            t
+                .plural(ClavePlural.REPETICIONES, trabalenguas.repeticiones)
+                .uppercase(t.locale),
         sonidos = sonidos,
         detalle = {
             Text(
                 t[Clave.PRUEBA_TRABALENGUAS_AYUDA],
                 style = MaterialTheme.typography.bodyMedium,
                 color = TextoTenue,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
-        }
+        },
     )
 }
 
@@ -175,18 +177,18 @@ fun PruebaCanta(vm: JuegoViewModel, cancion: Cancion, sonidos: Sonidos) {
                     Text(
                         t[Clave.PRUEBA_CANTA_PISTA],
                         style = MaterialTheme.typography.labelLarge,
-                        color = TextoTenue
+                        color = TextoTenue,
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
                         cancion.pista,
                         style = MaterialTheme.typography.titleMedium,
                         color = TextoFuerte,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
             }
-        }
+        },
     )
 }
 
@@ -199,6 +201,6 @@ fun PruebaDesafio(vm: JuegoViewModel, desafio: Desafio, sonidos: Sonidos) {
         juego = Juego.DESAFIO,
         enunciado = desafio.texto,
         encabezado = t[Clave.PRUEBA_DESAFIO_AYUDA].uppercase(t.locale),
-        sonidos = sonidos
+        sonidos = sonidos,
     )
 }

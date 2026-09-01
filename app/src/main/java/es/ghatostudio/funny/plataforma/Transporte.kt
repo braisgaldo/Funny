@@ -16,14 +16,31 @@ import kotlinx.coroutines.flow.Flow
  *     o por lo que traiga iOS, solo se toca la implementación.
  */
 interface TransporteSalon {
-
     /** Lo que le pasa al transporte, para que el ViewModel reaccione. */
     sealed interface Suceso {
-        data class Encontrado(val id: String, val nombre: String) : Suceso
-        data class Conectado(val id: String, val nombre: String) : Suceso
-        data class Desconectado(val id: String) : Suceso
-        data class Recibido(val de: String, val mensaje: Mensaje) : Suceso
-        data class Fallo(val causa: Causa, val detalle: String = "") : Suceso
+        data class Encontrado(
+            val id: String,
+            val nombre: String,
+        ) : Suceso
+
+        data class Conectado(
+            val id: String,
+            val nombre: String,
+        ) : Suceso
+
+        data class Desconectado(
+            val id: String,
+        ) : Suceso
+
+        data class Recibido(
+            val de: String,
+            val mensaje: Mensaje,
+        ) : Suceso
+
+        data class Fallo(
+            val causa: Causa,
+            val detalle: String = "",
+        ) : Suceso
     }
 
     /**
@@ -68,9 +85,8 @@ interface TransporteSalon {
  * de que no hay servicios y se queda quieto.
  */
 class TransporteNoDisponible(
-    private val causa: TransporteSalon.Causa = TransporteSalon.Causa.SERVICIOS
+    private val causa: TransporteSalon.Causa = TransporteSalon.Causa.SERVICIOS,
 ) : TransporteSalon {
-
     override val sucesos: Flow<TransporteSalon.Suceso> =
         kotlinx.coroutines.flow.flowOf(TransporteSalon.Suceso.Fallo(causa))
 

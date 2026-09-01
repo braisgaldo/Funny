@@ -77,18 +77,19 @@ fun PantallaSalon(vm: JuegoViewModel, salon: SalonViewModel) {
     var nombre by remember { mutableStateOf(estadoSalon.miNombre) }
     var rolPedido by remember { mutableStateOf<RolSalon?>(null) }
 
-    val lanzadorPermisos = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
-    ) { concedidos ->
-        val todos = concedidos.values.all { it }
-        if (!todos) {
-            salon.limpiarFallo()
-            vm.avisar(t[Clave.SALON_ERROR_PERMISOS])
-            return@rememberLauncherForActivityResult
+    val lanzadorPermisos =
+        rememberLauncherForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions(),
+        ) { concedidos ->
+            val todos = concedidos.values.all { it }
+            if (!todos) {
+                salon.limpiarFallo()
+                vm.avisar(t[Clave.SALON_ERROR_PERMISOS])
+                return@rememberLauncherForActivityResult
+            }
+            // Con los permisos ya dados, se reintenta el rol que se había pedido.
+            rolPedido?.let { rol -> abrirSalon(rol, contexto, salon, vm, nombre) }
         }
-        // Con los permisos ya dados, se reintenta el rol que se había pedido.
-        rolPedido?.let { rol -> abrirSalon(rol, contexto, salon, vm, nombre) }
-    }
 
     // Un mando se presenta en cuanto la conexión está lista, para que el hub
     // sepa su nombre de verdad y no el que puso Android al endpoint.
@@ -104,15 +105,16 @@ fun PantallaSalon(vm: JuegoViewModel, salon: SalonViewModel) {
                 onVolver = {
                     salon.cerrar()
                     vm.ir(Pantalla.INICIO)
-                }
+                },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(14.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp),
             ) {
                 estadoSalon.fallo?.let { causa ->
                     TarjetaDeFallo(
@@ -120,19 +122,20 @@ fun PantallaSalon(vm: JuegoViewModel, salon: SalonViewModel) {
                         permisosQueFaltan = estadoSalon.permisosQueFaltan,
                         onPedirPermisos = {
                             lanzadorPermisos.launch(estadoSalon.permisosQueFaltan.toTypedArray())
-                        }
+                        },
                     )
                 }
 
                 when (estadoSalon.rol) {
-                    null -> ElegirRol(
-                        nombre = nombre,
-                        onNombre = { nombre = it },
-                        onRol = { rol ->
-                            rolPedido = rol
-                            abrirSalon(rol, contexto, salon, vm, nombre)
-                        }
-                    )
+                    null ->
+                        ElegirRol(
+                            nombre = nombre,
+                            onNombre = { nombre = it },
+                            onRol = { rol ->
+                                rolPedido = rol
+                                abrirSalon(rol, contexto, salon, vm, nombre)
+                            },
+                        )
 
                     RolSalon.HUB -> VistaDeHub(vm, salon)
                     RolSalon.MANDO -> VistaDeMando(salon)
@@ -154,13 +157,14 @@ private fun abrirSalon(
     contexto: android.content.Context,
     salon: SalonViewModel,
     vm: JuegoViewModel,
-    nombre: String
+    nombre: String,
 ) {
     val nombreLimpio = nombre.trim().ifBlank { NOMBRE_ANONIMO }
-    val transporte = TransporteNearby(
-        context = contexto,
-        rol = if (rol == RolSalon.HUB) TransporteNearby.Rol.HUB else TransporteNearby.Rol.MANDO
-    )
+    val transporte =
+        TransporteNearby(
+            context = contexto,
+            rol = if (rol == RolSalon.HUB) TransporteNearby.Rol.HUB else TransporteNearby.Rol.MANDO,
+        )
     if (rol == RolSalon.HUB) {
         salon.abrirComoHub(transporte, nombreLimpio, vm)
     } else {
@@ -175,7 +179,7 @@ private const val NOMBRE_ANONIMO = "?"
 private fun ElegirRol(
     nombre: String,
     onNombre: (String) -> Unit,
-    onRol: (RolSalon) -> Unit
+    onRol: (RolSalon) -> Unit,
 ) {
     val t = textos()
 
@@ -184,7 +188,7 @@ private fun ElegirRol(
             Text(
                 t[Clave.SALON_COMO_FUNCIONA],
                 style = MaterialTheme.typography.titleMedium,
-                color = TextoFuerte
+                color = TextoFuerte,
             )
             Spacer(Modifier.height(8.dp))
             Punto(t[Clave.AYUDA_VARIOS_MOVILES_1])
@@ -194,7 +198,7 @@ private fun ElegirRol(
             Text(
                 t[Clave.SALON_SIN_RED],
                 style = MaterialTheme.typography.labelLarge,
-                color = Exito
+                color = Exito,
             )
         }
     }
@@ -212,20 +216,21 @@ private fun ElegirRol(
                     Text(
                         t[Clave.SALON_TU_NOMBRE],
                         color = TextoTenue,
-                        style = MaterialTheme.typography.bodyMedium
+                        style = MaterialTheme.typography.bodyMedium,
                     )
                 },
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                 textStyle = MaterialTheme.typography.titleMedium,
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedTextColor = TextoFuerte,
-                    unfocusedTextColor = TextoFuerte,
-                    focusedBorderColor = Primario,
-                    unfocusedBorderColor = SuperficieAlta,
-                    cursorColor = Primario,
-                    focusedContainerColor = Color.Transparent,
-                    unfocusedContainerColor = Color.Transparent
-                )
+                colors =
+                    OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = TextoFuerte,
+                        unfocusedTextColor = TextoFuerte,
+                        focusedBorderColor = Primario,
+                        unfocusedBorderColor = SuperficieAlta,
+                        cursorColor = Primario,
+                        focusedContainerColor = Color.Transparent,
+                        unfocusedContainerColor = Color.Transparent,
+                    ),
             )
         }
     }
@@ -236,14 +241,14 @@ private fun ElegirRol(
         emoji = "📺",
         titulo = t[Clave.SALON_CREAR],
         detalle = t[Clave.SALON_CREAR_DETALLE],
-        onPulsar = { onRol(RolSalon.HUB) }
+        onPulsar = { onRol(RolSalon.HUB) },
     )
     Spacer(Modifier.height(10.dp))
     TarjetaDeRol(
         emoji = "📱",
         titulo = t[Clave.SALON_UNIRSE],
         detalle = t[Clave.SALON_UNIRSE_DETALLE],
-        onPulsar = { onRol(RolSalon.MANDO) }
+        onPulsar = { onRol(RolSalon.MANDO) },
     )
 }
 
@@ -252,15 +257,15 @@ private fun TarjetaDeRol(
     emoji: String,
     titulo: String,
     detalle: String,
-    onPulsar: () -> Unit
+    onPulsar: () -> Unit,
 ) {
     Tarjeta(
         modifier = Modifier.fillMaxWidth().clickable { onPulsar() },
-        borde = Primario.copy(alpha = 0.35f)
+        borde = Primario.copy(alpha = 0.35f),
     ) {
         Row(
             Modifier.fillMaxWidth().heightIn(min = AREA_TACTIL_MINIMA).padding(18.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(emoji, style = MaterialTheme.typography.displayMedium)
             Spacer(Modifier.width(16.dp))
@@ -289,12 +294,12 @@ private fun VistaDeHub(vm: JuegoViewModel, salon: SalonViewModel) {
                     Text(
                         t[Clave.SALON_HUB_TITULO],
                         style = MaterialTheme.typography.titleLarge,
-                        color = Primario
+                        color = Primario,
                     )
                     Text(
                         t.plural(ClavePlural.DISPOSITIVOS, estadoSalon.dispositivos.size),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = TextoTenue
+                        color = TextoTenue,
                     )
                 }
             }
@@ -306,32 +311,32 @@ private fun VistaDeHub(vm: JuegoViewModel, salon: SalonViewModel) {
                     CircularProgressIndicator(
                         modifier = Modifier.width(20.dp).height(20.dp),
                         color = Primario,
-                        strokeWidth = 2.dp
+                        strokeWidth = 2.dp,
                     )
                     Spacer(Modifier.width(12.dp))
                     Text(
                         t[Clave.SALON_HUB_ESPERANDO],
                         style = MaterialTheme.typography.bodyLarge,
-                        color = TextoTenue
+                        color = TextoTenue,
                     )
                 }
             } else {
                 estadoSalon.dispositivos.forEachIndexed { indice, dispositivo ->
                     Row(
                         Modifier.fillMaxWidth().padding(vertical = 6.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Ficha(
                             color = p.colorDeParticipante(indice + 1),
                             emoji = "📱",
-                            tamano = 32
+                            tamano = 32,
                         )
                         Spacer(Modifier.width(12.dp))
                         Text(
                             dispositivo.nombre.ifBlank { t[Clave.SALON_SIN_NOMBRE] },
                             style = MaterialTheme.typography.titleMedium,
                             color = TextoFuerte,
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
                         )
                         Text("✓", style = MaterialTheme.typography.titleMedium, color = Exito)
                     }
@@ -349,7 +354,7 @@ private fun VistaDeHub(vm: JuegoViewModel, salon: SalonViewModel) {
             salon.difundirSalon()
             salon.difundirVistas()
         },
-        habilitado = estadoSalon.dispositivos.isNotEmpty()
+        habilitado = estadoSalon.dispositivos.isNotEmpty(),
     )
 }
 
@@ -363,21 +368,21 @@ private fun VistaDeMando(salon: SalonViewModel) {
         Tarjeta(modifier = Modifier.fillMaxWidth(), borde = Exito) {
             Column(
                 Modifier.fillMaxWidth().padding(20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text("✅", style = MaterialTheme.typography.displayMedium)
                 Spacer(Modifier.height(8.dp))
                 Text(
                     t[Clave.SALON_CLIENTE_CONECTADO],
                     style = MaterialTheme.typography.titleLarge,
-                    color = Exito
+                    color = Exito,
                 )
                 Spacer(Modifier.height(6.dp))
                 Text(
                     t[Clave.SALON_CLIENTE_ESPERA],
                     style = MaterialTheme.typography.bodyLarge,
                     color = TextoTenue,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
         }
@@ -391,14 +396,14 @@ private fun VistaDeMando(salon: SalonViewModel) {
                     CircularProgressIndicator(
                         modifier = Modifier.width(20.dp).height(20.dp),
                         color = Primario,
-                        strokeWidth = 2.dp
+                        strokeWidth = 2.dp,
                     )
                     Spacer(Modifier.width(12.dp))
                 }
                 Text(
                     t[Clave.SALON_CLIENTE_BUSCANDO],
                     style = MaterialTheme.typography.titleMedium,
-                    color = TextoFuerte
+                    color = TextoFuerte,
                 )
             }
 
@@ -408,7 +413,7 @@ private fun VistaDeMando(salon: SalonViewModel) {
                 Text(
                     t[Clave.SALON_CLIENTE_SIN_SALONES],
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
             } else {
                 estadoSalon.encontrados.forEach { mesa ->
@@ -418,7 +423,7 @@ private fun VistaDeMando(salon: SalonViewModel) {
                             .heightIn(min = AREA_TACTIL_MINIMA)
                             .clickable { salon.conectarA(mesa.id) }
                             .padding(vertical = 10.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text("📺", style = MaterialTheme.typography.titleLarge)
                         Spacer(Modifier.width(12.dp))
@@ -426,7 +431,7 @@ private fun VistaDeMando(salon: SalonViewModel) {
                             mesa.nombre.ifBlank { t[Clave.SALON_SIN_NOMBRE] },
                             style = MaterialTheme.typography.titleMedium,
                             color = TextoFuerte,
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
                         )
                         Text("›", style = MaterialTheme.typography.headlineMedium, color = Primario)
                     }
@@ -440,16 +445,17 @@ private fun VistaDeMando(salon: SalonViewModel) {
 private fun TarjetaDeFallo(
     causa: TransporteSalon.Causa,
     permisosQueFaltan: List<String>,
-    onPedirPermisos: () -> Unit
+    onPedirPermisos: () -> Unit,
 ) {
     val t = textos()
-    val mensaje = when (causa) {
-        TransporteSalon.Causa.PERMISOS -> t[Clave.SALON_ERROR_PERMISOS]
-        TransporteSalon.Causa.BLUETOOTH -> t[Clave.SALON_ERROR_BLUETOOTH]
-        TransporteSalon.Causa.UBICACION -> t[Clave.SALON_ERROR_UBICACION]
-        TransporteSalon.Causa.SERVICIOS -> t[Clave.SALON_ERROR_SERVICIOS]
-        TransporteSalon.Causa.DESCONOCIDA -> t[Clave.SALON_DESCONECTADO]
-    }
+    val mensaje =
+        when (causa) {
+            TransporteSalon.Causa.PERMISOS -> t[Clave.SALON_ERROR_PERMISOS]
+            TransporteSalon.Causa.BLUETOOTH -> t[Clave.SALON_ERROR_BLUETOOTH]
+            TransporteSalon.Causa.UBICACION -> t[Clave.SALON_ERROR_UBICACION]
+            TransporteSalon.Causa.SERVICIOS -> t[Clave.SALON_ERROR_SERVICIOS]
+            TransporteSalon.Causa.DESCONOCIDA -> t[Clave.SALON_DESCONECTADO]
+        }
 
     Tarjeta(modifier = Modifier.fillMaxWidth(), borde = Acento) {
         Column(Modifier.padding(18.dp)) {
@@ -460,7 +466,7 @@ private fun TarjetaDeFallo(
                     mensaje,
                     style = MaterialTheme.typography.bodyLarge,
                     color = TextoFuerte,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 )
             }
 
@@ -471,7 +477,7 @@ private fun TarjetaDeFallo(
                 Text(
                     t[Clave.SALON_PERMISOS_EXPLICACION],
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
                 Spacer(Modifier.height(12.dp))
                 Box(Modifier.fillMaxWidth()) {

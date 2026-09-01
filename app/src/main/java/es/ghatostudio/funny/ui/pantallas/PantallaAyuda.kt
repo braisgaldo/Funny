@@ -49,15 +49,16 @@ fun PantallaAyuda(vm: JuegoViewModel) {
             Cabecera(
                 titulo = t[Clave.AYUDA_TITULO],
                 subtitulo = t[Clave.AYUDA_SUBTITULO],
-                onVolver = { vm.ir(Pantalla.INICIO) }
+                onVolver = { vm.ir(Pantalla.INICIO) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(14.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp),
             ) {
                 Bloque(t[Clave.AYUDA_QUE_ES_TITULO]) {
                     Parrafo(t[Clave.AYUDA_QUE_ES_TEXTO])
@@ -89,12 +90,12 @@ fun PantallaAyuda(vm: JuegoViewModel) {
                                 Text(
                                     t.nombreDe(juego),
                                     style = MaterialTheme.typography.titleMedium,
-                                    color = p.colorDe(juego)
+                                    color = p.colorDe(juego),
                                 )
                                 Text(
                                     t.instruccionesDe(juego),
                                     style = MaterialTheme.typography.bodyMedium,
-                                    color = TextoTenue
+                                    color = TextoTenue,
                                 )
                             }
                         }
@@ -131,11 +132,11 @@ fun PantallaAyuda(vm: JuegoViewModel) {
                         Sistema.escribirCorreo(
                             contexto,
                             BuildConfig.CORREO_CONTACTO,
-                            "Funny ${BuildConfig.VERSION_NAME}" // literal-ok: asunto técnico
+                            "Funny ${BuildConfig.VERSION_NAME}", // literal-ok: asunto técnico
                         )
                     },
                     color = SuperficieAlta,
-                    colorTexto = TextoFuerte
+                    colorTexto = TextoFuerte,
                 )
 
                 Spacer(Modifier.height(16.dp))

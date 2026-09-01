@@ -54,15 +54,16 @@ fun PantallaIdioma(vm: JuegoViewModel) {
             Cabecera(
                 titulo = t[Clave.IDIOMA_TITULO],
                 subtitulo = t[Clave.IDIOMA_SUBTITULO],
-                onVolver = { vm.ir(Pantalla.AJUSTES) }
+                onVolver = { vm.ir(Pantalla.AJUSTES) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
                 // «El del móvil» es una opción de pleno derecho, no la ausencia
                 // de elección: quien viaja o cambia el idioma del sistema espera
@@ -72,7 +73,7 @@ fun PantallaIdioma(vm: JuegoViewModel) {
                     nombre = t[Clave.IDIOMA_SEGUIR_SISTEMA],
                     detalle = efectivo.endonimo,
                     seleccionado = elegido == null,
-                    onElegir = { vm.elegirIdioma(null) }
+                    onElegir = { vm.elegirIdioma(null) },
                 )
 
                 Idioma.entries.forEach { idioma ->
@@ -81,7 +82,7 @@ fun PantallaIdioma(vm: JuegoViewModel) {
                         nombre = idioma.endonimo,
                         detalle = idioma.codigo.uppercase(t.locale),
                         seleccionado = elegido == idioma.codigo,
-                        onElegir = { vm.elegirIdioma(idioma.codigo) }
+                        onElegir = { vm.elegirIdioma(idioma.codigo) },
                     )
                 }
 
@@ -97,18 +98,18 @@ private fun FilaDeIdioma(
     nombre: String,
     detalle: String,
     seleccionado: Boolean,
-    onElegir: () -> Unit
+    onElegir: () -> Unit,
 ) {
     Tarjeta(
         modifier = Modifier.fillMaxWidth().clickable { onElegir() },
-        borde = if (seleccionado) Primario else null
+        borde = if (seleccionado) Primario else null,
     ) {
         Row(
             Modifier
                 .fillMaxWidth()
                 .heightIn(min = AREA_TACTIL_MINIMA)
                 .padding(horizontal = 16.dp, vertical = 14.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             if (insignia != null) {
                 InsigniaDeIdioma(insignia)
@@ -120,12 +121,12 @@ private fun FilaDeIdioma(
                 Text(
                     nombre,
                     style = MaterialTheme.typography.titleMedium,
-                    color = TextoFuerte
+                    color = TextoFuerte,
                 )
                 Text(
                     detalle,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
             }
             if (seleccionado) {

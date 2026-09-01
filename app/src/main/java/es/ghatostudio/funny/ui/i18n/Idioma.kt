@@ -16,8 +16,13 @@ package es.ghatostudio.funny.ui.i18n
  *   siempre igual de bien en los seis temas.
  */
 sealed interface Insignia {
-    data class Bandera(val emoji: String) : Insignia
-    data class Codigo(val texto: String) : Insignia
+    data class Bandera(
+        val emoji: String,
+    ) : Insignia
+
+    data class Codigo(
+        val texto: String,
+    ) : Insignia
 }
 
 /**
@@ -31,7 +36,7 @@ enum class Idioma(
     val codigo: String,
     val endonimo: String,
     val insignia: Insignia,
-    val esRtl: Boolean = false
+    val esRtl: Boolean = false,
 ) {
     INGLES("en", "English", Insignia.Codigo("EN")),
     CASTELLANO("es", "Español", Insignia.Bandera("🇪🇸")),
@@ -45,7 +50,8 @@ enum class Idioma(
     ARABE("ar", "العربية", Insignia.Codigo("AR"), esRtl = true),
     GALLEGO("gl", "Galego", Insignia.Codigo("GL")),
     CATALAN("ca", "Català", Insignia.Codigo("CA")),
-    EUSKERA("eu", "Euskara", Insignia.Codigo("EU"));
+    EUSKERA("eu", "Euskara", Insignia.Codigo("EU")),
+    ;
 
     companion object {
         val POR_DEFECTO = INGLES

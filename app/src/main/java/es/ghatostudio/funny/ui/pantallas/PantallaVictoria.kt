@@ -53,14 +53,14 @@ fun PantallaVictoria(vm: JuegoViewModel, sonidos: Sonidos) {
                 .verticalScroll(rememberScrollState())
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text("🏆", style = MaterialTheme.typography.displayLarge)
             Spacer(Modifier.height(8.dp))
             Text(
                 t[Clave.VICTORIA_TITULO],
                 style = MaterialTheme.typography.titleLarge,
-                color = TextoTenue
+                color = TextoTenue,
             )
             Spacer(Modifier.height(6.dp))
             if (ganador != null) {
@@ -68,7 +68,7 @@ fun PantallaVictoria(vm: JuegoViewModel, sonidos: Sonidos) {
                     "${ganador.emoji}  ${t.con(Clave.VICTORIA_GANADOR, nombreDe(estado, ganador))}",
                     style = MaterialTheme.typography.headlineLarge,
                     color = p.colorDeParticipante(ganador.indiceColor),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
 
@@ -79,18 +79,18 @@ fun PantallaVictoria(vm: JuegoViewModel, sonidos: Sonidos) {
                     Text(
                         t[Clave.VICTORIA_CLASIFICACION],
                         style = MaterialTheme.typography.titleMedium,
-                        color = TextoFuerte
+                        color = TextoFuerte,
                     )
                     Spacer(Modifier.height(12.dp))
                     estado.clasificacion.forEachIndexed { puesto, participante ->
                         Row(
                             Modifier.fillMaxWidth().padding(vertical = 6.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(
                                 medalla(puesto),
                                 style = MaterialTheme.typography.titleMedium,
-                                color = TextoTenue
+                                color = TextoTenue,
                             )
                             Spacer(Modifier.width(10.dp))
                             Text(participante.emoji, style = MaterialTheme.typography.titleLarge)
@@ -99,12 +99,12 @@ fun PantallaVictoria(vm: JuegoViewModel, sonidos: Sonidos) {
                                 nombreDe(estado, participante),
                                 style = MaterialTheme.typography.titleMedium,
                                 color = p.colorDeParticipante(participante.indiceColor),
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f),
                             )
                             Text(
                                 t.con(Clave.TABLERO_CASILLA, participante.posicion),
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = TextoTenue
+                                color = TextoTenue,
                             )
                         }
                     }
@@ -119,7 +119,7 @@ fun PantallaVictoria(vm: JuegoViewModel, sonidos: Sonidos) {
                 texto = t[Clave.VICTORIA_AL_MENU],
                 onClick = { vm.volverAlMenu() },
                 color = SuperficieAlta,
-                colorTexto = TextoFuerte
+                colorTexto = TextoFuerte,
             )
         }
     }
@@ -150,23 +150,23 @@ fun PantallaFinSolitario(vm: JuegoViewModel, sonidos: Sonidos) {
                 .verticalScroll(rememberScrollState())
                 .padding(26.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text(
                 if (estado.esRecordSolitario) "🥇" else "🧍",
-                style = MaterialTheme.typography.displayLarge
+                style = MaterialTheme.typography.displayLarge,
             )
             Spacer(Modifier.height(10.dp))
             Text(
                 t[Clave.VICTORIA_SOLITARIO_TITULO],
                 style = MaterialTheme.typography.titleLarge,
-                color = TextoTenue
+                color = TextoTenue,
             )
             Spacer(Modifier.height(10.dp))
             Text(
                 t.con(Clave.VICTORIA_SOLITARIO_PUNTOS, estado.puntosSolitario),
                 style = MaterialTheme.typography.displayMedium,
-                color = color
+                color = color,
             )
 
             if (estado.esRecordSolitario) {
@@ -175,7 +175,7 @@ fun PantallaFinSolitario(vm: JuegoViewModel, sonidos: Sonidos) {
                     t[Clave.VICTORIA_SOLITARIO_RECORD],
                     style = MaterialTheme.typography.headlineMedium,
                     color = Acento,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
 
@@ -184,21 +184,21 @@ fun PantallaFinSolitario(vm: JuegoViewModel, sonidos: Sonidos) {
             Tarjeta(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     Modifier.fillMaxWidth().padding(20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
                         t.con(
                             Clave.VICTORIA_SOLITARIO_MEJOR,
-                            estado.ajustes.mejorMarcaSolitario
+                            estado.ajustes.mejorMarcaSolitario,
                         ),
                         style = MaterialTheme.typography.titleMedium,
-                        color = TextoFuerte
+                        color = TextoFuerte,
                     )
                     Spacer(Modifier.height(6.dp))
                     Text(
                         t.plural(ClavePlural.ACIERTOS, estado.puntosSolitario),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = TextoTenue
+                        color = TextoTenue,
                     )
                 }
             }
@@ -209,23 +209,24 @@ fun PantallaFinSolitario(vm: JuegoViewModel, sonidos: Sonidos) {
                 texto = t[Clave.VICTORIA_OTRA_PARTIDA],
                 onClick = { vm.empezarPartida() },
                 color = color,
-                colorTexto = p.textoSobre(color)
+                colorTexto = p.textoSobre(color),
             )
             Spacer(Modifier.height(12.dp))
             BotonGrande(
                 texto = t[Clave.VICTORIA_AL_MENU],
                 onClick = { vm.volverAlMenu() },
                 color = SuperficieAlta,
-                colorTexto = TextoFuerte
+                colorTexto = TextoFuerte,
             )
         }
     }
 }
 
 /** Medalla para los tres primeros; a partir de ahí, el número del puesto. */
-private fun medalla(puesto: Int): String = when (puesto) {
-    0 -> "🥇"
-    1 -> "🥈"
-    2 -> "🥉"
-    else -> "${puesto + 1}."
-}
+private fun medalla(puesto: Int): String =
+    when (puesto) {
+        0 -> "🥇"
+        1 -> "🥈"
+        2 -> "🥉"
+        else -> "${puesto + 1}."
+    }

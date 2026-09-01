@@ -32,13 +32,18 @@ fun codigoDeVersion(semver: String): Int {
 }
 
 /** Ejecuta un comando y devuelve su salida, o [porDefecto] si falla. */
-fun ordenDelSistema(porDefecto: String, vararg orden: String): String = runCatching {
-    val salida = ByteArrayOutputStream()
-    providers.exec {
-        commandLine(*orden)
-        isIgnoreExitValue = true
-    }.standardOutput.asText.get().trim().ifEmpty { salida.toString().trim() }
-}.getOrNull()?.takeIf { it.isNotEmpty() } ?: porDefecto
+fun ordenDelSistema(porDefecto: String, vararg orden: String): String =
+    runCatching {
+        val salida = ByteArrayOutputStream()
+        providers
+            .exec {
+                commandLine(*orden)
+                isIgnoreExitValue = true
+            }.standardOutput.asText
+            .get()
+            .trim()
+            .ifEmpty { salida.toString().trim() }
+    }.getOrNull()?.takeIf { it.isNotEmpty() } ?: porDefecto
 
 // Hash y fecha del commit. Se usan en «Acerca de» para poder identificar
 // exactamente qué código lleva un APK que alguien nos envíe. Se toma la fecha
@@ -56,10 +61,11 @@ val fechaCompilacion = ordenDelSistema("desconocida", "git", "log", "-1", "--for
 // preferible a fallar la build de quien solo quiere compilar el proyecto.
 // El procedimiento de regeneración está en docs/INSTALL.md.
 // --------------------------------------------------------------------------
-val propiedadesLocales = Properties().apply {
-    val fichero = rootProject.file("local.properties")
-    if (fichero.exists()) fichero.inputStream().use { load(it) }
-}
+val propiedadesLocales =
+    Properties().apply {
+        val fichero = rootProject.file("local.properties")
+        if (fichero.exists()) fichero.inputStream().use { load(it) }
+    }
 
 fun secreto(clave: String): String? =
     (System.getenv(clave.replace('.', '_').uppercase()) ?: propiedadesLocales.getProperty(clave))
@@ -91,9 +97,22 @@ android {
 
         // La app admite trece idiomas y el árabe obliga a RTL. Se declara aquí
         // para que el APK conserve los recursos de todos ellos.
-        resourceConfigurations += listOf(
-            "en", "es", "fr", "de", "zh", "ja", "ru", "it", "el", "ar", "gl", "ca", "eu"
-        )
+        resourceConfigurations +=
+            listOf(
+                "en",
+                "es",
+                "fr",
+                "de",
+                "zh",
+                "ja",
+                "ru",
+                "it",
+                "el",
+                "ar",
+                "gl",
+                "ca",
+                "eu",
+            )
     }
 
     signingConfigs {
@@ -118,14 +137,14 @@ android {
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
             if (hayFirmaDeRelease) {
                 signingConfig = signingConfigs.getByName("release")
             } else {
                 logger.lifecycle(
                     "Funny: sin keystore configurado, el release saldrá SIN FIRMAR. " +
-                        "Ver docs/INSTALL.md, apartado «Firma de release»."
+                        "Ver docs/INSTALL.md, apartado «Firma de release».",
                 )
             }
         }
@@ -183,7 +202,9 @@ dependencies {
     testImplementation(libs.kotlin.test)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.robolectric)
+    testImplementation(libs.androidx.test.core)
     testImplementation(libs.zxing.core)
+    testImplementation(libs.json)
 
     androidTestImplementation(libs.androidx.test.junit)
 }
@@ -193,7 +214,10 @@ ktlint {
     android.set(true)
     ignoreFailures.set(false)
     filter {
-        exclude { it.file.path.contains("${File.separator}build${File.separator}") }
+        val carpetaBuild = "${File.separator}build${File.separator}"
+        exclude { elemento ->
+            elemento.file.path.contains(carpetaBuild)
+        }
     }
 }
 
@@ -208,43 +232,50 @@ ktlint {
  * alguna librería de facturación entra en el classpath, aunque sea de forma
  * transitiva. Ver ADR-0004 y docs/PUBLICACION.md.
  */
-val bibliotecasDeFacturacionProhibidas = listOf(
-    "billingclient",
-    "billing-ktx",
-    "com.android.vending.billing",
-    "play-services-wallet",
-    "revenuecat",
-    "purchases-android",
-    "qonversion",
-    "adapty"
-)
+val bibliotecasDeFacturacionProhibidas =
+    listOf(
+        "billingclient",
+        "billing-ktx",
+        "com.android.vending.billing",
+        "play-services-wallet",
+        "revenuecat",
+        "purchases-android",
+        "qonversion",
+        "adapty",
+    )
 
 tasks.register("verificarSinFacturacion") {
     group = "verification"
     description = "Falla si aparece cualquier librería de pagos en el classpath de release."
 
     val configuraciones = listOf("releaseRuntimeClasspath", "debugRuntimeClasspath")
-    val artefactos = configuraciones.mapNotNull { nombre ->
-        configurations.findByName(nombre)?.incoming?.artifacts?.resolvedArtifacts?.map { lista ->
-            lista.map { it.id.displayName }
+    val artefactos =
+        configuraciones.mapNotNull { nombre ->
+            val resueltos =
+                configurations
+                    .findByName(nombre)
+                    ?.incoming
+                    ?.artifacts
+                    ?.resolvedArtifacts
+            resueltos?.map { lista -> lista.map { it.id.displayName } }
         }
-    }
 
     doLast {
         val todos = artefactos.flatMap { it.get() }
-        val sospechosos = todos.filter { artefacto ->
-            bibliotecasDeFacturacionProhibidas.any { artefacto.contains(it, ignoreCase = true) }
-        }
+        val sospechosos =
+            todos.filter { artefacto ->
+                bibliotecasDeFacturacionProhibidas.any { artefacto.contains(it, ignoreCase = true) }
+            }
         if (sospechosos.isNotEmpty()) {
             throw GradleException(
                 "Funny no puede llevar librerías de facturación y se han encontrado:\n" +
                     sospechosos.joinToString("\n") { "  - $it" } +
-                    "\nVer ADR-0004: la donación se paga en el navegador y no desbloquea nada."
+                    "\nVer ADR-0004: la donación se paga en el navegador y no desbloquea nada.",
             )
         }
         logger.lifecycle(
             "verificarSinFacturacion: ${todos.size} artefactos revisados, " +
-                "ninguna librería de pagos. Correcto."
+                "ninguna librería de pagos. Correcto.",
         )
     }
 }
@@ -262,45 +293,69 @@ tasks.register("verificarTextosLiterales") {
     group = "verification"
     description = "Falla si alguna pantalla lleva texto visible escrito a fuego."
 
-    val fuentes = fileTree("src/main/java/es/ghatostudio/funny/ui") {
-        include("**/*.kt")
-        exclude("i18n/**")
-    }
+    val fuentes =
+        fileTree("src/main/java/es/ghatostudio/funny/ui") {
+            include("**/*.kt")
+            exclude("i18n/**")
+        }
     inputs.files(fuentes)
 
     doLast {
-        // Un literal es sospechoso si lleva al menos dos letras seguidas: así
-        // «✓», «·» o «%d» pasan, pero «Ajustes» no.
+        // Un texto es sospechoso si tiene dos letras seguidas: así «✓», «·»,
+        // «%d» y los emojis pasan, pero «Ajustes» no.
         val conLetras = Regex("""\p{L}{2,}""")
-        val literal = Regex(""""([^"\\]|\\.){2,}"""")
+
+        // Lo que se interpola NO cuenta: las letras visibles dentro de una
+        // interpolación son el nombre de una clave o de una variable, no texto
+        // de usuario. Sin quitarlo, la comprobación daba falsos positivos y
+        // habría acabado ignorada, que es la peor forma en la que puede acabar
+        // una verificación.
+        //
+        // El dólar va como clase de un carácter porque en una cadena sin
+        // escapes de Kotlin no se puede escapar con barra invertida.
+        val interpolada = Regex("""[${'$'}]\{[^}]*\}|[${'$'}][A-Za-z_][A-Za-z0-9_.]*""")
+
+        // Solo se miran las líneas que de verdad pintan algo.
+        val marcasDeTexto =
+            listOf(
+                "Text(",
+                "texto =",
+                "titulo =",
+                "etiqueta =",
+                "contentDescription ="
+            )
+
         val fallos = mutableListOf<String>()
 
         fuentes.forEach { fichero ->
             fichero.readLines().forEachIndexed { indice, linea ->
                 if (linea.contains("literal-ok")) return@forEachIndexed
                 val recortada = linea.substringBefore("//")
-                if (!recortada.contains("Text(") &&
-                    !recortada.contains("texto =") &&
-                    !recortada.contains("titulo =") &&
-                    !recortada.contains("etiqueta =") &&
-                    !recortada.contains("contentDescription =")
-                ) {
-                    return@forEachIndexed
-                }
-                literal.findAll(recortada).forEach { encontrado ->
-                    val contenido = encontrado.value.trim('"')
-                    if (conLetras.containsMatchIn(contenido)) {
-                        fallos += "${fichero.relativeTo(projectDir)}:${indice + 1}  →  \"$contenido\""
+                if (marcasDeTexto.none { recortada.contains(it) }) return@forEachIndexed
+
+                // Los literales se extraen partiendo por la comilla y quedándose
+                // con los trozos impares. Es más tosco que una expresión regular
+                // pero no depende de escapar nada, y para una heurística de lint
+                // es de sobra.
+                recortada
+                    .split('"')
+                    .filterIndexed { posicion, _ -> posicion % 2 == 1 }
+                    .forEach { crudo ->
+                        val contenido = crudo.replace(interpolada, "")
+                        if (conLetras.containsMatchIn(contenido)) {
+                            val donde = "${fichero.relativeTo(projectDir)}:${indice + 1}"
+                            fallos += "$donde  ->  $contenido"
+                        }
                     }
-                }
             }
         }
 
         if (fallos.isNotEmpty()) {
             throw GradleException(
-                "Hay textos escritos a fuego en la interfaz. Muévelos al catálogo de " +
-                    "ui/i18n o marca la línea con «// literal-ok» si de verdad no es " +
-                    "un texto de usuario:\n" + fallos.joinToString("\n") { "  $it" }
+                "Hay textos escritos a fuego en la interfaz. Muévelos al catálogo " +
+                    "de ui/i18n, o marca la línea con «// literal-ok» si de verdad " +
+                    "no es un texto de usuario:\n" +
+                    fallos.joinToString("\n") { "  $it" }
             )
         }
         logger.lifecycle("verificarTextosLiterales: sin textos a fuego en la interfaz. Correcto.")

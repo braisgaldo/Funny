@@ -21,11 +21,12 @@ enum class Modo(
     val claveDetalle: Clave,
     val emoji: String,
     val minimoParticipantes: Int,
-    val maximoParticipantes: Int
+    val maximoParticipantes: Int,
 ) {
     EQUIPOS(Clave.MODO_EQUIPOS, Clave.MODO_EQUIPOS_DETALLE, "👥", 2, 6),
     INDIVIDUAL(Clave.MODO_INDIVIDUAL, Clave.MODO_INDIVIDUAL_DETALLE, "🙋", 2, 8),
-    SOLITARIO(Clave.MODO_SOLITARIO, Clave.MODO_SOLITARIO_DETALLE, "🧍", 1, 1);
+    SOLITARIO(Clave.MODO_SOLITARIO, Clave.MODO_SOLITARIO_DETALLE, "🧍", 1, 1),
+    ;
 
     val esCarrera: Boolean get() = this != SOLITARIO
 }
@@ -66,7 +67,7 @@ data class Participante(
     val turnoMiembro: Int = 0,
     val puntos: Int = 0,
     /** Identificador del dispositivo del salón que lleva a este participante. */
-    val dispositivo: String? = null
+    val dispositivo: String? = null,
 ) {
     val emoji: String get() = EMOJIS_PARTICIPANTE[indiceColor % EMOJIS_PARTICIPANTE.size]
 
@@ -92,22 +93,33 @@ data class Participante(
 
 enum class TipoCasilla { SALIDA, NORMAL, COMODIN, TODOS, META }
 
-data class Casilla(val indice: Int, val tipo: TipoCasilla, val juego: Juego?)
+data class Casilla(
+    val indice: Int,
+    val tipo: TipoCasilla,
+    val juego: Juego?,
+)
 
 // ---------------------------------------------------------------------------
 // Ajustes
 // ---------------------------------------------------------------------------
 
-enum class Ritmo(val claveNombre: Clave, val factor: Float) {
+enum class Ritmo(
+    val claveNombre: Clave,
+    val factor: Float,
+) {
     RAPIDO(Clave.RITMO_RAPIDO, 0.7f),
     NORMAL(Clave.RITMO_NORMAL, 1.0f),
-    TRANQUILO(Clave.RITMO_TRANQUILO, 1.4f)
+    TRANQUILO(Clave.RITMO_TRANQUILO, 1.4f),
 }
 
-enum class Duracion(val claveNombre: Clave, val claveDetalle: Clave, val casillas: Int) {
+enum class Duracion(
+    val claveNombre: Clave,
+    val claveDetalle: Clave,
+    val casillas: Int,
+) {
     CORTA(Clave.DURACION_CORTA, Clave.DURACION_CORTA_DETALLE, 12),
     NORMAL(Clave.DURACION_NORMAL, Clave.DURACION_NORMAL_DETALLE, 20),
-    LARGA(Clave.DURACION_LARGA, Clave.DURACION_LARGA_DETALLE, 28)
+    LARGA(Clave.DURACION_LARGA, Clave.DURACION_LARGA_DETALLE, 28),
 }
 
 /**
@@ -115,13 +127,17 @@ enum class Duracion(val claveNombre: Clave, val claveDetalle: Clave, val casilla
  * sistema» no es un tema, es un [Boolean] aparte ([Ajustes.temaDelSistema]),
  * porque hace falta saber a qué tema claro y a qué tema oscuro caer.
  */
-enum class TemaId(val claveNombre: Clave, val esOscuro: Boolean) {
+enum class TemaId(
+    val claveNombre: Clave,
+    val esOscuro: Boolean,
+) {
     FIESTA(Clave.TEMA_FIESTA, true),
     NEON(Clave.TEMA_NEON, true),
     MEDIANOCHE(Clave.TEMA_MEDIANOCHE, true),
     PAPEL(Clave.TEMA_PAPEL, false),
     MENTA(Clave.TEMA_MENTA, false),
-    ATARDECER(Clave.TEMA_ATARDECER, false);
+    ATARDECER(Clave.TEMA_ATARDECER, false),
+    ;
 
     companion object {
         val OSCUROS: List<TemaId> get() = entries.filter { it.esOscuro }
@@ -146,7 +162,7 @@ data class EstadoCafe(
     val diaUltimaMuestra: Long = 0,
     val noVolverAMostrar: Boolean = false,
     /** Se marca al volver del navegador, para no volver a insistir. */
-    val yaPasoPorAhi: Boolean = false
+    val yaPasoPorAhi: Boolean = false,
 )
 
 data class Ajustes(
@@ -163,7 +179,7 @@ data class Ajustes(
     val juegosDesactivados: Set<Juego> = emptySet(),
     val tourVisto: Boolean = false,
     val cafe: EstadoCafe = EstadoCafe(),
-    val mejorMarcaSolitario: Int = 0
+    val mejorMarcaSolitario: Int = 0,
 ) {
     fun juegosActivos(contenido: Contenido): List<Juego> {
         val jugables = contenido.juegosJugables
@@ -196,7 +212,7 @@ enum class Pantalla {
     RONDA_TODOS,
     RESULTADO,
     VICTORIA,
-    SOLITARIO_FIN
+    SOLITARIO_FIN,
 }
 
 /**
@@ -226,7 +242,7 @@ data class EstadoJuego(
     val rondaSolitario: Int = 0,
     val rondasSolitario: Int = RONDAS_SOLITARIO,
     val puntosSolitario: Int = 0,
-    val esRecordSolitario: Boolean = false
+    val esRecordSolitario: Boolean = false,
 ) {
     val participanteActivo: Participante? get() = participantes.getOrNull(turno)
 
@@ -234,7 +250,14 @@ data class EstadoJuego(
 
     /** Quien elige la prueba en las casillas comodín: el siguiente en el orden. */
     val quienElige: Participante?
-        get() = if (participantes.size < 2) null else participantes[(turno + 1) % participantes.size]
+        get() =
+            if (participantes.size <
+                2
+            ) {
+                null
+            } else {
+                participantes[(turno + 1) % participantes.size]
+            }
 
     val casillaDestino: Casilla? get() = tablero.getOrNull(destino)
 
@@ -246,8 +269,8 @@ data class EstadoJuego(
 
     /** Clasificación de mayor a menor avance, para la pantalla de victoria. */
     val clasificacion: List<Participante>
-        get() = participantes.sortedWith(
-            compareByDescending<Participante> { it.posicion }.thenByDescending { it.puntos }
-        )
-
+        get() =
+            participantes.sortedWith(
+                compareByDescending<Participante> { it.posicion }.thenByDescending { it.puntos },
+            )
 }

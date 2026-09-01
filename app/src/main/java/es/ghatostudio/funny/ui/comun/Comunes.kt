@@ -101,30 +101,32 @@ val AREA_TACTIL_MINIMA = 48.dp
 fun FondoFunny(
     modifier: Modifier = Modifier,
     tinte: Color? = null,
-    contenido: @Composable BoxScope.() -> Unit
+    contenido: @Composable BoxScope.() -> Unit,
 ) {
     val alto = FondoAlto
     val bajo = Fondo
     val arriba = tinte?.copy(alpha = 0.22f)?.sobre(alto) ?: alto
     Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(Brush.verticalGradient(listOf(arriba, bajo, bajo)))
+        modifier =
+            modifier
+                .fillMaxSize()
+                .background(Brush.verticalGradient(listOf(arriba, bajo, bajo))),
     ) {
         Box(
             modifier = Modifier.fillMaxSize().safeDrawingPadding(),
-            content = contenido
+            content = contenido,
         )
     }
 }
 
 /** Compone este color, con su alfa, encima de otro opaco. */
-private fun Color.sobre(fondo: Color): Color = Color(
-    red = red * alpha + fondo.red * (1 - alpha),
-    green = green * alpha + fondo.green * (1 - alpha),
-    blue = blue * alpha + fondo.blue * (1 - alpha),
-    alpha = 1f
-)
+private fun Color.sobre(fondo: Color): Color =
+    Color(
+        red = red * alpha + fondo.red * (1 - alpha),
+        green = green * alpha + fondo.green * (1 - alpha),
+        blue = blue * alpha + fondo.blue * (1 - alpha),
+        alpha = 1f,
+    )
 
 /**
  * Botón principal de una pantalla.
@@ -141,22 +143,27 @@ fun BotonGrande(
     color: Color = Primario,
     colorTexto: Color = SobrePrimario,
     habilitado: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
         modifier = modifier.fillMaxWidth().heightIn(min = 60.dp),
         enabled = habilitado,
         shape = RoundedCornerShape(18.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = color,
-            contentColor = colorTexto,
-            disabledContainerColor = SuperficieAlta,
-            disabledContentColor = TextoTenue
-        ),
-        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp)
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = color,
+                contentColor = colorTexto,
+                disabledContainerColor = SuperficieAlta,
+                disabledContentColor = TextoTenue,
+            ),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp),
     ) {
-        Text(text = texto, style = MaterialTheme.typography.titleLarge, textAlign = TextAlign.Center)
+        Text(
+            text = texto,
+            style = MaterialTheme.typography.titleLarge,
+            textAlign = TextAlign.Center,
+        )
     }
 }
 
@@ -165,11 +172,11 @@ fun BotonSuave(
     texto: String,
     modifier: Modifier = Modifier,
     color: Color = TextoTenue,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     TextButton(
         onClick = onClick,
-        modifier = modifier.heightIn(min = AREA_TACTIL_MINIMA)
+        modifier = modifier.heightIn(min = AREA_TACTIL_MINIMA),
     ) {
         Text(texto, color = color, style = MaterialTheme.typography.labelLarge)
     }
@@ -180,22 +187,23 @@ fun Cabecera(
     titulo: String,
     modifier: Modifier = Modifier,
     subtitulo: String? = null,
-    onVolver: (() -> Unit)? = null
+    onVolver: (() -> Unit)? = null,
 ) {
     val t = textos()
     Column(modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp)) {
         if (onVolver != null) {
             TextButton(
                 onClick = onVolver,
-                modifier = Modifier
-                    .heightIn(min = AREA_TACTIL_MINIMA)
-                    .semantics { contentDescription = t[Clave.A11Y_VOLVER] },
-                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)
+                modifier =
+                    Modifier
+                        .heightIn(min = AREA_TACTIL_MINIMA)
+                        .semantics { contentDescription = t[Clave.A11Y_VOLVER] },
+                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
             ) {
                 Text(
                     "‹  ${t[Clave.ACCION_VOLVER]}",
                     color = TextoTenue,
-                    style = MaterialTheme.typography.labelLarge
+                    style = MaterialTheme.typography.labelLarge,
                 )
             }
             Spacer(Modifier.height(4.dp))
@@ -213,14 +221,14 @@ fun Tarjeta(
     modifier: Modifier = Modifier,
     color: Color = Superficie,
     borde: Color? = null,
-    contenido: @Composable () -> Unit
+    contenido: @Composable () -> Unit,
 ) {
     Surface(
         modifier = modifier,
         color = color,
         shape = RoundedCornerShape(22.dp),
         border = borde?.let { BorderStroke(2.dp, it) },
-        content = contenido
+        content = contenido,
     )
 }
 
@@ -231,7 +239,7 @@ fun TituloDeSeccion(texto: String, modifier: Modifier = Modifier) {
         texto.uppercase(textos().locale),
         modifier = modifier.padding(start = 6.dp, top = 6.dp),
         style = MaterialTheme.typography.labelLarge,
-        color = Primario
+        color = Primario,
     )
 }
 
@@ -244,11 +252,11 @@ fun PastillaJuego(juego: Juego, modifier: Modifier = Modifier) {
         modifier = modifier,
         color = color.copy(alpha = 0.18f),
         shape = RoundedCornerShape(50),
-        border = BorderStroke(1.5.dp, color.copy(alpha = 0.65f))
+        border = BorderStroke(1.5.dp, color.copy(alpha = 0.65f)),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 14.dp, vertical = 7.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(juego.emoji, style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.width(8.dp))
@@ -257,7 +265,7 @@ fun PastillaJuego(juego: Juego, modifier: Modifier = Modifier) {
                 style = MaterialTheme.typography.labelLarge,
                 color = color,
                 maxLines = 1,
-                softWrap = false
+                softWrap = false,
             )
         }
     }
@@ -267,11 +275,12 @@ fun PastillaJuego(juego: Juego, modifier: Modifier = Modifier) {
 @Composable
 fun Ficha(color: Color, emoji: String, modifier: Modifier = Modifier, tamano: Int = 28) {
     Box(
-        modifier = modifier
-            .size(tamano.dp)
-            .clip(CircleShape)
-            .background(color),
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .size(tamano.dp)
+                .clip(CircleShape)
+                .background(color),
+        contentAlignment = Alignment.Center,
     ) {
         Text(emoji, style = MaterialTheme.typography.bodyMedium)
     }
@@ -282,33 +291,35 @@ fun SelectorSegmentado(
     opciones: List<String>,
     seleccion: Int,
     modifier: Modifier = Modifier,
-    onSeleccion: (Int) -> Unit
+    onSeleccion: (Int) -> Unit,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp))
-            .background(SuperficieAlta)
-            .padding(4.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(16.dp))
+                .background(SuperficieAlta)
+                .padding(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         opciones.forEachIndexed { indice, etiqueta ->
             val activo = indice == seleccion
             Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .heightIn(min = AREA_TACTIL_MINIMA)
-                    .clip(RoundedCornerShape(13.dp))
-                    .background(if (activo) Primario else Color.Transparent)
-                    .clickable { onSeleccion(indice) }
-                    .padding(vertical = 12.dp),
-                contentAlignment = Alignment.Center
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .heightIn(min = AREA_TACTIL_MINIMA)
+                        .clip(RoundedCornerShape(13.dp))
+                        .background(if (activo) Primario else Color.Transparent)
+                        .clickable { onSeleccion(indice) }
+                        .padding(vertical = 12.dp),
+                contentAlignment = Alignment.Center,
             ) {
                 Text(
                     etiqueta,
                     style = MaterialTheme.typography.labelLarge,
                     color = if (activo) SobrePrimario else TextoTenue,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
         }
@@ -322,15 +333,16 @@ fun FilaAjuste(
     modifier: Modifier = Modifier,
     detalle: String? = null,
     onClick: (() -> Unit)? = null,
-    derecha: @Composable (() -> Unit)? = null
+    derecha: @Composable (() -> Unit)? = null,
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = AREA_TACTIL_MINIMA)
-            .then(if (onClick != null) Modifier.clickable { onClick() } else Modifier)
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .heightIn(min = AREA_TACTIL_MINIMA)
+                .then(if (onClick != null) Modifier.clickable { onClick() } else Modifier)
+                .padding(vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
             Text(titulo, style = MaterialTheme.typography.titleMedium, color = TextoFuerte)
@@ -351,7 +363,7 @@ fun FilaInterruptor(
     activo: Boolean,
     modifier: Modifier = Modifier,
     detalle: String? = null,
-    onCambio: (Boolean) -> Unit
+    onCambio: (Boolean) -> Unit,
 ) {
     FilaAjuste(
         titulo = titulo,
@@ -362,16 +374,17 @@ fun FilaInterruptor(
             Switch(
                 checked = activo,
                 onCheckedChange = onCambio,
-                colors = SwitchDefaults.colors(
-                    checkedThumbColor = Color.White,
-                    checkedTrackColor = Exito,
-                    uncheckedThumbColor = TextoTenue,
-                    uncheckedTrackColor = SuperficieAlta,
-                    uncheckedBorderColor = Contorno,
-                    checkedBorderColor = Exito
-                )
+                colors =
+                    SwitchDefaults.colors(
+                        checkedThumbColor = Color.White,
+                        checkedTrackColor = Exito,
+                        uncheckedThumbColor = TextoTenue,
+                        uncheckedTrackColor = SuperficieAlta,
+                        uncheckedBorderColor = Contorno,
+                        checkedBorderColor = Exito,
+                    ),
             )
-        }
+        },
     )
 }
 
@@ -381,30 +394,34 @@ fun InsigniaDeIdioma(idioma: Idioma, modifier: Modifier = Modifier) {
     val t = textos()
     val descripcion = t.con(Clave.A11Y_BANDERA_IDIOMA, idioma.endonimo)
     Box(
-        modifier = modifier
-            .sizeIn(minWidth = 34.dp, minHeight = 26.dp)
-            .semantics { contentDescription = descripcion },
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .sizeIn(minWidth = 34.dp, minHeight = 26.dp)
+                .semantics { contentDescription = descripcion },
+        contentAlignment = Alignment.Center,
     ) {
         when (val insignia = idioma.insignia) {
-            is Insignia.Bandera -> Text(
-                insignia.emoji,
-                style = MaterialTheme.typography.headlineMedium
-            )
-
-            is Insignia.Codigo -> Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(7.dp))
-                    .background(SuperficieAlta)
-                    .border(1.dp, Contorno, RoundedCornerShape(7.dp))
-                    .padding(horizontal = 7.dp, vertical = 4.dp)
-            ) {
+            is Insignia.Bandera ->
                 Text(
-                    insignia.texto,
-                    style = MaterialTheme.typography.labelLarge,
-                    color = TextoTenue
+                    insignia.emoji,
+                    style = MaterialTheme.typography.headlineMedium,
                 )
-            }
+
+            is Insignia.Codigo ->
+                Box(
+                    modifier =
+                        Modifier
+                            .clip(RoundedCornerShape(7.dp))
+                            .background(SuperficieAlta)
+                            .border(1.dp, Contorno, RoundedCornerShape(7.dp))
+                            .padding(horizontal = 7.dp, vertical = 4.dp),
+                ) {
+                    Text(
+                        insignia.texto,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = TextoTenue,
+                    )
+                }
         }
     }
 }
@@ -417,7 +434,7 @@ fun Banda(texto: String, color: Color, modifier: Modifier = Modifier) {
             .clip(RoundedCornerShape(50))
             .background(color.copy(alpha = 0.18f))
             .border(2.dp, color.copy(alpha = 0.6f), RoundedCornerShape(50))
-            .padding(horizontal = 18.dp, vertical = 9.dp)
+            .padding(horizontal = 18.dp, vertical = 9.dp),
     ) {
         Text(texto, style = MaterialTheme.typography.labelLarge, color = color)
     }
@@ -430,7 +447,7 @@ fun DialogoConfirmacion(
     textoConfirmar: String,
     textoCancelar: String,
     onConfirmar: () -> Unit,
-    onCancelar: () -> Unit
+    onCancelar: () -> Unit,
 ) {
     AlertDialog(
         onDismissRequest = onCancelar,
@@ -440,7 +457,7 @@ fun DialogoConfirmacion(
         dismissButton = { BotonSuave(textoCancelar, onClick = onCancelar) },
         containerColor = Superficie,
         titleContentColor = TextoFuerte,
-        textContentColor = TextoTenue
+        textContentColor = TextoTenue,
     )
 }
 
@@ -455,7 +472,7 @@ fun Cronometro(
     enMarcha: Boolean,
     sonidos: Sonidos,
     modifier: Modifier = Modifier,
-    onFin: () -> Unit
+    onFin: () -> Unit,
 ) {
     var restante by remember(segundos) { mutableFloatStateOf(segundos.toFloat()) }
     val alTerminar by rememberUpdatedState(onFin)
@@ -482,11 +499,12 @@ fun Cronometro(
     }
 
     val progreso = if (segundos <= 0) 0f else (restante / segundos).coerceIn(0f, 1f)
-    val color = when {
-        progreso > 0.5f -> Exito
-        progreso > 0.2f -> Acento
-        else -> Fallo
-    }
+    val color =
+        when {
+            progreso > 0.5f -> Exito
+            progreso > 0.2f -> Acento
+            else -> Fallo
+        }
     val t = textos()
 
     Column(modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -494,25 +512,28 @@ fun Cronometro(
             text = enteros.toString(),
             style = MaterialTheme.typography.headlineLarge,
             color = color,
-            modifier = Modifier.semantics {
-                contentDescription = t.plural(
-                    es.ghatostudio.funny.ui.i18n.ClavePlural.SEGUNDOS,
-                    enteros
-                )
-            }
+            modifier =
+                Modifier.semantics {
+                    contentDescription =
+                        t.plural(
+                            es.ghatostudio.funny.ui.i18n.ClavePlural.SEGUNDOS,
+                            enteros,
+                        )
+                },
         )
         Spacer(Modifier.height(6.dp))
         LinearProgressIndicator(
             progress = { progreso },
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(10.dp)
-                .clip(RoundedCornerShape(5.dp))
-                .clearAndSetSemantics { },
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .height(10.dp)
+                    .clip(RoundedCornerShape(5.dp))
+                    .clearAndSetSemantics { },
             color = color,
             trackColor = SuperficieAlta,
             strokeCap = StrokeCap.Round,
-            drawStopIndicator = {}
+            drawStopIndicator = {},
         )
     }
 }
@@ -530,7 +551,7 @@ fun Cronometro(
 fun EntradaEscalonada(
     indice: Int,
     modifier: Modifier = Modifier,
-    contenido: @Composable () -> Unit
+    contenido: @Composable () -> Unit,
 ) {
     val animar = LocalAnimaciones.current
     var visible by remember(animar) { mutableStateOf(!animar) }
@@ -544,14 +565,15 @@ fun EntradaEscalonada(
     val avance by animateFloatAsState(
         targetValue = if (visible) 1f else 0f,
         animationSpec = spring(dampingRatio = 0.7f, stiffness = Spring.StiffnessMediumLow),
-        label = "entradaEscalonada"
+        label = "entradaEscalonada",
     )
 
     Box(
-        modifier = modifier.graphicsLayer {
-            alpha = avance
-            translationY = (1f - avance) * DESPLAZAMIENTO_PX
-        }
+        modifier =
+            modifier.graphicsLayer {
+                alpha = avance
+                translationY = (1f - avance) * DESPLAZAMIENTO_PX
+            },
     ) {
         contenido()
     }
@@ -568,7 +590,7 @@ fun FilaBotones(contenido: @Composable RowScope.() -> Unit) {
     Row(
         Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(10.dp),
-        content = contenido
+        content = contenido,
     )
 }
 
@@ -578,23 +600,24 @@ fun BotonPrueba(
     color: Color,
     modifier: Modifier = Modifier,
     colorTexto: Color? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     val tinta = colorTexto ?: paleta().textoSobre(color)
     Box(
-        modifier = modifier
-            .heightIn(min = 62.dp)
-            .clip(RoundedCornerShape(18.dp))
-            .background(color)
-            .clickable { onClick() }
-            .padding(horizontal = 14.dp, vertical = 12.dp),
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .heightIn(min = 62.dp)
+                .clip(RoundedCornerShape(18.dp))
+                .background(color)
+                .clickable { onClick() }
+                .padding(horizontal = 14.dp, vertical = 12.dp),
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             texto,
             style = MaterialTheme.typography.titleMedium,
             color = tinta,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
         )
     }
 }
@@ -606,16 +629,17 @@ fun TarjetaPalabra(
     color: Color,
     modifier: Modifier = Modifier,
     encabezado: String? = null,
-    contenidoExtra: (@Composable ColumnScope.() -> Unit)? = null
+    contenidoExtra: (@Composable ColumnScope.() -> Unit)? = null,
 ) {
     Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(24.dp))
-            .background(Superficie)
-            .border(2.dp, color.copy(alpha = 0.45f), RoundedCornerShape(24.dp))
-            .padding(22.dp),
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(24.dp))
+                .background(Superficie)
+                .border(2.dp, color.copy(alpha = 0.45f), RoundedCornerShape(24.dp))
+                .padding(22.dp),
+        contentAlignment = Alignment.Center,
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             if (encabezado != null) {
@@ -626,7 +650,7 @@ fun TarjetaPalabra(
                 texto,
                 style = MaterialTheme.typography.displayMedium,
                 color = TextoFuerte,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             contenidoExtra?.invoke(this)
         }

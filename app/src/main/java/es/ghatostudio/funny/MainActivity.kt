@@ -21,7 +21,6 @@ import es.ghatostudio.funny.ui.AppFunny
  * vive en el ViewModel, pero un salto visual en mitad de una fiesta se nota.
  */
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

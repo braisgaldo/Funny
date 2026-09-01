@@ -12,7 +12,6 @@ package es.ghatostudio.funny.dominio.textos
  * marcadores de `String.format` (`%s`, `%d`) documentados en el comentario.
  */
 enum class Clave {
-
     // ---------------------------------------------------------------- comunes
     ACCION_VOLVER,
     ACCION_CERRAR,
@@ -493,5 +492,5 @@ enum class Clave {
     A11Y_CERRAR,
     A11Y_LIENZO_DIBUJO,
     A11Y_TEMA_MUESTRA,
-    A11Y_BANDERA_IDIOMA
+    A11Y_BANDERA_IDIOMA,
 }

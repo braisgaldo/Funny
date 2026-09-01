@@ -32,7 +32,7 @@ enum class Juego(
     val valeEnSolitario: Boolean,
     val claveNombre: Clave,
     val claveLema: Clave,
-    val claveInstrucciones: Clave
+    val claveInstrucciones: Clave,
 ) {
     MIMICA(
         clave = "mimica",
@@ -43,7 +43,7 @@ enum class Juego(
         valeEnSolitario = false,
         claveNombre = Clave.JUEGO_MIMICA_NOMBRE,
         claveLema = Clave.JUEGO_MIMICA_LEMA,
-        claveInstrucciones = Clave.JUEGO_MIMICA_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_MIMICA_INSTRUCCIONES,
     ),
     DIBUJO(
         clave = "dibujo",
@@ -54,7 +54,7 @@ enum class Juego(
         valeEnSolitario = false,
         claveNombre = Clave.JUEGO_DIBUJO_NOMBRE,
         claveLema = Clave.JUEGO_DIBUJO_LEMA,
-        claveInstrucciones = Clave.JUEGO_DIBUJO_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_DIBUJO_INSTRUCCIONES,
     ),
     CUANDO(
         clave = "cuando",
@@ -65,7 +65,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_CUANDO_NOMBRE,
         claveLema = Clave.JUEGO_CUANDO_LEMA,
-        claveInstrucciones = Clave.JUEGO_CUANDO_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_CUANDO_INSTRUCCIONES,
     ),
     PREGUNTAS(
         clave = "preguntas",
@@ -76,7 +76,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_PREGUNTAS_NOMBRE,
         claveLema = Clave.JUEGO_PREGUNTAS_LEMA,
-        claveInstrucciones = Clave.JUEGO_PREGUNTAS_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_PREGUNTAS_INSTRUCCIONES,
     ),
     TABU(
         clave = "tabu",
@@ -87,7 +87,7 @@ enum class Juego(
         valeEnSolitario = false,
         claveNombre = Clave.JUEGO_TABU_NOMBRE,
         claveLema = Clave.JUEGO_TABU_LEMA,
-        claveInstrucciones = Clave.JUEGO_TABU_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_TABU_INSTRUCCIONES,
     ),
     RETO(
         clave = "retos",
@@ -98,7 +98,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_RETO_NOMBRE,
         claveLema = Clave.JUEGO_RETO_LEMA,
-        claveInstrucciones = Clave.JUEGO_RETO_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_RETO_INSTRUCCIONES,
     ),
 
     // ---------------------------------------------------------------------
@@ -114,7 +114,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_EMOJIS_NOMBRE,
         claveLema = Clave.JUEGO_EMOJIS_LEMA,
-        claveInstrucciones = Clave.JUEGO_EMOJIS_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_EMOJIS_INSTRUCCIONES,
     ),
     VERDADERO_FALSO(
         clave = "verdadero_falso",
@@ -125,7 +125,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_VERDADERO_FALSO_NOMBRE,
         claveLema = Clave.JUEGO_VERDADERO_FALSO_LEMA,
-        claveInstrucciones = Clave.JUEGO_VERDADERO_FALSO_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_VERDADERO_FALSO_INSTRUCCIONES,
     ),
     TRABALENGUAS(
         clave = "trabalenguas",
@@ -136,7 +136,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_TRABALENGUAS_NOMBRE,
         claveLema = Clave.JUEGO_TRABALENGUAS_LEMA,
-        claveInstrucciones = Clave.JUEGO_TRABALENGUAS_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_TRABALENGUAS_INSTRUCCIONES,
     ),
     ORDENA(
         clave = "ordena",
@@ -147,7 +147,7 @@ enum class Juego(
         valeEnSolitario = true,
         claveNombre = Clave.JUEGO_ORDENA_NOMBRE,
         claveLema = Clave.JUEGO_ORDENA_LEMA,
-        claveInstrucciones = Clave.JUEGO_ORDENA_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_ORDENA_INSTRUCCIONES,
     ),
     CANTA(
         clave = "canta",
@@ -158,7 +158,7 @@ enum class Juego(
         valeEnSolitario = false,
         claveNombre = Clave.JUEGO_CANTA_NOMBRE,
         claveLema = Clave.JUEGO_CANTA_LEMA,
-        claveInstrucciones = Clave.JUEGO_CANTA_INSTRUCCIONES
+        claveInstrucciones = Clave.JUEGO_CANTA_INSTRUCCIONES,
     ),
     DESAFIO(
         clave = "desafios",
@@ -169,8 +169,9 @@ enum class Juego(
         valeEnSolitario = false,
         claveNombre = Clave.JUEGO_DESAFIO_NOMBRE,
         claveLema = Clave.JUEGO_DESAFIO_LEMA,
-        claveInstrucciones = Clave.JUEGO_DESAFIO_INSTRUCCIONES
-    );
+        claveInstrucciones = Clave.JUEGO_DESAFIO_INSTRUCCIONES,
+    ),
+    ;
 
     companion object {
         /** Juegos que se pueden jugar sin nadie delante. */

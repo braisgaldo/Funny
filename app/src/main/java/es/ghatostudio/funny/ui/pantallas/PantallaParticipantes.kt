@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -73,35 +72,40 @@ fun PantallaParticipantes(vm: JuegoViewModel) {
     FondoFunny {
         Column(Modifier.fillMaxSize()) {
             Cabecera(
-                titulo = when (modo) {
-                    Modo.EQUIPOS -> t[Clave.PARTICIPANTES_TITULO_EQUIPOS]
-                    Modo.INDIVIDUAL -> t[Clave.PARTICIPANTES_TITULO_INDIVIDUAL]
-                    Modo.SOLITARIO -> t[Clave.PARTICIPANTES_TITULO_SOLITARIO]
-                },
-                subtitulo = when (modo) {
-                    Modo.EQUIPOS -> t.con(
-                        Clave.PARTICIPANTES_SUBTITULO_EQUIPOS,
-                        modo.minimoParticipantes,
-                        modo.maximoParticipantes
-                    )
+                titulo =
+                    when (modo) {
+                        Modo.EQUIPOS -> t[Clave.PARTICIPANTES_TITULO_EQUIPOS]
+                        Modo.INDIVIDUAL -> t[Clave.PARTICIPANTES_TITULO_INDIVIDUAL]
+                        Modo.SOLITARIO -> t[Clave.PARTICIPANTES_TITULO_SOLITARIO]
+                    },
+                subtitulo =
+                    when (modo) {
+                        Modo.EQUIPOS ->
+                            t.con(
+                                Clave.PARTICIPANTES_SUBTITULO_EQUIPOS,
+                                modo.minimoParticipantes,
+                                modo.maximoParticipantes,
+                            )
 
-                    Modo.INDIVIDUAL -> t.con(
-                        Clave.PARTICIPANTES_SUBTITULO_INDIVIDUAL,
-                        modo.minimoParticipantes,
-                        modo.maximoParticipantes
-                    )
+                        Modo.INDIVIDUAL ->
+                            t.con(
+                                Clave.PARTICIPANTES_SUBTITULO_INDIVIDUAL,
+                                modo.minimoParticipantes,
+                                modo.maximoParticipantes,
+                            )
 
-                    Modo.SOLITARIO -> t[Clave.PARTICIPANTES_SUBTITULO_SOLITARIO]
-                },
-                onVolver = { vm.ir(Pantalla.MODO) }
+                        Modo.SOLITARIO -> t[Clave.PARTICIPANTES_SUBTITULO_SOLITARIO]
+                    },
+                onVolver = { vm.ir(Pantalla.MODO) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(14.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp),
             ) {
                 estado.participantes.forEachIndexed { indice, participante ->
                     TarjetaParticipante(
@@ -112,20 +116,21 @@ fun PantallaParticipantes(vm: JuegoViewModel) {
                         onNombre = { vm.renombrarParticipante(participante.id, it) },
                         onBorrar = { vm.eliminarParticipante(participante.id) },
                         onNuevoMiembro = { vm.anadirMiembro(participante.id, it) },
-                        onBorrarMiembro = { vm.eliminarMiembro(participante.id, it) }
+                        onBorrarMiembro = { vm.eliminarMiembro(participante.id, it) },
                     )
                 }
 
                 if (estado.participantes.size < modo.maximoParticipantes) {
                     BotonGrande(
-                        texto = if (modo == Modo.EQUIPOS) {
-                            t[Clave.PARTICIPANTES_ANADIR_EQUIPO]
-                        } else {
-                            t[Clave.PARTICIPANTES_ANADIR_JUGADOR]
-                        },
+                        texto =
+                            if (modo == Modo.EQUIPOS) {
+                                t[Clave.PARTICIPANTES_ANADIR_EQUIPO]
+                            } else {
+                                t[Clave.PARTICIPANTES_ANADIR_JUGADOR]
+                            },
                         onClick = { vm.anadirParticipante() },
                         color = SuperficieAlta,
-                        colorTexto = TextoFuerte
+                        colorTexto = TextoFuerte,
                     )
                 }
                 Spacer(Modifier.height(4.dp))
@@ -133,13 +138,14 @@ fun PantallaParticipantes(vm: JuegoViewModel) {
 
             Column(Modifier.padding(20.dp)) {
                 BotonGrande(
-                    texto = if (modo == Modo.SOLITARIO) {
-                        t[Clave.SOLITARIO_EMPEZAR]
-                    } else {
-                        t[Clave.ACCION_EMPEZAR]
-                    },
+                    texto =
+                        if (modo == Modo.SOLITARIO) {
+                            t[Clave.SOLITARIO_EMPEZAR]
+                        } else {
+                            t[Clave.ACCION_EMPEZAR]
+                        },
                     onClick = { vm.empezarPartida() },
-                    habilitado = estado.participantes.size >= modo.minimoParticipantes
+                    habilitado = estado.participantes.size >= modo.minimoParticipantes,
                 )
             }
         }
@@ -156,7 +162,7 @@ private fun TarjetaParticipante(
     onNombre: (String) -> Unit,
     onBorrar: () -> Unit,
     onNuevoMiembro: (String) -> Unit,
-    onBorrarMiembro: (Int) -> Unit
+    onBorrarMiembro: (Int) -> Unit,
 ) {
     val t = textos()
     val color = paleta().colorDeParticipante(participante.indiceColor)
@@ -168,7 +174,7 @@ private fun TarjetaParticipante(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(
                     modifier = Modifier.size(44.dp).clip(CircleShape).background(color),
-                    contentAlignment = Alignment.Center
+                    contentAlignment = Alignment.Center,
                 ) {
                     Text(participante.emoji, style = MaterialTheme.typography.titleLarge)
                 }
@@ -185,7 +191,7 @@ private fun TarjetaParticipante(
                         Text(
                             marcador,
                             color = TextoTenue,
-                            style = MaterialTheme.typography.titleMedium
+                            style = MaterialTheme.typography.titleMedium,
                         )
                     },
                     label = {
@@ -196,22 +202,23 @@ private fun TarjetaParticipante(
                                 t[Clave.PARTICIPANTES_NOMBRE_JUGADOR]
                             },
                             color = TextoTenue,
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyMedium,
                         )
                     },
                     textStyle = MaterialTheme.typography.titleMedium,
-                    colors = coloresCampo(color)
+                    colors = coloresCampo(color),
                 )
                 if (sePuedeBorrar) {
                     Spacer(Modifier.width(6.dp))
                     Box(
-                        modifier = Modifier
-                            .size(AREA_TACTIL_MINIMA)
-                            .clip(CircleShape)
-                            .background(Fallo.copy(alpha = 0.15f))
-                            .clickable { onBorrar() }
-                            .semantics { contentDescription = t[Clave.PARTICIPANTES_QUITAR] },
-                        contentAlignment = Alignment.Center
+                        modifier =
+                            Modifier
+                                .size(AREA_TACTIL_MINIMA)
+                                .clip(CircleShape)
+                                .background(Fallo.copy(alpha = 0.15f))
+                                .clickable { onBorrar() }
+                                .semantics { contentDescription = t[Clave.PARTICIPANTES_QUITAR] },
+                        contentAlignment = Alignment.Center,
                     ) {
                         Text("✕", color = Fallo, style = MaterialTheme.typography.titleMedium)
                     }
@@ -228,36 +235,38 @@ private fun TarjetaParticipante(
                 Text(
                     t[Clave.PARTICIPANTES_SIN_JUGADORES],
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
             } else {
                 FlowRow(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     participante.miembros.forEachIndexed { indice, miembro ->
                         Row(
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(50))
-                                .background(color.copy(alpha = 0.18f))
-                                .clickable { onBorrarMiembro(indice) }
-                                .heightIn(min = 40.dp)
-                                .padding(horizontal = 12.dp, vertical = 9.dp)
-                                .semantics {
-                                    contentDescription = "${t[Clave.PARTICIPANTES_QUITAR]} $miembro"
-                                },
-                            verticalAlignment = Alignment.CenterVertically
+                            modifier =
+                                Modifier
+                                    .clip(RoundedCornerShape(50))
+                                    .background(color.copy(alpha = 0.18f))
+                                    .clickable { onBorrarMiembro(indice) }
+                                    .heightIn(min = 40.dp)
+                                    .padding(horizontal = 12.dp, vertical = 9.dp)
+                                    .semantics {
+                                        contentDescription =
+                                            "${t[Clave.PARTICIPANTES_QUITAR]} $miembro"
+                                    },
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(
                                 miembro,
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = TextoFuerte
+                                color = TextoFuerte,
                             )
                             Spacer(Modifier.width(6.dp))
                             Text(
                                 "✕",
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = TextoTenue
+                                color = TextoTenue,
                             )
                         }
                     }
@@ -276,40 +285,42 @@ private fun TarjetaParticipante(
                         Text(
                             t[Clave.PARTICIPANTES_NUEVO_JUGADOR],
                             color = TextoTenue,
-                            style = MaterialTheme.typography.bodyMedium
+                            style = MaterialTheme.typography.bodyMedium,
                         )
                     },
                     textStyle = MaterialTheme.typography.bodyLarge,
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-                    keyboardActions = KeyboardActions(
-                        onDone = {
-                            onNuevoMiembro(nuevoMiembro)
-                            nuevoMiembro = ""
-                        }
-                    ),
-                    colors = coloresCampo(color)
+                    keyboardActions =
+                        KeyboardActions(
+                            onDone = {
+                                onNuevoMiembro(nuevoMiembro)
+                                nuevoMiembro = ""
+                            },
+                        ),
+                    colors = coloresCampo(color),
                 )
                 Spacer(Modifier.width(8.dp))
                 Box(
-                    modifier = Modifier
-                        .size(AREA_TACTIL_MINIMA)
-                        .clip(CircleShape)
-                        .background(if (nuevoMiembro.isBlank()) SuperficieAlta else color)
-                        .clickable(enabled = nuevoMiembro.isNotBlank()) {
-                            onNuevoMiembro(nuevoMiembro)
-                            nuevoMiembro = ""
-                        }
-                        .semantics { contentDescription = t[Clave.ACCION_ANADIR] },
-                    contentAlignment = Alignment.Center
+                    modifier =
+                        Modifier
+                            .size(AREA_TACTIL_MINIMA)
+                            .clip(CircleShape)
+                            .background(if (nuevoMiembro.isBlank()) SuperficieAlta else color)
+                            .clickable(enabled = nuevoMiembro.isNotBlank()) {
+                                onNuevoMiembro(nuevoMiembro)
+                                nuevoMiembro = ""
+                            }.semantics { contentDescription = t[Clave.ACCION_ANADIR] },
+                    contentAlignment = Alignment.Center,
                 ) {
                     Text(
                         "+",
                         style = MaterialTheme.typography.headlineMedium,
-                        color = if (nuevoMiembro.isBlank()) {
-                            TextoTenue
-                        } else {
-                            paleta().textoSobre(color)
-                        }
+                        color =
+                            if (nuevoMiembro.isBlank()) {
+                                TextoTenue
+                            } else {
+                                paleta().textoSobre(color)
+                            },
                     )
                 }
             }
@@ -318,12 +329,13 @@ private fun TarjetaParticipante(
 }
 
 @Composable
-private fun coloresCampo(color: Color) = OutlinedTextFieldDefaults.colors(
-    focusedTextColor = TextoFuerte,
-    unfocusedTextColor = TextoFuerte,
-    focusedBorderColor = color,
-    unfocusedBorderColor = SuperficieAlta,
-    cursorColor = Primario,
-    focusedContainerColor = Color.Transparent,
-    unfocusedContainerColor = Color.Transparent
-)
+private fun coloresCampo(color: Color) =
+    OutlinedTextFieldDefaults.colors(
+        focusedTextColor = TextoFuerte,
+        unfocusedTextColor = TextoFuerte,
+        focusedBorderColor = color,
+        unfocusedBorderColor = SuperficieAlta,
+        cursorColor = Primario,
+        focusedContainerColor = Color.Transparent,
+        unfocusedContainerColor = Color.Transparent,
+    )

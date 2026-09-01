@@ -55,7 +55,7 @@ import es.ghatostudio.funny.ui.tema.paleta
 fun PruebaVerdaderoFalso(
     vm: JuegoViewModel,
     afirmaciones: List<Afirmacion>,
-    sonidos: Sonidos
+    sonidos: Sonidos,
 ) {
     val t = textos()
     val p = paleta()
@@ -85,12 +85,13 @@ fun PruebaVerdaderoFalso(
         segundos = vm.estado.segundosDe(juego),
         enMarcha = !terminada && !revelada,
         sonidos = sonidos,
-        marcador = t.con(
-            Clave.PRUEBA_ACIERTOS_DE,
-            aciertos,
-            afirmaciones.size.coerceAtLeast(1)
-        ),
-        onTiempoAgotado = { cerrar() }
+        marcador =
+            t.con(
+                Clave.PRUEBA_ACIERTOS_DE,
+                aciertos,
+                afirmaciones.size.coerceAtLeast(1),
+            ),
+        onTiempoAgotado = { cerrar() },
     ) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
             Box(
@@ -100,7 +101,7 @@ fun PruebaVerdaderoFalso(
                     .background(Superficie)
                     .border(2.dp, color.copy(alpha = 0.45f), RoundedCornerShape(24.dp))
                     .padding(22.dp),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -117,8 +118,8 @@ fun PruebaVerdaderoFalso(
                                             color.copy(alpha = 0.6f)
                                         } else {
                                             SuperficieAlta
-                                        }
-                                    )
+                                        },
+                                    ),
                             )
                         }
                     }
@@ -127,7 +128,7 @@ fun PruebaVerdaderoFalso(
                         afirmacion?.texto.orEmpty(),
                         style = MaterialTheme.typography.headlineMedium,
                         color = TextoFuerte,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
             }
@@ -143,13 +144,12 @@ fun PruebaVerdaderoFalso(
                         .border(
                             2.dp,
                             if (acerto) Exito else Fallo,
-                            RoundedCornerShape(18.dp)
-                        )
-                        .padding(16.dp)
+                            RoundedCornerShape(18.dp),
+                        ).padding(16.dp),
                 ) {
                     Column(
                         Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text(
                             if (afirmacion.esVerdadera) {
@@ -158,7 +158,7 @@ fun PruebaVerdaderoFalso(
                                 t[Clave.PRUEBA_VF_ERA_MENTIRA]
                             },
                             style = MaterialTheme.typography.titleMedium,
-                            color = if (acerto) Exito else Fallo
+                            color = if (acerto) Exito else Fallo,
                         )
                         if (afirmacion.explicacion.isNotBlank()) {
                             Spacer(Modifier.height(8.dp))
@@ -166,7 +166,7 @@ fun PruebaVerdaderoFalso(
                                 afirmacion.explicacion,
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = TextoTenue,
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
                             )
                         }
                     }
@@ -181,7 +181,7 @@ fun PruebaVerdaderoFalso(
                 BotonPrueba(
                     texto = t[Clave.PRUEBA_VF_FALSO],
                     color = Fallo,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 ) {
                     respuesta = false
                     if (afirmacion?.esVerdadera == false) {
@@ -194,7 +194,7 @@ fun PruebaVerdaderoFalso(
                 BotonPrueba(
                     texto = t[Clave.PRUEBA_VF_VERDADERO],
                     color = Exito,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 ) {
                     respuesta = true
                     if (afirmacion?.esVerdadera == true) {
@@ -209,7 +209,7 @@ fun PruebaVerdaderoFalso(
             BotonPrueba(
                 texto = t[Clave.ACCION_CONTINUAR],
                 color = color,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 respuesta = null
                 indice++

@@ -37,9 +37,10 @@ fun interface ReglasDePlural {
          * para el árabe, pero solo se usa si la implementación de Android no
          * está disponible (tests de JVM), nunca en el móvil.
          */
-        val SENCILLAS = ReglasDePlural { _, cantidad ->
-            if (cantidad == 1) CategoriaPlural.ONE else CategoriaPlural.OTHER
-        }
+        val SENCILLAS =
+            ReglasDePlural { _, cantidad ->
+                if (cantidad == 1) CategoriaPlural.ONE else CategoriaPlural.OTHER
+            }
     }
 }
 
@@ -47,7 +48,7 @@ fun interface ReglasDePlural {
 class Catalogo(
     val idioma: Idioma,
     val textos: Map<Clave, String>,
-    val plurales: Map<ClavePlural, Map<CategoriaPlural, String>> = emptyMap()
+    val plurales: Map<ClavePlural, Map<CategoriaPlural, String>> = emptyMap(),
 )
 
 /**
@@ -61,7 +62,7 @@ class Catalogo(
 class Textos(
     private val catalogo: Catalogo,
     private val respaldo: Catalogo,
-    private val reglas: ReglasDePlural = ReglasDePlural.SENCILLAS
+    private val reglas: ReglasDePlural = ReglasDePlural.SENCILLAS,
 ) {
     val idioma: Idioma get() = catalogo.idioma
 
@@ -82,12 +83,14 @@ class Textos(
 
     /** «1 casilla», «20 casillas», «21 клетка»… con la forma correcta del idioma. */
     fun plural(clave: ClavePlural, cantidad: Int): String {
-        val formas = catalogo.plurales[clave] ?: respaldo.plurales[clave] ?: return cantidad.toString()
+        val formas =
+            catalogo.plurales[clave] ?: respaldo.plurales[clave] ?: return cantidad.toString()
         val categoria = reglas.categoria(catalogo.idioma, cantidad)
-        val plantilla = formas[categoria]
-            ?: formas[CategoriaPlural.OTHER]
-            ?: formas.values.firstOrNull()
-            ?: return cantidad.toString()
+        val plantilla =
+            formas[categoria]
+                ?: formas[CategoriaPlural.OTHER]
+                ?: formas.values.firstOrNull()
+                ?: return cantidad.toString()
         return runCatching { String.format(locale, plantilla, cantidad) }
             .getOrDefault("$cantidad")
     }
@@ -102,9 +105,10 @@ class Textos(
 }
 
 /** Los textos del idioma activo. Toda pantalla empieza con `val t = textos()`. */
-val LocalTextos = staticCompositionLocalOf<Textos> {
-    error("No hay Textos en la composición: falta envolver la pantalla en AppFunny")
-}
+val LocalTextos =
+    staticCompositionLocalOf<Textos> {
+        error("No hay Textos en la composición: falta envolver la pantalla en AppFunny")
+    }
 
 @Composable
 @ReadOnlyComposable

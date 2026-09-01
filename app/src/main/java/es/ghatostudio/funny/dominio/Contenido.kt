@@ -9,31 +9,48 @@ import kotlin.random.Random
 // es asunto de la capa de datos.
 // ---------------------------------------------------------------------------
 
-data class EventoCuando(val texto: String, val anio: Int, val tema: String = "")
+data class EventoCuando(
+    val texto: String,
+    val anio: Int,
+    val tema: String = "",
+)
 
 data class PreguntaTrivial(
     val texto: String,
     val opciones: List<String>,
     val correcta: Int,
-    val tema: String = ""
+    val tema: String = "",
 )
 
-data class CartaTabu(val palabra: String, val prohibidas: List<String>)
+data class CartaTabu(
+    val palabra: String,
+    val prohibidas: List<String>,
+)
 
-data class RetoRapido(val texto: String, val objetivo: Int)
+data class RetoRapido(
+    val texto: String,
+    val objetivo: Int,
+)
 
 /** Una película, canción o refrán escrito con emojis. */
 data class CartaEmojis(
     val emojis: String,
     val respuesta: String,
     val senuelos: List<String>,
-    val tipo: String = ""
+    val tipo: String = "",
 )
 
 /** Afirmación curiosa de la que hay que decir si es verdad o mentira. */
-data class Afirmacion(val texto: String, val esVerdadera: Boolean, val explicacion: String = "")
+data class Afirmacion(
+    val texto: String,
+    val esVerdadera: Boolean,
+    val explicacion: String = "",
+)
 
-data class Trabalenguas(val texto: String, val repeticiones: Int)
+data class Trabalenguas(
+    val texto: String,
+    val repeticiones: Int,
+)
 
 /**
  * Cuatro cosas que hay que poner en orden según un criterio. [elementos] viene
@@ -42,7 +59,7 @@ data class Trabalenguas(val texto: String, val repeticiones: Int)
 data class RetoOrdenar(
     val enunciado: String,
     val elementos: List<String>,
-    val criterio: String = ""
+    val criterio: String = "",
 )
 
 /**
@@ -50,10 +67,17 @@ data class RetoOrdenar(
  * solo el título, quién la canta y una pista de por dónde empezar, para no
  * meter en la app material con derechos de autor.
  */
-data class Cancion(val titulo: String, val artista: String, val pista: String)
+data class Cancion(
+    val titulo: String,
+    val artista: String,
+    val pista: String,
+)
 
 /** Micro-reto de los que animan la mesa: imitar, aguantar, no reírse. */
-data class Desafio(val texto: String, val nivel: Int = 1)
+data class Desafio(
+    val texto: String,
+    val nivel: Int = 1,
+)
 
 /**
  * Todo el contenido del juego, ya cargado. Un `Contenido` vacío es válido: la
@@ -72,23 +96,24 @@ data class Contenido(
     val trabalenguas: List<Trabalenguas> = emptyList(),
     val ordenar: List<RetoOrdenar> = emptyList(),
     val canciones: List<Cancion> = emptyList(),
-    val desafios: List<Desafio> = emptyList()
+    val desafios: List<Desafio> = emptyList(),
 ) {
     /** Cuántas cartas hay para un juego. Cero significa «no se puede jugar». */
-    fun cantidadDe(juego: Juego): Int = when (juego) {
-        Juego.MIMICA -> mimica.size
-        Juego.DIBUJO -> dibujo.size
-        Juego.CUANDO -> eventos.size
-        Juego.PREGUNTAS -> preguntas.size
-        Juego.TABU -> tabu.size
-        Juego.RETO -> retos.size
-        Juego.EMOJIS -> emojis.size
-        Juego.VERDADERO_FALSO -> afirmaciones.size
-        Juego.TRABALENGUAS -> trabalenguas.size
-        Juego.ORDENA -> ordenar.size
-        Juego.CANTA -> canciones.size
-        Juego.DESAFIO -> desafios.size
-    }
+    fun cantidadDe(juego: Juego): Int =
+        when (juego) {
+            Juego.MIMICA -> mimica.size
+            Juego.DIBUJO -> dibujo.size
+            Juego.CUANDO -> eventos.size
+            Juego.PREGUNTAS -> preguntas.size
+            Juego.TABU -> tabu.size
+            Juego.RETO -> retos.size
+            Juego.EMOJIS -> emojis.size
+            Juego.VERDADERO_FALSO -> afirmaciones.size
+            Juego.TRABALENGUAS -> trabalenguas.size
+            Juego.ORDENA -> ordenar.size
+            Juego.CANTA -> canciones.size
+            Juego.DESAFIO -> desafios.size
+        }
 
     /** Los juegos que tienen material suficiente para entrar en una partida. */
     val juegosJugables: List<Juego> get() = Juego.entries.filter { cantidadDe(it) > 0 }
@@ -103,27 +128,40 @@ data class Contenido(
 sealed interface Prueba {
     val juego: Juego
 
-    data class DeMimica(val palabras: List<String>) : Prueba {
+    data class DeMimica(
+        val palabras: List<String>,
+    ) : Prueba {
         override val juego = Juego.MIMICA
     }
 
-    data class DeDibujo(val palabras: List<String>) : Prueba {
+    data class DeDibujo(
+        val palabras: List<String>,
+    ) : Prueba {
         override val juego = Juego.DIBUJO
     }
 
-    data class DeCuando(val evento: EventoCuando, val opciones: List<Int>) : Prueba {
+    data class DeCuando(
+        val evento: EventoCuando,
+        val opciones: List<Int>,
+    ) : Prueba {
         override val juego = Juego.CUANDO
     }
 
-    data class DePreguntas(val pregunta: PreguntaTrivial) : Prueba {
+    data class DePreguntas(
+        val pregunta: PreguntaTrivial,
+    ) : Prueba {
         override val juego = Juego.PREGUNTAS
     }
 
-    data class DeTabu(val cartas: List<CartaTabu>) : Prueba {
+    data class DeTabu(
+        val cartas: List<CartaTabu>,
+    ) : Prueba {
         override val juego = Juego.TABU
     }
 
-    data class DeReto(val reto: RetoRapido) : Prueba {
+    data class DeReto(
+        val reto: RetoRapido,
+    ) : Prueba {
         override val juego = Juego.RETO
     }
 
@@ -131,29 +169,40 @@ sealed interface Prueba {
     data class DeEmojis(
         val carta: CartaEmojis,
         val opciones: List<String>,
-        val correcta: Int
+        val correcta: Int,
     ) : Prueba {
         override val juego = Juego.EMOJIS
     }
 
-    data class DeVerdaderoFalso(val afirmaciones: List<Afirmacion>) : Prueba {
+    data class DeVerdaderoFalso(
+        val afirmaciones: List<Afirmacion>,
+    ) : Prueba {
         override val juego = Juego.VERDADERO_FALSO
     }
 
-    data class DeTrabalenguas(val trabalenguas: Trabalenguas) : Prueba {
+    data class DeTrabalenguas(
+        val trabalenguas: Trabalenguas,
+    ) : Prueba {
         override val juego = Juego.TRABALENGUAS
     }
 
     /** [desordenados] es lo que se muestra; el orden bueno está en `reto.elementos`. */
-    data class DeOrdena(val reto: RetoOrdenar, val desordenados: List<String>) : Prueba {
+    data class DeOrdena(
+        val reto: RetoOrdenar,
+        val desordenados: List<String>,
+    ) : Prueba {
         override val juego = Juego.ORDENA
     }
 
-    data class DeCanta(val cancion: Cancion) : Prueba {
+    data class DeCanta(
+        val cancion: Cancion,
+    ) : Prueba {
         override val juego = Juego.CANTA
     }
 
-    data class DeDesafio(val desafio: Desafio) : Prueba {
+    data class DeDesafio(
+        val desafio: Desafio,
+    ) : Prueba {
         override val juego = Juego.DESAFIO
     }
 }
@@ -162,8 +211,10 @@ sealed interface Prueba {
  * Baraja que reparte sin repetir hasta agotarse, y entonces se vuelve a
  * barajar. Es lo que evita que en una partida salga tres veces «bicicleta».
  */
-class Mazo<T>(private val todos: List<T>, private val rnd: Random) {
-
+class Mazo<T>(
+    private val todos: List<T>,
+    private val rnd: Random,
+) {
     private var restantes: MutableList<T> = barajar()
 
     private fun barajar(): MutableList<T> = todos.shuffled(rnd).toMutableList()

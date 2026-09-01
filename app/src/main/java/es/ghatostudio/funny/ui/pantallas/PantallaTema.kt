@@ -61,21 +61,22 @@ fun PantallaTema(vm: JuegoViewModel) {
             Cabecera(
                 titulo = t[Clave.AJUSTES_TEMA],
                 subtitulo = t[Clave.AJUSTES_TEMA_DETALLE],
-                onVolver = { vm.ir(Pantalla.AJUSTES) }
+                onVolver = { vm.ir(Pantalla.AJUSTES) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 Tarjeta {
                     Column(Modifier.padding(horizontal = 18.dp, vertical = 8.dp)) {
                         FilaInterruptor(
                             titulo = t[Clave.AJUSTES_TEMA_SISTEMA],
-                            activo = ajustes.temaDelSistema
+                            activo = ajustes.temaDelSistema,
                         ) { vm.seguirTemaDelSistema(it) }
                     }
                 }
@@ -85,7 +86,7 @@ fun PantallaTema(vm: JuegoViewModel) {
                     FilaDeTema(
                         id = id,
                         seleccionado = ajustes.tema == id,
-                        onElegir = { vm.elegirTema(id) }
+                        onElegir = { vm.elegirTema(id) },
                     )
                 }
 
@@ -94,7 +95,7 @@ fun PantallaTema(vm: JuegoViewModel) {
                     FilaDeTema(
                         id = id,
                         seleccionado = ajustes.tema == id,
-                        onElegir = { vm.elegirTema(id) }
+                        onElegir = { vm.elegirTema(id) },
                     )
                 }
 
@@ -118,14 +119,14 @@ private fun FilaDeTema(id: TemaId, seleccionado: Boolean, onElegir: () -> Unit) 
 
     Tarjeta(
         modifier = Modifier.fillMaxWidth().clickable { onElegir() },
-        borde = if (seleccionado) Primario else null
+        borde = if (seleccionado) Primario else null,
     ) {
         Row(
             Modifier
                 .fillMaxWidth()
                 .heightIn(min = AREA_TACTIL_MINIMA)
                 .padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             // Retrato del tema: su propio fondo con sus propios colores dentro.
             Box(
@@ -134,14 +135,14 @@ private fun FilaDeTema(id: TemaId, seleccionado: Boolean, onElegir: () -> Unit) 
                     .clip(RoundedCornerShape(12.dp))
                     .background(muestra.fondo)
                     .border(1.dp, Contorno, RoundedCornerShape(12.dp)),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 Row(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
                     listOf(
                         muestra.primario,
                         muestra.acento,
                         muestra.exito,
-                        muestra.textoFuerte
+                        muestra.textoFuerte,
                     ).forEach { color ->
                         Box(Modifier.size(13.dp).clip(CircleShape).background(color))
                     }
@@ -154,12 +155,12 @@ private fun FilaDeTema(id: TemaId, seleccionado: Boolean, onElegir: () -> Unit) 
                 Text(
                     t[id.claveNombre],
                     style = MaterialTheme.typography.titleMedium,
-                    color = TextoFuerte
+                    color = TextoFuerte,
                 )
                 Text(
                     if (id.esOscuro) t[Clave.TEMA_MODO_OSCURO] else t[Clave.TEMA_MODO_CLARO],
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
             }
 

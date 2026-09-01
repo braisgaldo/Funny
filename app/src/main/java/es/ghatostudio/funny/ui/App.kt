@@ -62,7 +62,7 @@ import es.ghatostudio.funny.ui.tour.PantallaTour
 @Composable
 fun AppFunny(
     vm: JuegoViewModel = viewModel(),
-    salon: SalonViewModel = viewModel()
+    salon: SalonViewModel = viewModel(),
 ) {
     val contexto = LocalContext.current
     val estado = vm.estado
@@ -70,16 +70,18 @@ fun AppFunny(
 
     // Los textos se rehacen solo al cambiar de idioma: llevan dentro el
     // catálogo y las reglas de plural de la ICU del sistema.
-    val textos = remember(vm.idioma) {
-        textosDe(vm.idioma, ReglasDePluralAndroid)
-    }
+    val textos =
+        remember(vm.idioma) {
+            textosDe(vm.idioma, ReglasDePluralAndroid)
+        }
 
     val paleta = paletaSegunAjustes(ajustes)
 
     // Las animaciones se apagan si lo pide la app o si lo pide el sistema.
-    val animaciones = remember(ajustes.animaciones) {
-        ajustes.animaciones && !Sistema.animacionesReducidas(contexto)
-    }
+    val animaciones =
+        remember(ajustes.animaciones) {
+            ajustes.animaciones && !Sistema.animacionesReducidas(contexto)
+        }
 
     val sonidos = recordarSonidos(ajustes)
     val estadoSnackbar = remember { SnackbarHostState() }
@@ -97,7 +99,7 @@ fun AppFunny(
             // sistema: si alguien pone la app en árabe con el móvil en español,
             // la interfaz tiene que ir de derecha a izquierda igualmente.
             LocalLayoutDirection provides
-                if (textos.esRtl) LayoutDirection.Rtl else LayoutDirection.Ltr
+                if (textos.esRtl) LayoutDirection.Rtl else LayoutDirection.Ltr,
         ) {
             // Atrás: en mitad de una prueba no hace nada, para no arruinar un
             // turno con un gesto involuntario.
@@ -111,11 +113,13 @@ fun AppFunny(
                     Pantalla.TOUR,
                     Pantalla.TABLERO,
                     Pantalla.VICTORIA,
-                    Pantalla.SOLITARIO_FIN -> vm.volverAlMenu()
+                    Pantalla.SOLITARIO_FIN,
+                    -> vm.volverAlMenu()
 
                     Pantalla.TEMA,
                     Pantalla.IDIOMA,
-                    Pantalla.ACERCA_DE -> vm.ir(Pantalla.AJUSTES)
+                    Pantalla.ACERCA_DE,
+                    -> vm.ir(Pantalla.AJUSTES)
 
                     else -> Unit
                 }
@@ -127,10 +131,11 @@ fun AppFunny(
             Box(Modifier.fillMaxSize()) {
                 // Un móvil que hace de mando durante una partida no pinta el
                 // juego: pinta lo que el hub le manda.
-                val esMandoEnPartida = salon.estado.esMando &&
-                    salon.estado.conectado &&
-                    salon.estado.vista != null &&
-                    estado.pantalla != Pantalla.SALON
+                val esMandoEnPartida =
+                    salon.estado.esMando &&
+                        salon.estado.conectado &&
+                        salon.estado.vista != null &&
+                        estado.pantalla != Pantalla.SALON
 
                 if (esMandoEnPartida) {
                     PantallaMando(salon, sonidos)
@@ -144,12 +149,12 @@ fun AppFunny(
 
                 SnackbarHost(
                     hostState = estadoSnackbar,
-                    modifier = Modifier.align(Alignment.BottomCenter)
+                    modifier = Modifier.align(Alignment.BottomCenter),
                 ) { datos ->
                     Snackbar(
                         snackbarData = datos,
                         containerColor = Superficie,
-                        contentColor = TextoFuerte
+                        contentColor = TextoFuerte,
                     )
                 }
             }
@@ -161,7 +166,7 @@ fun AppFunny(
 private fun Pantallas(
     vm: JuegoViewModel,
     salon: SalonViewModel,
-    sonidos: Sonidos
+    sonidos: Sonidos,
 ) {
     when (vm.estado.pantalla) {
         Pantalla.INICIO -> PantallaInicio(vm)
@@ -199,7 +204,7 @@ private fun SincronizarSalon(vm: JuegoViewModel, salon: SalonViewModel) {
         estado.juego,
         estado.prueba,
         estado.dado,
-        estado.modo == Modo.SOLITARIO
+        estado.modo == Modo.SOLITARIO,
     ) {
         if (salon.estado.esHub) salon.difundirVistas()
     }

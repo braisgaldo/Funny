@@ -31,8 +31,11 @@ coroutines = "1.9.0"
 junit = "4.13.2"
 robolectric = "4.14.1"
 androidx-test-junit = "1.2.1"
+androidx-test-core = "1.6.1"
 # Solo en tests: descodifica el QR que genera la app para demostrar que se lee.
 zxing = "3.5.3"
+# org.json de verdad: el de la android.jar de los unit tests devuelve null en todo.
+json = "20250107"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -62,7 +65,10 @@ kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.re
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-junit" }
+# ApplicationProvider: es lo que le da un Context a los tests de Robolectric.
+androidx-test-core = { group = "androidx.test", name = "core-ktx", version.ref = "androidx-test-core" }
 zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxing" }
+json = { group = "org.json", name = "json", version.ref = "json" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

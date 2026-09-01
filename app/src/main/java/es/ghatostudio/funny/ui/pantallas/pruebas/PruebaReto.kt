@@ -80,7 +80,7 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
         enMarcha = !terminada && !conseguido,
         sonidos = sonidos,
         marcador = null,
-        onTiempoAgotado = { cerrar(contador >= reto.objetivo) }
+        onTiempoAgotado = { cerrar(contador >= reto.objetivo) },
     ) {
         Box(
             Modifier
@@ -89,20 +89,20 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
                 .background(Superficie)
                 .border(2.dp, color.copy(alpha = 0.4f), RoundedCornerShape(22.dp))
                 .padding(20.dp),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     t.con(Clave.PRUEBA_RETO_OBJETIVO, reto.objetivo),
                     style = MaterialTheme.typography.labelLarge,
-                    color = color
+                    color = color,
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     reto.texto,
                     style = MaterialTheme.typography.headlineMedium,
                     color = TextoFuerte,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
         }
@@ -111,21 +111,22 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
             val colorCirculo = if (conseguido) Exito else color
             val tinta = p.textoSobre(colorCirculo)
             Box(
-                modifier = Modifier
-                    .size(216.dp)
-                    .clip(CircleShape)
-                    .background(colorCirculo)
-                    .clickable(enabled = !conseguido && !terminada) {
-                        sonidos.toque()
-                        contador++
-                    },
-                contentAlignment = Alignment.Center
+                modifier =
+                    Modifier
+                        .size(216.dp)
+                        .clip(CircleShape)
+                        .background(colorCirculo)
+                        .clickable(enabled = !conseguido && !terminada) {
+                            sonidos.toque()
+                            contador++
+                        },
+                contentAlignment = Alignment.Center,
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
                         "$contador",
                         style = MaterialTheme.typography.displayLarge,
-                        color = tinta
+                        color = tinta,
                     )
                     Text(
                         if (conseguido) {
@@ -135,7 +136,7 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
                         },
                         style = MaterialTheme.typography.labelLarge,
                         color = tinta.copy(alpha = 0.75f),
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
             }
@@ -148,7 +149,7 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
                 texto = "−1",
                 color = SuperficieAlta,
                 colorTexto = TextoFuerte,
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
             ) {
                 if (contador > 0) contador--
             }
@@ -156,7 +157,7 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
                 texto = t[Clave.PRUEBA_RETO_RENDIRSE],
                 color = SuperficieAlta,
                 colorTexto = TextoTenue,
-                modifier = Modifier.weight(2f)
+                modifier = Modifier.weight(2f),
             ) {
                 cerrar(false)
             }
@@ -168,7 +169,7 @@ fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
             style = MaterialTheme.typography.bodyMedium,
             color = TextoTenue,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
     }
 }

@@ -11,7 +11,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -66,7 +65,10 @@ import es.ghatostudio.funny.ui.tema.paleta
 private val GROSORES = listOf(6f, 16f, 34f)
 
 /** Un trazo del dibujo: los puntos son estado observable para repintar al vuelo. */
-private class Trazo(val color: Color, val grosor: Float) {
+private class Trazo(
+    val color: Color,
+    val grosor: Float,
+) {
     val puntos = mutableStateListOf<Offset>()
 }
 
@@ -109,21 +111,21 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
         enMarcha = dibujando && !terminada,
         sonidos = sonidos,
         marcador = t.con(Clave.PRUEBA_ACIERTOS, aciertos),
-        onTiempoAgotado = { cerrar() }
+        onTiempoAgotado = { cerrar() },
     ) {
         if (!dibujando) {
             Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
                 TarjetaPalabra(
                     texto = palabra,
                     color = colorJuego,
-                    encabezado = t[Clave.PRUEBA_DIBUJO_SOLO_MIRA_QUIEN_DIBUJA]
+                    encabezado = t[Clave.PRUEBA_DIBUJO_SOLO_MIRA_QUIEN_DIBUJA],
                 ) {
                     Spacer(Modifier.height(16.dp))
                     Text(
                         t[Clave.PRUEBA_DIBUJO_TIEMPO_AL_PULSAR],
                         style = MaterialTheme.typography.bodyMedium,
                         color = TextoTenue,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
             }
@@ -131,7 +133,7 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
             BotonPrueba(
                 texto = t[Clave.PRUEBA_DIBUJO_EMPEZAR],
                 color = colorJuego,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 dibujando = true
             }
@@ -145,47 +147,49 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(20.dp))
                     .background(LIENZO_DIBUJO)
-                    .border(2.dp, colorJuego.copy(alpha = 0.5f), RoundedCornerShape(20.dp))
+                    .border(2.dp, colorJuego.copy(alpha = 0.5f), RoundedCornerShape(20.dp)),
             ) {
                 Canvas(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .pointerInput(colorActual, grosorActual) {
-                            detectDragGestures(
-                                onDragStart = { posicion ->
+                    modifier =
+                        Modifier
+                            .fillMaxSize()
+                            .pointerInput(colorActual, grosorActual) {
+                                detectDragGestures(
+                                    onDragStart = { posicion ->
+                                        val trazo = Trazo(colorActual, grosorActual)
+                                        trazo.puntos.add(posicion)
+                                        trazos.add(trazo)
+                                    },
+                                    onDrag = { cambio, _ ->
+                                        cambio.consume()
+                                        trazos.lastOrNull()?.puntos?.add(cambio.position)
+                                    },
+                                )
+                            }.pointerInput(colorActual, grosorActual) {
+                                detectTapGestures { posicion ->
                                     val trazo = Trazo(colorActual, grosorActual)
                                     trazo.puntos.add(posicion)
                                     trazos.add(trazo)
-                                },
-                                onDrag = { cambio, _ ->
-                                    cambio.consume()
-                                    trazos.lastOrNull()?.puntos?.add(cambio.position)
                                 }
-                            )
-                        }
-                        .pointerInput(colorActual, grosorActual) {
-                            detectTapGestures { posicion ->
-                                val trazo = Trazo(colorActual, grosorActual)
-                                trazo.puntos.add(posicion)
-                                trazos.add(trazo)
-                            }
-                        }
+                            },
                 ) {
                     trazos.forEach { trazo ->
                         when {
-                            trazo.puntos.size == 1 -> drawCircle(
-                                color = trazo.color,
-                                radius = trazo.grosor / 2f,
-                                center = trazo.puntos.first()
-                            )
+                            trazo.puntos.size == 1 ->
+                                drawCircle(
+                                    color = trazo.color,
+                                    radius = trazo.grosor / 2f,
+                                    center = trazo.puntos.first(),
+                                )
 
-                            trazo.puntos.size > 1 -> drawPoints(
-                                points = trazo.puntos,
-                                pointMode = PointMode.Polygon,
-                                color = trazo.color,
-                                strokeWidth = trazo.grosor,
-                                cap = StrokeCap.Round
-                            )
+                            trazo.puntos.size > 1 ->
+                                drawPoints(
+                                    points = trazo.puntos,
+                                    pointMode = PointMode.Polygon,
+                                    color = trazo.color,
+                                    strokeWidth = trazo.grosor,
+                                    cap = StrokeCap.Round,
+                                )
                         }
                     }
                 }
@@ -197,12 +201,12 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                             .padding(10.dp)
                             .clip(RoundedCornerShape(14.dp))
                             .background(Color.Black.copy(alpha = 0.82f))
-                            .padding(horizontal = 18.dp, vertical = 10.dp)
+                            .padding(horizontal = 18.dp, vertical = 10.dp),
                     ) {
                         Text(
                             palabra,
                             style = MaterialTheme.typography.titleLarge,
-                            color = Color.White
+                            color = Color.White,
                         )
                     }
                 }
@@ -212,7 +216,7 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                         t[Clave.PRUEBA_DIBUJO_LIENZO_VACIO],
                         style = MaterialTheme.typography.bodyLarge,
                         color = TEXTO_SOBRE_LIENZO,
-                        modifier = Modifier.align(Alignment.Center)
+                        modifier = Modifier.align(Alignment.Center),
                     )
                 }
             }
@@ -223,13 +227,13 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                 Modifier
                     .fillMaxWidth()
                     .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 TINTAS_DIBUJO.forEachIndexed { indice, color ->
                     BotonColor(
                         color = color,
                         seleccionado = colorActual == color,
-                        descripcion = "${t[Clave.PRUEBA_COLOR]} ${indice + 1}"
+                        descripcion = "${t[Clave.PRUEBA_COLOR]} ${indice + 1}",
                     ) {
                         colorActual = color
                     }
@@ -238,7 +242,7 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                     color = LIENZO_DIBUJO,
                     seleccionado = colorActual == LIENZO_DIBUJO,
                     descripcion = t[Clave.PRUEBA_DIBUJO_GOMA],
-                    esGoma = true
+                    esGoma = true,
                 ) {
                     colorActual = LIENZO_DIBUJO
                 }
@@ -249,22 +253,38 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
             Row(
                 Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 GROSORES.forEach { grosor ->
                     Box(
-                        modifier = Modifier
-                            .size(46.dp)
-                            .clip(RoundedCornerShape(14.dp))
-                            .background(if (grosorActual == grosor) colorJuego else SuperficieAlta)
-                            .clickable { grosorActual = grosor },
-                        contentAlignment = Alignment.Center
+                        modifier =
+                            Modifier
+                                .size(46.dp)
+                                .clip(RoundedCornerShape(14.dp))
+                                .background(
+                                    if (grosorActual ==
+                                        grosor
+                                    ) {
+                                        colorJuego
+                                    } else {
+                                        SuperficieAlta
+                                    },
+                                ).clickable { grosorActual = grosor },
+                        contentAlignment = Alignment.Center,
                     ) {
                         Box(
                             Modifier
                                 .size((grosor / 2.2f).dp.coerceAtLeast(5.dp))
                                 .clip(CircleShape)
-                                .background(if (grosorActual == grosor) Color.Black else TextoFuerte)
+                                .background(
+                                    if (grosorActual ==
+                                        grosor
+                                    ) {
+                                        Color.Black
+                                    } else {
+                                        TextoFuerte
+                                    },
+                                ),
                         )
                     }
                 }
@@ -274,17 +294,17 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                 BotonHerramienta("↶", t[Clave.PRUEBA_DESHACER]) { trazos.removeLastOrNull() }
                 BotonHerramienta("🗑", t[Clave.PRUEBA_BORRAR_DIBUJO]) { trazos.clear() }
                 Box(
-                    modifier = Modifier
-                        .size(46.dp)
-                        .clip(RoundedCornerShape(14.dp))
-                        .background(SuperficieAlta)
-                        .clickable(
-                            interactionSource = interaccionOjo,
-                            indication = null,
-                            onClick = {}
-                        )
-                        .semantics { contentDescription = t[Clave.PRUEBA_DIBUJO_ESPIAR] },
-                    contentAlignment = Alignment.Center
+                    modifier =
+                        Modifier
+                            .size(46.dp)
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(SuperficieAlta)
+                            .clickable(
+                                interactionSource = interaccionOjo,
+                                indication = null,
+                                onClick = {},
+                            ).semantics { contentDescription = t[Clave.PRUEBA_DIBUJO_ESPIAR] },
+                    contentAlignment = Alignment.Center,
                 ) {
                     Text("👁", style = MaterialTheme.typography.titleMedium)
                 }
@@ -297,7 +317,7 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                     texto = t[Clave.PRUEBA_SALTAR],
                     color = SuperficieAlta,
                     colorTexto = TextoFuerte,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 ) {
                     sonidos.toque()
                     siguientePalabra()
@@ -305,7 +325,7 @@ fun PruebaDibujo(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                 BotonPrueba(
                     texto = t[Clave.PRUEBA_ACERTADA],
                     color = Exito,
-                    modifier = Modifier.weight(2f)
+                    modifier = Modifier.weight(2f),
                 ) {
                     sonidos.acierto()
                     aciertos++
@@ -322,21 +342,21 @@ private fun BotonColor(
     seleccionado: Boolean,
     descripcion: String,
     esGoma: Boolean = false,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Box(
-        modifier = Modifier
-            .size(AREA_TACTIL_MINIMA)
-            .semantics { contentDescription = descripcion }
-            .clip(CircleShape)
-            .background(color)
-            .border(
-                width = if (seleccionado) 4.dp else 1.dp,
-                color = if (seleccionado) Color.White else Color(0x33FFFFFF),
-                shape = CircleShape
-            )
-            .clickable { onClick() },
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .size(AREA_TACTIL_MINIMA)
+                .semantics { contentDescription = descripcion }
+                .clip(CircleShape)
+                .background(color)
+                .border(
+                    width = if (seleccionado) 4.dp else 1.dp,
+                    color = if (seleccionado) Color.White else Color(0x33FFFFFF),
+                    shape = CircleShape,
+                ).clickable { onClick() },
+        contentAlignment = Alignment.Center,
     ) {
         if (esGoma) {
             Text("🧽", style = MaterialTheme.typography.bodyMedium)
@@ -347,13 +367,14 @@ private fun BotonColor(
 @Composable
 private fun BotonHerramienta(icono: String, descripcion: String, onClick: () -> Unit) {
     Box(
-        modifier = Modifier
-            .size(AREA_TACTIL_MINIMA)
-            .clip(RoundedCornerShape(14.dp))
-            .background(SuperficieAlta)
-            .clickable { onClick() }
-            .semantics { contentDescription = descripcion },
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .size(AREA_TACTIL_MINIMA)
+                .clip(RoundedCornerShape(14.dp))
+                .background(SuperficieAlta)
+                .clickable { onClick() }
+                .semantics { contentDescription = descripcion },
+        contentAlignment = Alignment.Center,
     ) {
         Text(icono, style = MaterialTheme.typography.titleMedium, color = TextoFuerte)
     }

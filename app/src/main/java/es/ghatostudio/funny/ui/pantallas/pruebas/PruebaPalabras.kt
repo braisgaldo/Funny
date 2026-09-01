@@ -73,13 +73,13 @@ fun PruebaMimica(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
         enMarcha = !terminada,
         sonidos = sonidos,
         marcador = t.con(Clave.PRUEBA_ACIERTOS, aciertos),
-        onTiempoAgotado = { cerrar() }
+        onTiempoAgotado = { cerrar() },
     ) {
         Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
             TarjetaPalabra(
                 texto = palabras.getOrNull(indice).orEmpty(),
                 color = color,
-                encabezado = t.lemaDe(juego).uppercase(t.locale)
+                encabezado = t.lemaDe(juego).uppercase(t.locale),
             )
         }
 
@@ -90,7 +90,7 @@ fun PruebaMimica(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
                 texto = t[Clave.PRUEBA_SALTAR],
                 color = SuperficieAlta,
                 colorTexto = TextoFuerte,
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
             ) {
                 sonidos.toque()
                 indice++
@@ -98,7 +98,7 @@ fun PruebaMimica(vm: JuegoViewModel, palabras: List<String>, sonidos: Sonidos) {
             BotonPrueba(
                 texto = t[Clave.PRUEBA_ACERTADA],
                 color = Exito,
-                modifier = Modifier.weight(1.4f)
+                modifier = Modifier.weight(1.4f),
             ) {
                 sonidos.acierto()
                 aciertos++
@@ -142,18 +142,22 @@ fun PruebaTabu(vm: JuegoViewModel, cartas: List<CartaTabu>, sonidos: Sonidos) {
         enMarcha = !terminada,
         sonidos = sonidos,
         marcador = t.con(Clave.PRUEBA_ACIERTOS, aciertos),
-        onTiempoAgotado = { cerrar() }
+        onTiempoAgotado = { cerrar() },
     ) {
         Box(Modifier.weight(1f), contentAlignment = Alignment.Center) {
             TarjetaPalabra(
                 texto = carta?.palabra.orEmpty(),
                 color = color,
-                encabezado = t.lemaDe(juego).uppercase(t.locale)
+                encabezado = t.lemaDe(juego).uppercase(t.locale),
             ) {
                 Spacer(Modifier.height(18.dp))
                 FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement =
+                        Arrangement.spacedBy(
+                            8.dp,
+                            Alignment.CenterHorizontally,
+                        ),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     carta?.prohibidas?.forEach { prohibida ->
                         Text(
@@ -161,10 +165,11 @@ fun PruebaTabu(vm: JuegoViewModel, cartas: List<CartaTabu>, sonidos: Sonidos) {
                             style = MaterialTheme.typography.titleMedium,
                             color = Fallo,
                             textAlign = TextAlign.Center,
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(50))
-                                .background(Fallo.copy(alpha = 0.13f))
-                                .padding(horizontal = 12.dp, vertical = 6.dp)
+                            modifier =
+                                Modifier
+                                    .clip(RoundedCornerShape(50))
+                                    .background(Fallo.copy(alpha = 0.13f))
+                                    .padding(horizontal = 12.dp, vertical = 6.dp),
                         )
                     }
                 }
@@ -179,7 +184,7 @@ fun PruebaTabu(vm: JuegoViewModel, cartas: List<CartaTabu>, sonidos: Sonidos) {
                     texto = t[Clave.PRUEBA_SALTAR],
                     color = SuperficieAlta,
                     colorTexto = TextoFuerte,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 ) {
                     sonidos.toque()
                     indice++
@@ -187,7 +192,7 @@ fun PruebaTabu(vm: JuegoViewModel, cartas: List<CartaTabu>, sonidos: Sonidos) {
                 BotonPrueba(
                     texto = t[Clave.PRUEBA_PROHIBIDA],
                     color = Fallo,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 ) {
                     sonidos.fallo()
                     indice++
@@ -197,7 +202,7 @@ fun PruebaTabu(vm: JuegoViewModel, cartas: List<CartaTabu>, sonidos: Sonidos) {
             BotonPrueba(
                 texto = t[Clave.PRUEBA_ACERTADA],
                 color = Exito,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 sonidos.acierto()
                 aciertos++

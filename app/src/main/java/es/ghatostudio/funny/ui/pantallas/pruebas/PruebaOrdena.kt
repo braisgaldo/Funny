@@ -81,7 +81,7 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
         enMarcha = !terminada && !comprobado,
         sonidos = sonidos,
         marcador = t.con(Clave.PRUEBA_ACIERTOS_DE, elegidos.size, correcto.size),
-        onTiempoAgotado = { comprobado = true }
+        onTiempoAgotado = { comprobado = true },
     ) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
             // Enunciado
@@ -91,17 +91,17 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                     .clip(RoundedCornerShape(22.dp))
                     .background(Superficie)
                     .border(2.dp, color.copy(alpha = 0.4f), RoundedCornerShape(22.dp))
-                    .padding(20.dp)
+                    .padding(20.dp),
             ) {
                 Column(
                     Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     if (prueba.reto.criterio.isNotBlank()) {
                         Text(
                             prueba.reto.criterio.uppercase(t.locale),
                             style = MaterialTheme.typography.labelLarge,
-                            color = color
+                            color = color,
                         )
                         Spacer(Modifier.height(8.dp))
                     }
@@ -109,14 +109,14 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                         prueba.reto.enunciado,
                         style = MaterialTheme.typography.headlineMedium,
                         color = TextoFuerte,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(8.dp))
                     Text(
                         t[Clave.PRUEBA_ORDENA_AYUDA],
                         style = MaterialTheme.typography.bodyMedium,
                         color = TextoTenue,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                 }
             }
@@ -129,41 +129,41 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                 val puestoBueno = correcto.indexOf(elemento)
                 val bienColocado = comprobado && elegido && puesto == puestoBueno
 
-                val borde = when {
-                    comprobado && elegido && bienColocado -> Exito
-                    comprobado && elegido -> Fallo
-                    elegido -> color
-                    else -> SuperficieAlta
-                }
+                val borde =
+                    when {
+                        comprobado && elegido && bienColocado -> Exito
+                        comprobado && elegido -> Fallo
+                        elegido -> color
+                        else -> SuperficieAlta
+                    }
 
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 10.dp)
-                        .heightIn(min = AREA_TACTIL_MINIMA)
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(
-                            if (elegido) borde.copy(alpha = 0.18f) else Superficie
-                        )
-                        .border(2.dp, borde, RoundedCornerShape(16.dp))
-                        .clickable(enabled = !comprobado && !terminada) {
-                            sonidos.toque()
-                            if (elegido) elegidos.remove(elemento) else elegidos.add(elemento)
-                        }
-                        .padding(horizontal = 14.dp, vertical = 14.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 10.dp)
+                            .heightIn(min = AREA_TACTIL_MINIMA)
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(
+                                if (elegido) borde.copy(alpha = 0.18f) else Superficie,
+                            ).border(2.dp, borde, RoundedCornerShape(16.dp))
+                            .clickable(enabled = !comprobado && !terminada) {
+                                sonidos.toque()
+                                if (elegido) elegidos.remove(elemento) else elegidos.add(elemento)
+                            }.padding(horizontal = 14.dp, vertical = 14.dp),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Box(
                         Modifier
                             .size(32.dp)
                             .clip(CircleShape)
                             .background(borde.copy(alpha = 0.28f)),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
                         Text(
                             if (elegido) "${puesto + 1}" else "·",
                             style = MaterialTheme.typography.titleMedium,
-                            color = borde
+                            color = borde,
                         )
                     }
                     Spacer(Modifier.width(14.dp))
@@ -171,13 +171,13 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                         elemento,
                         style = MaterialTheme.typography.titleMedium,
                         color = TextoFuerte,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
                     )
                     if (comprobado && elegido) {
                         Text(
                             if (bienColocado) "✓" else "✕",
                             style = MaterialTheme.typography.titleLarge,
-                            color = borde
+                            color = borde,
                         )
                     }
                 }
@@ -188,7 +188,7 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                 Text(
                     t[Clave.PRUEBA_ORDENA_CORRECTO],
                     style = MaterialTheme.typography.labelLarge,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
                 Spacer(Modifier.height(6.dp))
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -196,7 +196,7 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                         Text(
                             "${i + 1}.  $elemento",
                             style = MaterialTheme.typography.bodyLarge,
-                            color = Exito
+                            color = Exito,
                         )
                     }
                 }
@@ -210,7 +210,7 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
                 texto = t[Clave.PRUEBA_ORDENA_COMPROBAR],
                 color = if (elegidos.size == correcto.size) color else SuperficieAlta,
                 colorTexto = if (elegidos.size == correcto.size) null else TextoTenue,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 if (elegidos.size != correcto.size) return@BotonPrueba
                 comprobado = true
@@ -220,7 +220,7 @@ fun PruebaOrdena(vm: JuegoViewModel, prueba: Prueba.DeOrdena, sonidos: Sonidos) 
             BotonPrueba(
                 texto = t[Clave.ACCION_CONTINUAR],
                 color = if (acertado) Exito else Fallo,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 cerrar(acertado)
             }

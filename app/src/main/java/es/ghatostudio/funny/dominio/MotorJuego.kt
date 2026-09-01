@@ -19,9 +19,8 @@ import kotlin.random.Random
 class MotorJuego(
     private val contenido: Contenido,
     private val repartidor: Repartidor,
-    private val rnd: Random
+    private val rnd: Random,
 ) {
-
     // ------------------------------------------------------------- partidas
 
     /** Juegos que pueden salir en esta partida, según ajustes, modo y contenido. */
@@ -36,17 +35,19 @@ class MotorJuego(
 
     /** Arranca una partida por casillas (equipos o individual). */
     fun empezarCarrera(estado: EstadoJuego, participantes: List<Participante>): EstadoJuego {
-        val tablero = generarTablero(
-            casillas = estado.ajustes.duracion.casillas,
-            juegosActivos = juegosDeLaPartida(estado),
-            rnd = rnd
-        )
+        val tablero =
+            generarTablero(
+                casillas = estado.ajustes.duracion.casillas,
+                juegosActivos = juegosDeLaPartida(estado),
+                rnd = rnd,
+            )
         return estado.copy(
             pantalla = Pantalla.TABLERO,
             tablero = tablero,
-            participantes = participantes.map {
-                it.copy(posicion = 0, turnoMiembro = 0, puntos = 0)
-            },
+            participantes =
+                participantes.map {
+                    it.copy(posicion = 0, turnoMiembro = 0, puntos = 0)
+                },
             turno = 0,
             dado = null,
             origen = 0,
@@ -60,25 +61,26 @@ class MotorJuego(
             partidaEnCurso = true,
             rondaSolitario = 0,
             puntosSolitario = 0,
-            esRecordSolitario = false
+            esRecordSolitario = false,
         )
     }
 
     /** Arranca el Reto en solitario: diez pruebas seguidas y una marca personal. */
     fun empezarSolitario(estado: EstadoJuego, jugador: Participante): EstadoJuego {
-        val base = estado.copy(
-            modo = Modo.SOLITARIO,
-            participantes = listOf(jugador.copy(posicion = 0, puntos = 0)),
-            tablero = emptyList(),
-            turno = 0,
-            ganador = null,
-            partidaEnCurso = true,
-            rondaSolitario = 1,
-            rondasSolitario = RONDAS_SOLITARIO,
-            puntosSolitario = 0,
-            esRecordSolitario = false,
-            avanceExtra = emptyList()
-        )
+        val base =
+            estado.copy(
+                modo = Modo.SOLITARIO,
+                participantes = listOf(jugador.copy(posicion = 0, puntos = 0)),
+                tablero = emptyList(),
+                turno = 0,
+                ganador = null,
+                partidaEnCurso = true,
+                rondaSolitario = 1,
+                rondasSolitario = RONDAS_SOLITARIO,
+                puntosSolitario = 0,
+                esRecordSolitario = false,
+                avanceExtra = emptyList(),
+            )
         return prepararPruebaSolitario(base)
     }
 
@@ -93,7 +95,7 @@ class MotorJuego(
             origen = 0,
             destino = 0,
             esPruebaFinal = estado.rondaSolitario >= estado.rondasSolitario,
-            superada = false
+            superada = false,
         )
     }
 
@@ -110,16 +112,18 @@ class MotorJuego(
         val casilla = estado.tablero.getOrNull(destino)
         val posibles = juegosDeLaPartida(estado)
 
-        val juego = when {
-            esFinal -> posibles.random(rnd)
-            casilla?.tipo == TipoCasilla.TODOS ->
-                posibles.filter { it in Juego.PARA_RONDA_DE_TODOS }
-                    .ifEmpty { Juego.PARA_RONDA_DE_TODOS }
-                    .random(rnd)
-            // En una casilla comodín todavía no hay juego: lo elige el rival.
-            casilla?.tipo == TipoCasilla.COMODIN -> null
-            else -> casilla?.juego
-        }
+        val juego =
+            when {
+                esFinal -> posibles.random(rnd)
+                casilla?.tipo == TipoCasilla.TODOS ->
+                    posibles
+                        .filter { it in Juego.PARA_RONDA_DE_TODOS }
+                        .ifEmpty { Juego.PARA_RONDA_DE_TODOS }
+                        .random(rnd)
+                // En una casilla comodín todavía no hay juego: lo elige el rival.
+                casilla?.tipo == TipoCasilla.COMODIN -> null
+                else -> casilla?.juego
+            }
 
         return estado.copy(
             dado = dado,
@@ -127,25 +131,28 @@ class MotorJuego(
             destino = destino,
             esPruebaFinal = esFinal,
             juego = juego,
-            prueba = juego?.let { repartidor.repartirConAlternativas(it, posibles) }
+            prueba = juego?.let { repartidor.repartirConAlternativas(it, posibles) },
         )
     }
 
     /** Tras ver la tirada en el tablero se pasa a la prueba, o a elegirla. */
-    fun continuarTrasDado(estado: EstadoJuego): EstadoJuego = estado.copy(
-        pantalla = if (estado.juego == null) Pantalla.COMODIN else Pantalla.ENTREGA
-    )
+    fun continuarTrasDado(estado: EstadoJuego): EstadoJuego =
+        estado.copy(
+            pantalla = if (estado.juego == null) Pantalla.COMODIN else Pantalla.ENTREGA,
+        )
 
     /** En las casillas comodín es el participante rival quien elige la prueba. */
-    fun elegirJuego(estado: EstadoJuego, juego: Juego): EstadoJuego = estado.copy(
-        juego = juego,
-        prueba = repartidor.repartirConAlternativas(juego, juegosDeLaPartida(estado)),
-        pantalla = Pantalla.ENTREGA
-    )
+    fun elegirJuego(estado: EstadoJuego, juego: Juego): EstadoJuego =
+        estado.copy(
+            juego = juego,
+            prueba = repartidor.repartirConAlternativas(juego, juegosDeLaPartida(estado)),
+            pantalla = Pantalla.ENTREGA,
+        )
 
-    fun empezarPrueba(estado: EstadoJuego): EstadoJuego = estado.copy(
-        pantalla = if (estado.esRondaDeTodos) Pantalla.RONDA_TODOS else Pantalla.PRUEBA
-    )
+    fun empezarPrueba(estado: EstadoJuego): EstadoJuego =
+        estado.copy(
+            pantalla = if (estado.esRondaDeTodos) Pantalla.RONDA_TODOS else Pantalla.PRUEBA,
+        )
 
     // ---------------------------------------------------------- resultados
 
@@ -159,37 +166,48 @@ class MotorJuego(
      * se avanza, sin medias tintas.
      */
     fun resolverPrueba(estado: EstadoJuego, superada: Boolean, puntos: Int = -1): EstadoJuego {
-        val conseguidos = if (puntos >= 0) puntos else if (superada) 1 else 0
+        val conseguidos =
+            if (puntos >= 0) {
+                puntos
+            } else if (superada) {
+                1
+            } else {
+                0
+            }
 
         if (estado.modo == Modo.SOLITARIO) {
             return estado.copy(
                 pantalla = Pantalla.RESULTADO,
                 superada = superada,
                 puntosSolitario = estado.puntosSolitario + conseguidos,
-                participantes = estado.participantes.map {
-                    it.copy(puntos = it.puntos + conseguidos)
-                }
+                participantes =
+                    estado.participantes.map {
+                        it.copy(puntos = it.puntos + conseguidos)
+                    },
             )
         }
 
         val participante = estado.participanteActivo ?: return estado
-        var actualizado = participante.copy(
-            posicion = if (superada) estado.destino else estado.origen,
-            puntos = participante.puntos + conseguidos
-        )
+        var actualizado =
+            participante.copy(
+                posicion = if (superada) estado.destino else estado.origen,
+                puntos = participante.puntos + conseguidos,
+            )
         // Quien actúa rota solo si de verdad ha actuado alguien.
         if (estado.juego?.soloActuante == true) {
             actualizado = actualizado.copy(turnoMiembro = actualizado.turnoMiembro + 1)
         }
-        val participantes = estado.participantes.toMutableList()
-            .also { it[estado.turno] = actualizado }
+        val participantes =
+            estado.participantes
+                .toMutableList()
+                .also { it[estado.turno] = actualizado }
 
         return estado.copy(
             participantes = participantes,
             superada = superada,
             ganador = if (superada && estado.esPruebaFinal) actualizado else null,
             avanceExtra = emptyList(),
-            pantalla = Pantalla.RESULTADO
+            pantalla = Pantalla.RESULTADO,
         )
     }
 
@@ -200,21 +218,22 @@ class MotorJuego(
      */
     fun resolverRondaDeTodos(estado: EstadoJuego, aciertos: List<Boolean>): EstadoJuego {
         val topeSinMeta = (estado.meta - 1).coerceAtLeast(0)
-        val participantes = estado.participantes.mapIndexed { i, participante ->
-            val base = if (i == estado.turno) estado.destino else participante.posicion
-            val acierta = aciertos.getOrElse(i) { false }
-            val avance = if (acierta) 1 else 0
-            participante.copy(
-                posicion = (base + avance).coerceIn(0, maxOf(topeSinMeta, base)),
-                puntos = participante.puntos + avance
-            )
-        }
+        val participantes =
+            estado.participantes.mapIndexed { i, participante ->
+                val base = if (i == estado.turno) estado.destino else participante.posicion
+                val acierta = aciertos.getOrElse(i) { false }
+                val avance = if (acierta) 1 else 0
+                participante.copy(
+                    posicion = (base + avance).coerceIn(0, maxOf(topeSinMeta, base)),
+                    puntos = participante.puntos + avance,
+                )
+            }
         return estado.copy(
             participantes = participantes,
             superada = aciertos.getOrElse(estado.turno) { false },
             avanceExtra = aciertos.mapIndexedNotNull { i, ok -> if (ok) i else null },
             ganador = null,
-            pantalla = Pantalla.RESULTADO
+            pantalla = Pantalla.RESULTADO,
         )
     }
 
@@ -226,17 +245,18 @@ class MotorJuego(
             return estado.copy(pantalla = Pantalla.VICTORIA, partidaEnCurso = false)
         }
         return estado.copy(
-            turno = if (estado.participantes.isEmpty()) {
-                0
-            } else {
-                (estado.turno + 1) % estado.participantes.size
-            },
+            turno =
+                if (estado.participantes.isEmpty()) {
+                    0
+                } else {
+                    (estado.turno + 1) % estado.participantes.size
+                },
             dado = null,
             juego = null,
             prueba = null,
             esPruebaFinal = false,
             avanceExtra = emptyList(),
-            pantalla = Pantalla.TABLERO
+            pantalla = Pantalla.TABLERO,
         )
     }
 
@@ -248,11 +268,12 @@ class MotorJuego(
                 pantalla = Pantalla.SOLITARIO_FIN,
                 partidaEnCurso = false,
                 esRecordSolitario = esRecord,
-                ajustes = if (esRecord) {
-                    estado.ajustes.copy(mejorMarcaSolitario = estado.puntosSolitario)
-                } else {
-                    estado.ajustes
-                }
+                ajustes =
+                    if (esRecord) {
+                        estado.ajustes.copy(mejorMarcaSolitario = estado.puntosSolitario)
+                    } else {
+                        estado.ajustes
+                    },
             )
         }
         return prepararPruebaSolitario(estado.copy(rondaSolitario = estado.rondaSolitario + 1))

@@ -7,21 +7,22 @@ package es.ghatostudio.funny.ui.i18n
  * `Clave`; si alguien añade una clave y se olvida de un idioma, la build falla
  * en lugar de dejar que salga el nombre de la clave en pantalla.
  */
-private val CATALOGOS: Map<Idioma, Catalogo> = listOf(
-    catalogoIngles,
-    catalogoCastellano,
-    catalogoFrances,
-    catalogoAleman,
-    catalogoChino,
-    catalogoJapones,
-    catalogoRuso,
-    catalogoItaliano,
-    catalogoGriego,
-    catalogoArabe,
-    catalogoGallego,
-    catalogoCatalan,
-    catalogoEuskera
-).associateBy { it.idioma }
+private val CATALOGOS: Map<Idioma, Catalogo> =
+    listOf(
+        catalogoIngles,
+        catalogoCastellano,
+        catalogoFrances,
+        catalogoAleman,
+        catalogoChino,
+        catalogoJapones,
+        catalogoRuso,
+        catalogoItaliano,
+        catalogoGriego,
+        catalogoArabe,
+        catalogoGallego,
+        catalogoCatalan,
+        catalogoEuskera,
+    ).associateBy { it.idioma }
 
 fun catalogoDe(idioma: Idioma): Catalogo =
     CATALOGOS[idioma] ?: CATALOGOS.getValue(Idioma.POR_DEFECTO)
@@ -31,7 +32,7 @@ fun textosDe(idioma: Idioma, reglas: ReglasDePlural = ReglasDePlural.SENCILLAS):
     Textos(
         catalogo = catalogoDe(idioma),
         respaldo = catalogoDe(Idioma.INGLES),
-        reglas = reglas
+        reglas = reglas,
     )
 
 /** Todos los catálogos, para las pruebas de completitud. */

@@ -58,14 +58,14 @@ private fun SinContenido(vm: JuegoViewModel) {
         Column(
             Modifier.fillMaxSize().padding(26.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text("🤷", style = MaterialTheme.typography.displayLarge)
             Text(
                 t[Clave.ESTADO_SIN_CONTENIDO],
                 style = MaterialTheme.typography.bodyLarge,
                 color = TextoTenue,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             BotonGrande(t[Clave.ACCION_CONTINUAR]) { vm.resolverPrueba(false) }
         }

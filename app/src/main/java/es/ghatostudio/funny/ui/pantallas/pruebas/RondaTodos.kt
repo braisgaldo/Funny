@@ -52,7 +52,7 @@ private data class DatosRonda(
     val tema: String?,
     val opciones: List<String>,
     val correcta: Int,
-    val aclaracion: String?
+    val aclaracion: String?,
 )
 
 /**
@@ -108,137 +108,143 @@ fun PantallaRondaTodos(vm: JuegoViewModel, sonidos: Sonidos) {
                 Column(
                     Modifier.fillMaxSize().padding(26.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
+                    verticalArrangement = Arrangement.Center,
                 ) {
                     Text("📱", style = MaterialTheme.typography.displayLarge)
                     Spacer(Modifier.height(12.dp))
                     Text(
                         t[Clave.RONDA_TODOS_PASAD_A],
                         style = MaterialTheme.typography.labelLarge,
-                        color = TextoTenue
+                        color = TextoTenue,
                     )
                     Spacer(Modifier.height(6.dp))
                     Text(
                         "${participante.emoji}  $nombre",
                         style = MaterialTheme.typography.displayMedium,
                         color = colorParticipante,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(14.dp))
                     Text(
                         t.con(
                             Clave.RONDA_TODOS_PROGRESO,
                             indiceParticipante + 1,
-                            estado.participantes.size
+                            estado.participantes.size,
                         ),
                         style = MaterialTheme.typography.bodyLarge,
                         color = TextoTenue,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(30.dp))
                     BotonGrande(
                         texto = t[Clave.ACCION_LISTO],
                         onClick = { listo = true },
                         color = colorParticipante,
-                        colorTexto = p.textoSobre(colorParticipante)
+                        colorTexto = p.textoSobre(colorParticipante),
                     )
                 }
             }
         }
 
         // `key` reinicia el cronómetro del marco para cada participante.
-        else -> key(indiceParticipante) {
-            MarcoPrueba(
-                juego = juego,
-                segundos = estado.segundosDe(juego),
-                enMarcha = elegida == null && !agotado,
-                sonidos = sonidos,
-                marcador = "${participante.emoji} $nombre",
-                onTiempoAgotado = { agotado = true }
-            ) {
-                Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
-                    BloqueOpciones(
-                        enunciado = datos.enunciado,
-                        tema = datos.tema,
-                        opciones = datos.opciones,
-                        correcta = datos.correcta,
-                        elegida = elegida,
-                        // Nunca se revela aquí: el suspense hasta el final es
-                        // media gracia de esta casilla.
-                        revelar = false,
-                        color = color
-                    ) { indice ->
-                        sonidos.toque()
-                        elegida = indice
+        else ->
+            key(indiceParticipante) {
+                MarcoPrueba(
+                    juego = juego,
+                    segundos = estado.segundosDe(juego),
+                    enMarcha = elegida == null && !agotado,
+                    sonidos = sonidos,
+                    marcador = "${participante.emoji} $nombre",
+                    onTiempoAgotado = { agotado = true },
+                ) {
+                    Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
+                        BloqueOpciones(
+                            enunciado = datos.enunciado,
+                            tema = datos.tema,
+                            opciones = datos.opciones,
+                            correcta = datos.correcta,
+                            elegida = elegida,
+                            // Nunca se revela aquí: el suspense hasta el final es
+                            // media gracia de esta casilla.
+                            revelar = false,
+                            color = color,
+                        ) { indice ->
+                            sonidos.toque()
+                            elegida = indice
+                        }
                     }
-                }
 
-                if (elegida != null || agotado) {
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        if (agotado && elegida == null) {
-                            t[Clave.RONDA_TODOS_SIN_RESPUESTA]
-                        } else {
-                            t[Clave.RONDA_TODOS_GUARDADA]
-                        },
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = TextoTenue,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                    Spacer(Modifier.height(12.dp))
-                    BotonPrueba(
-                        texto = if (indiceParticipante + 1 >= estado.participantes.size) {
-                            t[Clave.RONDA_TODOS_VER_RESULTADOS]
-                        } else {
-                            t[Clave.ACCION_CONTINUAR]
-                        },
-                        color = color,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        avanzar()
+                    if (elegida != null || agotado) {
+                        Spacer(Modifier.height(6.dp))
+                        Text(
+                            if (agotado && elegida == null) {
+                                t[Clave.RONDA_TODOS_SIN_RESPUESTA]
+                            } else {
+                                t[Clave.RONDA_TODOS_GUARDADA]
+                            },
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = TextoTenue,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        BotonPrueba(
+                            texto =
+                                if (indiceParticipante + 1 >= estado.participantes.size) {
+                                    t[Clave.RONDA_TODOS_VER_RESULTADOS]
+                                } else {
+                                    t[Clave.ACCION_CONTINUAR]
+                                },
+                            color = color,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            avanzar()
+                        }
                     }
                 }
             }
-        }
     }
 }
 
 @Composable
-private fun datosDeLaPrueba(prueba: Prueba?, t: Textos): DatosRonda? = when (prueba) {
-    is Prueba.DeCuando -> DatosRonda(
-        enunciado = prueba.evento.texto,
-        tema = prueba.evento.tema.ifBlank { t[Clave.PRUEBA_CUANDO_TEMA] },
-        opciones = prueba.opciones.map { it.toString() },
-        correcta = prueba.opciones.indexOf(prueba.evento.anio).coerceAtLeast(0),
-        aclaracion = t.con(Clave.PRUEBA_CUANDO_RESPUESTA, prueba.evento.anio)
-    )
+private fun datosDeLaPrueba(prueba: Prueba?, t: Textos): DatosRonda? =
+    when (prueba) {
+        is Prueba.DeCuando ->
+            DatosRonda(
+                enunciado = prueba.evento.texto,
+                tema = prueba.evento.tema.ifBlank { t[Clave.PRUEBA_CUANDO_TEMA] },
+                opciones = prueba.opciones.map { it.toString() },
+                correcta = prueba.opciones.indexOf(prueba.evento.anio).coerceAtLeast(0),
+                aclaracion = t.con(Clave.PRUEBA_CUANDO_RESPUESTA, prueba.evento.anio),
+            )
 
-    is Prueba.DePreguntas -> DatosRonda(
-        enunciado = prueba.pregunta.texto,
-        tema = prueba.pregunta.tema,
-        opciones = prueba.pregunta.opciones,
-        correcta = prueba.pregunta.correcta,
-        aclaracion = null
-    )
+        is Prueba.DePreguntas ->
+            DatosRonda(
+                enunciado = prueba.pregunta.texto,
+                tema = prueba.pregunta.tema,
+                opciones = prueba.pregunta.opciones,
+                correcta = prueba.pregunta.correcta,
+                aclaracion = null,
+            )
 
-    is Prueba.DeEmojis -> DatosRonda(
-        enunciado = "${prueba.carta.emojis}\n\n${t[Clave.PRUEBA_EMOJIS_AYUDA]}",
-        tema = prueba.carta.tipo,
-        opciones = prueba.opciones,
-        correcta = prueba.correcta,
-        aclaracion = t.con(Clave.PRUEBA_EMOJIS_ERA, prueba.carta.respuesta)
-    )
+        is Prueba.DeEmojis ->
+            DatosRonda(
+                enunciado = "${prueba.carta.emojis}\n\n${t[Clave.PRUEBA_EMOJIS_AYUDA]}",
+                tema = prueba.carta.tipo,
+                opciones = prueba.opciones,
+                correcta = prueba.correcta,
+                aclaracion = t.con(Clave.PRUEBA_EMOJIS_ERA, prueba.carta.respuesta),
+            )
 
-    else -> null
-}
+        else -> null
+    }
 
 @Composable
 private fun ResumenDeLaRonda(
     vm: JuegoViewModel,
     datos: DatosRonda,
     respuestas: List<Int>,
-    sonidos: Sonidos
+    sonidos: Sonidos,
 ) {
     val t = textos()
     val p = paleta()
@@ -250,7 +256,7 @@ private fun ResumenDeLaRonda(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(Modifier.height(10.dp))
             Text("👥", style = MaterialTheme.typography.displayMedium)
@@ -258,7 +264,7 @@ private fun ResumenDeLaRonda(
             Text(
                 t[Clave.RONDA_TODOS_CORRECTA_ERA],
                 style = MaterialTheme.typography.labelLarge,
-                color = TextoTenue
+                color = TextoTenue,
             )
             Spacer(Modifier.height(10.dp))
             Box(
@@ -266,13 +272,13 @@ private fun ResumenDeLaRonda(
                     .clip(RoundedCornerShape(18.dp))
                     .background(Exito.copy(alpha = 0.2f))
                     .border(2.dp, Exito, RoundedCornerShape(18.dp))
-                    .padding(horizontal = 22.dp, vertical = 14.dp)
+                    .padding(horizontal = 22.dp, vertical = 14.dp),
             ) {
                 Text(
                     datos.opciones.getOrElse(datos.correcta) { "—" },
                     style = MaterialTheme.typography.headlineMedium,
                     color = Exito,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
             if (datos.aclaracion != null) {
@@ -281,7 +287,7 @@ private fun ResumenDeLaRonda(
                     datos.aclaracion,
                     style = MaterialTheme.typography.bodyLarge,
                     color = TextoTenue,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
 
@@ -294,7 +300,7 @@ private fun ResumenDeLaRonda(
                         val acierto = respuesta == datos.correcta
                         Row(
                             Modifier.fillMaxWidth().padding(vertical = 6.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(participante.emoji, style = MaterialTheme.typography.titleLarge)
                             Spacer(Modifier.width(10.dp))
@@ -302,7 +308,7 @@ private fun ResumenDeLaRonda(
                                 Text(
                                     nombreEnIndice(estado, indice),
                                     style = MaterialTheme.typography.titleMedium,
-                                    color = p.colorDeParticipante(participante.indiceColor)
+                                    color = p.colorDeParticipante(participante.indiceColor),
                                 )
                                 Text(
                                     if (respuesta >= 0) {
@@ -311,13 +317,13 @@ private fun ResumenDeLaRonda(
                                         t[Clave.RONDA_TODOS_SIN_RESPONDER]
                                     },
                                     style = MaterialTheme.typography.bodyMedium,
-                                    color = TextoTenue
+                                    color = TextoTenue,
                                 )
                             }
                             Text(
                                 if (acierto) "✓  +1" else "✕",
                                 style = MaterialTheme.typography.titleMedium,
-                                color = if (acierto) Exito else Fallo
+                                color = if (acierto) Exito else Fallo,
                             )
                         }
                     }
@@ -333,11 +339,11 @@ private fun ResumenDeLaRonda(
                     vm.resolverRondaDeTodos(
                         estado.participantes.indices.map {
                             respuestas.getOrElse(it) { SIN_RESPUESTA } == datos.correcta
-                        }
+                        },
                     )
                 },
                 color = Exito,
-                colorTexto = p.textoSobre(Exito)
+                colorTexto = p.textoSobre(Exito),
             )
             Spacer(Modifier.height(10.dp))
         }

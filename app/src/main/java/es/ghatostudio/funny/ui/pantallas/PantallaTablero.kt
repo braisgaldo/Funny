@@ -60,7 +60,6 @@ import es.ghatostudio.funny.ui.i18n.Textos
 import es.ghatostudio.funny.ui.i18n.textos
 import es.ghatostudio.funny.ui.tema.Acento
 import es.ghatostudio.funny.ui.tema.Fondo
-import es.ghatostudio.funny.ui.tema.Primario
 import es.ghatostudio.funny.ui.tema.Superficie
 import es.ghatostudio.funny.ui.tema.TextoFuerte
 import es.ghatostudio.funny.ui.tema.TextoTenue
@@ -105,7 +104,7 @@ fun PantallaTablero(vm: JuegoViewModel, sonidos: Sonidos) {
                 preguntandoSalir = false
                 vm.abandonarPartida()
             },
-            onCancelar = { preguntandoSalir = false }
+            onCancelar = { preguntandoSalir = false },
         )
     }
 
@@ -113,7 +112,7 @@ fun PantallaTablero(vm: JuegoViewModel, sonidos: Sonidos) {
         Column(Modifier.fillMaxSize()) {
             Row(
                 Modifier.fillMaxWidth().padding(start = 8.dp, end = 16.dp, top = 6.dp),
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 BotonSuave("‹  ${t[Clave.ACCION_VOLVER]}") { vm.ir(Pantalla.INICIO) }
                 Spacer(Modifier.weight(1f))
@@ -128,7 +127,7 @@ fun PantallaTablero(vm: JuegoViewModel, sonidos: Sonidos) {
                 Modifier
                     .weight(1f)
                     .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             ) {
                 Tablero(estado)
             }
@@ -142,7 +141,7 @@ fun PantallaTablero(vm: JuegoViewModel, sonidos: Sonidos) {
                 tirando = tirando,
                 caraAnimada = caraAnimada,
                 onTirar = { tirando = true },
-                onContinuar = { vm.continuarTrasDado() }
+                onContinuar = { vm.continuarTrasDado() },
             )
         }
     }
@@ -156,43 +155,44 @@ private fun Marcador(estado: EstadoJuego, modifier: Modifier = Modifier) {
     FlowRow(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(6.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp)
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         estado.participantes.forEachIndexed { indice, participante ->
             val activo = indice == estado.turno
             val color = p.colorDeParticipante(participante.indiceColor)
             val nombre = nombreEnIndice(estado, indice)
             Row(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(50))
-                    .background(if (activo) color.copy(alpha = 0.28f) else Superficie)
-                    .border(
-                        width = if (activo) 2.dp else 0.dp,
-                        color = if (activo) color else Color.Transparent,
-                        shape = RoundedCornerShape(50)
-                    )
-                    .padding(horizontal = 10.dp, vertical = 6.dp)
-                    .semantics {
-                        contentDescription = t.con(
-                            Clave.A11Y_FICHA,
-                            nombre,
-                            participante.posicion
-                        )
-                    },
-                verticalAlignment = Alignment.CenterVertically
+                modifier =
+                    Modifier
+                        .clip(RoundedCornerShape(50))
+                        .background(if (activo) color.copy(alpha = 0.28f) else Superficie)
+                        .border(
+                            width = if (activo) 2.dp else 0.dp,
+                            color = if (activo) color else Color.Transparent,
+                            shape = RoundedCornerShape(50),
+                        ).padding(horizontal = 10.dp, vertical = 6.dp)
+                        .semantics {
+                            contentDescription =
+                                t.con(
+                                    Clave.A11Y_FICHA,
+                                    nombre,
+                                    participante.posicion,
+                                )
+                        },
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(participante.emoji, style = MaterialTheme.typography.bodyMedium)
                 Spacer(Modifier.width(6.dp))
                 Text(
                     nombre,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = if (activo) TextoFuerte else TextoTenue
+                    color = if (activo) TextoFuerte else TextoTenue,
                 )
                 Spacer(Modifier.width(6.dp))
                 Text(
                     "${participante.posicion}",
                     style = MaterialTheme.typography.titleMedium,
-                    color = color
+                    color = color,
                 )
             }
         }
@@ -202,11 +202,12 @@ private fun Marcador(estado: EstadoJuego, modifier: Modifier = Modifier) {
 @Composable
 private fun Tablero(estado: EstadoJuego) {
     // Se ajustan las columnas para que el tablero entero quepa sin desplazarse.
-    val columnas = when {
-        estado.tablero.size > 24 -> 6
-        estado.tablero.size > 16 -> 5
-        else -> 4
-    }
+    val columnas =
+        when {
+            estado.tablero.size > 24 -> 6
+            estado.tablero.size > 16 -> 5
+            else -> 4
+        }
     val filas = estado.tablero.chunked(columnas)
 
     Column(verticalArrangement = Arrangement.spacedBy(7.dp)) {
@@ -223,7 +224,7 @@ private fun Tablero(estado: EstadoJuego) {
                         casilla = casilla,
                         ocupantes = estado.participantes.filter { it.posicion == casilla.indice },
                         esDestino = estado.dado != null && casilla.indice == estado.destino,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
                     )
                 }
                 if (!invertida) repeat(huecos) { Spacer(Modifier.weight(1f)) }
@@ -237,58 +238,60 @@ private fun CasillaVista(
     casilla: Casilla,
     ocupantes: List<Participante>,
     esDestino: Boolean,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val t = textos()
     val p = paleta()
     val color = colorDeCasilla(casilla)
-    val emoji = when (casilla.tipo) {
-        TipoCasilla.SALIDA -> "🚩"
-        TipoCasilla.META -> "🏁"
-        TipoCasilla.COMODIN -> "🃏"
-        TipoCasilla.TODOS -> "👥"
-        TipoCasilla.NORMAL -> casilla.juego?.emoji ?: "•"
-    }
-    val nombre = when (casilla.tipo) {
-        TipoCasilla.SALIDA -> t[Clave.TABLERO_SALIDA]
-        TipoCasilla.META -> t[Clave.TABLERO_META]
-        TipoCasilla.COMODIN -> t[Clave.CASILLA_COMODIN]
-        TipoCasilla.TODOS -> t[Clave.CASILLA_TODOS]
-        TipoCasilla.NORMAL -> casilla.juego?.let { t.nombreDe(it) }.orEmpty()
-    }
+    val emoji =
+        when (casilla.tipo) {
+            TipoCasilla.SALIDA -> "🚩"
+            TipoCasilla.META -> "🏁"
+            TipoCasilla.COMODIN -> "🃏"
+            TipoCasilla.TODOS -> "👥"
+            TipoCasilla.NORMAL -> casilla.juego?.emoji ?: "•"
+        }
+    val nombre =
+        when (casilla.tipo) {
+            TipoCasilla.SALIDA -> t[Clave.TABLERO_SALIDA]
+            TipoCasilla.META -> t[Clave.TABLERO_META]
+            TipoCasilla.COMODIN -> t[Clave.CASILLA_COMODIN]
+            TipoCasilla.TODOS -> t[Clave.CASILLA_TODOS]
+            TipoCasilla.NORMAL -> casilla.juego?.let { t.nombreDe(it) }.orEmpty()
+        }
     val brillo by animateFloatAsState(
         targetValue = if (esDestino) 1f else 0f,
-        label = "brillo"
+        label = "brillo",
     )
 
     Box(
-        modifier = modifier
-            .aspectRatio(1f)
-            .clip(RoundedCornerShape(14.dp))
-            .background(color.copy(alpha = 0.16f + 0.22f * brillo))
-            .border(
-                width = (1.5f + 2f * brillo).dp,
-                color = color.copy(alpha = 0.5f + 0.5f * brillo),
-                shape = RoundedCornerShape(14.dp)
-            )
-            .padding(3.dp)
-            .semantics {
-                contentDescription = t.con(Clave.A11Y_CASILLA, casilla.indice, nombre)
-            },
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .aspectRatio(1f)
+                .clip(RoundedCornerShape(14.dp))
+                .background(color.copy(alpha = 0.16f + 0.22f * brillo))
+                .border(
+                    width = (1.5f + 2f * brillo).dp,
+                    color = color.copy(alpha = 0.5f + 0.5f * brillo),
+                    shape = RoundedCornerShape(14.dp),
+                ).padding(3.dp)
+                .semantics {
+                    contentDescription = t.con(Clave.A11Y_CASILLA, casilla.indice, nombre)
+                },
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             "${casilla.indice}",
             style = MaterialTheme.typography.bodyMedium,
             color = color.copy(alpha = 0.85f),
-            modifier = Modifier.align(Alignment.TopStart).clearAndSetSemantics { }
+            modifier = Modifier.align(Alignment.TopStart).clearAndSetSemantics { },
         )
         Text(emoji, style = MaterialTheme.typography.titleLarge)
 
         if (ocupantes.isNotEmpty()) {
             Row(
                 modifier = Modifier.align(Alignment.BottomCenter),
-                horizontalArrangement = Arrangement.spacedBy(2.dp)
+                horizontalArrangement = Arrangement.spacedBy(2.dp),
             ) {
                 ocupantes.forEach { participante ->
                     Box(
@@ -296,7 +299,7 @@ private fun CasillaVista(
                             .size(11.dp)
                             .clip(CircleShape)
                             .background(p.colorDeParticipante(participante.indiceColor))
-                            .border(1.dp, Fondo, CircleShape)
+                            .border(1.dp, Fondo, CircleShape),
                     )
                 }
             }
@@ -324,7 +327,7 @@ private fun PanelDeTurno(
     tirando: Boolean,
     caraAnimada: Int,
     onTirar: () -> Unit,
-    onContinuar: () -> Unit
+    onContinuar: () -> Unit,
 ) {
     val t = textos()
     val nombre = nombreDelActivo(estado)
@@ -332,17 +335,17 @@ private fun PanelDeTurno(
     Tarjeta(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
         color = Superficie,
-        borde = color.copy(alpha = 0.5f)
+        borde = color.copy(alpha = 0.5f),
     ) {
         Column(
             Modifier.fillMaxWidth().padding(18.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 "${participante.emoji}  ${t.con(Clave.TABLERO_TURNO_DE, nombre)}",
                 style = MaterialTheme.typography.headlineMedium,
                 color = color,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
 
             Spacer(Modifier.height(14.dp))
@@ -355,7 +358,7 @@ private fun PanelDeTurno(
                     onClick = onTirar,
                     color = color,
                     colorTexto = paleta().textoSobre(color),
-                    habilitado = !tirando
+                    habilitado = !tirando,
                 )
             } else {
                 CaraDeDado(valor = estado.dado, activo = false)
@@ -364,7 +367,7 @@ private fun PanelDeTurno(
                     t.con(Clave.RESULTADO_AVANZAS_A, estado.destino),
                     style = MaterialTheme.typography.titleMedium,
                     color = TextoFuerte,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(10.dp))
                 AvisoDeCasilla(estado, t)
@@ -373,7 +376,7 @@ private fun PanelDeTurno(
                     texto = t[Clave.ACCION_CONTINUAR],
                     onClick = onContinuar,
                     color = color,
-                    colorTexto = paleta().textoSobre(color)
+                    colorTexto = paleta().textoSobre(color),
                 )
             }
         }
@@ -403,28 +406,32 @@ private fun CaraDeDado(valor: Int, activo: Boolean) {
     val colorCara = if (activo) Acento else p.textoFuerte
     val colorPunto = p.fondo
     Box(
-        modifier = Modifier
-            .size(76.dp)
-            .clip(RoundedCornerShape(18.dp))
-            .background(colorCara)
-            .semantics { contentDescription = t.con(Clave.A11Y_DADO, valor) },
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .size(76.dp)
+                .clip(RoundedCornerShape(18.dp))
+                .background(colorCara)
+                .semantics { contentDescription = t.con(Clave.A11Y_DADO, valor) },
+        contentAlignment = Alignment.Center,
     ) {
         Canvas(Modifier.fillMaxSize().padding(14.dp)) {
             val radio = size.minDimension / 9f
-            val posiciones = when (valor) {
-                1 -> listOf(Offset(size.width / 2, size.height / 2))
-                2 -> listOf(
-                    Offset(size.width * 0.25f, size.height * 0.25f),
-                    Offset(size.width * 0.75f, size.height * 0.75f)
-                )
+            val posiciones =
+                when (valor) {
+                    1 -> listOf(Offset(size.width / 2, size.height / 2))
+                    2 ->
+                        listOf(
+                            Offset(size.width * 0.25f, size.height * 0.25f),
+                            Offset(size.width * 0.75f, size.height * 0.75f),
+                        )
 
-                else -> listOf(
-                    Offset(size.width * 0.22f, size.height * 0.22f),
-                    Offset(size.width / 2, size.height / 2),
-                    Offset(size.width * 0.78f, size.height * 0.78f)
-                )
-            }
+                    else ->
+                        listOf(
+                            Offset(size.width * 0.22f, size.height * 0.22f),
+                            Offset(size.width / 2, size.height / 2),
+                            Offset(size.width * 0.78f, size.height * 0.78f),
+                        )
+                }
             posiciones.forEach { drawCircle(color = colorPunto, radius = radio, center = it) }
         }
     }

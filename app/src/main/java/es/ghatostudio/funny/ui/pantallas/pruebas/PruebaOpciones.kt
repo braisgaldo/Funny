@@ -68,7 +68,7 @@ fun BloqueOpciones(
     color: Color,
     modifier: Modifier = Modifier,
     encabezadoGrande: String? = null,
-    onElegir: (Int) -> Unit
+    onElegir: (Int) -> Unit,
 ) {
     val t = textos()
     Column(modifier) {
@@ -78,14 +78,14 @@ fun BloqueOpciones(
                 .clip(RoundedCornerShape(22.dp))
                 .background(Superficie)
                 .border(2.dp, color.copy(alpha = 0.4f), RoundedCornerShape(22.dp))
-                .padding(20.dp)
+                .padding(20.dp),
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 if (!tema.isNullOrBlank()) {
                     Text(
                         tema.uppercase(t.locale),
                         style = MaterialTheme.typography.labelLarge,
-                        color = color
+                        color = color,
                     )
                     Spacer(Modifier.height(10.dp))
                 }
@@ -95,7 +95,7 @@ fun BloqueOpciones(
                     Text(
                         encabezadoGrande,
                         style = MaterialTheme.typography.displayLarge,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(12.dp))
                 }
@@ -103,7 +103,7 @@ fun BloqueOpciones(
                     enunciado,
                     style = MaterialTheme.typography.headlineMedium,
                     color = TextoFuerte,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
             }
         }
@@ -113,42 +113,45 @@ fun BloqueOpciones(
         opciones.forEachIndexed { indice, texto ->
             val esCorrecta = indice == correcta
             val esElegida = indice == elegida
-            val fondo = when {
-                revelar && esCorrecta -> Exito.copy(alpha = 0.22f)
-                revelar && esElegida -> Fallo.copy(alpha = 0.22f)
-                esElegida -> color.copy(alpha = 0.25f)
-                else -> Superficie
-            }
-            val borde = when {
-                revelar && esCorrecta -> Exito
-                revelar && esElegida -> Fallo
-                esElegida -> color
-                else -> SuperficieAlta
-            }
+            val fondo =
+                when {
+                    revelar && esCorrecta -> Exito.copy(alpha = 0.22f)
+                    revelar && esElegida -> Fallo.copy(alpha = 0.22f)
+                    esElegida -> color.copy(alpha = 0.25f)
+                    else -> Superficie
+                }
+            val borde =
+                when {
+                    revelar && esCorrecta -> Exito
+                    revelar && esElegida -> Fallo
+                    esElegida -> color
+                    else -> SuperficieAlta
+                }
 
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 10.dp)
-                    .heightIn(min = AREA_TACTIL_MINIMA)
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(fondo)
-                    .border(2.dp, borde, RoundedCornerShape(16.dp))
-                    .clickable(enabled = elegida == null && !revelar) { onElegir(indice) }
-                    .padding(horizontal = 14.dp, vertical = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 10.dp)
+                        .heightIn(min = AREA_TACTIL_MINIMA)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(fondo)
+                        .border(2.dp, borde, RoundedCornerShape(16.dp))
+                        .clickable(enabled = elegida == null && !revelar) { onElegir(indice) }
+                        .padding(horizontal = 14.dp, vertical = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Box(
                     Modifier
                         .size(32.dp)
                         .clip(CircleShape)
                         .background(borde.copy(alpha = 0.25f)),
-                    contentAlignment = Alignment.Center
+                    contentAlignment = Alignment.Center,
                 ) {
                     Text(
                         LETRAS.getOrElse(indice) { "•" },
                         style = MaterialTheme.typography.titleMedium,
-                        color = borde
+                        color = borde,
                     )
                 }
                 Spacer(Modifier.width(14.dp))
@@ -156,7 +159,7 @@ fun BloqueOpciones(
                     texto,
                     style = MaterialTheme.typography.titleMedium,
                     color = TextoFuerte,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 )
                 if (revelar && esCorrecta) {
                     Text("✓", style = MaterialTheme.typography.titleLarge, color = Exito)
@@ -184,7 +187,7 @@ fun PruebaCuando(vm: JuegoViewModel, prueba: Prueba.DeCuando, sonidos: Sonidos) 
         enMarcha = !revelar,
         sonidos = sonidos,
         marcador = null,
-        onTiempoAgotado = { agotado = true }
+        onTiempoAgotado = { agotado = true },
     ) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
             BloqueOpciones(
@@ -194,7 +197,7 @@ fun PruebaCuando(vm: JuegoViewModel, prueba: Prueba.DeCuando, sonidos: Sonidos) 
                 correcta = correcta,
                 elegida = elegida,
                 revelar = revelar,
-                color = color
+                color = color,
             ) { indice ->
                 elegida = indice
                 if (indice == correcta) sonidos.acierto() else sonidos.fallo()
@@ -208,13 +211,13 @@ fun PruebaCuando(vm: JuegoViewModel, prueba: Prueba.DeCuando, sonidos: Sonidos) 
                 style = MaterialTheme.typography.bodyLarge,
                 color = TextoTenue,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
             Spacer(Modifier.height(12.dp))
             BotonPrueba(
                 texto = t[Clave.ACCION_CONTINUAR],
                 color = color,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 vm.resolverPrueba(elegida == correcta)
             }
@@ -238,11 +241,11 @@ fun PruebaPreguntas(vm: JuegoViewModel, prueba: Prueba.DePreguntas, sonidos: Son
         enMarcha = !revelar,
         sonidos = sonidos,
         marcador = null,
-        onTiempoAgotado = { agotado = true }
+        onTiempoAgotado = { agotado = true },
     ) {
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             BloqueOpciones(
                 enunciado = pregunta.texto,
@@ -251,7 +254,7 @@ fun PruebaPreguntas(vm: JuegoViewModel, prueba: Prueba.DePreguntas, sonidos: Son
                 correcta = pregunta.correcta,
                 elegida = elegida,
                 revelar = revelar,
-                color = color
+                color = color,
             ) { indice ->
                 elegida = indice
                 if (indice == pregunta.correcta) sonidos.acierto() else sonidos.fallo()
@@ -263,7 +266,7 @@ fun PruebaPreguntas(vm: JuegoViewModel, prueba: Prueba.DePreguntas, sonidos: Son
             BotonPrueba(
                 texto = t[Clave.ACCION_CONTINUAR],
                 color = color,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 vm.resolverPrueba(elegida == pregunta.correcta)
             }
@@ -292,11 +295,11 @@ fun PruebaEmojis(vm: JuegoViewModel, prueba: Prueba.DeEmojis, sonidos: Sonidos) 
         enMarcha = !revelar,
         sonidos = sonidos,
         marcador = null,
-        onTiempoAgotado = { agotado = true }
+        onTiempoAgotado = { agotado = true },
     ) {
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             BloqueOpciones(
                 enunciado = t[Clave.PRUEBA_EMOJIS_AYUDA],
@@ -306,7 +309,7 @@ fun PruebaEmojis(vm: JuegoViewModel, prueba: Prueba.DeEmojis, sonidos: Sonidos) 
                 correcta = prueba.correcta,
                 elegida = elegida,
                 revelar = revelar,
-                color = color
+                color = color,
             ) { indice ->
                 elegida = indice
                 if (indice == prueba.correcta) sonidos.acierto() else sonidos.fallo()
@@ -320,13 +323,13 @@ fun PruebaEmojis(vm: JuegoViewModel, prueba: Prueba.DeEmojis, sonidos: Sonidos) 
                 style = MaterialTheme.typography.bodyLarge,
                 color = TextoTenue,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             )
             Spacer(Modifier.height(12.dp))
             BotonPrueba(
                 texto = t[Clave.ACCION_CONTINUAR],
                 color = color,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 vm.resolverPrueba(elegida == prueba.correcta)
             }

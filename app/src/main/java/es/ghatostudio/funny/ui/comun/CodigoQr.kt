@@ -40,14 +40,15 @@ private val BLANCO_QR = Color(0xFFFFFFFF)
  * Devuelve `null` si el texto no se puede codificar, para que quien llama pueda
  * enseñar otra cosa en lugar de un hueco.
  */
-fun matrizQr(datos: String): Array<BooleanArray>? = runCatching {
-    val cuadros = QRCodeProcessor(datos, ErrorCorrectionLevel.MEDIUM).encode()
-    Array(cuadros.size) { fila ->
-        BooleanArray(cuadros[fila].size) { columna ->
-            cuadros[fila][columna]?.dark == true
+fun matrizQr(datos: String): Array<BooleanArray>? =
+    runCatching {
+        val cuadros = QRCodeProcessor(datos, ErrorCorrectionLevel.MEDIUM).encode()
+        Array(cuadros.size) { fila ->
+            BooleanArray(cuadros[fila].size) { columna ->
+                cuadros[fila][columna]?.dark == true
+            }
         }
-    }
-}.getOrNull()
+    }.getOrNull()
 
 /**
  * Código QR dibujado con los colores del tema.
@@ -66,7 +67,7 @@ fun CodigoQr(
     datos: String,
     descripcion: String,
     modifier: Modifier = Modifier,
-    tamano: Dp = 200.dp
+    tamano: Dp = 200.dp,
 ) {
     val p = paleta()
     val matriz = remember(datos) { matrizQr(datos) } ?: return
@@ -80,10 +81,11 @@ fun CodigoQr(
     val modulo = if (suficiente) moduloTema else NEGRO_QR
 
     Box(
-        modifier = modifier
-            .size(tamano)
-            .clip(RoundedCornerShape(16.dp))
-            .semantics { contentDescription = descripcion }
+        modifier =
+            modifier
+                .size(tamano)
+                .clip(RoundedCornerShape(16.dp))
+                .semantics { contentDescription = descripcion },
     ) {
         Canvas(
             Modifier
@@ -91,7 +93,7 @@ fun CodigoQr(
                 .aspectRatio(1f)
                 // La zona de silencio va dentro del recuadro claro: sin ella,
                 // muchos lectores no encuentran el código.
-                .padding(0.dp)
+                .padding(0.dp),
         ) {
             drawRect(color = plato, size = size)
 
@@ -106,13 +108,14 @@ fun CodigoQr(
                     if (!matriz[fila][columna]) continue
                     drawRect(
                         color = modulo,
-                        topLeft = Offset(
-                            x = margen + columna * lado,
-                            y = margen + fila * lado
-                        ),
+                        topLeft =
+                            Offset(
+                                x = margen + columna * lado,
+                                y = margen + fila * lado,
+                            ),
                         // Un pelo de más para que no se vean líneas de fondo
                         // entre módulos contiguos por el redondeo de píxeles.
-                        size = Size(lado + 0.6f, lado + 0.6f)
+                        size = Size(lado + 0.6f, lado + 0.6f),
                     )
                 }
             }

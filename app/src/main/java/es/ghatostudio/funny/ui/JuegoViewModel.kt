@@ -39,9 +39,10 @@ class JuegoViewModel(
     private val prefs: Preferencias = Preferencias(aplicacion),
     private val fuente: FuenteContenido = ContenidoDeAssets(aplicacion),
     /** Etiqueta de idioma del sistema. Se inyecta para poder probarla. */
-    idiomaDelSistema: String = aplicacion.resources.configuration.locales[0].toLanguageTag()
+    idiomaDelSistema: String =
+        aplicacion.resources.configuration.locales[0]
+            .toLanguageTag(),
 ) : AndroidViewModel(aplicacion) {
-
     private val rnd = Random(System.nanoTime())
     private val idiomaSistema = Idioma.deEtiqueta(idiomaDelSistema)
 
@@ -62,11 +63,12 @@ class JuegoViewModel(
     init {
         val guardado = prefs.cargarAhora()
         val participantes = guardado.participantes.ifEmpty { emptyList() }
-        estado = EstadoJuego(
-            ajustes = guardado.ajustes,
-            modo = guardado.modo,
-            participantes = participantes
-        )
+        estado =
+            EstadoJuego(
+                ajustes = guardado.ajustes,
+                modo = guardado.modo,
+                participantes = participantes,
+            )
         recargarContenido()
     }
 
@@ -81,11 +83,12 @@ class JuegoViewModel(
         motor = crearMotor(contenido, contenido)
     }
 
-    private fun crearMotor(paraRepartir: Contenido, paraConsultar: Contenido) = MotorJuego(
-        contenido = paraConsultar,
-        repartidor = Repartidor(paraRepartir, rnd),
-        rnd = rnd
-    )
+    private fun crearMotor(paraRepartir: Contenido, paraConsultar: Contenido) =
+        MotorJuego(
+            contenido = paraConsultar,
+            repartidor = Repartidor(paraRepartir, rnd),
+            rnd = rnd,
+        )
 
     val contenidoActual: Contenido get() = contenido
 
@@ -101,8 +104,9 @@ class JuegoViewModel(
      * encima de una tarea a medias.
      */
     fun volverAlMenu() {
-        val veniaDeTerminar = estado.pantalla == Pantalla.VICTORIA ||
-            estado.pantalla == Pantalla.SOLITARIO_FIN
+        val veniaDeTerminar =
+            estado.pantalla == Pantalla.VICTORIA ||
+                estado.pantalla == Pantalla.SOLITARIO_FIN
         estado = estado.copy(pantalla = Pantalla.INICIO)
         if (veniaDeTerminar) {
             anotarUsoReal()
@@ -147,11 +151,12 @@ class JuegoViewModel(
     fun alternarJuego(juego: Juego, avisoMinimo: String): Boolean {
         val ajustes = estado.ajustes
         val estaba = juego in ajustes.juegosDesactivados
-        val nuevos = if (estaba) {
-            ajustes.juegosDesactivados - juego
-        } else {
-            ajustes.juegosDesactivados + juego
-        }
+        val nuevos =
+            if (estaba) {
+                ajustes.juegosDesactivados - juego
+            } else {
+                ajustes.juegosDesactivados + juego
+            }
         val quedan = contenido.juegosJugables.filterNot { it in nuevos }
         if (quedan.isEmpty()) {
             mensaje = avisoMinimo
@@ -181,26 +186,38 @@ class JuegoViewModel(
     private fun ajustarParticipantesAlModo(modo: Modo) {
         var lista = estado.participantes
         if (modo == Modo.SOLITARIO) {
-            lista = listOf(lista.firstOrNull()?.copy(miembros = emptyList()) ?: nuevoParticipante(1))
+            lista =
+                listOf(
+                    lista.firstOrNull()?.copy(miembros = emptyList())
+                        ?: nuevoParticipante(emptyList()),
+                )
         } else {
             if (modo == Modo.INDIVIDUAL) lista = lista.map { it.copy(miembros = emptyList()) }
             lista = lista.take(modo.maximoParticipantes)
             while (lista.size < modo.minimoParticipantes) {
-                lista = lista + nuevoParticipante(lista.size + 1)
+                lista = lista + nuevoParticipante(lista)
             }
         }
         aplicarParticipantes(lista)
     }
 
     /**
-     * Crea un participante sin nombre. El hueco es intencionado: la pantalla
-     * pinta «Equipo 3» en el idioma activo, y así cambiar de idioma cambia
-     * también los nombres que nadie ha puesto a mano.
+     * Crea un participante sin nombre para añadir a [existentes].
+     *
+     * El nombre vacío es intencionado: la pantalla pinta «Equipo 3» en el idioma
+     * activo, y así cambiar de idioma cambia también los nombres que nadie ha
+     * puesto a mano.
+     *
+     * La lista se pasa por parámetro y no se lee de `estado` a propósito. Antes
+     * la leía, y al rellenar dos participantes de golpe —que es justo lo que
+     * pasa al elegir modo con la lista vacía— los dos salían con el mismo id y
+     * el mismo color, porque `estado` todavía no se había actualizado. Con id
+     * duplicado, renombrar o borrar uno afectaba a los dos.
      */
-    private fun nuevoParticipante(numero: Int): Participante {
-        val usados = estado.participantes.map { it.indiceColor }.toSet()
-        val color = coloresDisponibles(usados) ?: (numero - 1) % MAXIMO_PARTICIPANTES
-        val id = (estado.participantes.maxOfOrNull { it.id } ?: 0) + 1
+    private fun nuevoParticipante(existentes: List<Participante>): Participante {
+        val usados = existentes.map { it.indiceColor }.toSet()
+        val color = coloresDisponibles(usados) ?: existentes.size % MAXIMO_PARTICIPANTES
+        val id = (existentes.maxOfOrNull { it.id } ?: 0) + 1
         return Participante(id = id, nombre = "", indiceColor = color)
     }
 
@@ -211,18 +228,34 @@ class JuegoViewModel(
      * anotado con el id del dispositivo, y eso es lo que permite luego mandarle
      * a él y solo a él el contenido privado de su prueba.
      */
+    /**
+     * Prepara la partida para un salón: modo individual y la mesa vacía.
+     *
+     * Se vacía a propósito. En un salón los participantes **son** los móviles
+     * conectados: si se rellenara al mínimo como en una partida normal,
+     * quedarían fichas fantasma que nadie controla. El móvil que hace de mesa no
+     * juega: es la mesa.
+     */
+    fun prepararSalon() {
+        estado = estado.copy(modo = Modo.INDIVIDUAL, participantes = emptyList())
+        viewModelScope.launch {
+            prefs.guardarModo(Modo.INDIVIDUAL)
+        }
+    }
+
     fun anadirParticipanteDeSalon(nombre: String, dispositivo: String) {
         if (estado.participantes.any { it.dispositivo == dispositivo }) return
         if (estado.participantes.size >= MAXIMO_PARTICIPANTES) return
-        val nuevo = nuevoParticipante(estado.participantes.size + 1)
-            .copy(nombre = nombre.trim(), dispositivo = dispositivo)
+        val nuevo =
+            nuevoParticipante(estado.participantes)
+                .copy(nombre = nombre.trim(), dispositivo = dispositivo)
         aplicarParticipantes(estado.participantes + nuevo)
     }
 
     fun anadirParticipante() {
         if (estado.participantes.size >= estado.modo.maximoParticipantes) return
         aplicarParticipantes(
-            estado.participantes + nuevoParticipante(estado.participantes.size + 1)
+            estado.participantes + nuevoParticipante(estado.participantes),
         )
     }
 
@@ -233,7 +266,7 @@ class JuegoViewModel(
 
     fun renombrarParticipante(id: Int, nombre: String) {
         aplicarParticipantes(
-            estado.participantes.map { if (it.id == id) it.copy(nombre = nombre) else it }
+            estado.participantes.map { if (it.id == id) it.copy(nombre = nombre) else it },
         )
     }
 
@@ -247,7 +280,7 @@ class JuegoViewModel(
                 } else {
                     it
                 }
-            }
+            },
         )
     }
 
@@ -259,7 +292,7 @@ class JuegoViewModel(
                 } else {
                     p
                 }
-            }
+            },
         )
     }
 
@@ -271,12 +304,13 @@ class JuegoViewModel(
     // ------------------------------------------------------------ partida
 
     fun empezarPartida() {
-        estado = if (estado.modo == Modo.SOLITARIO) {
-            val jugador = estado.participantes.firstOrNull() ?: Participante(1, "", 0)
-            motor.empezarSolitario(estado, jugador)
-        } else {
-            motor.empezarCarrera(estado, estado.participantes)
-        }
+        estado =
+            if (estado.modo == Modo.SOLITARIO) {
+                val jugador = estado.participantes.firstOrNull() ?: Participante(1, "", 0)
+                motor.empezarSolitario(estado, jugador)
+            } else {
+                motor.empezarCarrera(estado, estado.participantes)
+            }
     }
 
     fun lanzarDado() {
@@ -349,11 +383,12 @@ class JuegoViewModel(
             val cafe = estado.ajustes.cafe
             actualizarAjustes(
                 estado.ajustes.copy(
-                    cafe = cafe.copy(
-                        vecesMostrado = cafe.vecesMostrado + 1,
-                        diaUltimaMuestra = LocalDate.now().toEpochDay()
-                    )
-                )
+                    cafe =
+                        cafe.copy(
+                            vecesMostrado = cafe.vecesMostrado + 1,
+                            diaUltimaMuestra = LocalDate.now().toEpochDay(),
+                        ),
+                ),
             )
         }
     }
@@ -382,10 +417,11 @@ class JuegoViewModel(
 
     /** Sustituye ajustes y participantes de golpe. La usa la importación. */
     fun reemplazarDatos(ajustes: Ajustes, participantes: List<Participante>) {
-        estado = estado.copy(
-            ajustes = ajustes,
-            participantes = participantes.ifEmpty { estado.participantes }
-        )
+        estado =
+            estado.copy(
+                ajustes = ajustes,
+                participantes = participantes.ifEmpty { estado.participantes },
+            )
         recargarContenido()
         viewModelScope.launch {
             prefs.guardarAjustes(ajustes)

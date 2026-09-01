@@ -46,15 +46,16 @@ fun PantallaModo(vm: JuegoViewModel) {
             Cabecera(
                 titulo = t[Clave.MODO_TITULO],
                 subtitulo = t[Clave.MODO_SUBTITULO],
-                onVolver = { vm.ir(Pantalla.INICIO) }
+                onVolver = { vm.ir(Pantalla.INICIO) },
             )
 
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(14.dp)
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 20.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp),
             ) {
                 Modo.entries.forEachIndexed { indice, modo ->
                     EntradaEscalonada(indice) {
@@ -63,7 +64,7 @@ fun PantallaModo(vm: JuegoViewModel) {
                             titulo = t[modo.claveNombre],
                             detalle = t[modo.claveDetalle],
                             extra = if (modo == Modo.SOLITARIO) marcaSolitario(vm) else null,
-                            onClick = { vm.elegirModo(modo) }
+                            onClick = { vm.elegirModo(modo) },
                         )
                     }
                 }
@@ -77,7 +78,13 @@ fun PantallaModo(vm: JuegoViewModel) {
 private fun marcaSolitario(vm: JuegoViewModel): String {
     val t = textos()
     val marca = vm.estado.ajustes.mejorMarcaSolitario
-    return if (marca > 0) t.con(Clave.SOLITARIO_MEJOR_MARCA, marca) else t[Clave.SOLITARIO_SIN_MARCA]
+    return if (marca >
+        0
+    ) {
+        t.con(Clave.SOLITARIO_MEJOR_MARCA, marca)
+    } else {
+        t[Clave.SOLITARIO_SIN_MARCA]
+    }
 }
 
 @Composable
@@ -86,11 +93,11 @@ private fun TarjetaModo(
     titulo: String,
     detalle: String,
     extra: String?,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Tarjeta(
         modifier = Modifier.fillMaxWidth().clickable { onClick() },
-        borde = Primario.copy(alpha = 0.35f)
+        borde = Primario.copy(alpha = 0.35f),
     ) {
         Row(Modifier.padding(18.dp)) {
             Text(emoji, style = MaterialTheme.typography.displayMedium)

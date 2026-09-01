@@ -34,15 +34,16 @@ private val Context.almacen: DataStore<Preferences> by preferencesDataStore(name
  * plano. Hacerlo así evita que la app arranque con el tema por defecto y dé un
  * salto de color en cuanto llega el valor guardado.
  */
-class Preferencias(private val context: Context) {
-
+class Preferencias(
+    private val context: Context,
+) {
     // ------------------------------------------------------------- lectura
 
     data class Guardado(
         val ajustes: Ajustes,
         val participantes: List<Participante>,
         val modo: Modo,
-        val nombreEnSalon: String
+        val nombreEnSalon: String,
     )
 
     fun cargarAhora(): Guardado = runBlocking { cargar() }
@@ -53,35 +54,39 @@ class Preferencias(private val context: Context) {
             ajustes = leerAjustes(p),
             participantes = leerParticipantes(p),
             modo = enumOPorDefecto(p[MODO], Modo.entries, Modo.EQUIPOS),
-            nombreEnSalon = p[NOMBRE_SALON].orEmpty()
+            nombreEnSalon = p[NOMBRE_SALON].orEmpty(),
         )
     }
 
     val flujoDeAjustes = context.almacen.data.map { leerAjustes(it) }
 
-    private fun leerAjustes(p: Preferences) = Ajustes(
-        tema = enumOPorDefecto(p[TEMA], TemaId.entries, TemaId.OSCURO_POR_DEFECTO),
-        temaDelSistema = p[TEMA_SISTEMA] ?: true,
-        idioma = p[IDIOMA],
-        ritmo = enumOPorDefecto(p[RITMO], Ritmo.entries, Ritmo.NORMAL),
-        duracion = enumOPorDefecto(p[DURACION], Duracion.entries, Duracion.NORMAL),
-        sonido = p[SONIDO] ?: true,
-        vibracion = p[VIBRACION] ?: true,
-        animaciones = p[ANIMACIONES] ?: true,
-        juegosDesactivados = p[JUEGOS_OFF].orEmpty()
-            .split(SEPARADOR)
-            .mapNotNull { clave -> Juego.entries.firstOrNull { it.name == clave } }
-            .toSet(),
-        tourVisto = p[TOUR_VISTO] ?: false,
-        cafe = EstadoCafe(
-            usosReales = p[CAFE_USOS] ?: 0,
-            vecesMostrado = p[CAFE_MOSTRADO] ?: 0,
-            diaUltimaMuestra = p[CAFE_DIA] ?: 0L,
-            noVolverAMostrar = p[CAFE_NUNCA] ?: false,
-            yaPasoPorAhi = p[CAFE_PASO] ?: false
-        ),
-        mejorMarcaSolitario = p[MEJOR_SOLITARIO] ?: 0
-    )
+    private fun leerAjustes(p: Preferences) =
+        Ajustes(
+            tema = enumOPorDefecto(p[TEMA], TemaId.entries, TemaId.OSCURO_POR_DEFECTO),
+            temaDelSistema = p[TEMA_SISTEMA] ?: true,
+            idioma = p[IDIOMA],
+            ritmo = enumOPorDefecto(p[RITMO], Ritmo.entries, Ritmo.NORMAL),
+            duracion = enumOPorDefecto(p[DURACION], Duracion.entries, Duracion.NORMAL),
+            sonido = p[SONIDO] ?: true,
+            vibracion = p[VIBRACION] ?: true,
+            animaciones = p[ANIMACIONES] ?: true,
+            juegosDesactivados =
+                p[JUEGOS_OFF]
+                    .orEmpty()
+                    .split(SEPARADOR)
+                    .mapNotNull { clave -> Juego.entries.firstOrNull { it.name == clave } }
+                    .toSet(),
+            tourVisto = p[TOUR_VISTO] ?: false,
+            cafe =
+                EstadoCafe(
+                    usosReales = p[CAFE_USOS] ?: 0,
+                    vecesMostrado = p[CAFE_MOSTRADO] ?: 0,
+                    diaUltimaMuestra = p[CAFE_DIA] ?: 0L,
+                    noVolverAMostrar = p[CAFE_NUNCA] ?: false,
+                    yaPasoPorAhi = p[CAFE_PASO] ?: false,
+                ),
+            mejorMarcaSolitario = p[MEJOR_SOLITARIO] ?: 0,
+        )
 
     private fun leerParticipantes(p: Preferences): List<Participante> {
         val texto = p[PARTICIPANTES] ?: return emptyList()
@@ -154,7 +159,7 @@ class Preferencias(private val context: Context) {
         private fun <T : Enum<T>> enumOPorDefecto(
             guardado: String?,
             valores: List<T>,
-            porDefecto: T
+            porDefecto: T,
         ): T = valores.firstOrNull { it.name == guardado } ?: porDefecto
     }
 }
@@ -176,22 +181,23 @@ fun participantesAJson(participantes: List<Participante>): String {
                 .put("id", p.id)
                 .put("nombre", p.nombre)
                 .put("color", p.indiceColor)
-                .put("miembros", miembros)
+                .put("miembros", miembros),
         )
     }
     return array.toString()
 }
 
-fun participantesDesdeJson(texto: String): List<Participante> = runCatching {
-    val array = JSONArray(texto)
-    (0 until array.length()).map { i ->
-        val o = array.getJSONObject(i)
-        val miembros = o.optJSONArray("miembros") ?: JSONArray()
-        Participante(
-            id = o.getInt("id"),
-            nombre = o.getString("nombre"),
-            indiceColor = o.getInt("color"),
-            miembros = (0 until miembros.length()).map { miembros.getString(it) }
-        )
-    }
-}.getOrDefault(emptyList())
+fun participantesDesdeJson(texto: String): List<Participante> =
+    runCatching {
+        val array = JSONArray(texto)
+        (0 until array.length()).map { i ->
+            val o = array.getJSONObject(i)
+            val miembros = o.optJSONArray("miembros") ?: JSONArray()
+            Participante(
+                id = o.getInt("id"),
+                nombre = o.getString("nombre"),
+                indiceColor = o.getInt("color"),
+                miembros = (0 until miembros.length()).map { miembros.getString(it) },
+            )
+        }
+    }.getOrDefault(emptyList())

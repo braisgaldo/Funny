@@ -37,13 +37,13 @@ fun MarcoPrueba(
     sonidos: Sonidos,
     marcador: String?,
     onTiempoAgotado: () -> Unit,
-    contenido: @Composable ColumnScope.() -> Unit
+    contenido: @Composable ColumnScope.() -> Unit,
 ) {
     FondoFunny(tinte = paleta().colorDe(juego)) {
         Column(
             Modifier
                 .fillMaxSize()
-                .padding(horizontal = 18.dp, vertical = 14.dp)
+                .padding(horizontal = 18.dp, vertical = 14.dp),
         ) {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 PastillaJuego(juego)
@@ -52,7 +52,7 @@ fun MarcoPrueba(
                     Text(
                         marcador,
                         style = MaterialTheme.typography.titleMedium,
-                        color = TextoFuerte
+                        color = TextoFuerte,
                     )
                 }
             }
@@ -63,7 +63,7 @@ fun MarcoPrueba(
                 segundos = segundos,
                 enMarcha = enMarcha,
                 sonidos = sonidos,
-                onFin = onTiempoAgotado
+                onFin = onTiempoAgotado,
             )
 
             Spacer(Modifier.height(16.dp))

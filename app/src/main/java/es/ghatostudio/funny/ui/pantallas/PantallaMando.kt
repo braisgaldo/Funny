@@ -85,7 +85,7 @@ private fun Espera(mensaje: String) {
         Column(
             Modifier.fillMaxSize().padding(26.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text("📺", style = MaterialTheme.typography.displayLarge)
             Spacer(Modifier.height(12.dp))
@@ -93,13 +93,13 @@ private fun Espera(mensaje: String) {
                 mensaje,
                 style = MaterialTheme.typography.headlineMedium,
                 color = TextoFuerte,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(8.dp))
             Text(
                 t[Clave.SALON_ROL_MANDO],
                 style = MaterialTheme.typography.labelLarge,
-                color = TextoTenue
+                color = TextoTenue,
             )
         }
     }
@@ -115,7 +115,7 @@ private fun TurnoPropio(salon: SalonViewModel, vista: VistaDelMando) {
         Column(
             Modifier.fillMaxSize().padding(26.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Banda(t[Clave.SALON_TU_TURNO], color)
             Spacer(Modifier.height(20.dp))
@@ -127,32 +127,35 @@ private fun TurnoPropio(salon: SalonViewModel, vista: VistaDelMando) {
                     t.nombreDe(vista.juego),
                     style = MaterialTheme.typography.headlineLarge,
                     color = color,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(20.dp))
             }
 
             when (vista.pantalla) {
-                Pantalla.TABLERO -> BotonGrande(
-                    texto = "🎲   ${t[Clave.TABLERO_TIRAR]}",
-                    onClick = { salon.enviarAccion(TipoAccion.TIRAR) },
-                    color = color,
-                    colorTexto = p.textoSobre(color)
-                )
+                Pantalla.TABLERO ->
+                    BotonGrande(
+                        texto = "🎲   ${t[Clave.TABLERO_TIRAR]}",
+                        onClick = { salon.enviarAccion(TipoAccion.TIRAR) },
+                        color = color,
+                        colorTexto = p.textoSobre(color),
+                    )
 
-                Pantalla.ENTREGA -> BotonGrande(
-                    texto = t[Clave.ACCION_EMPEZAR],
-                    onClick = { salon.enviarAccion(TipoAccion.EMPEZAR_PRUEBA) },
-                    color = color,
-                    colorTexto = p.textoSobre(color)
-                )
+                Pantalla.ENTREGA ->
+                    BotonGrande(
+                        texto = t[Clave.ACCION_EMPEZAR],
+                        onClick = { salon.enviarAccion(TipoAccion.EMPEZAR_PRUEBA) },
+                        color = color,
+                        colorTexto = p.textoSobre(color),
+                    )
 
-                else -> Text(
-                    t[Clave.SALON_MIRA_EL_HUB],
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = TextoTenue,
-                    textAlign = TextAlign.Center
-                )
+                else ->
+                    Text(
+                        t[Clave.SALON_MIRA_EL_HUB],
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = TextoTenue,
+                        textAlign = TextAlign.Center,
+                    )
             }
         }
     }
@@ -169,7 +172,7 @@ private fun TurnoPropio(salon: SalonViewModel, vista: VistaDelMando) {
 private fun ContenidoSecreto(
     salon: SalonViewModel,
     vista: VistaDelMando,
-    sonidos: Sonidos
+    sonidos: Sonidos,
 ) {
     val t = textos()
     val p = paleta()
@@ -191,7 +194,7 @@ private fun ContenidoSecreto(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Banda(t.con(Clave.PRUEBA_ACIERTOS, aciertos), color)
             Spacer(Modifier.height(16.dp))
@@ -203,7 +206,7 @@ private fun ContenidoSecreto(
                     texto = t[Clave.PRUEBA_TERMINAR],
                     onClick = { salon.enviarAccion(TipoAccion.TERMINAR, aciertos) },
                     color = color,
-                    colorTexto = p.textoSobre(color)
+                    colorTexto = p.textoSobre(color),
                 )
                 return@Column
             }
@@ -211,7 +214,7 @@ private fun ContenidoSecreto(
             TarjetaPalabra(
                 texto = palabra,
                 color = color,
-                encabezado = juego?.let { t.lemaDe(it).uppercase(t.locale) }
+                encabezado = juego?.let { t.lemaDe(it).uppercase(t.locale) },
             ) {
                 if (prohibidas.isNotEmpty()) {
                     Spacer(Modifier.height(14.dp))
@@ -220,7 +223,7 @@ private fun ContenidoSecreto(
                             prohibida,
                             style = MaterialTheme.typography.titleMedium,
                             color = Fallo,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
                         )
                     }
                 }
@@ -235,19 +238,19 @@ private fun ContenidoSecreto(
                     t[Clave.PRUEBA_VEREDICTO_DECIDE_MESA],
                     style = MaterialTheme.typography.bodyMedium,
                     color = TextoTenue,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(12.dp))
                 FilaBotones {
                     BotonPrueba(
                         texto = t[Clave.PRUEBA_VEREDICTO_NO_LOGRADO],
                         color = Fallo,
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier.weight(1f),
                     ) { salon.enviarAccion(TipoAccion.VEREDICTO, 0) }
                     BotonPrueba(
                         texto = t[Clave.PRUEBA_VEREDICTO_LOGRADO],
                         color = Exito,
-                        modifier = Modifier.weight(1.4f)
+                        modifier = Modifier.weight(1.4f),
                     ) { salon.enviarAccion(TipoAccion.VEREDICTO, 1) }
                 }
                 return@Column
@@ -258,7 +261,7 @@ private fun ContenidoSecreto(
                     texto = t[Clave.PRUEBA_SALTAR],
                     color = SuperficieAlta,
                     colorTexto = TextoFuerte,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f),
                 ) {
                     sonidos.toque()
                     indice++
@@ -266,7 +269,7 @@ private fun ContenidoSecreto(
                 BotonPrueba(
                     texto = t[Clave.PRUEBA_ACERTADA],
                     color = Exito,
-                    modifier = Modifier.weight(1.4f)
+                    modifier = Modifier.weight(1.4f),
                 ) {
                     sonidos.acierto()
                     aciertos++
@@ -280,7 +283,7 @@ private fun ContenidoSecreto(
                     texto = t[Clave.PRUEBA_TERMINAR],
                     color = SuperficieAlta,
                     colorTexto = TextoTenue,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
                 ) { salon.enviarAccion(TipoAccion.TERMINAR, aciertos) }
             }
         }
@@ -298,7 +301,7 @@ private fun ContenidoSecreto(
 private fun RespuestaPrivada(
     salon: SalonViewModel,
     vista: VistaDelMando,
-    sonidos: Sonidos
+    sonidos: Sonidos,
 ) {
     val t = textos()
     val p = paleta()
@@ -310,7 +313,7 @@ private fun RespuestaPrivada(
             Column(
                 Modifier.fillMaxSize().padding(26.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
             ) {
                 Text("✅", style = MaterialTheme.typography.displayLarge)
                 Spacer(Modifier.height(12.dp))
@@ -318,13 +321,13 @@ private fun RespuestaPrivada(
                     t[Clave.RONDA_TODOS_GUARDADA],
                     style = MaterialTheme.typography.titleLarge,
                     color = TextoFuerte,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     t[Clave.RONDA_TODOS_ESPERANDO],
                     style = MaterialTheme.typography.bodyLarge,
-                    color = TextoTenue
+                    color = TextoTenue,
                 )
             }
         }
@@ -336,14 +339,14 @@ private fun RespuestaPrivada(
             Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(20.dp)
+                .padding(20.dp),
         ) {
             Tarjeta(modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(14.dp)) {
                     Text(
                         t[Clave.RONDA_TODOS_EN_TU_MOVIL],
                         style = MaterialTheme.typography.labelLarge,
-                        color = color
+                        color = color,
                     )
                 }
             }
@@ -357,7 +360,7 @@ private fun RespuestaPrivada(
                 correcta = -1,
                 elegida = elegida,
                 revelar = false,
-                color = color
+                color = color,
             ) { indice ->
                 sonidos.toque()
                 elegida = indice

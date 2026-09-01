@@ -34,19 +34,21 @@ import java.time.LocalDate
  * [ficheroDeRespaldo]. Si la importación falla a mitad, los datos anteriores
  * siguen ahí y se puede volver. Nunca se deja el estado a medias.
  */
-class CopiaSeguridad(private val context: Context) {
-
+class CopiaSeguridad(
+    private val context: Context,
+) {
     // ---------------------------------------------------------------- exportar
 
     /** Contenido del fichero de copia, ya listo para escribir. */
     fun serializar(ajustes: Ajustes, participantes: List<Participante>): String {
-        val raiz = JSONObject()
-            .put("esquema", ESQUEMA)
-            .put("app", NOMBRE_APP)
-            .put("version", versionDeApp())
-            .put("fecha", LocalDate.now().toString())
-            .put("ajustes", ajustesAJson(ajustes))
-            .put("participantes", JSONArray(participantesAJson(participantes)))
+        val raiz =
+            JSONObject()
+                .put("esquema", ESQUEMA)
+                .put("app", NOMBRE_APP)
+                .put("version", versionDeApp())
+                .put("fecha", LocalDate.now().toString())
+                .put("ajustes", ajustesAJson(ajustes))
+                .put("participantes", JSONArray(participantesAJson(participantes)))
         return raiz.toString(2)
     }
 
@@ -70,29 +72,33 @@ class CopiaSeguridad(private val context: Context) {
         data class Bien(
             val ajustes: Ajustes,
             val participantes: List<Participante>,
-            val fecha: String
+            val fecha: String,
         ) : Resultado
 
         /** El fichero no es una copia de Funny, o está roto. */
         data object FormatoInvalido : Resultado
 
         /** La copia viene de una versión más nueva y no se sabe leer. */
-        data class EsquemaFuturo(val esquema: Int) : Resultado
+        data class EsquemaFuturo(
+            val esquema: Int,
+        ) : Resultado
     }
 
     fun leer(uri: Uri): Resultado {
-        val texto = runCatching {
-            context.contentResolver.openInputStream(uri)?.use {
-                it.readBytes().toString(Charsets.UTF_8)
-            }
-        }.getOrNull() ?: return Resultado.FormatoInvalido
+        val texto =
+            runCatching {
+                context.contentResolver.openInputStream(uri)?.use {
+                    it.readBytes().toString(Charsets.UTF_8)
+                }
+            }.getOrNull() ?: return Resultado.FormatoInvalido
         return interpretar(texto)
     }
 
     /** Se separa de [leer] para poder probarla sin `ContentResolver`. */
     fun interpretar(texto: String): Resultado {
-        val raiz = runCatching { JSONObject(texto) }.getOrNull()
-            ?: return Resultado.FormatoInvalido
+        val raiz =
+            runCatching { JSONObject(texto) }.getOrNull()
+                ?: return Resultado.FormatoInvalido
 
         if (raiz.optString("app") != NOMBRE_APP) return Resultado.FormatoInvalido
 
@@ -100,18 +106,20 @@ class CopiaSeguridad(private val context: Context) {
         if (esquema <= 0) return Resultado.FormatoInvalido
         if (esquema > ESQUEMA) return Resultado.EsquemaFuturo(esquema)
 
-        val ajustes = runCatching {
-            ajustesDesdeJson(raiz.getJSONObject("ajustes"), esquema)
-        }.getOrNull() ?: return Resultado.FormatoInvalido
+        val ajustes =
+            runCatching {
+                ajustesDesdeJson(raiz.getJSONObject("ajustes"), esquema)
+            }.getOrNull() ?: return Resultado.FormatoInvalido
 
-        val participantes = participantesDesdeJson(
-            raiz.optJSONArray("participantes")?.toString() ?: "[]"
-        )
+        val participantes =
+            participantesDesdeJson(
+                raiz.optJSONArray("participantes")?.toString() ?: "[]",
+            )
 
         return Resultado.Bien(
             ajustes = ajustes,
             participantes = participantes,
-            fecha = raiz.optString("fecha")
+            fecha = raiz.optString("fecha"),
         )
     }
 
@@ -120,10 +128,11 @@ class CopiaSeguridad(private val context: Context) {
      * incluso cuando la importación va a fusionar en lugar de reemplazar: el
      * coste es un fichero de dos kilobytes y la tranquilidad es total.
      */
-    fun respaldar(ajustes: Ajustes, participantes: List<Participante>): Boolean = runCatching {
-        ficheroDeRespaldo().writeText(serializar(ajustes, participantes), Charsets.UTF_8)
-        true
-    }.getOrDefault(false)
+    fun respaldar(ajustes: Ajustes, participantes: List<Participante>): Boolean =
+        runCatching {
+            ficheroDeRespaldo().writeText(serializar(ajustes, participantes), Charsets.UTF_8)
+            true
+        }.getOrDefault(false)
 
     fun ficheroDeRespaldo(): File = File(context.filesDir, "respaldo-antes-de-importar$EXTENSION")
 
@@ -136,45 +145,52 @@ class CopiaSeguridad(private val context: Context) {
     fun fusionar(
         actuales: List<Participante>,
         importados: List<Participante>,
-        maximo: Int
+        maximo: Int,
     ): List<Participante> {
         val nombresActuales = actuales.map { it.nombre.trim().lowercase() }.toSet()
         var siguienteId = (actuales.maxOfOrNull { it.id } ?: 0) + 1
-        val nuevos = importados
-            .filter { it.nombre.isNotBlank() && it.nombre.trim().lowercase() !in nombresActuales }
-            .map { it.copy(id = siguienteId++) }
+        val nuevos =
+            importados
+                .filter {
+                    it.nombre.isNotBlank() && it.nombre.trim().lowercase() !in nombresActuales
+                }.map { it.copy(id = siguienteId++) }
         return (actuales + nuevos).take(maximo)
     }
 
     // ------------------------------------------------------------- privados
 
-    private fun versionDeApp(): String = runCatching {
-        context.packageManager.getPackageInfo(context.packageName, 0).versionName.orEmpty()
-    }.getOrDefault("")
+    private fun versionDeApp(): String =
+        runCatching {
+            context.packageManager
+                .getPackageInfo(context.packageName, 0)
+                .versionName
+                .orEmpty()
+        }.getOrDefault("")
 
-    private fun ajustesAJson(a: Ajustes) = JSONObject()
-        .put("tema", a.tema.name)
-        .put("temaDelSistema", a.temaDelSistema)
-        .put("idioma", a.idioma ?: JSONObject.NULL)
-        .put("ritmo", a.ritmo.name)
-        .put("duracion", a.duracion.name)
-        .put("sonido", a.sonido)
-        .put("vibracion", a.vibracion)
-        .put("animaciones", a.animaciones)
-        .put("juegosDesactivados", JSONArray(a.juegosDesactivados.map { it.name }))
-        .put("tourVisto", a.tourVisto)
-        .put("mejorMarcaSolitario", a.mejorMarcaSolitario)
-        // El estado de la donación viaja en la copia a propósito: quien ya dijo
-        // «no volver a mostrar» no tiene por qué volver a verlo tras reinstalar.
-        .put(
-            "cafe",
-            JSONObject()
-                .put("usosReales", a.cafe.usosReales)
-                .put("vecesMostrado", a.cafe.vecesMostrado)
-                .put("diaUltimaMuestra", a.cafe.diaUltimaMuestra)
-                .put("noVolverAMostrar", a.cafe.noVolverAMostrar)
-                .put("yaPasoPorAhi", a.cafe.yaPasoPorAhi)
-        )
+    private fun ajustesAJson(a: Ajustes) =
+        JSONObject()
+            .put("tema", a.tema.name)
+            .put("temaDelSistema", a.temaDelSistema)
+            .put("idioma", a.idioma ?: JSONObject.NULL)
+            .put("ritmo", a.ritmo.name)
+            .put("duracion", a.duracion.name)
+            .put("sonido", a.sonido)
+            .put("vibracion", a.vibracion)
+            .put("animaciones", a.animaciones)
+            .put("juegosDesactivados", JSONArray(a.juegosDesactivados.map { it.name }))
+            .put("tourVisto", a.tourVisto)
+            .put("mejorMarcaSolitario", a.mejorMarcaSolitario)
+            // El estado de la donación viaja en la copia a propósito: quien ya dijo
+            // «no volver a mostrar» no tiene por qué volver a verlo tras reinstalar.
+            .put(
+                "cafe",
+                JSONObject()
+                    .put("usosReales", a.cafe.usosReales)
+                    .put("vecesMostrado", a.cafe.vecesMostrado)
+                    .put("diaUltimaMuestra", a.cafe.diaUltimaMuestra)
+                    .put("noVolverAMostrar", a.cafe.noVolverAMostrar)
+                    .put("yaPasoPorAhi", a.cafe.yaPasoPorAhi),
+            )
 
     @Suppress("UNUSED_PARAMETER")
     private fun ajustesDesdeJson(o: JSONObject, esquema: Int): Ajustes {
@@ -191,25 +207,26 @@ class CopiaSeguridad(private val context: Context) {
             sonido = o.optBoolean("sonido", true),
             vibracion = o.optBoolean("vibracion", true),
             animaciones = o.optBoolean("animaciones", true),
-            juegosDesactivados = (0 until desactivados.length())
-                .mapNotNull { i ->
-                    val clave = desactivados.optString(i)
-                    Juego.entries.firstOrNull { it.name == clave }
-                }
-                .toSet(),
+            juegosDesactivados =
+                (0 until desactivados.length())
+                    .mapNotNull { i ->
+                        val clave = desactivados.optString(i)
+                        Juego.entries.firstOrNull { it.name == clave }
+                    }.toSet(),
             tourVisto = o.optBoolean("tourVisto", false),
             mejorMarcaSolitario = o.optInt("mejorMarcaSolitario", 0),
-            cafe = if (cafe == null) {
-                EstadoCafe()
-            } else {
-                EstadoCafe(
-                    usosReales = cafe.optInt("usosReales", 0),
-                    vecesMostrado = cafe.optInt("vecesMostrado", 0),
-                    diaUltimaMuestra = cafe.optLong("diaUltimaMuestra", 0L),
-                    noVolverAMostrar = cafe.optBoolean("noVolverAMostrar", false),
-                    yaPasoPorAhi = cafe.optBoolean("yaPasoPorAhi", false)
-                )
-            }
+            cafe =
+                if (cafe == null) {
+                    EstadoCafe()
+                } else {
+                    EstadoCafe(
+                        usosReales = cafe.optInt("usosReales", 0),
+                        vecesMostrado = cafe.optInt("vecesMostrado", 0),
+                        diaUltimaMuestra = cafe.optLong("diaUltimaMuestra", 0L),
+                        noVolverAMostrar = cafe.optBoolean("noVolverAMostrar", false),
+                        yaPasoPorAhi = cafe.optBoolean("yaPasoPorAhi", false),
+                    )
+                },
         )
     }
 

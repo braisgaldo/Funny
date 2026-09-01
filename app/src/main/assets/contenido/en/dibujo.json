@@ -1,0 +1,31 @@
+{
+  "_comment": "Words to draw with a finger on a phone screen. Drawable and recognisable in twenty seconds: nouns with a clear silhouette, no abstractions.",
+  "palabras": [
+    "House", "Tree", "Car", "Sun", "Moon", "Star", "Cloud", "Rainbow", "Mountain", "River",
+    "Boat", "Plane", "Train", "Bicycle", "Motorbike", "Bus", "Rocket", "Helicopter", "Submarine", "Hot air balloon",
+    "Cat", "Dog", "Horse", "Cow", "Pig", "Sheep", "Chicken", "Duck", "Fish", "Whale",
+    "Shark", "Octopus", "Crab", "Snail", "Butterfly", "Bee", "Spider", "Ant", "Snake", "Frog",
+    "Elephant", "Giraffe", "Lion", "Tiger", "Bear", "Monkey", "Penguin", "Owl", "Eagle", "Bat",
+    "Apple", "Banana", "Orange", "Strawberry", "Watermelon", "Pineapple", "Grapes", "Carrot", "Tomato", "Onion",
+    "Pizza", "Hamburger", "Hot dog", "Sandwich", "Ice cream", "Cake", "Doughnut", "Croissant", "Egg", "Cheese",
+    "Coffee cup", "Wine glass", "Bottle", "Teapot", "Frying pan", "Fork", "Spoon", "Knife", "Plate", "Bowl",
+    "Chair", "Table", "Bed", "Sofa", "Lamp", "Door", "Window", "Stairs", "Mirror", "Clock",
+    "Television", "Radio", "Computer", "Phone", "Camera", "Headphones", "Keyboard", "Printer", "Light bulb", "Battery",
+    "Book", "Pencil", "Notebook", "Scissors", "Glue", "Ruler", "Backpack", "Globe", "Blackboard", "Calculator",
+    "Hat", "Cap", "Shirt", "Trousers", "Dress", "Shoe", "Boot", "Sock", "Glove", "Scarf",
+    "Sunglasses", "Watch", "Ring", "Necklace", "Umbrella", "Handbag", "Suitcase", "Wallet", "Key", "Padlock",
+    "Guitar", "Piano", "Drum", "Trumpet", "Violin", "Saxophone", "Flute", "Harp", "Accordion", "Microphone",
+    "Football", "Basketball", "Tennis racket", "Skateboard", "Surfboard", "Skis", "Bowling pin", "Dartboard", "Trophy", "Medal",
+    "Castle", "Church", "Bridge", "Lighthouse", "Windmill", "Skyscraper", "Igloo", "Tent", "Pyramid", "Eiffel Tower",
+    "Ladder", "Hammer", "Screwdriver", "Saw", "Wrench", "Nail", "Paintbrush", "Bucket", "Broom", "Shovel",
+    "Heart", "Skull", "Ghost", "Robot", "Alien", "Dinosaur", "Dragon", "Unicorn", "Mermaid", "Snowman",
+    "Crown", "Sword", "Shield", "Bow and arrow", "Anchor", "Compass", "Treasure map", "Chest", "Pirate flag", "Telescope",
+    "Traffic light", "Road sign", "Zebra crossing", "Fire hydrant", "Postbox", "Bench", "Fountain", "Street lamp", "Bin", "Bus stop",
+    "Balloon", "Kite", "Yo-yo", "Dice", "Playing card", "Chess piece", "Puzzle piece", "Teddy bear", "Doll", "Toy train",
+    "Cactus", "Sunflower", "Rose", "Mushroom", "Leaf", "Acorn", "Pine tree", "Palm tree", "Bamboo", "Seaweed",
+    "Volcano", "Island", "Desert", "Waterfall", "Iceberg", "Tornado", "Lightning", "Snowflake", "Wave", "Beach",
+    "Doctor", "Firefighter", "Astronaut", "Chef", "Police officer", "Clown", "Wizard", "Pirate", "Cowboy", "Ninja",
+    "Ambulance", "Fire engine", "Tractor", "Crane", "Bulldozer", "Forklift", "Skateboard ramp", "Ferris wheel", "Roller coaster", "Carousel",
+    "Toothbrush", "Comb", "Soap", "Towel", "Bathtub", "Shower", "Tap", "Toilet", "Washing machine", "Fridge"
+  ]
+}

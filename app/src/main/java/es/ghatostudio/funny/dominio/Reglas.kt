@@ -9,8 +9,10 @@ import kotlin.random.Random
  * afecta a las preguntas. Guarda estado (qué cartas quedan), así que se crea
  * uno por partida.
  */
-class Repartidor(private val contenido: Contenido, private val rnd: Random) {
-
+class Repartidor(
+    private val contenido: Contenido,
+    private val rnd: Random,
+) {
     private val mazoMimica = Mazo(contenido.mimica, rnd)
     private val mazoDibujo = Mazo(contenido.dibujo, rnd)
     private val mazoEventos = Mazo(contenido.eventos, rnd)
@@ -29,45 +31,52 @@ class Repartidor(private val contenido: Contenido, private val rnd: Random) {
      * sin contenido, y entonces quien llama busca otro: es preferible cambiar
      * de prueba a mostrar una tarjeta vacía.
      */
-    fun repartir(juego: Juego): Prueba? = when (juego) {
-        Juego.MIMICA -> mazoMimica.sacar(14).ifEmpty { null }?.let { Prueba.DeMimica(it) }
-        Juego.DIBUJO -> mazoDibujo.sacar(8).ifEmpty { null }?.let { Prueba.DeDibujo(it) }
-        Juego.TABU -> mazoTabu.sacar(10).ifEmpty { null }?.let { Prueba.DeTabu(it) }
+    fun repartir(juego: Juego): Prueba? =
+        when (juego) {
+            Juego.MIMICA -> mazoMimica.sacar(14).ifEmpty { null }?.let { Prueba.DeMimica(it) }
+            Juego.DIBUJO -> mazoDibujo.sacar(8).ifEmpty { null }?.let { Prueba.DeDibujo(it) }
+            Juego.TABU -> mazoTabu.sacar(10).ifEmpty { null }?.let { Prueba.DeTabu(it) }
 
-        Juego.CUANDO -> mazoEventos.sacar()?.let { evento ->
-            Prueba.DeCuando(evento, opcionesDeAnio(evento.anio, rnd))
+            Juego.CUANDO ->
+                mazoEventos.sacar()?.let { evento ->
+                    Prueba.DeCuando(evento, opcionesDeAnio(evento.anio, rnd))
+                }
+
+            Juego.PREGUNTAS -> mazoPreguntas.sacar()?.let { Prueba.DePreguntas(it) }
+            Juego.RETO -> mazoRetos.sacar()?.let { Prueba.DeReto(it) }
+
+            Juego.EMOJIS ->
+                mazoEmojis.sacar()?.let { carta ->
+                    // Se mezclan la respuesta y hasta tres señuelos, y se apunta dónde
+                    // ha caído la buena.
+                    val opciones = (listOf(carta.respuesta) + carta.senuelos.take(3)).shuffled(rnd)
+                    Prueba.DeEmojis(carta, opciones, opciones.indexOf(carta.respuesta))
+                }
+
+            Juego.VERDADERO_FALSO ->
+                mazoAfirmaciones
+                    .sacar(AFIRMACIONES_POR_PRUEBA)
+                    .ifEmpty { null }
+                    ?.let { Prueba.DeVerdaderoFalso(it) }
+
+            Juego.TRABALENGUAS -> mazoTrabalenguas.sacar()?.let { Prueba.DeTrabalenguas(it) }
+
+            Juego.ORDENA ->
+                mazoOrdenar.sacar()?.let { reto ->
+                    Prueba.DeOrdena(reto, desordenar(reto.elementos, rnd))
+                }
+
+            Juego.CANTA -> mazoCanciones.sacar()?.let { Prueba.DeCanta(it) }
+            Juego.DESAFIO -> mazoDesafios.sacar()?.let { Prueba.DeDesafio(it) }
         }
-
-        Juego.PREGUNTAS -> mazoPreguntas.sacar()?.let { Prueba.DePreguntas(it) }
-        Juego.RETO -> mazoRetos.sacar()?.let { Prueba.DeReto(it) }
-
-        Juego.EMOJIS -> mazoEmojis.sacar()?.let { carta ->
-            // Se mezclan la respuesta y hasta tres señuelos, y se apunta dónde
-            // ha caído la buena.
-            val opciones = (listOf(carta.respuesta) + carta.senuelos.take(3)).shuffled(rnd)
-            Prueba.DeEmojis(carta, opciones, opciones.indexOf(carta.respuesta))
-        }
-
-        Juego.VERDADERO_FALSO ->
-            mazoAfirmaciones.sacar(AFIRMACIONES_POR_PRUEBA).ifEmpty { null }
-                ?.let { Prueba.DeVerdaderoFalso(it) }
-
-        Juego.TRABALENGUAS -> mazoTrabalenguas.sacar()?.let { Prueba.DeTrabalenguas(it) }
-
-        Juego.ORDENA -> mazoOrdenar.sacar()?.let { reto ->
-            Prueba.DeOrdena(reto, desordenar(reto.elementos, rnd))
-        }
-
-        Juego.CANTA -> mazoCanciones.sacar()?.let { Prueba.DeCanta(it) }
-        Juego.DESAFIO -> mazoDesafios.sacar()?.let { Prueba.DeDesafio(it) }
-    }
 
     /**
      * Reparte la prueba de [juego] y, si ese juego no tiene contenido, va
      * probando el resto de [alternativas] antes de rendirse.
      */
     fun repartirConAlternativas(juego: Juego, alternativas: List<Juego>): Prueba? =
-        repartir(juego) ?: alternativas.asSequence()
+        repartir(juego) ?: alternativas
+            .asSequence()
             .filter { it != juego }
             .mapNotNull { repartir(it) }
             .firstOrNull()
@@ -101,14 +110,15 @@ fun <T> desordenar(elementos: List<T>, rnd: Random): List<T> {
  * 1990/2010 para algo de hace cinco años.
  */
 fun opcionesDeAnio(anio: Int, rnd: Random): List<Int> {
-    val margen = when {
-        anio < 1500 -> 70
-        anio < 1800 -> 40
-        anio < 1900 -> 20
-        anio < 1960 -> 10
-        anio < 2000 -> 7
-        else -> 5
-    }
+    val margen =
+        when {
+            anio < 1500 -> 70
+            anio < 1800 -> 40
+            anio < 1900 -> 20
+            anio < 1960 -> 10
+            anio < 2000 -> 7
+            else -> 5
+        }
     val opciones = linkedSetOf(anio)
     var intentos = 0
     while (opciones.size < 4 && intentos < 300) {
@@ -141,11 +151,12 @@ fun generarTablero(casillas: Int, juegosActivos: List<Juego>, rnd: Random): List
     val tablero = mutableListOf(Casilla(0, TipoCasilla.SALIDA, null))
     var rotacion = 0
     for (i in 1 until longitud) {
-        val tipo = when {
-            i % 7 == 0 -> TipoCasilla.TODOS
-            i % 5 == 0 -> TipoCasilla.COMODIN
-            else -> TipoCasilla.NORMAL
-        }
+        val tipo =
+            when {
+                i % 7 == 0 -> TipoCasilla.TODOS
+                i % 5 == 0 -> TipoCasilla.COMODIN
+                else -> TipoCasilla.NORMAL
+            }
         val juego = if (tipo == TipoCasilla.NORMAL) juegos[rotacion++ % juegos.size] else null
         tablero += Casilla(i, tipo, juego)
     }

@@ -44,12 +44,13 @@ fun PantallaInicio(vm: JuegoViewModel) {
 
     FondoFunny(tinte = Primario) {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 26.dp, vertical = 28.dp),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = 26.dp, vertical = 28.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text("🎉", style = MaterialTheme.typography.displayLarge)
             Spacer(Modifier.height(10.dp))
@@ -61,7 +62,7 @@ fun PantallaInicio(vm: JuegoViewModel) {
                     Text(
                         text = letra.toString(),
                         style = MaterialTheme.typography.displayMedium,
-                        color = p.colorDeParticipante(indice)
+                        color = p.colorDeParticipante(indice),
                     )
                 }
             }
@@ -71,14 +72,14 @@ fun PantallaInicio(vm: JuegoViewModel) {
                 t[Clave.APP_LEMA],
                 style = MaterialTheme.typography.bodyLarge,
                 color = TextoTenue,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
 
             Spacer(Modifier.height(22.dp))
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 jugables.forEach { PastillaJuego(it) }
             }
@@ -92,7 +93,7 @@ fun PantallaInicio(vm: JuegoViewModel) {
                     t[Clave.MENU_PARTIDA_NUEVA],
                     onClick = { vm.ir(Pantalla.MODO) },
                     color = SuperficieAlta,
-                    colorTexto = TextoFuerte
+                    colorTexto = TextoFuerte,
                 )
             } else {
                 BotonGrande(t[Clave.MENU_JUGAR]) { vm.ir(Pantalla.MODO) }
@@ -103,21 +104,21 @@ fun PantallaInicio(vm: JuegoViewModel) {
                 t[Clave.MENU_SALON],
                 onClick = { vm.ir(Pantalla.SALON) },
                 color = SuperficieAlta,
-                colorTexto = TextoFuerte
+                colorTexto = TextoFuerte,
             )
             Spacer(Modifier.height(12.dp))
             BotonGrande(
                 t[Clave.MENU_COMO_JUGAR],
                 onClick = { vm.ir(Pantalla.AYUDA) },
                 color = SuperficieAlta,
-                colorTexto = TextoFuerte
+                colorTexto = TextoFuerte,
             )
             Spacer(Modifier.height(12.dp))
             BotonGrande(
                 t[Clave.MENU_AJUSTES],
                 onClick = { vm.ir(Pantalla.AJUSTES) },
                 color = SuperficieAlta,
-                colorTexto = TextoFuerte
+                colorTexto = TextoFuerte,
             )
         }
     }

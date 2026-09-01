@@ -1,0 +1,45 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{kt,kts}]
+max_line_length = 100
+
+# Las funciones @Composable van en PascalCase: es la convención de Compose y la
+# que usan todas las de la librería. La regla de ktlint no lo sabe, así que se
+# le dice explícitamente en lugar de renombrar cincuenta funciones para
+# contentar a un lint.
+ktlint_function_naming_ignore_when_annotated_with = Composable
+
+# Los tokens de color (`val Fondo`, `val TextoTenue`) son getters de composición
+# que imitan a `MaterialTheme.colorScheme`, y por eso van en PascalCase.
+ktlint_property_naming_ignore_when_annotated_with = Composable
+
+# Compose lleva a funciones con muchos parámetros por naturaleza (un botón con
+# texto, modificador, colores y estado). Contarlos no aporta nada aquí.
+ktlint_standard_function-signature = disabled
+
+[*.{xml,json,yml,yaml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+[gradlew.bat]
+end_of_line = crlf
+
+# Los catálogos de traducción son 384 pares clave-texto. Ahí un límite de 100
+# columnas obliga a partir frases a mano sin ganar nada legible, y el import con
+# comodín de `Clave.*` evita 384 líneas de import por idioma.
+[app/src/main/java/es/ghatostudio/funny/ui/i18n/Catalogo*.kt]
+max_line_length = 120
+ktlint_standard_no-wildcard-imports = disabled

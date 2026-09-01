@@ -47,7 +47,7 @@ fun PantallaComodin(vm: JuegoViewModel) {
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 22.dp, vertical = 26.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Banda("🃏  ${t[Clave.CASILLA_COMODIN]}", Acento)
             Spacer(Modifier.height(18.dp))
@@ -57,14 +57,14 @@ fun PantallaComodin(vm: JuegoViewModel) {
                 t.con(Clave.COMODIN_ELIGE, nombreQueElige),
                 style = MaterialTheme.typography.headlineMedium,
                 color = TextoFuerte,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(6.dp))
             Text(
                 t[Clave.CASILLA_COMODIN_DETALLE],
                 style = MaterialTheme.typography.bodyLarge,
                 color = TextoTenue,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
 
             Spacer(Modifier.height(22.dp))
@@ -73,14 +73,15 @@ fun PantallaComodin(vm: JuegoViewModel) {
                 vm.juegosDeLaPartida.forEach { juego ->
                     val color = p.colorDe(juego)
                     Tarjeta(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { vm.elegirJuego(juego) },
-                        borde = color.copy(alpha = 0.5f)
+                        modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .clickable { vm.elegirJuego(juego) },
+                        borde = color.copy(alpha = 0.5f),
                     ) {
                         Row(
                             Modifier.fillMaxWidth().padding(16.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Text(juego.emoji, style = MaterialTheme.typography.headlineMedium)
                             Spacer(Modifier.width(14.dp))
@@ -88,12 +89,12 @@ fun PantallaComodin(vm: JuegoViewModel) {
                                 Text(
                                     t.nombreDe(juego),
                                     style = MaterialTheme.typography.titleMedium,
-                                    color = color
+                                    color = color,
                                 )
                                 Text(
                                     t.lemaDe(juego),
                                     style = MaterialTheme.typography.bodyMedium,
-                                    color = TextoTenue
+                                    color = TextoTenue,
                                 )
                             }
                         }

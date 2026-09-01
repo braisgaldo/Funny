@@ -14,23 +14,28 @@ import androidx.compose.ui.platform.LocalContext
 import es.ghatostudio.funny.dominio.Ajustes
 
 /** Pitidos y vibraciones del juego. Todo es opcional y se apaga desde ajustes. */
-class Sonidos(context: Context) {
-
+class Sonidos(
+    context: Context,
+) {
     var sonidoActivo: Boolean = true
     var vibracionActiva: Boolean = true
 
     private val tono: ToneGenerator? =
         runCatching { ToneGenerator(AudioManager.STREAM_MUSIC, 70) }.getOrNull()
 
-    private val vibrador: Vibrator? = runCatching {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val gestor = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
-            gestor.defaultVibrator
-        } else {
-            @Suppress("DEPRECATION")
-            context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        }
-    }.getOrNull()
+    private val vibrador: Vibrator? =
+        runCatching {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                val gestor =
+                    context.getSystemService(
+                        Context.VIBRATOR_MANAGER_SERVICE,
+                    ) as VibratorManager
+                gestor.defaultVibrator
+            } else {
+                @Suppress("DEPRECATION")
+                context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            }
+        }.getOrNull()
 
     fun tic() = reproducir(ToneGenerator.TONE_PROP_BEEP, 90)
 
@@ -66,7 +71,7 @@ class Sonidos(context: Context) {
         // hace falta la rama antigua de `vibrate(Long)`.
         runCatching {
             v.vibrate(
-                VibrationEffect.createOneShot(milisegundos, VibrationEffect.DEFAULT_AMPLITUDE)
+                VibrationEffect.createOneShot(milisegundos, VibrationEffect.DEFAULT_AMPLITUDE),
             )
         }
     }
