@@ -174,6 +174,22 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    lint {
+        // Explícito y no por defecto: que un error de lint rompa la build es
+        // parte del criterio del proyecto, y no quiero que dependa de que AGP
+        // no cambie de opinión en una versión futura.
+        abortOnError = true
+        // Los avisos NO rompen la build. Hay 48 y muchos son sugerencias de
+        // versión de dependencia; convertirlos en errores dejaría la build roja
+        // por cosas que no lo merecen. Se revisan a mano en cada hito.
+        warningsAsErrors = false
+        checkReleaseBuilds = true
+        // Deja el informe en texto además del HTML, para poder leerlo en consola
+        // y en CI sin abrir un navegador.
+        textReport = true
+        htmlReport = true
+    }
 }
 
 dependencies {

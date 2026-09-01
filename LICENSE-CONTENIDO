@@ -1,0 +1,52 @@
+Licencia del contenido de Funny
+===============================
+
+El código de Funny está bajo GPL-3.0-or-later (fichero LICENSE). Este fichero
+cubre el CONTENIDO, que es otra cosa y va con otra licencia. El motivo está
+explicado en docs/adr/ADR-0006-licencia.md.
+
+Qué cubre esta licencia
+-----------------------
+
+  app/src/main/assets/contenido/**      las 2.601 cartas de los doce juegos
+  app/src/main/java/es/ghatostudio/funny/ui/i18n/Catalogo*.kt
+                                        las 392 claves traducidas a 13 idiomas
+  docs/**.md                            la documentación
+
+Licencia
+--------
+
+Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional
+(CC BY-SA 4.0)
+
+  Resumen legible:  https://creativecommons.org/licenses/by-sa/4.0/deed.es
+  Texto legal:      https://creativecommons.org/licenses/by-sa/4.0/legalcode.es
+
+En corto, y sin que esto sustituya al texto legal:
+
+  - Se puede copiar, redistribuir, adaptar y reutilizar, incluso con fines
+    comerciales.
+  - Hay que atribuir: «Contenido de Funny, de Brais Galdo (Ghato Studio)», con
+    un enlace a https://github.com/braisgaldo/Funny y a esta licencia, e
+    indicar si se han hecho cambios.
+  - Las obras derivadas se distribuyen con esta misma licencia.
+  - No se aplican restricciones adicionales (nada de DRM sobre el contenido).
+
+Autoría
+-------
+
+Todas las cartas y todas las traducciones están escritas para esta app. No hay
+contenido tomado de ningún juego comercial, y en particular NO se distribuye
+ninguna letra de canción: el mazo de «Canta» lleva solo título, artista y una
+pista escrita con mis palabras. El razonamiento completo está en
+docs/adr/ADR-0005-contenido-sin-derechos.md.
+
+Marcas y títulos de terceros
+----------------------------
+
+Los mazos de «Canta» y de «Emojis» nombran canciones, películas y series. Esos
+títulos son de sus respectivos titulares y se usan únicamente para
+identificarlos, que es lo que hace cualquier reseña. Ni esta licencia ni la del
+código reclaman ningún derecho sobre ellos.
+
+Copyright (C) 2026 Brais Galdo
