@@ -196,8 +196,10 @@ internal val catalogoCatalan =
                 AJUSTES_PARTIDA to "La partida",
                 AJUSTES_RITMO to "Ritme de les proves",
                 AJUSTES_RITMO_DETALLE to "Quant temps hi ha per a cada prova.",
-                AJUSTES_DURACION to "Durada de la partida",
-                AJUSTES_DURACION_DETALLE to "%1\$d caselles fins a la meta · %2\$s",
+                AJUSTES_MODALIDAD to "Modalitat de partida",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Quantes caselles té el tauler i quantes proves dura el repte en " +
+                    "solitari.",
                 AJUSTES_JUEGOS_ACTIVOS to "Jocs de la partida",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to "Treu els que no us agradin i deixaran de sortir al tauler.",
                 AJUSTES_JUEGOS_CONTADOR to "%1\$d de %2\$d actius",
@@ -374,9 +376,10 @@ internal val catalogoCatalan =
                     "tots» cadascú respon al seu al mateix temps.",
                 TOUR_AJUSTES_TITULO to "Ajusta-ho al teu gust",
                 TOUR_AJUSTES_TEXTO to
-                    "Sis temes, tretze idiomes, tres ritmes i tres durades. També pots " +
-                    "desactivar jocs, apagar el so i la vibració, i desar o recuperar les " +
-                    "teves dades en un fitxer.",
+                    "Sis temes, tretze idiomes, tres ritmes i quatre modalitats de partida: " +
+                    "ràpida, normal, extrema i una a la teva mida. També pots desactivar " +
+                    "jocs, apagar el so i la vibració, i desar o recuperar les teves dades en " +
+                    "un fitxer.",
                 TOUR_FINAL_TITULO to "Ja està",
                 TOUR_FINAL_TEXTO to
                     "Pots tornar a veure això quan vulguis des de Configuració → Tour guiat. " +
@@ -488,12 +491,18 @@ internal val catalogoCatalan =
                 RITMO_RAPIDO to "Ràpid",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquil",
-                DURACION_CORTA to "Curta",
-                DURACION_NORMAL to "Normal",
-                DURACION_LARGA to "Llarga",
-                DURACION_CORTA_DETALLE to "uns 15 min",
-                DURACION_NORMAL_DETALLE to "uns 30 min",
-                DURACION_LARGA_DETALLE to "uns 45 min",
+                MODALIDAD_RAPIDA to "Partida ràpida",
+                MODALIDAD_NORMAL to "Partida normal",
+                MODALIDAD_EXTREMA to "Partida extrema",
+                MODALIDAD_PERSONALIZADA to "A la meva manera",
+                MODALIDAD_RAPIDA_DETALLE to "Per jugar-ne una i prou, o per provar el joc",
+                MODALIDAD_NORMAL_DETALLE to "La de sempre, la que va millor",
+                MODALIDAD_EXTREMA_DETALLE to "Per a tota una nit, sense presses",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Els números els poses tu",
+                MODALIDAD_RESUMEN to "%1\$d caselles · %2\$d proves · uns %3\$d min",
+                MODALIDAD_CASILLAS to "Caselles fins a la meta",
+                MODALIDAD_PRUEBAS to "Proves per partida",
+                MODALIDAD_PRUEBAS_NOTA to "Només compten en el repte en solitari",
                 A11Y_DADO to "Dau: %1\$d",
                 A11Y_FICHA to "Fitxa de %1\$s a la casella %2\$d",
                 A11Y_CASILLA to "Casella %1\$d, %2\$s",
@@ -502,6 +511,8 @@ internal val catalogoCatalan =
                 A11Y_LIENZO_DIBUJO to "Llenç per dibuixar amb el dit",
                 A11Y_TEMA_MUESTRA to "Mostra de colors del tema %1\$s",
                 A11Y_BANDERA_IDIOMA to "Idioma %1\$s",
+                A11Y_REDUCIR to "Reduir",
+                A11Y_AUMENTAR to "Augmentar",
             ),
         plurales =
             mapOf(

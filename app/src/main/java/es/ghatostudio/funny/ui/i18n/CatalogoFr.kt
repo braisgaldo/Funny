@@ -196,8 +196,10 @@ internal val catalogoFrances =
                 AJUSTES_PARTIDA to "La partie",
                 AJUSTES_RITMO to "Rythme des épreuves",
                 AJUSTES_RITMO_DETALLE to "Combien de temps vous avez pour chaque épreuve.",
-                AJUSTES_DURACION to "Durée de la partie",
-                AJUSTES_DURACION_DETALLE to "%1\$d cases jusqu'à l'arrivée · %2\$s",
+                AJUSTES_MODALIDAD to "Mode de partie",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Combien de cases a le plateau et combien de manches dure le défi " +
+                    "en solo.",
                 AJUSTES_JUEGOS_ACTIVOS to "Jeux de la partie",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Retirez ceux qui ne vous plaisent pas et ils cesseront " +
@@ -384,9 +386,10 @@ internal val catalogoFrances =
                     "tout le monde joue » chacun répond sur le sien en même temps.",
                 TOUR_AJUSTES_TITULO to "À votre goût",
                 TOUR_AJUSTES_TEXTO to
-                    "Six thèmes, treize langues, trois rythmes et trois durées. Vous pouvez " +
-                    "aussi désactiver des jeux, couper le son et la vibration, et enregistrer " +
-                    "ou récupérer vos données dans un fichier.",
+                    "Six thèmes, treize langues, trois rythmes et quatre modes de partie : " +
+                    "rapide, normale, extrême et une à ta mesure. Vous pouvez aussi " +
+                    "désactiver des jeux, couper le son et la vibration, et enregistrer ou " +
+                    "récupérer vos données dans un fichier.",
                 TOUR_FINAL_TITULO to "C'est tout",
                 TOUR_FINAL_TEXTO to
                     "Vous pouvez revoir ceci quand vous voulez depuis Réglages → Visite guidée. " +
@@ -503,12 +506,18 @@ internal val catalogoFrances =
                 RITMO_RAPIDO to "Rapide",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquille",
-                DURACION_CORTA to "Courte",
-                DURACION_NORMAL to "Normale",
-                DURACION_LARGA to "Longue",
-                DURACION_CORTA_DETALLE to "environ 15 min",
-                DURACION_NORMAL_DETALLE to "environ 30 min",
-                DURACION_LARGA_DETALLE to "environ 45 min",
+                MODALIDAD_RAPIDA to "Partie rapide",
+                MODALIDAD_NORMAL to "Partie normale",
+                MODALIDAD_EXTREMA to "Partie extrême",
+                MODALIDAD_PERSONALIZADA to "À ma façon",
+                MODALIDAD_RAPIDA_DETALLE to "Pour une seule partie, ou pour essayer le jeu",
+                MODALIDAD_NORMAL_DETALLE to "La classique, celle qui marche le mieux",
+                MODALIDAD_EXTREMA_DETALLE to "Pour toute une soirée, sans se presser",
+                MODALIDAD_PERSONALIZADA_DETALLE to "À toi de choisir les chiffres",
+                MODALIDAD_RESUMEN to "%1\$d cases · %2\$d manches · environ %3\$d min",
+                MODALIDAD_CASILLAS to "Cases jusqu'à l'arrivée",
+                MODALIDAD_PRUEBAS to "Manches par partie",
+                MODALIDAD_PRUEBAS_NOTA to "Comptent seulement dans le défi en solo",
                 A11Y_DADO to "Dé : %1\$d",
                 A11Y_FICHA to "Pion de %1\$s sur la case %2\$d",
                 A11Y_CASILLA to "Case %1\$d, %2\$s",
@@ -517,6 +526,8 @@ internal val catalogoFrances =
                 A11Y_LIENZO_DIBUJO to "Zone pour dessiner avec le doigt",
                 A11Y_TEMA_MUESTRA to "Échantillon de couleurs du thème %1\$s",
                 A11Y_BANDERA_IDIOMA to "Langue %1\$s",
+                A11Y_REDUCIR to "Diminuer",
+                A11Y_AUMENTAR to "Augmenter",
             ),
         plurales =
             mapOf(

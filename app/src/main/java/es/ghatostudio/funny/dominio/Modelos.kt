@@ -112,14 +112,61 @@ enum class Ritmo(
     TRANQUILO(Clave.RITMO_TRANQUILO, 1.4f),
 }
 
-enum class Duracion(
+/**
+ * Cuánto dura una partida: casillas hasta la meta y pruebas del reto en
+ * solitario.
+ *
+ * Las tres primeras son modalidades cerradas, para que nadie tenga que
+ * configurar nada antes de jugar. [PERSONALIZADA] deja los dos números en manos
+ * de quien juega, y por eso los suyos son nulos: cuando lo son, manda lo que
+ * digan [Ajustes.casillasPersonalizadas] y [Ajustes.pruebasPersonalizadas].
+ *
+ * Los minutos que se anuncian son una estimación, no una promesa: dependen de
+ * cuánto discuta la mesa. Salen de [minutosAproximados].
+ */
+enum class Modalidad(
     val claveNombre: Clave,
     val claveDetalle: Clave,
-    val casillas: Int,
+    val emoji: String,
+    /** Casillas hasta la meta, o null si las decide quien juega. */
+    val casillas: Int?,
+    /** Pruebas del reto en solitario, o null si las decide quien juega. */
+    val pruebas: Int?,
 ) {
-    CORTA(Clave.DURACION_CORTA, Clave.DURACION_CORTA_DETALLE, 12),
-    NORMAL(Clave.DURACION_NORMAL, Clave.DURACION_NORMAL_DETALLE, 20),
-    LARGA(Clave.DURACION_LARGA, Clave.DURACION_LARGA_DETALLE, 28),
+    RAPIDA(Clave.MODALIDAD_RAPIDA, Clave.MODALIDAD_RAPIDA_DETALLE, "⚡", 12, 6),
+    NORMAL(Clave.MODALIDAD_NORMAL, Clave.MODALIDAD_NORMAL_DETALLE, "🎲", 20, 10),
+    EXTREMA(Clave.MODALIDAD_EXTREMA, Clave.MODALIDAD_EXTREMA_DETALLE, "🔥", 32, 16),
+    PERSONALIZADA(
+        Clave.MODALIDAD_PERSONALIZADA,
+        Clave.MODALIDAD_PERSONALIZADA_DETALLE,
+        "🎛",
+        null,
+        null,
+    ),
+    ;
+
+    /** true en la única modalidad que pide los números a quien juega. */
+    val esPersonalizada: Boolean get() = casillas == null
+
+    companion object {
+        /** Las tres cerradas, en el orden en el que se ofrecen. */
+        val PREDEFINIDAS: List<Modalidad> get() = entries.filterNot { it.esPersonalizada }
+
+        val CASILLAS_POSIBLES = 8..40
+        val PRUEBAS_POSIBLES = 4..24
+
+        /** De dos en dos: así los saltos del selector se notan. */
+        const val PASO_CASILLAS = 2
+        const val PASO_PRUEBAS = 2
+
+        /**
+         * Minutos aproximados de una partida de [casillas] casillas.
+         *
+         * Minuto y medio por casilla: tirada, prueba y veredicto salen por ahí
+         * cuando la mesa no se enreda.
+         */
+        fun minutosAproximados(casillas: Int): Int = casillas * 3 / 2
+    }
 }
 
 /**
@@ -171,7 +218,11 @@ data class Ajustes(
     /** Código ISO del idioma elegido, o null para seguir al sistema. */
     val idioma: String? = null,
     val ritmo: Ritmo = Ritmo.NORMAL,
-    val duracion: Duracion = Duracion.NORMAL,
+    val modalidad: Modalidad = Modalidad.NORMAL,
+    /** Solo cuenta con [Modalidad.PERSONALIZADA]. */
+    val casillasPersonalizadas: Int = 20,
+    /** Solo cuenta con [Modalidad.PERSONALIZADA]. */
+    val pruebasPersonalizadas: Int = RONDAS_SOLITARIO,
     val sonido: Boolean = true,
     val vibracion: Boolean = true,
     val animaciones: Boolean = true,
@@ -181,6 +232,24 @@ data class Ajustes(
     val cafe: EstadoCafe = EstadoCafe(),
     val mejorMarcaSolitario: Int = 0,
 ) {
+    /**
+     * Casillas del tablero, ya resuelta la modalidad.
+     *
+     * Se recorta al rango posible porque el número personalizado ha pasado por
+     * unas preferencias en disco y por un fichero de copia de seguridad, y
+     * ninguno de los dos garantiza que siga siendo sensato.
+     */
+    val casillas: Int
+        get() =
+            modalidad.casillas
+                ?: casillasPersonalizadas.coerceIn(Modalidad.CASILLAS_POSIBLES)
+
+    /** Pruebas del reto en solitario, ya resuelta la modalidad. */
+    val pruebasSolitario: Int
+        get() =
+            modalidad.pruebas
+                ?: pruebasPersonalizadas.coerceIn(Modalidad.PRUEBAS_POSIBLES)
+
     fun juegosActivos(contenido: Contenido): List<Juego> {
         val jugables = contenido.juegosJugables
         val activos = jugables.filterNot { it in juegosDesactivados }

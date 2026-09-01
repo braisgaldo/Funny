@@ -244,10 +244,8 @@ enum class Clave {
     AJUSTES_PARTIDA,
     AJUSTES_RITMO,
     AJUSTES_RITMO_DETALLE,
-    AJUSTES_DURACION,
-
-    /** %1$d = casillas, %2$s = duración aproximada. */
-    AJUSTES_DURACION_DETALLE,
+    AJUSTES_MODALIDAD,
+    AJUSTES_MODALIDAD_DETALLE,
     AJUSTES_JUEGOS_ACTIVOS,
     AJUSTES_JUEGOS_ACTIVOS_DETALLE,
 
@@ -473,16 +471,26 @@ enum class Clave {
     JUEGO_DESAFIO_LEMA,
     JUEGO_DESAFIO_INSTRUCCIONES,
 
-    // -------------------------------------------------------------- ritmo y duración
+    // ------------------------------------------------------------ ritmo
     RITMO_RAPIDO,
     RITMO_NORMAL,
     RITMO_TRANQUILO,
-    DURACION_CORTA,
-    DURACION_NORMAL,
-    DURACION_LARGA,
-    DURACION_CORTA_DETALLE,
-    DURACION_NORMAL_DETALLE,
-    DURACION_LARGA_DETALLE,
+
+    // ------------------------------------------------------------ modalidades
+    MODALIDAD_RAPIDA,
+    MODALIDAD_NORMAL,
+    MODALIDAD_EXTREMA,
+    MODALIDAD_PERSONALIZADA,
+    MODALIDAD_RAPIDA_DETALLE,
+    MODALIDAD_NORMAL_DETALLE,
+    MODALIDAD_EXTREMA_DETALLE,
+    MODALIDAD_PERSONALIZADA_DETALLE,
+
+    /** %1$d = casillas, %2$d = pruebas del solitario, %3$d = minutos aproximados. */
+    MODALIDAD_RESUMEN,
+    MODALIDAD_CASILLAS,
+    MODALIDAD_PRUEBAS,
+    MODALIDAD_PRUEBAS_NOTA,
 
     // ------------------------------------------------------------ accesibilidad
     A11Y_DADO,
@@ -493,4 +501,6 @@ enum class Clave {
     A11Y_LIENZO_DIBUJO,
     A11Y_TEMA_MUESTRA,
     A11Y_BANDERA_IDIOMA,
+    A11Y_REDUCIR,
+    A11Y_AUMENTAR,
 }

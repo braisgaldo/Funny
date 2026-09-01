@@ -39,7 +39,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import es.ghatostudio.funny.BuildConfig
 import es.ghatostudio.funny.datos.CopiaSeguridad
-import es.ghatostudio.funny.dominio.Duracion
 import es.ghatostudio.funny.dominio.Juego
 import es.ghatostudio.funny.dominio.MAXIMO_PARTICIPANTES
 import es.ghatostudio.funny.dominio.Pantalla
@@ -56,6 +55,7 @@ import es.ghatostudio.funny.ui.comun.FilaAjuste
 import es.ghatostudio.funny.ui.comun.FilaInterruptor
 import es.ghatostudio.funny.ui.comun.FondoFunny
 import es.ghatostudio.funny.ui.comun.InsigniaDeIdioma
+import es.ghatostudio.funny.ui.comun.SelectorDeModalidad
 import es.ghatostudio.funny.ui.comun.SelectorSegmentado
 import es.ghatostudio.funny.ui.comun.Tarjeta
 import es.ghatostudio.funny.ui.comun.TituloDeSeccion
@@ -209,27 +209,18 @@ fun PantallaAjustes(vm: JuegoViewModel) {
                         Spacer(Modifier.height(18.dp))
 
                         Text(
-                            t[Clave.AJUSTES_DURACION],
+                            t[Clave.AJUSTES_MODALIDAD],
                             style = MaterialTheme.typography.titleMedium,
                             color = TextoFuerte,
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
-                            t.con(
-                                Clave.AJUSTES_DURACION_DETALLE,
-                                ajustes.duracion.casillas,
-                                t[ajustes.duracion.claveDetalle],
-                            ),
+                            t[Clave.AJUSTES_MODALIDAD_DETALLE],
                             style = MaterialTheme.typography.bodyMedium,
                             color = TextoTenue,
                         )
                         Spacer(Modifier.height(12.dp))
-                        SelectorSegmentado(
-                            opciones = Duracion.entries.map { t[it.claveNombre] },
-                            seleccion = Duracion.entries.indexOf(ajustes.duracion),
-                        ) { indice ->
-                            vm.actualizarAjustes(ajustes.copy(duracion = Duracion.entries[indice]))
-                        }
+                        SelectorDeModalidad(ajustes = ajustes) { vm.actualizarAjustes(it) }
                     }
                 }
 

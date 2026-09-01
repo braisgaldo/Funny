@@ -193,8 +193,10 @@ internal val catalogoItaliano =
                 AJUSTES_PARTIDA to "La partita",
                 AJUSTES_RITMO to "Ritmo delle prove",
                 AJUSTES_RITMO_DETALLE to "Quanto tempo c'è per ogni prova.",
-                AJUSTES_DURACION to "Durata della partita",
-                AJUSTES_DURACION_DETALLE to "%1\$d caselle fino all'arrivo · %2\$s",
+                AJUSTES_MODALIDAD to "Modalità di partita",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Quante caselle ha il tabellone e quanti turni dura la sfida in " +
+                    "solitaria.",
                 AJUSTES_JUEGOS_ACTIVOS to "Giochi della partita",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Togli quelli che non vi piacciono e smetteranno di uscire " +
@@ -377,9 +379,10 @@ internal val catalogoItaliano =
                     "«giocano tutti» ognuno risponde sul suo nello stesso momento.",
                 TOUR_AJUSTES_TITULO to "Come piace a te",
                 TOUR_AJUSTES_TEXTO to
-                    "Sei temi, tredici lingue, tre ritmi e tre durate. Puoi anche disattivare " +
-                    "giochi, spegnere suono e vibrazione, e salvare o recuperare i tuoi dati " +
-                    "in un file.",
+                    "Sei temi, tredici lingue, tre ritmi e quattro modalità di partita: " +
+                    "rapida, normale, estrema e una su misura. Puoi anche disattivare giochi, " +
+                    "spegnere suono e vibrazione, e salvare o recuperare i tuoi dati in un " +
+                    "file.",
                 TOUR_FINAL_TITULO to "Ecco tutto",
                 TOUR_FINAL_TEXTO to "Puoi rivedere questo quando vuoi da Impostazioni → Tour guidato. Divertitevi.",
                 SALON_TITULO to "Più telefoni",
@@ -489,12 +492,18 @@ internal val catalogoItaliano =
                 RITMO_RAPIDO to "Rapido",
                 RITMO_NORMAL to "Normale",
                 RITMO_TRANQUILO to "Tranquillo",
-                DURACION_CORTA to "Corta",
-                DURACION_NORMAL to "Normale",
-                DURACION_LARGA to "Lunga",
-                DURACION_CORTA_DETALLE to "circa 15 min",
-                DURACION_NORMAL_DETALLE to "circa 30 min",
-                DURACION_LARGA_DETALLE to "circa 45 min",
+                MODALIDAD_RAPIDA to "Partita rapida",
+                MODALIDAD_NORMAL to "Partita normale",
+                MODALIDAD_EXTREMA to "Partita estrema",
+                MODALIDAD_PERSONALIZADA to "A modo mio",
+                MODALIDAD_RAPIDA_DETALLE to "Per giocarne una e basta, o per provare il gioco",
+                MODALIDAD_NORMAL_DETALLE to "Quella di sempre, quella che funziona meglio",
+                MODALIDAD_EXTREMA_DETALLE to "Per una serata intera, senza fretta",
+                MODALIDAD_PERSONALIZADA_DETALLE to "I numeri li scegli tu",
+                MODALIDAD_RESUMEN to "%1\$d caselle · %2\$d turni · circa %3\$d min",
+                MODALIDAD_CASILLAS to "Caselle fino all'arrivo",
+                MODALIDAD_PRUEBAS to "Turni per partita",
+                MODALIDAD_PRUEBAS_NOTA to "Contano solo nella sfida in solitaria",
                 A11Y_DADO to "Dado: %1\$d",
                 A11Y_FICHA to "Pedina di %1\$s sulla casella %2\$d",
                 A11Y_CASILLA to "Casella %1\$d, %2\$s",
@@ -503,6 +512,8 @@ internal val catalogoItaliano =
                 A11Y_LIENZO_DIBUJO to "Area per disegnare con il dito",
                 A11Y_TEMA_MUESTRA to "Campione di colori del tema %1\$s",
                 A11Y_BANDERA_IDIOMA to "Lingua %1\$s",
+                A11Y_REDUCIR to "Diminuisci",
+                A11Y_AUMENTAR to "Aumenta",
             ),
         plurales =
             mapOf(

@@ -191,8 +191,10 @@ internal val catalogoGallego =
                 AJUSTES_PARTIDA to "A partida",
                 AJUSTES_RITMO to "Ritmo das probas",
                 AJUSTES_RITMO_DETALLE to "Canto tempo hai para cada proba.",
-                AJUSTES_DURACION to "Duración da partida",
-                AJUSTES_DURACION_DETALLE to "%1\$d casas ata a meta · %2\$s",
+                AJUSTES_MODALIDAD to "Modalidade de partida",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Cantas casas ten o taboleiro e cantas probas dura o reto en " +
+                    "solitario.",
                 AJUSTES_JUEGOS_ACTIVOS to "Xogos da partida",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to "Quita os que non vos gusten e deixarán de saír no taboleiro.",
                 AJUSTES_JUEGOS_CONTADOR to "%1\$d de %2\$d activos",
@@ -361,9 +363,10 @@ internal val catalogoGallego =
                     "un responde no seu ao mesmo tempo.",
                 TOUR_AJUSTES_TITULO to "Axústao ao teu gusto",
                 TOUR_AJUSTES_TEXTO to
-                    "Seis temas, trece idiomas, tres ritmos e tres duracións. Tamén podes " +
-                    "desactivar xogos, apagar o son e a vibración, e gardar ou recuperar os " +
-                    "teus datos nun ficheiro.",
+                    "Seis temas, trece idiomas, tres ritmos e catro modalidades de partida: " +
+                    "rápida, normal, extrema e unha á túa medida. Tamén podes desactivar " +
+                    "xogos, apagar o son e a vibración, e gardar ou recuperar os teus datos " +
+                    "nun ficheiro.",
                 TOUR_FINAL_TITULO to "Xa está",
                 TOUR_FINAL_TEXTO to
                     "Podes volver ver isto cando queiras desde Axustes → Tour guiado. Que o " +
@@ -474,12 +477,18 @@ internal val catalogoGallego =
                 RITMO_RAPIDO to "Rápido",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquilo",
-                DURACION_CORTA to "Curta",
-                DURACION_NORMAL to "Normal",
-                DURACION_LARGA to "Longa",
-                DURACION_CORTA_DETALLE to "uns 15 min",
-                DURACION_NORMAL_DETALLE to "uns 30 min",
-                DURACION_LARGA_DETALLE to "uns 45 min",
+                MODALIDAD_RAPIDA to "Partida rápida",
+                MODALIDAD_NORMAL to "Partida normal",
+                MODALIDAD_EXTREMA to "Partida extrema",
+                MODALIDAD_PERSONALIZADA to "Ao meu xeito",
+                MODALIDAD_RAPIDA_DETALLE to "Para xogar unha e xa, ou para probar o xogo",
+                MODALIDAD_NORMAL_DETALLE to "A de sempre, a que mellor senta",
+                MODALIDAD_EXTREMA_DETALLE to "Para unha noite enteira, sen presa",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Ti pos os números",
+                MODALIDAD_RESUMEN to "%1\$d casas · %2\$d probas · uns %3\$d min",
+                MODALIDAD_CASILLAS to "Casas ata a meta",
+                MODALIDAD_PRUEBAS to "Probas por partida",
+                MODALIDAD_PRUEBAS_NOTA to "Só contan no reto en solitario",
                 A11Y_DADO to "Dado: %1\$d",
                 A11Y_FICHA to "Ficha de %1\$s na casa %2\$d",
                 A11Y_CASILLA to "Casa %1\$d, %2\$s",
@@ -488,6 +497,8 @@ internal val catalogoGallego =
                 A11Y_LIENZO_DIBUJO to "Lenzo para debuxar co dedo",
                 A11Y_TEMA_MUESTRA to "Mostra de cores do tema %1\$s",
                 A11Y_BANDERA_IDIOMA to "Idioma %1\$s",
+                A11Y_REDUCIR to "Reducir",
+                A11Y_AUMENTAR to "Aumentar",
             ),
         plurales =
             mapOf(

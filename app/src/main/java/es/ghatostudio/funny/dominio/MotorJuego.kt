@@ -37,7 +37,7 @@ class MotorJuego(
     fun empezarCarrera(estado: EstadoJuego, participantes: List<Participante>): EstadoJuego {
         val tablero =
             generarTablero(
-                casillas = estado.ajustes.duracion.casillas,
+                casillas = estado.ajustes.casillas,
                 juegosActivos = juegosDeLaPartida(estado),
                 rnd = rnd,
             )
@@ -76,7 +76,7 @@ class MotorJuego(
                 ganador = null,
                 partidaEnCurso = true,
                 rondaSolitario = 1,
-                rondasSolitario = RONDAS_SOLITARIO,
+                rondasSolitario = estado.ajustes.pruebasSolitario,
                 puntosSolitario = 0,
                 esRecordSolitario = false,
                 avanceExtra = emptyList(),

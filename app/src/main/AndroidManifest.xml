@@ -42,6 +42,14 @@
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
         android:maxSdkVersion="32" />
+    <!--
+      Va con la anterior y no aparte: desde Android 12 el sistema ofrece
+      «ubicación aproximada» en el mismo diálogo, y si no se declara la gruesa
+      quien elija esa opción se queda sin ningún permiso de ubicación.
+    -->
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 

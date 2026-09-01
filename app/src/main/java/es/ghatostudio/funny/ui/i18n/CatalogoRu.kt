@@ -199,8 +199,8 @@ internal val catalogoRuso =
                 AJUSTES_PARTIDA to "Партия",
                 AJUSTES_RITMO to "Темп заданий",
                 AJUSTES_RITMO_DETALLE to "Сколько времени даётся на каждое задание.",
-                AJUSTES_DURACION to "Длина партии",
-                AJUSTES_DURACION_DETALLE to "%1\$d клеток до финиша · %2\$s",
+                AJUSTES_MODALIDAD to "Режим партии",
+                AJUSTES_MODALIDAD_DETALLE to "Сколько клеток на поле и сколько испытаний в одиночном режиме.",
                 AJUSTES_JUEGOS_ACTIVOS to "Игры партии",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Убери те, которые вам не нравятся, и они перестанут " +
@@ -377,9 +377,9 @@ internal val catalogoRuso =
                     "каждый отвечает на своём одновременно.",
                 TOUR_AJUSTES_TITULO to "Настрой под себя",
                 TOUR_AJUSTES_TEXTO to
-                    "Шесть тем, тринадцать языков, три темпа и три длины. Ещё можно отключать " +
-                    "игры, выключать звук и вибрацию, сохранять и восстанавливать данные из " +
-                    "файла.",
+                    "Шесть тем, тринадцать языков, три темпа и четыре режима партии: быстрый, " +
+                    "обычный, экстремальный и один по твоей мерке. Ещё можно отключать игры, " +
+                    "выключать звук и вибрацию, сохранять и восстанавливать данные из файла.",
                 TOUR_FINAL_TITULO to "Вот и всё",
                 TOUR_FINAL_TEXTO to
                     "Посмотреть это снова можно в любой момент через Настройки → Обзор. Хорошей " +
@@ -490,12 +490,18 @@ internal val catalogoRuso =
                 RITMO_RAPIDO to "Быстрый",
                 RITMO_NORMAL to "Обычный",
                 RITMO_TRANQUILO to "Спокойный",
-                DURACION_CORTA to "Короткая",
-                DURACION_NORMAL to "Обычная",
-                DURACION_LARGA to "Долгая",
-                DURACION_CORTA_DETALLE to "около 15 мин",
-                DURACION_NORMAL_DETALLE to "около 30 мин",
-                DURACION_LARGA_DETALLE to "около 45 мин",
+                MODALIDAD_RAPIDA to "Быстрая партия",
+                MODALIDAD_NORMAL to "Обычная партия",
+                MODALIDAD_EXTREMA to "Экстремальная партия",
+                MODALIDAD_PERSONALIZADA to "По-своему",
+                MODALIDAD_RAPIDA_DETALLE to "Одна партия и всё, или чтобы попробовать игру",
+                MODALIDAD_NORMAL_DETALLE to "Та самая, которая подходит лучше всего",
+                MODALIDAD_EXTREMA_DETALLE to "На весь вечер, без спешки",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Числа выбираешь ты",
+                MODALIDAD_RESUMEN to "%1\$d клеток · %2\$d испытаний · около %3\$d мин",
+                MODALIDAD_CASILLAS to "Клеток до финиша",
+                MODALIDAD_PRUEBAS to "Испытаний за партию",
+                MODALIDAD_PRUEBAS_NOTA to "Считаются только в одиночном режиме",
                 A11Y_DADO to "Кубик: %1\$d",
                 A11Y_FICHA to "Фишка %1\$s на клетке %2\$d",
                 A11Y_CASILLA to "Клетка %1\$d, %2\$s",
@@ -504,6 +510,8 @@ internal val catalogoRuso =
                 A11Y_LIENZO_DIBUJO to "Полотно для рисования пальцем",
                 A11Y_TEMA_MUESTRA to "Образец цветов темы %1\$s",
                 A11Y_BANDERA_IDIOMA to "Язык %1\$s",
+                A11Y_REDUCIR to "Уменьшить",
+                A11Y_AUMENTAR to "Увеличить",
             ),
         plurales =
             mapOf(

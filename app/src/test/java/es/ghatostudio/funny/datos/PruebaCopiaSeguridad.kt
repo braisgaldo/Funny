@@ -3,10 +3,10 @@ package es.ghatostudio.funny.datos
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import es.ghatostudio.funny.dominio.Ajustes
-import es.ghatostudio.funny.dominio.Duracion
 import es.ghatostudio.funny.dominio.EstadoCafe
 import es.ghatostudio.funny.dominio.Juego
 import es.ghatostudio.funny.dominio.MAXIMO_PARTICIPANTES
+import es.ghatostudio.funny.dominio.Modalidad
 import es.ghatostudio.funny.dominio.Participante
 import es.ghatostudio.funny.dominio.Ritmo
 import es.ghatostudio.funny.dominio.TemaId
@@ -36,7 +36,9 @@ class PruebaCopiaSeguridad {
             temaDelSistema = false,
             idioma = "gl",
             ritmo = Ritmo.TRANQUILO,
-            duracion = Duracion.LARGA,
+            modalidad = Modalidad.PERSONALIZADA,
+            casillasPersonalizadas = 26,
+            pruebasPersonalizadas = 14,
             sonido = false,
             vibracion = false,
             animaciones = false,
@@ -159,19 +161,60 @@ class PruebaCopiaSeguridad {
     }
 
     @Test
+    fun `una copia del esquema 1 traduce su duracion a la modalidad equivalente`() {
+        // El esquema 1 guardaba tres duraciones fijas. Quien tenga una copia
+        // vieja no tiene por que perder la larga que habia elegido, asi que se
+        // traduce en lugar de caer en la de por defecto.
+        listOf(
+            "CORTA" to Modalidad.RAPIDA,
+            "NORMAL" to Modalidad.NORMAL,
+            "LARGA" to Modalidad.EXTREMA,
+        ).forEach { (duracion, esperada) ->
+            val vieja =
+                """
+                {"app":"funny","esquema":1,"fecha":"2026-01-01",
+                 "ajustes":{"tema":"MENTA","duracion":"$duracion"}}
+                """.trimIndent()
+            val resultado = copia.interpretar(vieja) as CopiaSeguridad.Resultado.Bien
+            assertEquals(esperada, resultado.ajustes.modalidad, "con duracion $duracion")
+        }
+    }
+
+    @Test
+    fun `una copia del esquema 1 sin duracion cae en la partida normal`() {
+        val vieja =
+            """
+            {"app":"funny","esquema":1,"fecha":"2026-01-01","ajustes":{"tema":"MENTA"}}
+            """.trimIndent()
+        val resultado = copia.interpretar(vieja) as CopiaSeguridad.Resultado.Bien
+        assertEquals(Modalidad.NORMAL, resultado.ajustes.modalidad)
+    }
+
+    @Test
+    fun `una copia del esquema 1 con una duracion inventada no revienta`() {
+        val vieja =
+            """
+            {"app":"funny","esquema":1,"fecha":"2026-01-01",
+             "ajustes":{"duracion":"ETERNA"}}
+            """.trimIndent()
+        val resultado = copia.interpretar(vieja) as CopiaSeguridad.Resultado.Bien
+        assertEquals(Modalidad.NORMAL, resultado.ajustes.modalidad)
+    }
+
+    @Test
     fun `una copia con ajustes corruptos cae en los valores por defecto`() {
         // Un campo inventado o mal escrito no puede tumbar la importación: se
         // usa el valor por defecto y se sigue.
         val raro =
             """
             {"app":"funny","esquema":1,"fecha":"2026-01-01",
-             "ajustes":{"tema":"NO_EXISTE","ritmo":"VELOCISIMO","duracion":42,
+             "ajustes":{"tema":"NO_EXISTE","ritmo":"VELOCISIMO","modalidad":42,
                         "juegosDesactivados":["MIMICA","INVENTADO"]}}
             """.trimIndent()
         val resultado = copia.interpretar(raro) as CopiaSeguridad.Resultado.Bien
         assertEquals(TemaId.OSCURO_POR_DEFECTO, resultado.ajustes.tema)
         assertEquals(Ritmo.NORMAL, resultado.ajustes.ritmo)
-        assertEquals(Duracion.NORMAL, resultado.ajustes.duracion)
+        assertEquals(Modalidad.NORMAL, resultado.ajustes.modalidad)
         // De los dos juegos, solo el que existe.
         assertEquals(setOf(Juego.MIMICA), resultado.ajustes.juegosDesactivados)
     }

@@ -205,8 +205,10 @@ internal val catalogoCastellano =
                 AJUSTES_PARTIDA to "La partida",
                 AJUSTES_RITMO to "Ritmo de las pruebas",
                 AJUSTES_RITMO_DETALLE to "Cuánto tiempo hay para cada prueba.",
-                AJUSTES_DURACION to "Duración de la partida",
-                AJUSTES_DURACION_DETALLE to "%1\$d casillas hasta la meta · %2\$s",
+                AJUSTES_MODALIDAD to "Modalidad de partida",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Cuántas casillas tiene el tablero y cuántas pruebas el reto en " +
+                    "solitario.",
                 AJUSTES_JUEGOS_ACTIVOS to "Juegos de la partida",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Quita los que no os gusten y dejarán de salir en el tablero.",
@@ -388,7 +390,7 @@ internal val catalogoCastellano =
                     "el suyo al mismo tiempo.",
                 TOUR_AJUSTES_TITULO to "Ajústalo a tu gusto",
                 TOUR_AJUSTES_TEXTO to
-                    "Seis temas, trece idiomas, tres ritmos y tres duraciones. También puedes " +
+                    "Seis temas, trece idiomas, tres ritmos y cuatro modalidades de partida. También puedes " +
                     "desactivar juegos, apagar el sonido y la vibración, y guardar o recuperar tus " +
                     "datos en un fichero.",
                 TOUR_FINAL_TITULO to "Ya está",
@@ -501,12 +503,18 @@ internal val catalogoCastellano =
                 RITMO_RAPIDO to "Rápido",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquilo",
-                DURACION_CORTA to "Corta",
-                DURACION_NORMAL to "Normal",
-                DURACION_LARGA to "Larga",
-                DURACION_CORTA_DETALLE to "unos 15 min",
-                DURACION_NORMAL_DETALLE to "unos 30 min",
-                DURACION_LARGA_DETALLE to "unos 45 min",
+                MODALIDAD_RAPIDA to "Partida rápida",
+                MODALIDAD_NORMAL to "Partida normal",
+                MODALIDAD_EXTREMA to "Partida extrema",
+                MODALIDAD_PERSONALIZADA to "A mi manera",
+                MODALIDAD_RAPIDA_DETALLE to "Para jugar una y ya, o para probar el juego",
+                MODALIDAD_NORMAL_DETALLE to "La de siempre, la que mejor sienta",
+                MODALIDAD_EXTREMA_DETALLE to "Para una noche entera, sin prisa",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Tú pones los números",
+                MODALIDAD_RESUMEN to "%1\$d casillas · %2\$d pruebas · unos %3\$d min",
+                MODALIDAD_CASILLAS to "Casillas hasta la meta",
+                MODALIDAD_PRUEBAS to "Pruebas por partida",
+                MODALIDAD_PRUEBAS_NOTA to "Solo cuentan en el reto en solitario",
                 // ----------------------------------------------------- accesibilidad
                 A11Y_DADO to "Dado: %1\$d",
                 A11Y_FICHA to "Ficha de %1\$s en la casilla %2\$d",
@@ -516,6 +524,8 @@ internal val catalogoCastellano =
                 A11Y_LIENZO_DIBUJO to "Lienzo para dibujar con el dedo",
                 A11Y_TEMA_MUESTRA to "Muestra de colores del tema %1\$s",
                 A11Y_BANDERA_IDIOMA to "Idioma %1\$s",
+                A11Y_REDUCIR to "Reducir",
+                A11Y_AUMENTAR to "Aumentar",
             ),
         plurales =
             mapOf(

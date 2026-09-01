@@ -69,16 +69,17 @@ class PruebaMotorJuego {
 
     @Test
     fun `el tablero tiene la longitud que dicen los ajustes`() {
-        Duracion.entries.forEach { duracion ->
+        Modalidad.entries.forEach { modalidad ->
+            val ajustes = Ajustes(modalidad = modalidad)
             val m = motor()
             val estado =
                 m.empezarCarrera(
-                    EstadoJuego(ajustes = Ajustes(duracion = duracion), participantes = equipos()),
+                    EstadoJuego(ajustes = ajustes, participantes = equipos()),
                     equipos(),
                 )
             // La longitud es «casillas» tramos, o sea casillas + 1 posiciones
             // contando la salida.
-            assertEquals(duracion.casillas + 1, estado.tablero.size, "$duracion")
+            assertEquals(ajustes.casillas + 1, estado.tablero.size, "$modalidad")
         }
     }
 
@@ -431,7 +432,7 @@ class PruebaMotorJuego {
         var estado =
             m.empezarCarrera(
                 EstadoJuego(
-                    ajustes = Ajustes(duracion = Duracion.CORTA),
+                    ajustes = Ajustes(modalidad = Modalidad.RAPIDA),
                     participantes = equipos(2),
                 ),
                 equipos(2),

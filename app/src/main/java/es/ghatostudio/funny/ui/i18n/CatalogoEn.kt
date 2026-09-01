@@ -199,8 +199,10 @@ internal val catalogoIngles =
                 AJUSTES_PARTIDA to "The game",
                 AJUSTES_RITMO to "Round pace",
                 AJUSTES_RITMO_DETALLE to "How much time you get for each round.",
-                AJUSTES_DURACION to "Game length",
-                AJUSTES_DURACION_DETALLE to "%1\$d squares to the finish · %2\$s",
+                AJUSTES_MODALIDAD to "Game mode",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "How many squares the board has and how many rounds the solo run " +
+                    "lasts.",
                 AJUSTES_JUEGOS_ACTIVOS to "Games in play",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Turn off the ones you don't like and they will stop showing up on the board.",
@@ -374,7 +376,7 @@ internal val catalogoIngles =
                     "person answers on their own at the same time.",
                 TOUR_AJUSTES_TITULO to "Make it yours",
                 TOUR_AJUSTES_TEXTO to
-                    "Six themes, thirteen languages, three paces and three lengths. You can also " +
+                    "Six themes, thirteen languages, three paces and four game modes. You can also " +
                     "switch games off, mute sound and vibration, and save or restore your data to a file.",
                 TOUR_FINAL_TITULO to "That's it",
                 TOUR_FINAL_TEXTO to
@@ -481,12 +483,18 @@ internal val catalogoIngles =
                 RITMO_RAPIDO to "Fast",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Relaxed",
-                DURACION_CORTA to "Short",
-                DURACION_NORMAL to "Normal",
-                DURACION_LARGA to "Long",
-                DURACION_CORTA_DETALLE to "about 15 min",
-                DURACION_NORMAL_DETALLE to "about 30 min",
-                DURACION_LARGA_DETALLE to "about 45 min",
+                MODALIDAD_RAPIDA to "Quick game",
+                MODALIDAD_NORMAL to "Normal game",
+                MODALIDAD_EXTREMA to "Extreme game",
+                MODALIDAD_PERSONALIZADA to "My way",
+                MODALIDAD_RAPIDA_DETALLE to "One round and done, or just to try the game",
+                MODALIDAD_NORMAL_DETALLE to "The usual one, the one that fits best",
+                MODALIDAD_EXTREMA_DETALLE to "For a whole evening, no rush",
+                MODALIDAD_PERSONALIZADA_DETALLE to "You pick the numbers",
+                MODALIDAD_RESUMEN to "%1\$d squares · %2\$d rounds · about %3\$d min",
+                MODALIDAD_CASILLAS to "Squares to the finish",
+                MODALIDAD_PRUEBAS to "Rounds per game",
+                MODALIDAD_PRUEBAS_NOTA to "Only used in the solo run",
                 A11Y_DADO to "Die: %1\$d",
                 A11Y_FICHA to "%1\$s's token on square %2\$d",
                 A11Y_CASILLA to "Square %1\$d, %2\$s",
@@ -495,6 +503,8 @@ internal val catalogoIngles =
                 A11Y_LIENZO_DIBUJO to "Canvas to draw with your finger",
                 A11Y_TEMA_MUESTRA to "Colour swatch for the %1\$s theme",
                 A11Y_BANDERA_IDIOMA to "%1\$s language",
+                A11Y_REDUCIR to "Decrease",
+                A11Y_AUMENTAR to "Increase",
             ),
         plurales =
             mapOf(

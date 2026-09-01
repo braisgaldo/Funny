@@ -196,8 +196,10 @@ internal val catalogoEuskera =
                 AJUSTES_PARTIDA to "Partida",
                 AJUSTES_RITMO to "Proben erritmoa",
                 AJUSTES_RITMO_DETALLE to "Zenbat denbora dago proba bakoitzerako.",
-                AJUSTES_DURACION to "Partidaren iraupena",
-                AJUSTES_DURACION_DETALLE to "%1\$d lauki helmugara arte · %2\$s",
+                AJUSTES_MODALIDAD to "Partida modua",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Zenbat lauki dituen taulak eta zenbat proba dituen bakarkako " +
+                    "erronkak.",
                 AJUSTES_JUEGOS_ACTIVOS to "Partidako jokoak",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Kendu gustatzen ez zaizkizunak eta taulan ateratzeari utziko " +
@@ -382,9 +384,10 @@ internal val catalogoEuskera =
                     "berean.",
                 TOUR_AJUSTES_TITULO to "Zure gustura",
                 TOUR_AJUSTES_TEXTO to
-                    "Sei gai, hamahiru hizkuntza, hiru erritmo eta hiru iraupen. Jokoak ere " +
-                    "desaktibatu ditzakezu, soinua eta bibrazioa itzali, eta zure datuak " +
-                    "fitxategi batean gorde edo berreskuratu.",
+                    "Sei gai, hamahiru hizkuntza, hiru erritmo eta lau partida modu: azkarra, " +
+                    "normala, muturrekoa eta zuk neurrira egindakoa. Jokoak ere desaktibatu " +
+                    "ditzakezu, soinua eta bibrazioa itzali, eta zure datuak fitxategi batean " +
+                    "gorde edo berreskuratu.",
                 TOUR_FINAL_TITULO to "Hori da dena",
                 TOUR_FINAL_TEXTO to
                     "Hau berriro ikus dezakezu nahi duzunean Ezarpenak → Bisitaldi gidatua " +
@@ -501,12 +504,18 @@ internal val catalogoEuskera =
                 RITMO_RAPIDO to "Azkarra",
                 RITMO_NORMAL to "Normala",
                 RITMO_TRANQUILO to "Lasaia",
-                DURACION_CORTA to "Laburra",
-                DURACION_NORMAL to "Normala",
-                DURACION_LARGA to "Luzea",
-                DURACION_CORTA_DETALLE to "15 minutu inguru",
-                DURACION_NORMAL_DETALLE to "30 minutu inguru",
-                DURACION_LARGA_DETALLE to "45 minutu inguru",
+                MODALIDAD_RAPIDA to "Partida azkarra",
+                MODALIDAD_NORMAL to "Partida normala",
+                MODALIDAD_EXTREMA to "Partida muturrekoa",
+                MODALIDAD_PERSONALIZADA to "Nire erara",
+                MODALIDAD_RAPIDA_DETALLE to "Bat jokatu eta kito, edo jokoa probatzeko",
+                MODALIDAD_NORMAL_DETALLE to "Betikoa, ongien datorrena",
+                MODALIDAD_EXTREMA_DETALLE to "Gau osorako, presarik gabe",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Zenbakiak zuk jartzen dituzu",
+                MODALIDAD_RESUMEN to "%1\$d lauki · %2\$d proba · %3\$d minutu inguru",
+                MODALIDAD_CASILLAS to "Laukiak helmugara arte",
+                MODALIDAD_PRUEBAS to "Probak partida bakoitzean",
+                MODALIDAD_PRUEBAS_NOTA to "Bakarkako erronkan bakarrik zenbatzen dute",
                 A11Y_DADO to "Dadoa: %1\$d",
                 A11Y_FICHA to "%1\$s-en fitxa %2\$d. laukian",
                 A11Y_CASILLA to "%1\$d. laukia, %2\$s",
@@ -515,6 +524,8 @@ internal val catalogoEuskera =
                 A11Y_LIENZO_DIBUJO to "Hatzarekin marrazteko oihala",
                 A11Y_TEMA_MUESTRA to "%1\$s gaiaren kolore-erakusgarria",
                 A11Y_BANDERA_IDIOMA to "%1\$s hizkuntza",
+                A11Y_REDUCIR to "Gutxitu",
+                A11Y_AUMENTAR to "Handitu",
             ),
         plurales =
             mapOf(

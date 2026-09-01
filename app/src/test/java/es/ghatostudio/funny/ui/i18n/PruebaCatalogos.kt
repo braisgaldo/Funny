@@ -41,6 +41,37 @@ class PruebaCatalogos {
     }
 
     @Test
+    fun `los parametros de un texto son los mismos en los trece idiomas`() {
+        // Un parametro que se cae al traducir no se nota hasta que alguien
+        // pone la app en ese idioma y ve el hueco sin rellenar, o peor: una
+        // excepción de formato en mitad de una partida. El inglés manda porque
+        // es el catálogo de respaldo.
+        // Cadena normal y no cruda: en una cruda el dólar abriría plantilla.
+        val patron = Regex("%(\\d+)\\\$[ds]")
+
+        fun parametrosDe(texto: String) =
+            patron
+                .findAll(texto)
+                .map { it.groupValues[1] }
+                .toSet()
+
+        val referencia = catalogoDe(Idioma.INGLES)
+        Clave.entries.forEach { clave ->
+            val esperados = parametrosDe(referencia.textos[clave].orEmpty())
+            todosLosCatalogos
+                .filter { it.idioma in IDIOMAS_TERMINADOS }
+                .forEach { catalogo ->
+                    val suyos = parametrosDe(catalogo.textos[clave].orEmpty())
+                    assertEquals(
+                        esperados,
+                        suyos,
+                        "${catalogo.idioma} en $clave: el inglés usa $esperados y este $suyos",
+                    )
+                }
+        }
+    }
+
+    @Test
     fun `ningun texto esta vacio en ningun idioma`() {
         todosLosCatalogos
             .filter { it.idioma in IDIOMAS_TERMINADOS }

@@ -194,8 +194,10 @@ internal val catalogoGriego =
                 AJUSTES_PARTIDA to "Η παρτίδα",
                 AJUSTES_RITMO to "Ρυθμός δοκιμασιών",
                 AJUSTES_RITMO_DETALLE to "Πόσος χρόνος υπάρχει για κάθε δοκιμασία.",
-                AJUSTES_DURACION to "Διάρκεια παρτίδας",
-                AJUSTES_DURACION_DETALLE to "%1\$d θέσεις μέχρι το τέρμα · %2\$s",
+                AJUSTES_MODALIDAD to "Τρόπος παιχνιδιού",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Πόσες θέσεις έχει το ταμπλό και πόσες δοκιμασίες έχει η μονή " +
+                    "πρόκληση.",
                 AJUSTES_JUEGOS_ACTIVOS to "Παιχνίδια της παρτίδας",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Βγάλε όσα δεν σας αρέσουν και θα σταματήσουν να βγαίνουν στο " +
@@ -387,7 +389,8 @@ internal val catalogoGriego =
                     "«παίζουν όλοι» ο καθένας απαντά στο δικό του ταυτόχρονα.",
                 TOUR_AJUSTES_TITULO to "Στα μέτρα σου",
                 TOUR_AJUSTES_TEXTO to
-                    "Έξι θέματα, δεκατρείς γλώσσες, τρεις ρυθμοί και τρεις διάρκειες. Μπορείς " +
+                    "Έξι θέματα, δεκατρείς γλώσσες, τρεις ρυθμοί και τέσσερις τρόποι " +
+                    "παιχνιδιού: γρήγορος, κανονικός, ακραίος και ένας στα μέτρα σου. Μπορείς " +
                     "επίσης να απενεργοποιήσεις παιχνίδια, να σβήσεις ήχο και δόνηση, και να " +
                     "αποθηκεύσεις ή να ανακτήσεις τα δεδομένα σου σε αρχείο.",
                 TOUR_FINAL_TITULO to "Αυτά ήταν",
@@ -507,12 +510,18 @@ internal val catalogoGriego =
                 RITMO_RAPIDO to "Γρήγορο",
                 RITMO_NORMAL to "Κανονικό",
                 RITMO_TRANQUILO to "Χαλαρό",
-                DURACION_CORTA to "Σύντομη",
-                DURACION_NORMAL to "Κανονική",
-                DURACION_LARGA to "Μεγάλη",
-                DURACION_CORTA_DETALLE to "περίπου 15 λεπτά",
-                DURACION_NORMAL_DETALLE to "περίπου 30 λεπτά",
-                DURACION_LARGA_DETALLE to "περίπου 45 λεπτά",
+                MODALIDAD_RAPIDA to "Γρήγορη παρτίδα",
+                MODALIDAD_NORMAL to "Κανονική παρτίδα",
+                MODALIDAD_EXTREMA to "Ακραία παρτίδα",
+                MODALIDAD_PERSONALIZADA to "Με τον τρόπο μου",
+                MODALIDAD_RAPIDA_DETALLE to "Για μια παρτίδα και τέλος, ή για να δοκιμάσεις το παιχνίδι",
+                MODALIDAD_NORMAL_DETALLE to "Η συνηθισμένη, αυτή που ταιριάζει καλύτερα",
+                MODALIDAD_EXTREMA_DETALLE to "Για ολόκληρο το βράδυ, χωρίς βιασύνη",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Τους αριθμούς τους βάζεις εσύ",
+                MODALIDAD_RESUMEN to "%1\$d θέσεις · %2\$d δοκιμασίες · περίπου %3\$d λεπτά",
+                MODALIDAD_CASILLAS to "Θέσεις μέχρι το τέρμα",
+                MODALIDAD_PRUEBAS to "Δοκιμασίες ανά παρτίδα",
+                MODALIDAD_PRUEBAS_NOTA to "Μετρούν μόνο στη μονή πρόκληση",
                 A11Y_DADO to "Ζάρι: %1\$d",
                 A11Y_FICHA to "Πιόνι του %1\$s στη θέση %2\$d",
                 A11Y_CASILLA to "Θέση %1\$d, %2\$s",
@@ -521,6 +530,8 @@ internal val catalogoGriego =
                 A11Y_LIENZO_DIBUJO to "Καμβάς για ζωγραφική με το δάχτυλο",
                 A11Y_TEMA_MUESTRA to "Δείγμα χρωμάτων του θέματος %1\$s",
                 A11Y_BANDERA_IDIOMA to "Γλώσσα %1\$s",
+                A11Y_REDUCIR to "Μείωση",
+                A11Y_AUMENTAR to "Αύξηση",
             ),
         plurales =
             mapOf(

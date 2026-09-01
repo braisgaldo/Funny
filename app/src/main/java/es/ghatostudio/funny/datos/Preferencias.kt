@@ -10,11 +10,12 @@ import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import es.ghatostudio.funny.dominio.Ajustes
-import es.ghatostudio.funny.dominio.Duracion
 import es.ghatostudio.funny.dominio.EstadoCafe
 import es.ghatostudio.funny.dominio.Juego
+import es.ghatostudio.funny.dominio.Modalidad
 import es.ghatostudio.funny.dominio.Modo
 import es.ghatostudio.funny.dominio.Participante
+import es.ghatostudio.funny.dominio.RONDAS_SOLITARIO
 import es.ghatostudio.funny.dominio.Ritmo
 import es.ghatostudio.funny.dominio.TemaId
 import kotlinx.coroutines.flow.first
@@ -66,7 +67,9 @@ class Preferencias(
             temaDelSistema = p[TEMA_SISTEMA] ?: true,
             idioma = p[IDIOMA],
             ritmo = enumOPorDefecto(p[RITMO], Ritmo.entries, Ritmo.NORMAL),
-            duracion = enumOPorDefecto(p[DURACION], Duracion.entries, Duracion.NORMAL),
+            modalidad = enumOPorDefecto(p[MODALIDAD], Modalidad.entries, Modalidad.NORMAL),
+            casillasPersonalizadas = p[CASILLAS_PERSONALIZADAS] ?: 20,
+            pruebasPersonalizadas = p[PRUEBAS_PERSONALIZADAS] ?: RONDAS_SOLITARIO,
             sonido = p[SONIDO] ?: true,
             vibracion = p[VIBRACION] ?: true,
             animaciones = p[ANIMACIONES] ?: true,
@@ -101,7 +104,9 @@ class Preferencias(
             p[TEMA_SISTEMA] = a.temaDelSistema
             if (a.idioma == null) p.remove(IDIOMA) else p[IDIOMA] = a.idioma
             p[RITMO] = a.ritmo.name
-            p[DURACION] = a.duracion.name
+            p[MODALIDAD] = a.modalidad.name
+            p[CASILLAS_PERSONALIZADAS] = a.casillasPersonalizadas
+            p[PRUEBAS_PERSONALIZADAS] = a.pruebasPersonalizadas
             p[SONIDO] = a.sonido
             p[VIBRACION] = a.vibracion
             p[ANIMACIONES] = a.animaciones
@@ -140,7 +145,9 @@ class Preferencias(
         private val TEMA_SISTEMA = booleanPreferencesKey("tema_sistema")
         private val IDIOMA = stringPreferencesKey("idioma")
         private val RITMO = stringPreferencesKey("ritmo")
-        private val DURACION = stringPreferencesKey("duracion")
+        private val MODALIDAD = stringPreferencesKey("modalidad")
+        private val CASILLAS_PERSONALIZADAS = intPreferencesKey("casillas_personalizadas")
+        private val PRUEBAS_PERSONALIZADAS = intPreferencesKey("pruebas_personalizadas")
         private val SONIDO = booleanPreferencesKey("sonido")
         private val VIBRACION = booleanPreferencesKey("vibracion")
         private val ANIMACIONES = booleanPreferencesKey("animaciones")

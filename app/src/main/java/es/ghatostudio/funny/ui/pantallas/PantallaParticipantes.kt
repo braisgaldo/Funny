@@ -47,6 +47,7 @@ import es.ghatostudio.funny.ui.comun.AREA_TACTIL_MINIMA
 import es.ghatostudio.funny.ui.comun.BotonGrande
 import es.ghatostudio.funny.ui.comun.Cabecera
 import es.ghatostudio.funny.ui.comun.FondoFunny
+import es.ghatostudio.funny.ui.comun.SelectorDeModalidad
 import es.ghatostudio.funny.ui.comun.Tarjeta
 import es.ghatostudio.funny.ui.i18n.textos
 import es.ghatostudio.funny.ui.tema.Fallo
@@ -132,6 +133,23 @@ fun PantallaParticipantes(vm: JuegoViewModel) {
                         color = SuperficieAlta,
                         colorTexto = TextoFuerte,
                     )
+                }
+                // La modalidad se puede cambiar aqui mismo, justo antes de
+                // empezar: es donde de verdad se decide cuanto va a durar la
+                // partida, y mandar a la gente a los ajustes para eso es un
+                // viaje de ida y vuelta que no hace falta.
+                Tarjeta {
+                    Column(Modifier.padding(16.dp)) {
+                        Text(
+                            t[Clave.AJUSTES_MODALIDAD],
+                            style = MaterialTheme.typography.titleSmall,
+                            color = TextoFuerte,
+                        )
+                        Spacer(Modifier.height(10.dp))
+                        SelectorDeModalidad(ajustes = estado.ajustes, compacto = true) {
+                            vm.actualizarAjustes(it)
+                        }
+                    }
                 }
                 Spacer(Modifier.height(4.dp))
             }

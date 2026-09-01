@@ -195,8 +195,10 @@ internal val catalogoAleman =
                 AJUSTES_PARTIDA to "Die Partie",
                 AJUSTES_RITMO to "Tempo der Aufgaben",
                 AJUSTES_RITMO_DETALLE to "Wie viel Zeit es pro Aufgabe gibt.",
-                AJUSTES_DURACION to "Länge der Partie",
-                AJUSTES_DURACION_DETALLE to "%1\$d Felder bis zum Ziel · %2\$s",
+                AJUSTES_MODALIDAD to "Spielmodus",
+                AJUSTES_MODALIDAD_DETALLE to
+                    "Wie viele Felder das Brett hat und wie viele Runden die " +
+                    "Solo-Runde dauert.",
                 AJUSTES_JUEGOS_ACTIVOS to "Spiele der Partie",
                 AJUSTES_JUEGOS_ACTIVOS_DETALLE to
                     "Nimm die heraus, die euch nicht gefallen, dann erscheinen " +
@@ -382,9 +384,10 @@ internal val catalogoAleman =
                     "Feldern «alle spielen» antwortet jeder gleichzeitig auf seinem eigenen.",
                 TOUR_AJUSTES_TITULO to "Ganz nach deinem Geschmack",
                 TOUR_AJUSTES_TEXTO to
-                    "Sechs Designs, dreizehn Sprachen, drei Tempi und drei Längen. Du kannst " +
-                    "auch Spiele abschalten, Ton und Vibration ausmachen und deine Daten in " +
-                    "eine Datei speichern oder zurückholen.",
+                    "Sechs Designs, dreizehn Sprachen, drei Tempi und vier Spielmodi: " +
+                    "schnell, normal, extrem und einer nach Maß. Du kannst auch Spiele " +
+                    "abschalten, Ton und Vibration ausmachen und deine Daten in eine Datei " +
+                    "speichern oder zurückholen.",
                 TOUR_FINAL_TITULO to "Das war's",
                 TOUR_FINAL_TEXTO to
                     "Du kannst das jederzeit unter Einstellungen → Geführte Tour wieder " +
@@ -500,12 +503,18 @@ internal val catalogoAleman =
                 RITMO_RAPIDO to "Schnell",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Gemütlich",
-                DURACION_CORTA to "Kurz",
-                DURACION_NORMAL to "Normal",
-                DURACION_LARGA to "Lang",
-                DURACION_CORTA_DETALLE to "etwa 15 Min.",
-                DURACION_NORMAL_DETALLE to "etwa 30 Min.",
-                DURACION_LARGA_DETALLE to "etwa 45 Min.",
+                MODALIDAD_RAPIDA to "Schnelle Partie",
+                MODALIDAD_NORMAL to "Normale Partie",
+                MODALIDAD_EXTREMA to "Extreme Partie",
+                MODALIDAD_PERSONALIZADA to "Nach meiner Art",
+                MODALIDAD_RAPIDA_DETALLE to "Für eine Runde zwischendurch oder zum Ausprobieren",
+                MODALIDAD_NORMAL_DETALLE to "Die übliche, die am besten passt",
+                MODALIDAD_EXTREMA_DETALLE to "Für einen ganzen Abend, ohne Eile",
+                MODALIDAD_PERSONALIZADA_DETALLE to "Du legst die Zahlen fest",
+                MODALIDAD_RESUMEN to "%1\$d Felder · %2\$d Runden · etwa %3\$d Min.",
+                MODALIDAD_CASILLAS to "Felder bis zum Ziel",
+                MODALIDAD_PRUEBAS to "Runden pro Partie",
+                MODALIDAD_PRUEBAS_NOTA to "Zählen nur in der Solo-Runde",
                 A11Y_DADO to "Würfel: %1\$d",
                 A11Y_FICHA to "Figur von %1\$s auf Feld %2\$d",
                 A11Y_CASILLA to "Feld %1\$d, %2\$s",
@@ -514,6 +523,8 @@ internal val catalogoAleman =
                 A11Y_LIENZO_DIBUJO to "Fläche zum Zeichnen mit dem Finger",
                 A11Y_TEMA_MUESTRA to "Farbmuster des Designs %1\$s",
                 A11Y_BANDERA_IDIOMA to "Sprache %1\$s",
+                A11Y_REDUCIR to "Verringern",
+                A11Y_AUMENTAR to "Erhöhen",
             ),
         plurales =
             mapOf(

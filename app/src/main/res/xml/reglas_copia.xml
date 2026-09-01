@@ -2,19 +2,18 @@
 <!--
   Qué entra en la copia de seguridad del sistema (Android 12+).
 
-  Se incluyen las preferencias (equipos, ajustes, marca del solitario) y se
-  excluye el respaldo previo a una importacion: es un fichero de usar y tirar
-  que no tiene ningun sentido restaurar en otro movil.
+  Se incluyen las preferencias (equipos, ajustes, marca del solitario) y nada
+  mas. El respaldo previo a una importacion no hace falta excluirlo: vive en la
+  raiz de filesDir y del dominio de ficheros solo entra `datastore`, asi que ya
+  se queda fuera. Declararlo aparte era redundante y lint lo senalaba.
 -->
 <data-extraction-rules>
     <cloud-backup>
         <include domain="sharedpref" path="." />
         <include domain="file" path="datastore" />
-        <exclude domain="file" path="respaldo-antes-de-importar.funny.bak" />
     </cloud-backup>
     <device-transfer>
         <include domain="sharedpref" path="." />
         <include domain="file" path="datastore" />
-        <exclude domain="file" path="respaldo-antes-de-importar.funny.bak" />
     </device-transfer>
 </data-extraction-rules>

@@ -3,10 +3,11 @@ package es.ghatostudio.funny.datos
 import android.content.Context
 import android.net.Uri
 import es.ghatostudio.funny.dominio.Ajustes
-import es.ghatostudio.funny.dominio.Duracion
 import es.ghatostudio.funny.dominio.EstadoCafe
 import es.ghatostudio.funny.dominio.Juego
+import es.ghatostudio.funny.dominio.Modalidad
 import es.ghatostudio.funny.dominio.Participante
+import es.ghatostudio.funny.dominio.RONDAS_SOLITARIO
 import es.ghatostudio.funny.dominio.Ritmo
 import es.ghatostudio.funny.dominio.TemaId
 import org.json.JSONArray
@@ -173,7 +174,9 @@ class CopiaSeguridad(
             .put("temaDelSistema", a.temaDelSistema)
             .put("idioma", a.idioma ?: JSONObject.NULL)
             .put("ritmo", a.ritmo.name)
-            .put("duracion", a.duracion.name)
+            .put("modalidad", a.modalidad.name)
+            .put("casillasPersonalizadas", a.casillasPersonalizadas)
+            .put("pruebasPersonalizadas", a.pruebasPersonalizadas)
             .put("sonido", a.sonido)
             .put("vibracion", a.vibracion)
             .put("animaciones", a.animaciones)
@@ -192,10 +195,27 @@ class CopiaSeguridad(
                     .put("yaPasoPorAhi", a.cafe.yaPasoPorAhi),
             )
 
-    @Suppress("UNUSED_PARAMETER")
+    /**
+     * Lee la modalidad, traduciendo las copias del esquema 1.
+     *
+     * El esquema 1 guardaba una `duracion` de tres valores fijos (CORTA 12,
+     * NORMAL 20, LARGA 28). Se traduce a la modalidad equivalente en lugar de
+     * dejarla en PERSONALIZADA con el número exacto: quien eligió «larga»
+     * quería la partida larga, no un tablero de 28 casillas concreto. La
+     * consecuencia es que una partida LARGA pasa de 28 a 32 casillas.
+     */
+    private fun modalidadDesdeJson(o: JSONObject, esquema: Int): Modalidad {
+        if (esquema >= 2 || o.has("modalidad")) {
+            return enumDe(o.optString("modalidad"), Modalidad.entries, Modalidad.NORMAL)
+        }
+        return when (o.optString("duracion")) {
+            "CORTA" -> Modalidad.RAPIDA
+            "LARGA" -> Modalidad.EXTREMA
+            else -> Modalidad.NORMAL
+        }
+    }
+
     private fun ajustesDesdeJson(o: JSONObject, esquema: Int): Ajustes {
-        // De momento solo existe el esquema 1. Cuando haya un 2, aquí es donde
-        // van las migraciones: se lee el campo antiguo y se traduce al nuevo.
         val cafe = o.optJSONObject("cafe")
         val desactivados = o.optJSONArray("juegosDesactivados") ?: JSONArray()
         return Ajustes(
@@ -203,7 +223,9 @@ class CopiaSeguridad(
             temaDelSistema = o.optBoolean("temaDelSistema", true),
             idioma = o.optString("idioma").takeIf { it.isNotBlank() && it != "null" },
             ritmo = enumDe(o.optString("ritmo"), Ritmo.entries, Ritmo.NORMAL),
-            duracion = enumDe(o.optString("duracion"), Duracion.entries, Duracion.NORMAL),
+            modalidad = modalidadDesdeJson(o, esquema),
+            casillasPersonalizadas = o.optInt("casillasPersonalizadas", 20),
+            pruebasPersonalizadas = o.optInt("pruebasPersonalizadas", RONDAS_SOLITARIO),
             sonido = o.optBoolean("sonido", true),
             vibracion = o.optBoolean("vibracion", true),
             animaciones = o.optBoolean("animaciones", true),
@@ -236,7 +258,7 @@ class CopiaSeguridad(
          * rompe la lectura de copias antiguas, y entonces hay que añadir su
          * migración en `ajustesDesdeJson` y su test en `PruebaCopiaSeguridad`.
          */
-        const val ESQUEMA = 1
+        const val ESQUEMA = 2
 
         const val NOMBRE_APP = "funny"
         const val EXTENSION = ".funny.bak"
