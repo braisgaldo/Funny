@@ -9,3 +9,6 @@ captures/
 .cxx/
 
 .claude/
+# Fichero de trabajo del volcado de claves de i18n
+claves.txt
+docs/out/
