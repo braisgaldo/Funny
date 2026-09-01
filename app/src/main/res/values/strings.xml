@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  El único texto de Funny que vive en recursos de Android.
+
+  Todo lo demás está en el catálogo de ui/i18n, que permite cambiar de idioma
+  al instante sin recrear la actividad. Pero el nombre del lanzador lo lee el
+  sistema, no la app, así que ese sí tiene que estar aquí.
+-->
 <resources>
-    <string name="app_name">Fiestón</string>
+    <string name="app_name" translatable="false">Funny</string>
 </resources>

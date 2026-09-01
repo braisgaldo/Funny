@@ -1,28 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+      Permisos, todos justificados. Ninguno se declara «por si acaso»: si un
+      permiso no aparece en esta lista con su motivo, es que Funny no lo pide.
+      Ver ADR-0003 y el apartado de privacidad de docs/PUBLICACION.md.
+    -->
+
+    <!-- Aciertos, fallos y fin de tiempo. Se puede apagar en Ajustes. -->
     <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--
+      Salón con varios móviles (Nearby Connections). Los tres de Bluetooth
+      nuevos son de Android 12+; los antiguos se limitan a maxSdkVersion 30
+      para no pedirlos donde ya no valen.
+    -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!--
+      Wi-Fi Direct entre los móviles de la mesa. En Android 13+ basta con
+      NEARBY_WIFI_DEVICES; por debajo, el sistema exige la ubicación para
+      buscar por Bluetooth, así que se pide SOLO hasta Android 12 y se explica
+      en la propia pantalla del salón antes de pedirla.
+    -->
+    <uses-permission
+        android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="tiramisu" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!--
+      Ni INTERNET ni ACCESS_NETWORK_STATE: Funny no habla con ninguna red. El
+      único enlace externo (la donación) lo abre el navegador del sistema, que
+      tiene sus propios permisos.
+    -->
+
+    <!-- El salón es opcional: un móvil sin Bluetooth sigue jugando solo. -->
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
+        android:dataExtractionRules="@xml/reglas_copia"
+        android:fullBackupContent="@xml/reglas_copia_antigua"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
         android:roundIcon="@mipmap/ic_launcher"
-        android:supportsRtl="false"
-        android:theme="@style/Theme.Fieston">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Funny">
 
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode|locale|layoutDirection"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Fieston">
+            android:theme="@style/Theme.Funny"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--
+          Permite abrir una copia .funny.bak desde el gestor de archivos. El
+          patrón lleva la doble extensión completa para no reclamar cualquier
+          .bak del móvil.
+        -->
+        <activity-alias
+            android:name=".AbrirCopia"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:targetActivity=".MainActivity">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:mimeType="application/json" />
+                <data android:pathPattern=".*\\.funny\\.bak" />
+            </intent-filter>
+        </activity-alias>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

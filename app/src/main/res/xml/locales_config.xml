@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Los trece idiomas de Funny, declarados para que Android 13+ los ofrezca en
+  Ajustes del sistema > Idiomas de las aplicaciones. El orden no importa: el
+  sistema los presenta con su propio criterio.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="es" />
+    <locale android:name="fr" />
+    <locale android:name="de" />
+    <locale android:name="zh" />
+    <locale android:name="ja" />
+    <locale android:name="ru" />
+    <locale android:name="it" />
+    <locale android:name="el" />
+    <locale android:name="ar" />
+    <locale android:name="gl" />
+    <locale android:name="ca" />
+    <locale android:name="eu" />
+</locale-config>

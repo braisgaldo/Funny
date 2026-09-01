@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondo del tema FIESTA. Ver ui/tema/Paleta.kt. -->
+    <color name="fondo_arranque">#12071F</color>
+    <color name="icono_fondo">#12071F</color>
+</resources>

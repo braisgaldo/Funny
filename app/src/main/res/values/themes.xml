@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tema de arranque: solo lo que se ve antes de que Compose pinte el primer
+  fotograma. Los seis temas de verdad están en ui/tema/Paleta.kt.
+
+  El color es el fondo del tema FIESTA, que es el que sale por defecto en
+  oscuro; en values-night no hace falta variante porque coincide.
+-->
 <resources>
-    <style name="Theme.Fieston" parent="android:Theme.Material.NoActionBar">
-        <item name="android:statusBarColor">#12071F</item>
-        <item name="android:navigationBarColor">#12071F</item>
-        <item name="android:windowBackground">#12071F</item>
+    <style name="Theme.Funny" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/fondo_arranque</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 </resources>
