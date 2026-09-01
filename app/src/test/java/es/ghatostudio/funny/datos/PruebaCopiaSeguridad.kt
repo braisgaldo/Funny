@@ -27,36 +27,38 @@ import kotlin.test.assertTrue
  */
 @RunWith(RobolectricTestRunner::class)
 class PruebaCopiaSeguridad {
-
     private val contexto: Context get() = ApplicationProvider.getApplicationContext()
     private val copia get() = CopiaSeguridad(contexto)
 
-    private val ajustesCompletos = Ajustes(
-        tema = TemaId.MENTA,
-        temaDelSistema = false,
-        idioma = "gl",
-        ritmo = Ritmo.TRANQUILO,
-        duracion = Duracion.LARGA,
-        sonido = false,
-        vibracion = false,
-        animaciones = false,
-        juegosDesactivados = setOf(Juego.CANTA, Juego.DESAFIO, Juego.TRABALENGUAS),
-        tourVisto = true,
-        cafe = EstadoCafe(
-            usosReales = 12,
-            vecesMostrado = 2,
-            diaUltimaMuestra = 20000L,
-            noVolverAMostrar = true,
-            yaPasoPorAhi = true
-        ),
-        mejorMarcaSolitario = 27
-    )
+    private val ajustesCompletos =
+        Ajustes(
+            tema = TemaId.MENTA,
+            temaDelSistema = false,
+            idioma = "gl",
+            ritmo = Ritmo.TRANQUILO,
+            duracion = Duracion.LARGA,
+            sonido = false,
+            vibracion = false,
+            animaciones = false,
+            juegosDesactivados = setOf(Juego.CANTA, Juego.DESAFIO, Juego.TRABALENGUAS),
+            tourVisto = true,
+            cafe =
+                EstadoCafe(
+                    usosReales = 12,
+                    vecesMostrado = 2,
+                    diaUltimaMuestra = 20000L,
+                    noVolverAMostrar = true,
+                    yaPasoPorAhi = true,
+                ),
+            mejorMarcaSolitario = 27,
+        )
 
-    private val participantes = listOf(
-        Participante(1, "Los Cracks", 0, miembros = listOf("Ana", "Bea")),
-        Participante(2, "Las Fieras", 1, miembros = listOf("Caro")),
-        Participante(3, "", 2)
-    )
+    private val participantes =
+        listOf(
+            Participante(1, "Los Cracks", 0, miembros = listOf("Ana", "Bea")),
+            Participante(2, "Las Fieras", 1, miembros = listOf("Caro")),
+            Participante(3, "", 2),
+        )
 
     // ------------------------------------------------------ ida y vuelta
 
@@ -74,7 +76,7 @@ class PruebaCopiaSeguridad {
         assertEquals(participantes.map { it.miembros }, resultado.participantes.map { it.miembros })
         assertEquals(
             participantes.map { it.indiceColor },
-            resultado.participantes.map { it.indiceColor }
+            resultado.participantes.map { it.indiceColor },
         )
     }
 
@@ -110,16 +112,17 @@ class PruebaCopiaSeguridad {
 
     @Test
     fun `un fichero que no es de Funny se rechaza`() {
-        val ajenos = listOf(
-            """{"app":"otra-cosa","esquema":1,"ajustes":{}}""",
-            """{"esquema":1,"ajustes":{}}""",
-            """{"cualquier":"cosa"}"""
-        )
+        val ajenos =
+            listOf(
+                """{"app":"otra-cosa","esquema":1,"ajustes":{}}""",
+                """{"esquema":1,"ajustes":{}}""",
+                """{"cualquier":"cosa"}""",
+            )
         ajenos.forEach { texto ->
             assertEquals(
                 CopiaSeguridad.Resultado.FormatoInvalido,
                 copia.interpretar(texto),
-                "debería rechazar: $texto"
+                "debería rechazar: $texto",
             )
         }
     }
@@ -130,20 +133,21 @@ class PruebaCopiaSeguridad {
             assertEquals(
                 CopiaSeguridad.Resultado.FormatoInvalido,
                 copia.interpretar(texto),
-                "debería rechazar: «$texto»"
+                "debería rechazar: «$texto»",
             )
         }
     }
 
     @Test
     fun `una copia de una version futura se rechaza en lugar de leerse a medias`() {
-        val futura = """
+        val futura =
+            """
             {"app":"funny","esquema":99,"version":"9.0.0","fecha":"2030-01-01","ajustes":{}}
-        """.trimIndent()
+            """.trimIndent()
         val resultado = copia.interpretar(futura)
         assertTrue(
             resultado is CopiaSeguridad.Resultado.EsquemaFuturo,
-            "debería avisar de la versión, no intentar leerla: $resultado"
+            "debería avisar de la versión, no intentar leerla: $resultado",
         )
         assertEquals(99, (resultado as CopiaSeguridad.Resultado.EsquemaFuturo).esquema)
     }
@@ -158,11 +162,12 @@ class PruebaCopiaSeguridad {
     fun `una copia con ajustes corruptos cae en los valores por defecto`() {
         // Un campo inventado o mal escrito no puede tumbar la importación: se
         // usa el valor por defecto y se sigue.
-        val raro = """
+        val raro =
+            """
             {"app":"funny","esquema":1,"fecha":"2026-01-01",
              "ajustes":{"tema":"NO_EXISTE","ritmo":"VELOCISIMO","duracion":42,
                         "juegosDesactivados":["MIMICA","INVENTADO"]}}
-        """.trimIndent()
+            """.trimIndent()
         val resultado = copia.interpretar(raro) as CopiaSeguridad.Resultado.Bien
         assertEquals(TemaId.OSCURO_POR_DEFECTO, resultado.ajustes.tema)
         assertEquals(Ritmo.NORMAL, resultado.ajustes.ritmo)
@@ -175,14 +180,16 @@ class PruebaCopiaSeguridad {
 
     @Test
     fun `fusionar anade los que no estan y conserva los actuales`() {
-        val actuales = listOf(
-            Participante(1, "Los Cracks", 0),
-            Participante(2, "Las Fieras", 1)
-        )
-        val importados = listOf(
-            Participante(9, "Las Fieras", 3),
-            Participante(10, "Los Nuevos", 4)
-        )
+        val actuales =
+            listOf(
+                Participante(1, "Los Cracks", 0),
+                Participante(2, "Las Fieras", 1),
+            )
+        val importados =
+            listOf(
+                Participante(9, "Las Fieras", 3),
+                Participante(10, "Los Nuevos", 4),
+            )
         val fusion = copia.fusionar(actuales, importados, MAXIMO_PARTICIPANTES)
 
         assertEquals(3, fusion.size)
@@ -231,7 +238,7 @@ class PruebaCopiaSeguridad {
     fun `el respaldo lleva la extension propia`() {
         assertTrue(
             copia.ficheroDeRespaldo().name.endsWith(CopiaSeguridad.EXTENSION),
-            copia.ficheroDeRespaldo().name
+            copia.ficheroDeRespaldo().name,
         )
     }
 

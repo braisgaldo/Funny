@@ -11,16 +11,11 @@ import kotlin.test.assertTrue
  *
  * El test más importante es el de completitud: si alguien añade una clave y se
  * olvida de un idioma, la build falla en lugar de dejar que salga
- * `AJUSTES_TITULO` en la pantalla de alguien.
- *
- * De momento solo se le exige completitud a los idiomas de
- * [IDIOMAS_TERMINADOS]; los demás están declarados y caen al inglés, y esta
- * lista es el registro explícito de lo que falta.
+ * `AJUSTES_TITULO` en la pantalla de alguien. Se le exige a los trece.
  */
 class PruebaCatalogos {
-
     @Test
-    fun `los idiomas terminados cubren todas las claves`() {
+    fun `los trece idiomas cubren todas las claves`() {
         val todas = Clave.entries.toSet()
         todosLosCatalogos
             .filter { it.idioma in IDIOMAS_TERMINADOS }
@@ -29,7 +24,7 @@ class PruebaCatalogos {
                 assertTrue(
                     faltan.isEmpty(),
                     "a ${catalogo.idioma} le faltan ${faltan.size} claves: " +
-                        faltan.take(10).joinToString()
+                        faltan.take(10).joinToString(),
                 )
             }
     }
@@ -46,7 +41,7 @@ class PruebaCatalogos {
     }
 
     @Test
-    fun `ningun texto de un idioma terminado esta vacio`() {
+    fun `ningun texto esta vacio en ningun idioma`() {
         todosLosCatalogos
             .filter { it.idioma in IDIOMAS_TERMINADOS }
             .forEach { catalogo ->
@@ -62,15 +57,29 @@ class PruebaCatalogos {
             assertEquals(
                 idioma,
                 catalogoDe(idioma).idioma,
-                "el catálogo de $idioma no está registrado"
+                "el catálogo de $idioma no está registrado",
             )
         }
     }
 
     @Test
     fun `los codigos y los endonimos de los idiomas son unicos`() {
-        assertEquals(13, Idioma.entries.map { it.codigo }.toSet().size, "códigos repetidos")
-        assertEquals(13, Idioma.entries.map { it.endonimo }.toSet().size, "endónimos repetidos")
+        assertEquals(
+            13,
+            Idioma.entries
+                .map { it.codigo }
+                .toSet()
+                .size,
+            "códigos repetidos",
+        )
+        assertEquals(
+            13,
+            Idioma.entries
+                .map { it.endonimo }
+                .toSet()
+                .size,
+            "endónimos repetidos",
+        )
     }
 
     @Test
@@ -94,7 +103,7 @@ class PruebaCatalogos {
         listOf(Idioma.GALLEGO, Idioma.CATALAN, Idioma.EUSKERA).forEach { idioma ->
             assertTrue(
                 idioma.insignia is Insignia.Codigo,
-                "$idioma lleva bandera y no se vería en muchos móviles"
+                "$idioma lleva bandera y no se vería en muchos móviles",
             )
         }
     }
@@ -115,14 +124,16 @@ class PruebaCatalogos {
     // -------------------------------------------------------------- textos
 
     @Test
-    fun `un idioma sin traducir cae al ingles y nunca al nombre de la clave`() {
+    fun `ningun idioma deja salir el nombre de una clave en pantalla`() {
+        // Es el respaldo del respaldo: aunque un catálogo perdiera una clave,
+        // `Textos` cae al inglés antes de rendirse.
         val textos = textosDe(Idioma.JAPONES)
         Clave.entries.forEach { clave ->
             val valor = textos[clave]
             assertTrue(valor.isNotBlank(), "$clave está vacía")
             assertTrue(
                 valor != clave.name,
-                "$clave sale como nombre de clave, ni siquiera hay respaldo"
+                "$clave sale como nombre de clave, ni siquiera hay respaldo",
             )
         }
     }
@@ -168,7 +179,7 @@ class PruebaCatalogos {
     }
 
     @Test
-    fun `todos los idiomas terminados tienen los seis plurales`() {
+    fun `los trece idiomas tienen los seis plurales`() {
         todosLosCatalogos
             .filter { it.idioma in IDIOMAS_TERMINADOS }
             .forEach { catalogo ->
@@ -176,11 +187,11 @@ class PruebaCatalogos {
                     val formas = catalogo.plurales[clave]
                     assertTrue(
                         formas != null && formas.isNotEmpty(),
-                        "${catalogo.idioma} no tiene el plural de $clave"
+                        "${catalogo.idioma} no tiene el plural de $clave",
                     )
                     assertTrue(
                         formas!!.containsKey(CategoriaPlural.OTHER),
-                        "${catalogo.idioma}/$clave no tiene la forma OTHER, que es el respaldo"
+                        "${catalogo.idioma}/$clave no tiene la forma OTHER, que es el respaldo",
                     )
                 }
             }
@@ -196,15 +207,32 @@ class PruebaCatalogos {
     // --------------------------------------------------------- los juegos
 
     @Test
-    fun `los doce juegos tienen nombre, lema e instrucciones en los idiomas terminados`() {
+    fun `los doce juegos tienen nombre, lema e instrucciones en todos los idiomas`() {
+        // Las instrucciones se comprueban por forma y no por longitud en
+        // caracteres. La primera versión de este test exigía más de treinta
+        // caracteres y suspendía en chino: «出现一个事件和四个可能的年份。要决定是哪一年发生的。»
+        // dice exactamente lo mismo que la frase castellana en la mitad de
+        // caracteres. Contar caracteres no mide cuánta información lleva un
+        // texto, así que se comprueba que sea una frase de verdad: más larga
+        // que el lema y terminada en un signo de final de frase.
+        val finalesDeFrase = setOf('.', '。', '！', '!', '؟', '?', '·')
         IDIOMAS_TERMINADOS.forEach { idioma ->
             val t = textosDe(idioma)
             Juego.entries.forEach { juego ->
-                assertTrue(t.nombreDe(juego).isNotBlank(), "$idioma: $juego sin nombre")
-                assertTrue(t.lemaDe(juego).isNotBlank(), "$idioma: $juego sin lema")
+                val nombre = t.nombreDe(juego)
+                val lema = t.lemaDe(juego)
+                val instrucciones = t.instruccionesDe(juego)
+
+                assertTrue(nombre.isNotBlank(), "$idioma: $juego sin nombre")
+                assertTrue(lema.isNotBlank(), "$idioma: $juego sin lema")
+                assertTrue(instrucciones.isNotBlank(), "$idioma: $juego sin instrucciones")
                 assertTrue(
-                    t.instruccionesDe(juego).length > 30,
-                    "$idioma: las instrucciones de $juego son demasiado cortas"
+                    instrucciones.length > lema.length,
+                    "$idioma: las instrucciones de $juego no son más largas que su lema",
+                )
+                assertTrue(
+                    instrucciones.trim().last() in finalesDeFrase,
+                    "$idioma: las instrucciones de $juego no acaban en punto: «$instrucciones»",
                 )
             }
         }
@@ -218,7 +246,7 @@ class PruebaCatalogos {
             assertEquals(
                 nombres.size,
                 nombres.toSet().size,
-                "$idioma tiene nombres de juego repetidos: $nombres"
+                "$idioma tiene nombres de juego repetidos: $nombres",
             )
         }
     }
@@ -226,18 +254,32 @@ class PruebaCatalogos {
     // ------------------------------------------------- la palabra prohibida
 
     @Test
-    fun `la donacion no usa vocabulario de compra en ningun idioma terminado`() {
+    fun `la donacion no usa vocabulario de compra en ninguno de los trece idiomas`() {
         // Regla dura del punto 4.4.1: la donación no es una compra y no puede
         // sonar como tal, ni en la app ni en la ficha de tienda. Esto lo
         // comprueba la build para que no se cuele en una traducción.
-        val prohibidas = listOf(
-            "comprar", "compra", "pagar", "pago", "precio", "desbloquea",
-            "premium", "suscripción", "suscripcion",
-            "buy", "purchase", "pay ", "price", "unlock", "subscription"
-        )
-        val clavesDeDonacion = Clave.entries.filter {
-            it.name.startsWith("CAFE_") || it.name.startsWith("AJUSTES_APOYAR")
-        }
+        val prohibidas =
+            listOf(
+                "comprar",
+                "compra",
+                "pagar",
+                "pago",
+                "precio",
+                "desbloquea",
+                "premium",
+                "suscripción",
+                "suscripcion",
+                "buy",
+                "purchase",
+                "pay ",
+                "price",
+                "unlock",
+                "subscription",
+            )
+        val clavesDeDonacion =
+            Clave.entries.filter {
+                it.name.startsWith("CAFE_") || it.name.startsWith("AJUSTES_APOYAR")
+            }
         assertTrue(clavesDeDonacion.isNotEmpty(), "no se han encontrado claves de donación")
 
         todosLosCatalogos
@@ -248,7 +290,7 @@ class PruebaCatalogos {
                     prohibidas.forEach { palabra ->
                         assertTrue(
                             !texto.contains(palabra),
-                            "${catalogo.idioma}/$clave usa «$palabra»: $texto"
+                            "${catalogo.idioma}/$clave usa «$palabra»: $texto",
                         )
                     }
                 }

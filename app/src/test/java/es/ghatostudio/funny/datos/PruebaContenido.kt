@@ -21,7 +21,6 @@ import kotlin.test.assertTrue
  */
 @RunWith(RobolectricTestRunner::class)
 class PruebaContenido {
-
     private val contexto: Context get() = ApplicationProvider.getApplicationContext()
     private val fuente get() = ContenidoDeAssets(contexto)
 
@@ -34,13 +33,13 @@ class PruebaContenido {
             Juego.entries.forEach { juego ->
                 assertTrue(
                     contenido.cantidadDe(juego) > 0,
-                    "$idioma no tiene contenido para $juego"
+                    "$idioma no tiene contenido para $juego",
                 )
             }
             assertEquals(
                 Juego.entries.size,
                 contenido.juegosJugables.size,
-                "$idioma: solo ${contenido.juegosJugables.size} juegos jugables"
+                "$idioma: solo ${contenido.juegosJugables.size} juegos jugables",
             )
         }
     }
@@ -55,7 +54,7 @@ class PruebaContenido {
             Juego.entries.forEach { juego ->
                 assertTrue(
                     contenido.cantidadDe(juego) >= minimo,
-                    "$idioma/$juego solo tiene ${contenido.cantidadDe(juego)} cartas"
+                    "$idioma/$juego solo tiene ${contenido.cantidadDe(juego)} cartas",
                 )
             }
         }
@@ -68,21 +67,21 @@ class PruebaContenido {
                 assertEquals(
                     4,
                     pregunta.opciones.size,
-                    "$idioma pregunta $i («${pregunta.texto}») tiene ${pregunta.opciones.size} opciones"
+                    "$idioma pregunta $i («${pregunta.texto}») tiene ${pregunta.opciones.size} opciones",
                 )
                 assertTrue(
                     pregunta.correcta in pregunta.opciones.indices,
-                    "$idioma pregunta $i apunta a la opción ${pregunta.correcta}"
+                    "$idioma pregunta $i apunta a la opción ${pregunta.correcta}",
                 )
                 assertTrue(pregunta.texto.isNotBlank(), "$idioma pregunta $i sin texto")
                 assertTrue(
                     pregunta.opciones.none { it.isBlank() },
-                    "$idioma pregunta $i tiene una opción vacía"
+                    "$idioma pregunta $i tiene una opción vacía",
                 )
                 assertEquals(
                     4,
                     pregunta.opciones.toSet().size,
-                    "$idioma pregunta $i tiene opciones repetidas"
+                    "$idioma pregunta $i tiene opciones repetidas",
                 )
             }
         }
@@ -94,7 +93,7 @@ class PruebaContenido {
             fuente.cargar(idioma).eventos.forEach { evento ->
                 assertTrue(
                     evento.anio in 1..2100,
-                    "$idioma: «${evento.texto}» tiene el año ${evento.anio}"
+                    "$idioma: «${evento.texto}» tiene el año ${evento.anio}",
                 )
                 assertTrue(evento.texto.isNotBlank(), "$idioma: hay un evento sin texto")
             }
@@ -108,11 +107,11 @@ class PruebaContenido {
                 assertTrue(carta.palabra.isNotBlank(), "$idioma: carta de tabú sin palabra")
                 assertTrue(
                     carta.prohibidas.size >= 3,
-                    "$idioma: «${carta.palabra}» solo tiene ${carta.prohibidas.size} prohibidas"
+                    "$idioma: «${carta.palabra}» solo tiene ${carta.prohibidas.size} prohibidas",
                 )
                 assertTrue(
                     carta.prohibidas.none { it.equals(carta.palabra, ignoreCase = true) },
-                    "$idioma: «${carta.palabra}» se prohíbe a sí misma"
+                    "$idioma: «${carta.palabra}» se prohíbe a sí misma",
                 )
             }
         }
@@ -125,20 +124,20 @@ class PruebaContenido {
                 assertTrue(carta.emojis.isNotBlank(), "$idioma: carta de emojis vacía")
                 assertTrue(
                     carta.respuesta.isNotBlank(),
-                    "$idioma: «${carta.emojis}» no tiene respuesta"
+                    "$idioma: «${carta.emojis}» no tiene respuesta",
                 )
                 assertTrue(
                     carta.senuelos.size >= 3,
-                    "$idioma: «${carta.respuesta}» tiene ${carta.senuelos.size} señuelos"
+                    "$idioma: «${carta.respuesta}» tiene ${carta.senuelos.size} señuelos",
                 )
                 assertTrue(
                     carta.respuesta !in carta.senuelos,
-                    "$idioma: «${carta.respuesta}» está entre sus propios señuelos"
+                    "$idioma: «${carta.respuesta}» está entre sus propios señuelos",
                 )
                 assertEquals(
                     carta.senuelos.size,
                     carta.senuelos.toSet().size,
-                    "$idioma: «${carta.respuesta}» tiene señuelos repetidos"
+                    "$idioma: «${carta.respuesta}» tiene señuelos repetidos",
                 )
             }
         }
@@ -153,7 +152,7 @@ class PruebaContenido {
                 assertTrue(afirmacion.texto.isNotBlank(), "$idioma: afirmación sin texto")
                 assertTrue(
                     afirmacion.explicacion.isNotBlank(),
-                    "$idioma: «${afirmacion.texto}» no tiene explicación"
+                    "$idioma: «${afirmacion.texto}» no tiene explicación",
                 )
             }
         }
@@ -169,7 +168,7 @@ class PruebaContenido {
             val proporcion = verdaderas.toDouble() / afirmaciones.size
             assertTrue(
                 proporcion in 0.35..0.65,
-                "$idioma: el ${(proporcion * 100).toInt()} % son verdaderas"
+                "$idioma: el ${(proporcion * 100).toInt()} % son verdaderas",
             )
         }
     }
@@ -181,12 +180,12 @@ class PruebaContenido {
                 assertEquals(
                     4,
                     reto.elementos.size,
-                    "$idioma: «${reto.enunciado}» tiene ${reto.elementos.size} elementos"
+                    "$idioma: «${reto.enunciado}» tiene ${reto.elementos.size} elementos",
                 )
                 assertEquals(
                     4,
                     reto.elementos.toSet().size,
-                    "$idioma: «${reto.enunciado}» tiene elementos repetidos"
+                    "$idioma: «${reto.enunciado}» tiene elementos repetidos",
                 )
                 assertTrue(reto.enunciado.isNotBlank(), "$idioma: reto de ordenar sin enunciado")
             }
@@ -200,7 +199,7 @@ class PruebaContenido {
                 assertTrue(t.texto.isNotBlank(), "$idioma: trabalenguas sin texto")
                 assertTrue(
                     t.repeticiones in 1..3,
-                    "$idioma: «${t.texto.take(30)}» pide ${t.repeticiones} repeticiones"
+                    "$idioma: «${t.texto.take(30)}» pide ${t.repeticiones} repeticiones",
                 )
             }
         }
@@ -215,12 +214,12 @@ class PruebaContenido {
                 assertTrue(cancion.titulo.isNotBlank(), "$idioma: canción sin título")
                 assertTrue(
                     cancion.artista.isNotBlank(),
-                    "$idioma: «${cancion.titulo}» sin artista"
+                    "$idioma: «${cancion.titulo}» sin artista",
                 )
                 assertTrue(
                     cancion.pista.length <= 60,
                     "$idioma: la pista de «${cancion.titulo}» tiene ${cancion.pista.length} " +
-                        "caracteres y empieza a parecer una letra"
+                        "caracteres y empieza a parecer una letra",
                 )
             }
         }
@@ -233,7 +232,7 @@ class PruebaContenido {
                 assertTrue(reto.texto.isNotBlank(), "$idioma: reto sin texto")
                 assertTrue(
                     reto.objetivo in 3..15,
-                    "$idioma: «${reto.texto}» pide ${reto.objetivo}"
+                    "$idioma: «${reto.texto}» pide ${reto.objetivo}",
                 )
             }
         }
@@ -246,7 +245,7 @@ class PruebaContenido {
                 assertTrue(desafio.texto.isNotBlank(), "$idioma: desafío sin texto")
                 assertTrue(
                     desafio.nivel in 1..3,
-                    "$idioma: «${desafio.texto.take(30)}» tiene nivel ${desafio.nivel}"
+                    "$idioma: «${desafio.texto.take(30)}» tiene nivel ${desafio.nivel}",
                 )
             }
         }
@@ -260,13 +259,13 @@ class PruebaContenido {
             assertEquals(
                 mimica.size,
                 mimica.toSet().size,
-                "$idioma: mímica tiene palabras repetidas"
+                "$idioma: mímica tiene palabras repetidas",
             )
             val dibujo = contenido.dibujo.map { it.trim().lowercase() }
             assertEquals(
                 dibujo.size,
                 dibujo.toSet().size,
-                "$idioma: dibujo tiene palabras repetidas"
+                "$idioma: dibujo tiene palabras repetidas",
             )
         }
     }
@@ -279,7 +278,7 @@ class PruebaContenido {
         val en = fuente.cargar("en")
         assertTrue(
             es.mimica.first() != en.mimica.first(),
-            "el inglés está cargando el contenido castellano"
+            "el inglés está cargando el contenido castellano",
         )
         assertTrue(es.preguntas.first().texto != en.preguntas.first().texto)
     }
@@ -292,7 +291,7 @@ class PruebaContenido {
         assertEquals(
             fuente.cargar("en").mimica.size,
             japones.mimica.size,
-            "el japonés no está cayendo al inglés"
+            "el japonés no está cayendo al inglés",
         )
     }
 

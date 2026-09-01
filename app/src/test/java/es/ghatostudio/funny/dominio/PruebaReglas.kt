@@ -9,7 +9,6 @@ import kotlin.test.assertTrue
 
 /** Las funciones puras de `Reglas.kt` y el mazo. */
 class PruebaReglas {
-
     private val rnd = Random(1492)
 
     // ---------------------------------------------------- opciones de año
@@ -33,15 +32,16 @@ class PruebaReglas {
         // años, no. Si el margen fuera fijo, la mitad de las cartas serían
         // regaladas y la otra mitad imposibles.
         fun dispersion(anio: Int): Int {
-            val medidas = (1..200).map {
-                val o = opcionesDeAnio(anio, rnd)
-                o.max() - o.min()
-            }
+            val medidas =
+                (1..200).map {
+                    val o = opcionesDeAnio(anio, rnd)
+                    o.max() - o.min()
+                }
             return medidas.max()
         }
         assertTrue(
             dispersion(1200) > dispersion(2015),
-            "medieval ${dispersion(1200)} contra reciente ${dispersion(2015)}"
+            "medieval ${dispersion(1200)} contra reciente ${dispersion(2015)}",
         )
     }
 
@@ -135,8 +135,22 @@ class PruebaReglas {
     @Test
     fun `hay doce juegos y todos tienen clave distinta`() {
         assertEquals(12, Juego.entries.size)
-        assertEquals(12, Juego.entries.map { it.clave }.toSet().size, "hay claves repetidas")
-        assertEquals(12, Juego.entries.map { it.emoji }.toSet().size, "hay emojis repetidos")
+        assertEquals(
+            12,
+            Juego.entries
+                .map { it.clave }
+                .toSet()
+                .size,
+            "hay claves repetidas",
+        )
+        assertEquals(
+            12,
+            Juego.entries
+                .map { it.emoji }
+                .toSet()
+                .size,
+            "hay emojis repetidos",
+        )
     }
 
     @Test
@@ -153,7 +167,7 @@ class PruebaReglas {
         assertTrue(Juego.EN_SOLITARIO.size >= 5, "solo ${Juego.EN_SOLITARIO.size} en solitario")
         assertTrue(
             Juego.PARA_RONDA_DE_TODOS.size >= 3,
-            "solo ${Juego.PARA_RONDA_DE_TODOS.size} para la ronda de todos"
+            "solo ${Juego.PARA_RONDA_DE_TODOS.size} para la ronda de todos",
         )
     }
 
@@ -162,7 +176,7 @@ class PruebaReglas {
         Juego.entries.filter { it.valeEnSolitario }.forEach { juego ->
             assertTrue(
                 !juego.soloActuante || juego.veredictoDeLaMesa,
-                "$juego vale en solitario y necesita que alguien adivine"
+                "$juego vale en solitario y necesita que alguien adivine",
             )
         }
     }
@@ -172,7 +186,7 @@ class PruebaReglas {
         Juego.entries.forEach { juego ->
             assertTrue(
                 juego.segundosBase in 20..120,
-                "$juego dura ${juego.segundosBase} s"
+                "$juego dura ${juego.segundosBase} s",
             )
         }
     }
@@ -225,23 +239,26 @@ class PruebaReglas {
 
     @Test
     fun `quien elige en un comodin es el siguiente en el orden`() {
-        val estado = EstadoJuego(
-            participantes = List(3) { Participante(it + 1, "P${it + 1}", it) },
-            turno = 2
-        )
+        val estado =
+            EstadoJuego(
+                participantes = List(3) { Participante(it + 1, "P${it + 1}", it) },
+                turno = 2,
+            )
         assertEquals(1, estado.quienElige?.id, "con turno 2 de 3 debería elegir el primero")
         assertNull(EstadoJuego(participantes = listOf(Participante(1, "P", 0))).quienElige)
     }
 
     @Test
     fun `la clasificacion ordena por posicion y desempata por puntos`() {
-        val estado = EstadoJuego(
-            participantes = listOf(
-                Participante(1, "A", 0, posicion = 5, puntos = 2),
-                Participante(2, "B", 1, posicion = 8, puntos = 1),
-                Participante(3, "C", 2, posicion = 5, puntos = 9)
+        val estado =
+            EstadoJuego(
+                participantes =
+                    listOf(
+                        Participante(1, "A", 0, posicion = 5, puntos = 2),
+                        Participante(2, "B", 1, posicion = 8, puntos = 1),
+                        Participante(3, "C", 2, posicion = 5, puntos = 9),
+                    ),
             )
-        )
         assertEquals(listOf("B", "C", "A"), estado.clasificacion.map { it.nombre })
     }
 
@@ -252,11 +269,11 @@ class PruebaReglas {
         Modo.entries.forEach { modo ->
             assertTrue(
                 modo.minimoParticipantes <= modo.maximoParticipantes,
-                "$modo: mínimo ${modo.minimoParticipantes}, máximo ${modo.maximoParticipantes}"
+                "$modo: mínimo ${modo.minimoParticipantes}, máximo ${modo.maximoParticipantes}",
             )
             assertTrue(
                 modo.maximoParticipantes <= MAXIMO_PARTICIPANTES,
-                "$modo pide ${modo.maximoParticipantes} y solo hay $MAXIMO_PARTICIPANTES colores"
+                "$modo pide ${modo.maximoParticipantes} y solo hay $MAXIMO_PARTICIPANTES colores",
             )
         }
         assertEquals(1, Modo.SOLITARIO.minimoParticipantes)

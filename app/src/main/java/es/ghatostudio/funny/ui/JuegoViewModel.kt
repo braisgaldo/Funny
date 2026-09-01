@@ -224,11 +224,6 @@ class JuegoViewModel(
     // ----------------------------------------------------- participantes
 
     /**
-     * Añade un participante que llega desde otro móvil del salón. Se queda
-     * anotado con el id del dispositivo, y eso es lo que permite luego mandarle
-     * a él y solo a él el contenido privado de su prueba.
-     */
-    /**
      * Prepara la partida para un salón: modo individual y la mesa vacía.
      *
      * Se vacía a propósito. En un salón los participantes **son** los móviles
@@ -243,6 +238,11 @@ class JuegoViewModel(
         }
     }
 
+    /**
+     * Añade un participante que llega desde otro móvil del salón. Se queda
+     * anotado con el id del dispositivo, y eso es lo que permite luego mandarle
+     * a él y solo a él el contenido privado de su prueba.
+     */
     fun anadirParticipanteDeSalon(nombre: String, dispositivo: String) {
         if (estado.participantes.any { it.dispositivo == dispositivo }) return
         if (estado.participantes.size >= MAXIMO_PARTICIPANTES) return

@@ -19,7 +19,6 @@ import kotlin.test.assertTrue
  * dibujo en 1,37:1. Los dos están corregidos en `Paleta.kt`.
  */
 class PruebaContraste {
-
     /** Mínimo AA para texto de tamaño normal. */
     private val minimoTexto = 4.5
 
@@ -35,12 +34,12 @@ class PruebaContraste {
                 "fondo" to p.fondo,
                 "fondoAlto" to p.fondoAlto,
                 "superficie" to p.superficie,
-                "superficieAlta" to p.superficieAlta
+                "superficieAlta" to p.superficieAlta,
             ).forEach { (nombre, fondo) ->
                 val razon = contraste(p.textoFuerte, fondo)
                 assertTrue(
                     razon >= minimoTexto,
-                    "${p.id}: textoFuerte sobre $nombre da ${redondear(razon)}:1"
+                    "${p.id}: textoFuerte sobre $nombre da ${redondear(razon)}:1",
                 )
             }
         }
@@ -53,12 +52,12 @@ class PruebaContraste {
                 "fondo" to p.fondo,
                 "fondoAlto" to p.fondoAlto,
                 "superficie" to p.superficie,
-                "superficieAlta" to p.superficieAlta
+                "superficieAlta" to p.superficieAlta,
             ).forEach { (nombre, fondo) ->
                 val razon = contraste(p.textoTenue, fondo)
                 assertTrue(
                     razon >= minimoTexto,
-                    "${p.id}: textoTenue sobre $nombre da ${redondear(razon)}:1"
+                    "${p.id}: textoTenue sobre $nombre da ${redondear(razon)}:1",
                 )
             }
         }
@@ -71,12 +70,12 @@ class PruebaContraste {
                 "sobrePrimario/primario" to (p.sobrePrimario to p.primario),
                 "sobreAcento/acento" to (p.sobreAcento to p.acento),
                 "sobreExito/exito" to (p.sobreExito to p.exito),
-                "sobreFallo/fallo" to (p.sobreFallo to p.fallo)
+                "sobreFallo/fallo" to (p.sobreFallo to p.fallo),
             ).forEach { (nombre, pareja) ->
                 val razon = contraste(pareja.first, pareja.second)
                 assertTrue(
                     razon >= minimoTexto,
-                    "${p.id}: $nombre da ${redondear(razon)}:1"
+                    "${p.id}: $nombre da ${redondear(razon)}:1",
                 )
             }
         }
@@ -89,7 +88,7 @@ class PruebaContraste {
                 val razon = contraste(p.colorDe(juego), p.superficie)
                 assertTrue(
                     razon >= minimoTexto,
-                    "${p.id}: el color de $juego sobre superficie da ${redondear(razon)}:1"
+                    "${p.id}: el color de $juego sobre superficie da ${redondear(razon)}:1",
                 )
             }
         }
@@ -104,7 +103,7 @@ class PruebaContraste {
                 val razon = contraste(p.textoSobre(fondo), fondo)
                 assertTrue(
                     razon >= minimoTexto,
-                    "${p.id}: textoSobre($fondo) da ${redondear(razon)}:1"
+                    "${p.id}: textoSobre($fondo) da ${redondear(razon)}:1",
                 )
             }
         }
@@ -117,7 +116,7 @@ class PruebaContraste {
                 val razon = contraste(color, p.superficie)
                 assertTrue(
                     razon >= minimoTexto,
-                    "${p.id}: el color de participante $indice da ${redondear(razon)}:1"
+                    "${p.id}: el color de participante $indice da ${redondear(razon)}:1",
                 )
             }
         }
@@ -131,7 +130,7 @@ class PruebaContraste {
             val razon = contraste(tinta, LIENZO_DIBUJO)
             assertTrue(
                 razon >= minimoGrafico,
-                "la tinta $tinta sobre el lienzo da ${redondear(razon)}:1"
+                "la tinta $tinta sobre el lienzo da ${redondear(razon)}:1",
             )
         }
     }
@@ -153,7 +152,7 @@ class PruebaContraste {
         paletas.forEach { p ->
             assertTrue(
                 p.juegos.size == Juego.entries.size,
-                "${p.id}: ${p.juegos.size} colores para ${Juego.entries.size} juegos"
+                "${p.id}: ${p.juegos.size} colores para ${Juego.entries.size} juegos",
             )
             assertTrue(p.participantes.size == 8, "${p.id}: ${p.participantes.size} participantes")
         }

@@ -322,7 +322,7 @@ tasks.register("verificarTextosLiterales") {
                 "texto =",
                 "titulo =",
                 "etiqueta =",
-                "contentDescription ="
+                "contentDescription =",
             )
 
         val fallos = mutableListOf<String>()
@@ -355,7 +355,7 @@ tasks.register("verificarTextosLiterales") {
                 "Hay textos escritos a fuego en la interfaz. Muévelos al catálogo " +
                     "de ui/i18n, o marca la línea con «// literal-ok» si de verdad " +
                     "no es un texto de usuario:\n" +
-                    fallos.joinToString("\n") { "  $it" }
+                    fallos.joinToString("\n") { "  $it" },
             )
         }
         logger.lifecycle("verificarTextosLiterales: sin textos a fuego en la interfaz. Correcto.")

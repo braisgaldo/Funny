@@ -21,7 +21,6 @@ import kotlin.test.assertTrue
  * QR con su propia matriz en un `Canvas` para poder darle los colores del tema.
  */
 class PruebaCodigoQr {
-
     /** El enlace real de la donación es el caso que de verdad importa. */
     private val enlaceDeDonacion = "https://revolut.me/brais2oz6"
 
@@ -30,7 +29,11 @@ class PruebaCodigoQr {
      * descodifica. La ampliación y el margen no son adorno: sin ellos ningún
      * lector encuentra el código, ni el de este test ni el de un móvil.
      */
-    private fun descodificar(matriz: Array<BooleanArray>, escala: Int = 8, margen: Int = 4): String? {
+    private fun descodificar(
+        matriz: Array<BooleanArray>,
+        escala: Int = 8,
+        margen: Int = 4,
+    ): String? {
         val modulos = matriz.size
         val lado = (modulos + margen * 2) * escala
         val pixeles = IntArray(lado * lado) { BLANCO }
@@ -100,7 +103,7 @@ class PruebaCodigoQr {
             "https://braisgaldo.github.io/Funny/",
             "GhatoStudioOfficial@gmail.com",
             "a",
-            "Funny · un juego de fiesta con acentos y eñes"
+            "Funny · un juego de fiesta con acentos y eñes",
         ).forEach { texto ->
             val matriz = matrizQr(texto)
             assertNotNull(matriz, "no se ha generado la matriz de «$texto»")

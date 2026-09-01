@@ -23,13 +23,15 @@ import kotlinx.coroutines.flow.asSharedFlow
  * serializar: así el test también cubre que ida y vuelta por JSON no pierde
  * nada, que es donde de verdad se rompen estas cosas.
  */
-class TransporteDeMentira(val id: String) : TransporteSalon {
-
-    private val flujo = MutableSharedFlow<TransporteSalon.Suceso>(
-        replay = 0,
-        extraBufferCapacity = 256,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST
-    )
+class TransporteDeMentira(
+    val id: String,
+) : TransporteSalon {
+    private val flujo =
+        MutableSharedFlow<TransporteSalon.Suceso>(
+            replay = 0,
+            extraBufferCapacity = 256,
+            onBufferOverflow = BufferOverflow.DROP_OLDEST,
+        )
 
     override val sucesos: Flow<TransporteSalon.Suceso> = flujo.asSharedFlow()
 

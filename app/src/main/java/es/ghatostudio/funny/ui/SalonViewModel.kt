@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.ghatostudio.funny.dominio.Juego
 import es.ghatostudio.funny.dominio.MAXIMO_PARTICIPANTES
-import es.ghatostudio.funny.dominio.Modo
 import es.ghatostudio.funny.dominio.Pantalla
 import es.ghatostudio.funny.dominio.Prueba
 import es.ghatostudio.funny.dominio.salon.DispositivoSalon
