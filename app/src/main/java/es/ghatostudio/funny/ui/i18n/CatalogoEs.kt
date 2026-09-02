@@ -239,7 +239,7 @@ internal val catalogoCastellano =
                 // -------------------------------------------------------------- temas
                 TEMA_MODO_CLARO to "Claros",
                 TEMA_MODO_OSCURO to "Oscuros",
-                TEMA_FIESTA to "Fiestón",
+                TEMA_FIESTA to "Fiesta",
                 TEMA_NEON to "Neón",
                 TEMA_MEDIANOCHE to "Medianoche",
                 TEMA_PAPEL to "Papel",

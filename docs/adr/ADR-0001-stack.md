@@ -63,7 +63,7 @@ interfaz propia:
 - La 1.0.0 se puede compilar, instalar y probar de verdad, que es lo que pide el
   punto 12.
 - Las reglas del juego se prueban sin emulador y sin dispositivo, y eso es lo que
-  ha permitido tener 164 pruebas en verde.
+  ha permitido tener 172 pruebas en verde.
 - El día que haya un Mac, mover `dominio` a `commonMain` es mover ficheros: no
   hay ni un `Context` que quitar.
 

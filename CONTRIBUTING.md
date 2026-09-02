@@ -136,7 +136,7 @@ no encaja con la arquitectura es tiempo perdido para los dos.
 
 `check` tiene que estar en verde. Incluye:
 
-- las **164 pruebas** unitarias;
+- las **172 pruebas** unitarias;
 - **ktlint** (configurado en `.editorconfig`, 100 columnas);
 - el **lint de Android**, que aquí está en modo «los errores rompen la build»;
 - `verificarSinFacturacion` — falla si aparece cualquier librería de pagos;

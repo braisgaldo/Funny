@@ -32,7 +32,7 @@ decisiones grandes tienen su propio ADR en [adr/](adr/); aquí está el mapa.
 | Dependencias | Gradle version catalog, versiones fijadas |
 | Persistencia | DataStore Preferences |
 | Red | **ninguna**: no se declara el permiso `INTERNET` |
-| Pruebas | 164 unitarias, todas en la JVM, sin emulador |
+| Pruebas | 172 unitarias, todas en la JVM, sin emulador |
 
 Un solo módulo y una sola `Activity`. La `Activity` es `AppCompatActivity` y no
 `ComponentActivity` por un motivo concreto: las **locales por app**
@@ -334,7 +334,7 @@ corruptos, los esquemas futuros, la fusión y las tres migraciones.
 
 | | Qué comprueba |
 |---|---|
-| **164 pruebas** | dominio, i18n, salón, copia, contenido, contraste, QR |
+| **172 pruebas** | dominio, i18n, salón, copia, contenido, contraste, QR, arranque |
 | **ktlint** | formato, 100 columnas (120 en los catálogos generados) |
 | **lint de Android** | con `abortOnError`: un error de lint rompe la build |
 | **`verificarSinFacturacion`** | recorre los artefactos resueltos y falla si aparece `billingclient`, `revenuecat`, `adapty`… Hoy: **181 artefactos, ninguno de pagos** |
@@ -358,6 +358,10 @@ Con nombres, para que no haya sorpresas:
 - **La radio del salón no está verificada en hardware.** 27 pruebas cubren el
   protocolo y la autoridad; el alcance, los permisos reales y la reconexión
   necesitan dos móviles.
-- **No hay tests de interfaz.** Las 164 pruebas son de la JVM. Los flujos críticos
-  en Compose UI Test están pendientes.
-- **Sin CI todavía.** Los workflows de GitHub Actions están pendientes.
+- **No hay tests de interfaz.** Las 172 pruebas son de la JVM. Los flujos críticos
+  en Compose UI Test están pendientes, y eso tiene un precio medido: el primer
+  arranque en un móvil de verdad encontró **cuatro fallos** que ninguna prueba de
+  la JVM podía ver, dos de ellos impedían que la app arrancara. Están en el
+  CHANGELOG y ahora cada uno tiene su prueba.
+- **Exportar e importar no se han probado a mano en el dispositivo**, solo con
+  las 21 pruebas de la ida y vuelta.

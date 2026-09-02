@@ -82,6 +82,25 @@ class PruebaCatalogos {
     }
 
     @Test
+    fun `ningun texto menciona el nombre anterior de la app`() {
+        // La app se llamaba Fiestón. Al renombrarla a Funny se quedo un texto
+        // sin cambiar —el nombre del tema en castellano, que seguia diciendo
+        // «Fiestón»— y no lo vio nadie hasta abrir los ajustes en un movil. Un
+        // resto de un renombrado no da ningun error: solo queda raro.
+        val anteriores = listOf("fiestón", "fieston")
+        todosLosCatalogos.forEach { catalogo ->
+            catalogo.textos.forEach { (clave, texto) ->
+                anteriores.forEach { viejo ->
+                    assertTrue(
+                        !texto.lowercase().contains(viejo),
+                        "${catalogo.idioma}/$clave menciona «$viejo»: $texto",
+                    )
+                }
+            }
+        }
+    }
+
+    @Test
     fun `los trece idiomas estan registrados`() {
         assertEquals(13, Idioma.entries.size)
         Idioma.entries.forEach { idioma ->

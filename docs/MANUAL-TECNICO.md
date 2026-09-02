@@ -328,7 +328,7 @@ escribió.
 **Se prueba lo que se rompe en silencio.** No hay un objetivo de cobertura: hay una
 lista de cosas que, si se rompen, nadie se entera hasta que alguien está jugando.
 
-Y una consecuencia práctica: **las 164 pruebas corren en la JVM**, sin emulador, en
+Y una consecuencia práctica: **las 172 pruebas corren en la JVM**, sin emulador, en
 menos de un minuto. Eso es posible porque `dominio/` es Kotlin puro, y es la razón
 de que se ejecuten de verdad en cada cambio en lugar de una vez al mes.
 
@@ -341,14 +341,15 @@ Ejecutado con `./gradlew :app:testDebugUnitTest`:
 | `PruebaMotorJuego` | 23 | las reglas: tablero, dado, turnos, resolución, partidas completas |
 | `PruebaReglas` | 26 | mazos, opciones de año, colores, límites de los modos |
 | `PruebaCopiaSeguridad` | 21 | ida y vuelta, ficheros corruptos, esquemas, fusión, migraciones |
-| `PruebaCatalogos` | 21 | completitud de los 13 idiomas, parámetros, plurales, vocabulario |
+| `PruebaCatalogos` | 22 | completitud de los 13 idiomas, parámetros, plurales, vocabulario |
 | `PruebaContenido` | 17 | los 12 mazos × 2 idiomas |
 | `PruebaSalon` | 14 | roles, autoridad, enrutado del contenido privado |
 | `PruebaProtocolo` | 13 | serialización, mensajes ilegibles, versiones futuras |
 | `PruebaModalidad` | 12 | las cuatro modalidades y sus límites |
 | `PruebaContraste` | 11 | AA en las 6 paletas |
 | `PruebaCodigoQr` | 6 | que el QR se descodifica |
-| **Total** | **164** | **0 fallos, 0 errores** |
+| `PruebaMainActivity` | 6 | que la Activity y los ViewModels puedan arrancar |
+| **Total** | **172** | **0 fallos, 0 errores** |
 
 Y, además de las pruebas, en `check`:
 
@@ -402,11 +403,37 @@ Con nombres, porque un apartado de pruebas que solo cuenta lo bueno no vale:
   la radio**. Esto necesita dos móviles delante.
 - **La interfaz.** No hay tests de Compose UI. Los flujos críticos están
   pendientes.
-- **El dispositivo físico.** En el momento de escribir esto, la app **no se ha
-  ejecutado en hardware**: el móvil de pruebas está desconectado. Eso deja abiertos
-  cinco puntos del *Definition of Done*: prueba en dispositivo, capturas, los seis
-  temas y los trece idiomas vistos en pantalla, el RTL del árabe y el bottom sheet
-  de la donación en los seis temas.
+- **Exportar e importar en el dispositivo.** La ida y vuelta está cubierta por
+  21 pruebas unitarias, pero el paso por el selector de ficheros del sistema no se
+  ha hecho a mano.
+- **El salón con dos móviles.** Sigue pendiente por lo obvio: hace falta un
+  segundo teléfono.
+
+### Lo que la prueba en el dispositivo sí encontró
+
+La app se probó en un **SM-S908U con Android 13** y el resultado justifica por sí
+solo el punto 12 de la plantilla: **se cayó al primer arranque, dos veces
+seguidas, por dos causas distintas**, con las 172 pruebas de entonces en verde,
+ktlint limpio y el lint de Android sin errores.
+
+| Fallo | Por qué no lo vio nada |
+|---|---|
+| Tema heredado de `android:Theme.Material`, no de AppCompat → `IllegalStateException` en `setContentView` | Ninguna prueba instanciaba la Activity |
+| Parámetros por defecto de Kotlin no generan el constructor `(Application)` que `AndroidViewModelFactory` busca por reflexión → `NoSuchMethodException` | Ninguna prueba instanciaba el ViewModel |
+| El título «FUNNY» se escribía «YNNUF» en árabe: un `Row` de letras sueltas se espeja en RTL | Ninguna prueba renderiza en RTL |
+| El tema en castellano seguía llamándose «Fiestón», el nombre anterior de la app | Un resto de un renombrado no da ningún error |
+
+Los cuatro están arreglados y los cuatro tienen ahora una prueba que los caza.
+Las dos primeras rompían la app **en debug y en release por igual**: compilaba y
+se cerraba al abrirla.
+
+Lo que sí quedó verificado en el móvil, con capturas en
+`docs/google_play/graficos/capturas/`: una partida completa (tirada, avance,
+prueba con cronómetro, corrección y vuelta de la ficha al fallar), las cuatro
+modalidades con sus pasos numéricos, los seis temas aplicados sin reiniciar, los
+trece idiomas, el árabe espejado, la hoja del café en los seis temas y en RTL, y
+el QR **descodificado con ZXing desde la propia captura**, que devuelve
+`https://revolut.me/brais2oz6`.
 - **iOS.** No existe. Ver el [ADR-0001](adr/ADR-0001-stack.md).
 
 ### Cómo se añade una prueba cuando se arregla algo

@@ -15,9 +15,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import es.ghatostudio.funny.dominio.Pantalla
 import es.ghatostudio.funny.dominio.textos.Clave
@@ -57,13 +60,20 @@ fun PantallaInicio(vm: JuegoViewModel) {
 
             // Cada letra de un color: es el logo, y usa los colores de
             // participante del tema activo, así que cambia con él.
-            Row(horizontalArrangement = Arrangement.Center) {
-                NOMBRE.forEachIndexed { indice, letra ->
-                    Text(
-                        text = letra.toString(),
-                        style = MaterialTheme.typography.displayMedium,
-                        color = p.colorDeParticipante(indice),
-                    )
+            //
+            // La dirección se fuerza a LTR y no es un descuido: un `Row` en
+            // árabe coloca sus hijos de derecha a izquierda, y como aquí cada
+            // hijo es UNA LETRA, el nombre salía escrito «YNNUF». Un nombre
+            // propio no se espeja. Se vio al abrir la app en árabe en un móvil.
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+                Row(horizontalArrangement = Arrangement.Center) {
+                    NOMBRE.forEachIndexed { indice, letra ->
+                        Text(
+                            text = letra.toString(),
+                            style = MaterialTheme.typography.displayMedium,
+                            color = p.colorDeParticipante(indice),
+                        )
+                    }
                 }
             }
 

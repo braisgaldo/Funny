@@ -87,7 +87,7 @@ Eso ejecuta, y todo tiene que estar en verde:
 
 | | |
 |---|---|
-| `testDebugUnitTest` | **164 pruebas**, en la JVM, sin emulador |
+| `testDebugUnitTest` | **172 pruebas**, en la JVM, sin emulador |
 | `ktlintCheck` | formato |
 | `lintDebug` | lint de Android, con los errores rompiendo la build |
 | `verificarSinFacturacion` | falla si aparece cualquier librería de pagos |

@@ -47,7 +47,7 @@ de la ficha, en los trece idiomas, están en [google_play/](google_play/).
 | Política de privacidad **en una URL pública** | ver más abajo |
 | Icono 512×512 PNG | `google_play/graficos/` |
 | Gráfico destacado 1024×500 PNG | `google_play/graficos/` |
-| Capturas, mínimo 2 por formato | **pendientes: hacen falta en el dispositivo** |
+| Capturas, mínimo 2 por formato | 4 de 8 hechas · `google_play/graficos/capturas/` |
 | Textos de la ficha en 13 idiomas | `google_play/ficha/` |
 
 ### Publicar la política de privacidad
@@ -90,12 +90,15 @@ Play principal, y luego una traducción por idioma.
 |---|---|---|
 | Icono | 512×512 PNG 32 bits, sin transparencia | `google_play/graficos/icono-512.png` |
 | Gráfico destacado | 1024×500 PNG o JPG | `google_play/graficos/destacado-1024x500.png` |
-| Capturas de teléfono | mín. 2, máx. 8 · 16:9 o 9:16 · lado mínimo 320 px | **pendiente** |
+| Capturas de teléfono | mín. 2, máx. 8 · 16:9 o 9:16 · lado mínimo 320 px | 4 de 8 |
 | Capturas de tablet 7″ y 10″ | opcionales, pero mejoran la ficha | pendiente |
 
-**Las capturas están pendientes y hay que hacerlas en el dispositivo.** No se pueden
-inventar y no valen maquetas: la ficha tiene que enseñar la app real. El plan está
-en `google_play/CAPTURAS.md`, con las ocho pantallas a capturar y en qué tema.
+**Hay cuatro de las ocho**, tomadas en un SM-S908U con Android 13. Faltan Tabú,
+Pinturillo, la rejilla de los doce juegos y el salón; las dos primeras salen
+dejando activo solo ese juego en Ajustes. Detalle en
+`google_play/CAPTURAS.md`, que incluye también un aviso: las capturas del
+repositorio están optimizadas a 256 colores para no engordarlo, así que las de la
+ficha conviene volver a tomarlas sin optimizar.
 
 ### Vídeo promocional
 
@@ -411,8 +414,9 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 - [ ] Play App Signing activado
 - [x] Keystore creado fuera del repositorio ([FIRMA.md](google_play/FIRMA.md))
 - [ ] **Copia del keystore en dos sitios más y contraseña en el gestor** ← *pendiente, y urgente*
-- [ ] **Probado en un dispositivo físico** ← *pendiente*
-- [ ] **Capturas hechas: 8 pantallas** ← *pendiente*
+- [x] **Probado en un dispositivo físico** — SM-S908U, Android 13, partida completa
+- [ ] **Capturas de la ficha: 4 de 8** — faltan Tabú, Pinturillo, la rejilla de
+      juegos y el salón ([CAPTURAS.md](google_play/CAPTURAS.md))
 - [ ] Icono 512×512 y gráfico destacado 1024×500
 - [ ] Textos de la ficha en los 13 idiomas
 - [ ] **Política de pago consultada, apartado citado y captura guardada** ← *pendiente, apartado 3*
@@ -450,8 +454,9 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 
 - [ ] La app instalada **desde Play**, no desde el APK local, y una partida jugada
       de principio a fin
-- [ ] Los 6 temas y los 13 idiomas vistos en pantalla
-- [ ] El árabe comprobado en RTL
+- [x] Los 6 temas y los 13 idiomas vistos en pantalla
+- [x] El árabe comprobado en RTL
 - [ ] Exportar → borrar datos → importar devuelve el estado anterior
-- [ ] La donación abre el navegador y no desbloquea nada
+- [x] La hoja de la donación vista en los 6 temas y en RTL; el QR descodificado
+      con ZXing devuelve el enlace correcto
 - [ ] El modo de varios móviles probado **con dos móviles de verdad**

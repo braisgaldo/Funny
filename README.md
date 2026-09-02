@@ -136,7 +136,7 @@ ui/          Compose, ViewModels, tema, los trece catálogos de idioma
 
 ```bash
 ./gradlew :app:assembleDebug          # APK de depuración
-./gradlew :app:testDebugUnitTest      # 164 pruebas, sin emulador
+./gradlew :app:testDebugUnitTest      # 172 pruebas, sin emulador
 ./gradlew :app:check                  # las pruebas + ktlint + lint + verificaciones propias
 ```
 

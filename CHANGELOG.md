@@ -97,6 +97,49 @@ otra cosa.
 
 ### Corregido
 
+#### Lo que encontró el primer arranque en un móvil de verdad
+
+Los cuatro salieron al instalar la app en un **SM-S908U con Android 13**, con las
+164 pruebas de entonces en verde, ktlint limpio y el lint de Android sin errores.
+**Los dos primeros impedían que la app arrancara**, en depuración y en release por
+igual: compilaba y se cerraba al abrirla.
+
+- **El tema no descendía de AppCompat.** `themes.xml` heredaba de
+  `android:Theme.Material.NoActionBar`, que es el del sistema. `MainActivity` es
+  una `AppCompatActivity` —hace falta para la preferencia de idioma por app— y
+  AppCompat comprueba el tema en `setContentView`: `IllegalStateException: You
+  need to use a Theme.AppCompat theme`.
+- **El ViewModel no tenía el constructor que Android busca.**
+  `AndroidViewModelFactory` hace `getConstructor(Application::class.java)`, y los
+  parámetros por defecto de Kotlin **no** producen esa firma en el bytecode:
+  `NoSuchMethodException`. Se ha añadido un constructor secundario explícito.
+- **El título se escribía «YNNUF» en árabe.** Las letras de «FUNNY» se pintan una
+  a una para darle a cada una su color, y un `Row` en RTL coloca sus hijos de
+  derecha a izquierda. Un nombre propio no se espeja: ahora ese bloque fuerza LTR.
+- **El tema en castellano se llamaba «Fiestón»**, el nombre anterior de la app. Un
+  resto de un renombrado que no da ningún error, solo queda raro.
+
+Ninguna de las 164 pruebas podía verlos: ninguna instanciaba la Activity ni el
+ViewModel, y ninguna renderiza en RTL. Ahora hay 172 y cada uno tiene la suya.
+
+#### Reglas de R8 que faltaban
+
+`proguard-rules.pro` seguía siendo el de la app anterior y afirmaba que «el
+proyecto no usa reflexión». Era falso:
+
+- Los ViewModel se instancian por reflexión, y R8 los ofuscaba.
+- **Y este es el silencioso**: los ajustes y la copia de seguridad guardan los
+  enums por su **nombre** y los releen comparando `it.name`. Con R8 renombrando
+  las constantes, el `.funny.bak` deja de ser texto legible y —peor— los nombres
+  cambian de una compilación a otra: **cada actualización le habría borrado los
+  ajustes a quien la instalase**, y las copias viejas no se podrían importar.
+  Nadie lo habría relacionado con R8.
+
+Verificado en el binario firmado: los 22 nombres de enum que se persisten
+sobreviven, y no hay ni un byte de librería de facturación en el DEX.
+
+#### El resto
+
 Cosas que estaban mal y se han arreglado por el camino. Se anotan porque algunas
 eran de verdad:
 
