@@ -14,11 +14,12 @@ ficha/<idioma>/          titulo.txt, corta.txt, larga.txt · 13 idiomas
 graficos/                icono-512.png, icono-1024.png, destacado-1024x500.png
 formularios/             las respuestas de los formularios de Play, ya decididas
 politicas/               dónde guardar las capturas de las políticas consultadas
+FIRMA.md                 dónde está el keystore y cómo se usa
 CAPTURAS.md              qué capturas hacen falta y cómo hacerlas
 generar-ficha.py         escribe y VALIDA los textos
 generar-graficos.py      dibuja el icono y el gráfico destacado
 preparar-binarios.py     compila y copia el AAB y el APK aquí
-binarios/                el AAB y el APK — NO va en git, ver más abajo
+binarios/                el AAB y el APK firmados — se generan, no van en git
 ```
 
 ## Regenerar
@@ -60,24 +61,29 @@ desde Python. Está avisado en la cabecera del fichero.
 
 ---
 
-## Los binarios y una contradicción de la plantilla
+## Los binarios
 
-El punto 14 del brief pide «una carpeta google_play con el apk y todo lo
-necesario». El punto 8 dice que los binarios generados **no se commitean** y que
-se publican como assets de la Release.
+```bash
+python docs/google_play/preparar-binarios.py
+```
 
-Las dos cosas no pueden ser a la vez, así que:
+Deja en `binarios/` el **AAB firmado** (lo que quiere Google Play) y el **APK
+firmado** (lo que quiere quien lo instala a mano), después de ejecutar
+`:app:check` y de **verificar la firma con `apksigner`**. Si la firma no
+estuviera, sale con código 1 en lugar de entregar un binario inservible.
 
-- `preparar-binarios.py` compila y deja el AAB y el APK en `binarios/`, que está
-  en `.gitignore`.
-- El material que sí es fuente —textos, gráficos, formularios, checklists— va en
-  commits.
-- Los binarios de cada versión viven en su GitHub Release, que es donde tienen
-  sentido: un APK en el repositorio queda desfasado al segundo commit y engorda
-  el clon para siempre.
+La firma está configurada y funcionando: ver [FIRMA.md](FIRMA.md), con la huella
+del certificado para poder comprobar cualquier APK descargado.
 
-Un `git clone` de este repositorio no trae el APK. Lo trae `preparar-binarios.py`
-en un minuto, o la Release correspondiente.
+### Por qué no van en git
+
+Es una decisión tomada: el punto 14 del brief pide «una carpeta google_play con
+el apk» y el punto 8 dice que los binarios generados no se commitean. `binarios/`
+está en `.gitignore`, y cada versión vive como asset de su GitHub Release.
+
+Un APK en el repositorio queda desfasado al segundo commit y engorda el clon para
+siempre —y no se puede quitar del historial sin reescribirlo—. Un `git clone` no
+trae el APK; lo trae ese comando en un minuto, o la Release correspondiente.
 
 ---
 

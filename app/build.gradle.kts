@@ -122,6 +122,15 @@ android {
                 storePassword = secreto("funny.keystore.password")
                 keyAlias = secreto("funny.key.alias")
                 keyPassword = secreto("funny.key.password")
+
+                // Explícitos y no por defecto. Con minSdk 26, AGP firma solo con
+                // v2 y deja el v3 apagado, y el v3 es el que permite ROTAR la
+                // clave más adelante sin perder la identidad de la app. Es la
+                // clase de cosa que no se puede añadir a posteriori: la primera
+                // release que se publique fija el esquema para siempre.
+                enableV1Signing = false // solo hace falta por debajo de API 24
+                enableV2Signing = true
+                enableV3Signing = true
             }
         }
     }

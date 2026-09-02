@@ -118,8 +118,12 @@ La tarea ya lo hace y rompe la build, pero si quieres verlo con tus ojos:
 
 ## 5. Firma de release
 
-**El keystore no está en el repositorio y no va a estarlo.** La configuración lo
-busca en dos sitios, por este orden:
+**El keystore existe ya**, fuera del repositorio y con las contraseñas en
+`local.properties` (que está en `.gitignore`). Dónde está, su huella y qué hacer
+para no perderlo: [google_play/FIRMA.md](google_play/FIRMA.md).
+
+**No está en el repositorio y no va a estarlo.** La configuración lo busca en dos
+sitios, por este orden:
 
 ### Opción A — variables de entorno (lo que usa CI)
 

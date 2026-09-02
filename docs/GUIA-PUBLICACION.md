@@ -407,9 +407,10 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 - [ ] Política de privacidad publicada y accesible **de incógnito**
 - [ ] `./gradlew :app:check` en verde
 - [ ] `:app:dependencies` sin ninguna librería de facturación — comprobado
-- [ ] AAB compilado **y verificado con `apksigner`**
+- [x] AAB compilado **y verificado con `apksigner`** — `docs/google_play/binarios/`
 - [ ] Play App Signing activado
-- [ ] Keystore guardado fuera del repositorio, con copia en otro sitio
+- [x] Keystore creado fuera del repositorio ([FIRMA.md](google_play/FIRMA.md))
+- [ ] **Copia del keystore en dos sitios más y contraseña en el gestor** ← *pendiente, y urgente*
 - [ ] **Probado en un dispositivo físico** ← *pendiente*
 - [ ] **Capturas hechas: 8 pantallas** ← *pendiente*
 - [ ] Icono 512×512 y gráfico destacado 1024×500
