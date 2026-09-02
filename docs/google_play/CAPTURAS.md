@@ -33,6 +33,32 @@
 | `12-tour.png` | Tour, paso 1 de 8 |
 | `05-tour-juegos.png` | **Tour, paso 5: los doce juegos con lema e instrucciones** |
 
+### `capturas/juegos/` — los doce juegos, probados en el móvil
+
+Los doce juegos se reparten en **siete pantallas** distintas. Las siete se han
+recorrido en el dispositivo, tocando de verdad sus controles:
+
+| Pantalla | Juegos que la usan | Qué se comprobó | Captura |
+|---|---|---|---|
+| `PruebaDibujo.kt` | Pinturillo | Se dibuja con el dedo, diez tintas, tres grosores, deshacer y borrar | `01c-lienzo-dibujado.png` |
+| `PruebaPalabras.kt` | **Tabú**, Mímica | Palabra y sus cuatro prohibidas; SALTAR / PROHIBIDA / ACERTADA | `02b-tabu-carta.png` |
+| `PruebaOpciones.kt` | **Emojis**, ¿Cuándo?, Preguntas | Cuatro opciones, cronómetro, fallo en rojo y acierto en verde | `../telefono/08-resultado.png` |
+| `PruebaOrdena.kt` | Ordena | Se toca en orden, se comprueba y se corrige | `05b-ordena-resuelto.png` |
+| `PruebaVerdaderoFalso.kt` | ¿Te lo crees? | Verdadero/falso **con su explicación** al responder | `07b-te-lo-crees-explicacion.png` |
+| `PruebaReto.kt` | Reto rápido | El contador suma al tocarlo (0→3 de 6) y hay −1 para corregir | `08b-reto-contador.png` |
+| `PruebaVeredicto.kt` | **Trabalenguas**, Canta, Desafío | Contenido y veredicto ✗ NO / ✓ ¡SÍ! | `09-veredicto-trabalenguas.png` |
+
+**Siete de los doce juegos se abrieron uno a uno** (Emojis, Pinturillo, Tabú,
+Ordena, ¿Te lo crees?, Reto rápido, Trabalenguas). Los otros cinco —Mímica,
+¿Cuándo?, Preguntas, Canta y Desafío— **no se entraron**: comparten pantalla con
+uno ya probado y solo cambia el contenido, que sí lo valida `PruebaContenido` en
+cada build. Es cobertura por familia, no juego a juego, y conviene saberlo.
+
+De paso salió una comprobación que no estaba buscando: al desactivar **los doce**
+juegos en Ajustes, la app **no se queda con el tablero vacío**, ignora la
+preferencia y reparte de todos. Es el resguardo de `juegosActivos`, y se vio
+funcionando por accidente.
+
 ### `capturas/temas/` — los seis temas
 
 Uno por tema, todos aplicados **sin reiniciar la app**. Color medio de cada uno,
@@ -76,17 +102,22 @@ lector independiente del generador, y devolvió el enlace correcto.
 
 ## Lo que falta para la ficha de Play
 
-De las ocho que Play luce mejor, hay cuatro. **Faltan cuatro**, y hay que jugar
-hasta que salgan porque las cartas se reparten al azar:
+De las ocho que Play luce mejor, **hay seis**:
 
-- [ ] Una prueba de **Tabú** con su carta y las palabras prohibidas
-- [ ] **Pinturillo** con algo dibujado a medias
+- [x] Inicio · `telefono/01-inicio.png`
+- [x] Tablero · `telefono/02-tablero.png`
+- [x] **Tabú** con su carta y las prohibidas · `juegos/02b-tabu-carta.png`
+- [x] **Pinturillo** con algo dibujado · `juegos/01c-lienzo-dibujado.png`
+- [x] Modalidad · `telefono/07-modalidad.png`
+- [x] Idiomas · `idiomas/00-selector.png`
 - [ ] La rejilla de los **doce juegos** en Ajustes, con alguno desactivado
-- [ ] El **salón** con dos o tres móviles conectados — necesita un segundo móvil
+- [ ] El **salón** con dos o tres móviles — necesita un segundo móvil
 
-Truco para las dos primeras: en Ajustes → Juegos de la partida, deja activo solo
-el que quieras capturar. Así el tablero se llena de ese juego y sale en la
-primera tirada.
+El truco que sirvió para llegar a Tabú y a Pinturillo: en Ajustes → Juegos de la
+partida, apaga los once que no quieras. El tablero se llena del que queda y sale
+en la primera tirada. Ojo con el detalle que costó un rato: los doce empiezan
+encendidos, así que **solo hay que apagar los otros**; tocar también el que
+quieres lo apaga, y con cero activos la app reparte de todos.
 
 ---
 
@@ -136,6 +167,8 @@ Del *Definition of Done* del punto 12:
 - [x] **El árabe en RTL**, con la interfaz espejada
 - [x] El **bottom sheet de la donación** en los seis temas y en RTL
 - [x] Probada en el dispositivo físico, con una partida jugada
+- [x] Las **siete pantallas de prueba** recorridas tocando sus controles
+- [ ] Los cinco juegos que comparten pantalla, abiertos uno a uno (Mímica, ¿Cuándo?, Preguntas, Canta, Desafío)
 - [ ] Exportar → borrar datos → importar **en el dispositivo** (la ida y vuelta
       sí está cubierta por 21 pruebas unitarias, pero no se ha hecho a mano)
 - [ ] El salón con dos móviles de verdad
