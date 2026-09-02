@@ -33,6 +33,19 @@ import kotlin.random.Random
  * en [MotorJuego], que es Kotlin puro. Este ViewModel solo sabe de tres cosas
  * que sí son de Android: cargar el contenido de los assets, guardar en
  * preferencias y decidir cuándo enseñar la hoja de la donación.
+ *
+ * ### Por qué hay dos constructores
+ *
+ * `viewModel()` crea esta clase por reflexión, y `AndroidViewModelFactory` hace
+ * literalmente `getConstructor(Application::class.java)`: necesita un
+ * constructor que reciba **solo** un Application. Los parámetros por defecto de
+ * Kotlin **no** generan ese constructor —generan uno con todos los parámetros y
+ * un puente sintético—, así que sin el secundario de aquí abajo la app se cae al
+ * arrancar con `NoSuchMethodException`, en debug y en release por igual. Pasó.
+ *
+ * El primario, con sus defectos, es el que usan las pruebas para inyectar
+ * dobles. El secundario existe solo para Android, y por eso está escrito a mano
+ * en lugar de con `@JvmOverloads`: así se ve para qué es.
  */
 class JuegoViewModel(
     aplicacion: Application,
@@ -43,6 +56,16 @@ class JuegoViewModel(
         aplicacion.resources.configuration.locales[0]
             .toLanguageTag(),
 ) : AndroidViewModel(aplicacion) {
+    /**
+     * El constructor que Android busca por reflexión: **solo** un Application.
+     *
+     * No sobra y no se puede quitar. `AndroidViewModelFactory` hace
+     * `getConstructor(Application::class.java)`, y los parámetros por defecto
+     * del primario no producen esa firma en el bytecode. Si esto desaparece, la
+     * app deja de arrancar. Lo vigila `PruebaMainActivity`.
+     */
+    constructor(aplicacion: Application) : this(aplicacion, Preferencias(aplicacion))
+
     private val rnd = Random(System.nanoTime())
     private val idiomaSistema = Idioma.deEtiqueta(idiomaDelSistema)
 
@@ -356,7 +379,9 @@ class JuegoViewModel(
 
     private fun anotarUsoReal() {
         val cafe = estado.ajustes.cafe
-        actualizarAjustes(estado.ajustes.copy(cafe = cafe.copy(usosReales = cafe.usosReales + 1)))
+        actualizarAjustes(
+            estado.ajustes.copy(cafe = cafe.copy(usosReales = cafe.usosReales + 1)),
+        )
     }
 
     /**

@@ -5,9 +5,20 @@
 
   El color es el fondo del tema FIESTA, que es el que sale por defecto en
   oscuro; en values-night no hace falta variante porque coincide.
+
+  EL PADRE TIENE QUE SER Theme.AppCompat. No es una preferencia: MainActivity
+  hereda de AppCompatActivity —hace falta para la preferencia de idioma por app—
+  y AppCompat comprueba en setContentView que el tema sea uno de los suyos. Si no
+  lo es, lanza IllegalStateException y la app no arranca en NINGUN dispositivo.
+
+  Aqui estuvo puesto `android:Theme.Material.NoActionBar`, que es el del sistema y
+  no desciende de AppCompat, y la app reventaba al abrirla. No lo cazo nada porque
+  ninguna prueba instanciaba la Activity: ahora lo hace `PruebaMainActivity`.
+
+  DayNight para que el modo oscuro del sistema no pelee con el fondo de arranque.
 -->
 <resources>
-    <style name="Theme.Funny" parent="android:Theme.Material.NoActionBar">
+    <style name="Theme.Funny" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/fondo_arranque</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>

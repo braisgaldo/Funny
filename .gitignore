@@ -13,5 +13,8 @@ captures/
 claves.txt
 docs/out/
 
-# Los binarios de la ficha se generan; viven en la GitHub Release
-docs/google_play/binarios/
+# El APK de la ficha SI va en el repositorio: lo pidio el punto 14 del brief y
+# es lo que hace que un clone traiga algo instalable. El AAB no: es el artefacto
+# de tienda, pesa el doble, se regenera con un comando y cada version viaja como
+# asset de su GitHub Release.
+docs/google_play/binarios/*.aab
