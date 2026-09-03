@@ -54,9 +54,18 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <!--
-      Ni INTERNET ni ACCESS_NETWORK_STATE: Funny no habla con ninguna red. El
+      Aquí no se declara INTERNET, y eso es lo que importa: sin ese permiso el
+      sistema le impide a la app abrir cualquier conexión, aunque quisiera. El
       único enlace externo (la donación) lo abre el navegador del sistema, que
       tiene sus propios permisos.
+
+      Lo que sí aparece en el manifiesto fusionado del APK es
+      ACCESS_NETWORK_STATE, y no lo pone este fichero: lo añade
+      `play-services-nearby` al fusionar. Solo permite **consultar** si hay red;
+      sin INTERNET no se puede usar para transmitir nada. Se deja porque
+      quitárselo a la librería que sostiene el salón es arriesgado para no
+      ganar nada, pero conviene saberlo antes de que alguien lo encuentre
+      mirando los permisos y pregunte.
     -->
 
     <!-- El salón es opcional: un móvil sin Bluetooth sigue jugando solo. -->
@@ -116,6 +125,35 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <!--
+          Fuera el servicio de notificaciones de exposición que trae
+          `play-services-nearby`.
+
+          Es el del rastreo de contactos de la covid, y viene en la misma
+          librería que Nearby Connections aunque no tenga nada que ver con
+          ella: la app no usa esa API ni la va a usar. Sin este `remove`, el
+          manifiesto fusionado del APK declara un
+          `com.google.android.gms.nearby.exposurenotification.WakeUpService`
+          que nunca se ejecuta, y cualquiera que abra el APK de un juego de
+          fiesta se encuentra con un servicio de rastreo de contactos. En una
+          app cuyo argumento es que no recoge datos, eso hay que explicarlo
+          cada vez; es más barato no declararlo.
+
+          No afecta al salón: Nearby Connections no pasa por este servicio.
+          Verificado en el móvil después de quitarlo.
+        -->
+        <!--
+          `tools:ignore="MissingClass"`: lint avisa de que la clase no está en el
+          proyecto ni en las librerías, y aquí eso no es un problema sino el
+          objetivo. La regla no distingue entre declarar un componente que no
+          existe y **eliminar** uno que trae una dependencia; se silencia solo
+          en este elemento y solo esa regla.
+        -->
+        <service
+            android:name="com.google.android.gms.nearby.exposurenotification.WakeUpService"
+            tools:ignore="MissingClass"
+            tools:node="remove" />
     </application>
 
 </manifest>

@@ -137,6 +137,24 @@ ViewModel, y ninguna renderiza en RTL. Ahora hay 174 y cada uno tiene la suya.
   ver los dos años sin saber de quién es cada uno es justo la dificultad que
   tiene que tener el juego.
 
+#### Lo que encontró la tercera pasada por el móvil
+
+- **El salón no reaccionaba al encender el Bluetooth.** La comprobación corría
+  una sola vez al abrir el salón y, si fallaba, no se llamaba a `anunciarse`.
+  Resultado: la app decía «enciende el Bluetooth», y encenderlo no servía de
+  nada; había que salir de la pantalla y volver. Solo la causa de permisos tenía
+  salida, con su botón. Ahora la pantalla reintenta al recuperar el foco, que es
+  exactamente cuando alguien vuelve de los ajustes del sistema. Probado por ese
+  camino en el móvil: con el Bluetooth apagado sale el aviso, se enciende en
+  Ajustes, se vuelve, y el hub queda anunciándose sin aviso.
+- **Fuera un servicio de rastreo de contactos de la covid.**
+  `play-services-nearby` trae `exposurenotification.WakeUpService` en la misma
+  librería que Nearby Connections, y acababa declarado en el manifiesto del APK
+  aunque la app no use esa API. No hacía nada, pero en una app cuyo argumento es
+  que no recoge datos, un servicio de rastreo de contactos dentro del APK es algo
+  que hay que explicar cada vez. Se elimina con `tools:node="remove"`.
+  Verificado en el APK firmado, y el salón sigue funcionando.
+
 #### Reglas de R8 que faltaban
 
 `proguard-rules.pro` seguía siendo el de la app anterior y afirmaba que «el

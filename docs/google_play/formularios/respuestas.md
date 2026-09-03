@@ -61,7 +61,53 @@ Direct, sin pasar por internet ni por ningún servidor. Lo que se intercambia es
 únicamente lo del juego: nombres de participante, posición en el tablero, la carta
 que toca y las pulsaciones. El protocolo no tiene **ningún** mensaje capaz de leer
 datos del dispositivo, y eso está fijado en `dominio/salon/Protocolo.kt`, que es
-un conjunto cerrado de seis tipos de mensaje.
+un conjunto cerrado de **siete** tipos de mensaje.
+
+El único texto que escribe una persona y llega a otro móvil es **su nombre**
+(`Hola` al conectar, y `RENOMBRAR` si lo cambia). No hay chat, ni voz, ni envío
+de imágenes o de audio: **los dibujos de Pinturillo no viajan**, se quedan en el
+móvil que dibuja.
+
+Para este formulario lo que importa es que **ese nombre no llega a ninguna parte
+más**: no hay servidor, no lo recibe el desarrollador y no sale de la habitación.
+Si el formulario pregunta si la app «comparte datos con terceros», la respuesta
+es no; un móvil de la misma mesa no es un tercero, es la otra mitad de la
+partida.
+
+### Lo que se comprobó, con qué y cuándo
+
+Comprobado el 3 de septiembre de 2026 **sobre el APK firmado**, no sobre el
+código fuente, que es lo que se puede repetir y lo que verá quien descompile:
+
+| Qué | Cómo se comprobó | Resultado |
+|---|---|---|
+| Permiso `INTERNET` | buscado en el `AndroidManifest.xml` binario del APK | **no está** |
+| Librerías de analítica, fallos o anuncios | 202 artefactos del `releaseRuntimeClasspath` | **ninguna** |
+| Librerías de pagos | tarea `verificarSinFacturacion`, enganchada a `check` | **ninguna** |
+| Lectura de ubicación | buscado `getLastLocation`, `requestLocationUpdates`, latitud, longitud | **ninguna llamada** |
+
+De Google solo entran cuatro artefactos, y los cuatro son para el salón:
+`play-services-nearby`, `-base`, `-basement` y `-tasks`.
+
+### Dos cosas que aparecen al mirar el APK y conviene saber
+
+**`ACCESS_NETWORK_STATE` está en el APK y no lo declara este proyecto.** Lo añade
+`play-services-nearby` al fusionar los manifiestos. Solo permite **consultar** si
+hay red; sin `INTERNET` no sirve para transmitir nada. Se deja porque quitárselo
+a la librería que sostiene el salón es arriesgado y no gana nada, pero si alguien
+mira los permisos y pregunta, esta es la respuesta.
+
+**Había un servicio de notificaciones de exposición, y se ha quitado.**
+`play-services-nearby` trae
+`com.google.android.gms.nearby.exposurenotification.WakeUpService` —el del
+rastreo de contactos de la covid— en la misma librería que Nearby Connections,
+aunque no tenga nada que ver. La app no usa esa API, así que ahora el manifiesto
+lo elimina con `tools:node="remove"`. No cambiaba nada de lo que se responde en
+este formulario, porque sin usarse no se ejecuta; se quita porque en una app cuyo
+argumento es que no recoge datos, un servicio de rastreo de contactos dentro del
+APK es algo que hay que explicar cada vez. Verificado: la cadena
+`exposurenotification` ya no aparece en el APK, y el salón sigue anunciándose en
+el móvil.
 
 ---
 

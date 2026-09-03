@@ -23,6 +23,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +36,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import es.ghatostudio.funny.dominio.Pantalla
 import es.ghatostudio.funny.dominio.salon.RolSalon
 import es.ghatostudio.funny.dominio.textos.Clave
@@ -95,6 +99,35 @@ fun PantallaSalon(vm: JuegoViewModel, salon: SalonViewModel) {
     // sepa su nombre de verdad y no el que puso Android al endpoint.
     LaunchedEffect(estadoSalon.conectado) {
         if (estadoSalon.conectado && estadoSalon.esMando) salon.presentarse()
+    }
+
+    // Al volver a la pantalla, se reintenta lo que fallaba por algo de fuera.
+    //
+    // Sin esto la app llegaba a un callejón sin salida: decía «enciende el
+    // Bluetooth», y encenderlo no servía de nada. La comprobación corre una vez
+    // al abrir el salón y, si falla, no se llama a `anunciarse`, así que quien
+    // hacía justo lo que se le pedía se quedaba mirando el mismo aviso. Solo la
+    // causa PERMISOS tenía salida, con su botón.
+    //
+    // El sitio para reintentarlo es ON_RESUME porque es exactamente cuando la
+    // persona vuelve de los ajustes del sistema o de bajar la persiana para dar
+    // al interruptor. No se reintenta la causa PERMISOS: esa la lleva el botón,
+    // y hacerlo aquí volvería a lanzar el diálogo de Android cada vez que la
+    // pantalla recupera el foco.
+    val duenoDelCiclo = LocalLifecycleOwner.current
+    DisposableEffect(duenoDelCiclo, rolPedido, estadoSalon.fallo) {
+        val observador =
+            LifecycleEventObserver { _, evento ->
+                val recuperable =
+                    estadoSalon.fallo == TransporteSalon.Causa.BLUETOOTH ||
+                        estadoSalon.fallo == TransporteSalon.Causa.UBICACION ||
+                        estadoSalon.fallo == TransporteSalon.Causa.SERVICIOS
+                if (evento == Lifecycle.Event.ON_RESUME && recuperable) {
+                    rolPedido?.let { rol -> abrirSalon(rol, contexto, salon, vm, nombre) }
+                }
+            }
+        duenoDelCiclo.lifecycle.addObserver(observador)
+        onDispose { duenoDelCiclo.lifecycle.removeObserver(observador) }
     }
 
     FondoFunny(tinte = Primario) {
