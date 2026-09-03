@@ -82,6 +82,15 @@ Play principal, y luego una traducción por idioma.
 
 **Novedades** (máx. 500 por idioma): en `google_play/ficha/<idioma>/novedades.txt`
 
+Y las catorce juntas, etiquetadas por idioma, en `google_play/ficha/novedades.md`.
+Play Console acepta pegarlas de una vez en ese formato, y catorce campos a mano
+son catorce ocasiones de dejarse uno a medias.
+
+Las etiquetas de Play no son los códigos de la ficha: el catalán es `ca` y no
+`ca-ES`, y `en-GB` va aparte de `en-US` —el mismo texto, porque no hay ni una
+palabra que se escriba distinto a los dos lados del Atlántico; si algún día
+aparece un «customise», habrá que separarlos—.
+
 No van en la ficha sino **en la versión**: Producción → Crear versión → Notas de
 la versión, y hay un campo por idioma. Play las guarda por versión, así que las de
 la 1.0.0 se quedan asociadas a ella y en la siguiente se escriben otras.

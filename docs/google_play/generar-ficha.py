@@ -972,6 +972,50 @@ Funny はインターネット権限そのものを宣言していないので�
 }
 
 
+# Los idiomas de las notas de version, en el orden en el que Play los pide, y de
+# que idioma de la ficha sale el texto de cada uno.
+#
+# Dos no coinciden con los codigos de la ficha, y por eso esta tabla existe:
+#
+#   `ca`     Play usa el codigo corto para el catalan; la ficha, `ca-ES`.
+#   `en-GB`  Play lo pide aparte de `en-US`. Aqui sale el mismo texto: no hay ni
+#            una palabra que se escriba distinto a los dos lados del Atlantico.
+#            Si algun dia el texto lleva «customise» o «colour», habra que
+#            separarlo.
+IDIOMAS_DE_NOVEDADES = [
+    ("es-ES", "es-ES"),
+    ("ar", "ar"),
+    ("ca", "ca-ES"),
+    ("de-DE", "de-DE"),
+    ("el-GR", "el-GR"),
+    ("en-GB", "en-US"),
+    ("en-US", "en-US"),
+    ("eu-ES", "eu-ES"),
+    ("fr-FR", "fr-FR"),
+    ("gl-ES", "gl-ES"),
+    ("it-IT", "it-IT"),
+    ("ja-JP", "ja-JP"),
+    ("ru-RU", "ru-RU"),
+    ("zh-CN", "zh-CN"),
+]
+
+
+def escribir_novedades_juntas():
+    """Un solo fichero con las notas de los catorce idiomas, etiquetadas.
+
+    Es para pegarlo de una vez en Play Console en lugar de ir campo por campo:
+    catorce pegados a mano son catorce ocasiones de dejarse uno a medias.
+    """
+    partes = []
+    for etiqueta, codigo in IDIOMAS_DE_NOVEDADES:
+        texto = FICHA[codigo]["novedades"].strip()
+        partes.append("<%s>\n%s\n</%s>" % (etiqueta, texto, etiqueta))
+    ruta = os.path.join(SALIDA, "novedades.md")
+    with io.open(ruta, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(partes) + "\n")
+    return ruta
+
+
 def validar(codigo, textos):
     """Devuelve la lista de problemas. Vacia significa que la ficha es valida."""
     problemas = []
@@ -1058,6 +1102,15 @@ def main():
         )
 
     print("-" * 66)
+    ruta = escribir_novedades_juntas()
+    faltan = [e for e, c in IDIOMAS_DE_NOVEDADES if c not in FICHA]
+    if faltan:
+        print("OJO: las notas de %s no tienen idioma de origen" % ", ".join(faltan))
+        fallos += 1
+    print(
+        "%s con las notas de %d idiomas"
+        % (os.path.relpath(ruta), len(IDIOMAS_DE_NOVEDADES))
+    )
     print("%d idiomas escritos en ficha/" % len(FICHA))
     if len(FICHA) != 13:
         print("OJO: son %d y tendrian que ser 13" % len(FICHA))

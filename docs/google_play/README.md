@@ -11,6 +11,7 @@ Esta carpeta es el material; ese documento es el orden en el que usarlo.
 
 ```
 ficha/<idioma>/          titulo.txt, corta.txt, larga.txt, novedades.txt · 13 idiomas
+ficha/novedades.md       las notas de los 14 idiomas de Play, etiquetadas, para pegar de una vez
 graficos/                icono-512.png, icono-1024.png, destacado-1024x500.png
 formularios/             las respuestas de los formularios de Play, ya decididas
 politicas/               dónde guardar las capturas de las políticas consultadas
