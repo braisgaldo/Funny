@@ -222,8 +222,9 @@ def main():
     elif tiene:
         bien("los lleva")
     else:
-        aviso("Play avisara de que faltan; hace falta el NDK para extraerlos "
-              "(ver el apartado de la guia). No impide publicar.")
+        aviso("Play avisara de que faltan, y NO tiene arreglo: las librerias "
+              "nativas vienen de AndroidX ya recortadas (solo .dynsym), asi que "
+              "no hay simbolos que extraer ni con NDK. No impide publicar.")
 
     print()
     if fallos:

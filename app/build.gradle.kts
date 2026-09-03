@@ -167,11 +167,17 @@ android {
             // OJO, y por eso está escrito: **extraer los símbolos necesita el
             // NDK**, porque AGP usa su `objcopy`. En una máquina sin NDK la
             // tarea corre, avisa con «Unable to strip the following libraries,
-            // packaging them as they are» y el AAB sale sin símbolos. El AAB del
-            // workflow de release SÍ los lleva, porque el runner de Ubuntu de
-            // GitHub trae NDK. Si se compila la release a mano y se quiere el
-            // fichero, hay que instalar el NDK (unos 2 GB) para dos librerías de
-            // 10 KB que no son nuestras; Play solo lo pide como recomendación.
+            // packaging them as they are» y el AAB sale sin símbolos.
+            //
+            // Y aquí está lo que importa, comprobado leyendo la tabla de
+            // secciones ELF de las ocho librerías del bundle: **las ocho tienen
+            // solo `.dynsym`**, ninguna trae `.symtab` ni secciones `.debug_*`.
+            // Vienen ya recortadas de AndroidX. Así que instalar el NDK **no
+            // extraería un solo símbolo más**: no hay nada que extraer. Esta
+            // línea se queda porque en el runner de release, que sí tiene NDK,
+            // hace que el bundle lleve el fichero y el aviso desaparezca; pero
+            // que el aviso salga en un AAB compilado a mano no es un descuido
+            // que se pueda arreglar bajando 2 GB.
             ndk {
                 debugSymbolLevel = "SYMBOL_TABLE"
             }

@@ -220,14 +220,23 @@ DataStore, unos 10 KB cada una). El proyecto ya pide los símbolos con
 «Unable to strip the following libraries, packaging them as they are» y el bundle
 sale sin ellos.
 
-Dos caminos, y el segundo es el que se sigue:
+**Instalar el NDK no serviría de nada, y esto está comprobado.** Se leyó la
+tabla de secciones ELF de las ocho librerías del bundle (dos librerías × cuatro
+ABI) y todas tienen únicamente `.dynsym`: ninguna trae `.symtab` ni secciones
+`.debug_*`. Vienen recortadas de AndroidX, así que **no hay símbolos que
+extraer**. Bajar 2 GB de NDK produciría un fichero sin una sola función nueva.
 
-- Instalar el NDK (unos 2 GB) para simbolizar dos librerías de 10 KB que no son
-  nuestras.
-- **Compilar la release en CI**, donde el runner de Ubuntu ya trae NDK. Es lo que
-  hace el workflow de release, así que el AAB que sale de ahí sí los lleva.
+Qué queda entonces:
 
-Si se sube un AAB compilado a mano, el aviso aparece y **no impide publicar**.
+- El aviso **aparece y no impide publicar**. Es lo que hay con un AAB compilado
+  a mano.
+- El AAB del **workflow de release** llevará el fichero, porque el runner de
+  Ubuntu trae NDK y AGP genera el artefacto aunque su contenido sea solo los
+  símbolos dinámicos. El aviso desaparece ahí, sin que se gane información real.
+
+Dicho de otro modo: el aviso es correcto —el bundle lleva código nativo sin
+símbolos— pero **no es un problema de este proyecto**, y no tiene arreglo por
+nuestra parte mientras esas dos librerías se publiquen recortadas.
 
 ### El `versionCode` se gasta al subir, no al publicar
 

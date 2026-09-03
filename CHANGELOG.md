@@ -78,8 +78,14 @@ de la guía de publicación.
   `libdatastore_shared_counter.so` (DataStore), unos 10 KB cada una.
   **Extraerlos necesita el NDK**, porque AGP usa su `objcopy`; en una máquina
   sin NDK la tarea avisa con «Unable to strip the following libraries» y el AAB
-  sale sin símbolos. El AAB del workflow de release sí los llevará, porque el
-  runner de Ubuntu trae NDK. Es una recomendación de Play, no un requisito.
+  sale sin símbolos.
+
+  Y comprobado después, leyendo la tabla de secciones ELF de las ocho librerías
+  del bundle: **todas tienen solo `.dynsym`**, ninguna trae `.symtab` ni
+  secciones `.debug_*`. Vienen recortadas de AndroidX, así que instalar el NDK
+  no extraería un símbolo más. El aviso de Play es correcto y **no tiene arreglo
+  por nuestra parte**; es una recomendación, no un requisito, y no impide
+  publicar.
 
 ---
 
