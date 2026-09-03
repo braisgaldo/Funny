@@ -133,7 +133,7 @@ lector independiente del generador, y devolvió el enlace correcto.
 
 ## Lo que falta para la ficha de Play
 
-De las ocho que Play luce mejor, **hay seis**:
+De las ocho que Play luce mejor, **hay siete**:
 
 - [x] Inicio · `telefono/01-inicio.png`
 - [x] Tablero · `telefono/02-tablero.png`
@@ -146,8 +146,8 @@ De las ocho que Play luce mejor, **hay seis**:
 - [ ] El **salón** con dos o tres móviles — necesita un segundo móvil
 
 El truco que sirvió para llegar a Tabú y a Pinturillo: en Ajustes → Juegos de la
-partida, apaga los diecisiete que no quieras. El tablero se llena del que queda y sale
-en la primera tirada. Ojo con el detalle que costó un rato: los dieciocho empiezan
+partida, apaga los diecisiete que no quieras. El tablero se llena del que queda
+y sale en la primera tirada. Ojo con el detalle que costó un rato: los dieciocho empiezan
 encendidos, así que **solo hay que apagar los otros**; tocar también el que
 quieres lo apaga, y con cero activos la app reparte de todos.
 

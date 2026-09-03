@@ -408,17 +408,18 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 
 - [ ] Cuenta de Google Play verificada (identidad y dirección)
 - [ ] Política de privacidad publicada y accesible **de incógnito**
-- [ ] `./gradlew :app:check` en verde
-- [ ] `:app:dependencies` sin ninguna librería de facturación — comprobado
+- [x] `./gradlew :app:check` en verde — 174 pruebas, 0 errores de lint
+- [x] `:app:dependencies` sin ninguna librería de facturación — 181 artefactos
+      revisados por `verificarSinFacturacion`, enganchada a `check`
 - [x] AAB compilado **y verificado con `apksigner`** — `docs/google_play/binarios/`
 - [ ] Play App Signing activado
 - [x] Keystore creado fuera del repositorio ([FIRMA.md](google_play/FIRMA.md))
 - [ ] **Copia del keystore en dos sitios más y contraseña en el gestor** ← *pendiente, y urgente*
 - [x] **Probado en un dispositivo físico** — SM-S908U, Android 13, partida completa
-- [ ] **Capturas de la ficha: 4 de 8** — faltan Tabú, Pinturillo, la rejilla de
-      juegos y el salón ([CAPTURAS.md](google_play/CAPTURAS.md))
-- [ ] Icono 512×512 y gráfico destacado 1024×500
-- [ ] Textos de la ficha en los 13 idiomas
+- [ ] **Capturas de la ficha: 7 de 8** — falta el salón, que necesita un segundo
+      móvil ([CAPTURAS.md](google_play/CAPTURAS.md))
+- [x] Icono 512×512 y gráfico destacado 1024×500 · `generar-graficos.py`
+- [x] Textos de la ficha en los 13 idiomas, validados de largo · `generar-ficha.py`
 - [ ] **Política de pago consultada, apartado citado y captura guardada** ← *pendiente, apartado 3*
 
 ### En Play Console
