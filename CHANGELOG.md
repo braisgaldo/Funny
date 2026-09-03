@@ -16,29 +16,38 @@ Nada todavía.
 
 ---
 
-## [1.0.1] — pendiente de publicación
+## [1.0.2] — pendiente de publicación
 
-**Misma app que la 1.0.0. Lo que cambia es el número, y no por capricho.**
+**El tercer número en un día, y ninguno por capricho.**
 
 Play **consume el `versionCode` en cuanto se sube un artefacto**, aunque no se
-publique en ningún canal y aunque se descarte después. El 10000 se gastó en la
-primera subida, y al subir el siguiente AAB la consola contesta «el código de
-versión 10000 ya se ha usado».
+publique en ningún canal, aunque la propia consola lo rechace por otro motivo y
+aunque se descarte después. Van dos gastados:
+
+| Código | Versión | Qué pasó |
+|---|---|---|
+| 10000 | 1.0.0 | subido, nunca publicado |
+| 10001 | 1.0.1 | subido, **rechazado por apuntar al nivel 35 de API** |
+
+El segundo es el que más escuece: la consola rechazó el bundle *y* se quedó con
+el número. Un artefacto que no vale igual consume su código.
 
 La fórmula de este proyecto ata el `versionCode` al `versionName`
 (`major * 10_000 + minor * 100 + patch`), así que la forma de obtener un código
-nuevo es subir la versión: **1.0.1 → 10001**. La alternativa —dejar el
+nuevo es subir la versión: **1.0.2 → 10002**. La alternativa —dejar el
 `versionName` en 1.0.0 y sumarle un desplazamiento al código— rompería la
 propiedad que hace útil la fórmula: que de un `versionCode` se lee la versión y
 al revés.
 
-Que la primera versión que llegue a la gente sea una 1.0.1 no es un problema:
-la 1.0.0 no llegó a publicarse y nadie la tiene instalada. Todo lo que se
-describe abajo va dentro de esta.
+Que la primera versión que llegue a la gente sea una 1.0.2 no es un problema:
+ni la 1.0.0 ni la 1.0.1 llegaron a publicarse y nadie las tiene instaladas. Todo
+lo que se describe abajo va dentro de esta.
 
-**Para la próxima:** un `versionCode` gastado no se recupera. Conviene subir a
-Play solo artefactos que se pretenda publicar, y llevar la cuenta: cada intento
-descartado cuesta un número.
+**Para la próxima:** un `versionCode` gastado no se recupera, y **la consola lo
+gasta antes de decirte si el artefacto vale**. La forma de no quemar números es
+no subir nada sin haber comprobado antes lo que la consola comprueba después:
+nivel de API vigente, firma, permisos y tamaño. Está en el checklist del punto 8
+de la guía de publicación.
 
 ### Cambiado
 

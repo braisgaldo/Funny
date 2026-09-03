@@ -20,6 +20,8 @@ CAPTURAS.md              qué capturas hacen falta y cómo hacerlas
 generar-ficha.py         escribe y VALIDA los textos
 generar-graficos.py      dibuja el icono y el gráfico destacado
 preparar-binarios.py     compila y copia el AAB y el APK aquí
+comprobar-aab.py         lo que comprueba Play, en local y antes de subir
+comprobar-privacidad.py  que la URL de la política abra sin sesión
 binarios/                el AAB y el APK firmados — se generan, no van en git
 ```
 

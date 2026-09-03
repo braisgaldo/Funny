@@ -27,6 +27,7 @@ exclude:
   - google_play/generar-graficos.py
   - google_play/preparar-binarios.py
   - google_play/comprobar-privacidad.py
+  - google_play/comprobar-aab.py
   - google_play/binarios/
   - google_play/__pycache__/
   - google_play/FIRMA.md

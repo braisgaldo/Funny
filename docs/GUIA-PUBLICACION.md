@@ -5,7 +5,7 @@ description: "Los pasos para publicar Funny en Google Play, con lo que falta mar
 
 # Guía de publicación de Funny
 
-**Versión 1.0.1** · Google Play y App Store
+**Versión 1.0.2** · Google Play y App Store
 
 Todo lo necesario para publicar, en el orden en el que hay que hacerlo. Los textos
 de la ficha, en los trece idiomas, están en [google_play/](google_play/).
@@ -150,9 +150,9 @@ aparece un «customise», habrá que separarlos—.
 
 No van en la ficha sino **en la versión**: Producción → Crear versión → Notas de
 la versión, y hay un campo por idioma. Play las guarda por versión, así que las de
-la 1.0.1 se quedan asociadas a ella y en la siguiente se escriben otras.
+la 1.0.2 se quedan asociadas a ella y en la siguiente se escriben otras.
 
-Las de la 1.0.1 cuentan qué es la app, que es lo que corresponde en una primera
+Las de la 1.0.2 cuentan qué es la app, que es lo que corresponde en una primera
 publicación: no hay nada anterior con lo que comparar. A partir de la 1.1.0 tocará
 contar lo que cambia, y conviene sacarlas del CHANGELOG en lugar de escribirlas
 dos veces.
@@ -160,6 +160,22 @@ dos veces.
 La cifra de cartas de cada idioma **no es el total de 3.194**: es la de su mazo.
 Quien lee la ficha francesa juega con el mazo inglés —1.526 cartas— y no con los
 dos sumados. Prometer 3.194 en la ficha francesa sería falso.
+
+### Comprueba el bundle ANTES de subirlo
+
+```
+python docs/google_play/comprobar-aab.py
+```
+
+Pasa en local las mismas comprobaciones que hace la consola —nivel de API,
+minSdk, que la version del AAB, del APK y del fuente coincidan, firma con v2 y
+v3, que no se haya colado el permiso de internet, que no haya libreria de pagos
+en el DEX y el tope de 150 MB del modulo base— y **sale con codigo 1 si alguna
+falla**.
+
+Existe porque descubrir un problema despues de subir cuesta un `versionCode`, y
+los codigos no se recuperan. Con esto, el unico aviso que deberia quedar es el de
+los simbolos nativos, que no impide publicar.
 
 ### El nivel de API que exige Play sube cada año
 
@@ -170,7 +186,9 @@ Play **rechaza** el AAB que no apunte al nivel mínimo vigente. Lo dice así:
 
 Es un **error**, no un aviso: sin arreglarlo no se puede publicar. Ahora mismo el
 proyecto apunta al **36**, y el requisito sube aproximadamente una vez al año, así
-que conviene comprobarlo antes de cada versión.
+que conviene comprobarlo **antes de subir**: la consola se queda con el
+`versionCode` aunque rechace el bundle, así que descubrirlo después cuesta un
+número de versión.
 
 Subir de nivel no es cambiar un número: arrastra la cadena de herramientas.
 
@@ -520,11 +538,13 @@ keystore significa **no poder volver a actualizar la app nunca** con esa ficha.
 
 ### Versión
 
-`versionCode` **10001** para la 1.0.1, calculado desde el SemVer. Cada subida
+`versionCode` **10002** para la 1.0.2, calculado desde el SemVer. Cada subida
 necesita uno mayor, y al derivarse de la versión no hay que acordarse de subirlo.
 
-El 10000 se gastó en una subida de la 1.0.0 que no se publicó. Ver el apartado
-«El `versionCode` se gasta al subir, no al publicar», en el punto 2.
+Gastados por el camino, sin publicar ninguno: el **10000** (1.0.0) en una subida
+que se descartó, y el **10001** (1.0.1) en una que la consola **rechazó** por
+apuntar al nivel 35 de API —y se quedó el número igual—. Ver el apartado «El
+`versionCode` se gasta al subir, no al publicar», en el punto 2.
 
 ---
 
@@ -654,7 +674,7 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 
 ### Después de publicar
 
-- [ ] Tag `v1.0.1` empujado y GitHub Release publicada con el AAB, el APK y los
+- [ ] Tag `v1.0.2` empujado y GitHub Release publicada con el AAB, el APK y los
       documentos
 - [ ] CHANGELOG cerrado con la fecha de publicación
 - [ ] README actualizado con el enlace real de Play
