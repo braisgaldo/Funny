@@ -1,3 +1,8 @@
+---
+title: Manual técnico
+description: Arquitectura, compilación, firma y publicación de Funny.
+---
+
 # Manual técnico de Funny
 
 **Versión 1.0.0** · Brais Galdo · Ghato Studio

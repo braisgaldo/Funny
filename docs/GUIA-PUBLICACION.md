@@ -1,3 +1,8 @@
+---
+title: Guía de publicación
+description: Los pasos para publicar Funny en Google Play, con lo que falta marcado.
+---
+
 # Guía de publicación de Funny
 
 **Versión 1.0.0** · Google Play y App Store
@@ -52,17 +57,69 @@ de la ficha, en los trece idiomas, están en [google_play/](google_play/).
 
 ### Publicar la política de privacidad
 
-Google Play **exige una URL pública**. Con GitHub Pages es gratis:
+El texto ya está escrito, en [PRIVACIDAD.md](PRIVACIDAD.md). Lo que falta es que
+esté **en una URL pública**, que es lo que Google Play exige. Tres cosas que
+conviene saber antes de tocar nada.
 
-1. En el repositorio: Settings → Pages → Source: `main`, carpeta `/docs`.
-2. La política queda en
-   `https://braisgaldo.github.io/Funny/PRIVACIDAD` (GitHub Pages renderiza el
-   Markdown de `docs/`).
-3. Comprueba que la URL abre **de incógnito**, sin sesión. Si pide login, Google la
-   rechaza.
+#### 1. GitHub Pages necesita que el repositorio sea público
 
-Esa misma página es la que el punto 4.4.4 de la plantilla pide para la donación:
-añade ahí el enlace de «invítame a un café», con el mismo texto que en la app.
+Pages sobre un repositorio **privado** solo funciona con un plan de pago
+(GitHub Pro o superior). Con la cuenta gratuita y el repositorio en privado, la
+opción de Settings → Pages no publica nada.
+
+No es un problema a medio plazo: el código es **GPL-3.0-or-later**, y la GPL
+obliga a ofrecer el código fuente a quien recibe el binario. En cuanto la app
+esté en Play, el repositorio tiene que ser público de todos modos (ver
+[ADR-0006](adr/ADR-0006-licencia.md)). El orden natural es:
+
+1. Terminar de preparar la publicación con el repositorio en privado.
+2. Antes de subir el AAB a Play, ponerlo en público.
+3. Activar Pages y comprobar la URL.
+4. Rellenar el campo de la ficha con esa URL.
+
+**Si necesitas la URL antes de hacer público el repositorio**, la alternativa que
+no cuesta dinero es un servicio que sí despliega desde repositorios privados
+—Cloudflare Pages o Netlify, los dos con plan gratuito—: le das acceso al
+repositorio, carpeta `/docs`, y te da una URL pública sin exponer el código. Es
+una pieza más que mantener, así que solo merece la pena si hay prisa.
+
+#### 2. Los pasos, cuando el repositorio ya sea público
+
+1. Settings → Pages → Source: **Deploy from a branch**, rama `main`, carpeta
+   `/docs`. Guardar.
+2. Esperar el primer despliegue (aparece en la pestaña Actions).
+3. La política queda en `https://braisgaldo.github.io/Funny/PRIVACIDAD`.
+4. **Abrirla de incógnito**, sin sesión de GitHub. Si pide login, Google la
+   rechaza. Comprueba también que no da 404 (ver el punto siguiente).
+
+#### 3. Por qué los documentos llevan cabecera YAML
+
+Cada `.md` de `docs/` empieza con un bloque `---` con `title` y `description`.
+No es adorno: **Jekyll no procesa un Markdown sin front matter**, lo copia tal
+cual. Sin esa cabecera, `PRIVACIDAD.md` se sirve como texto crudo en
+`/Funny/PRIVACIDAD.md` y la URL sin extensión —la que enlaza la portada y la que
+va en la ficha— devuelve **404**. Solo `index.md` la tenía, así que las seis
+páginas que enlaza la portada estaban rotas antes de existir.
+
+`docs/adr/README.md` lleva además `permalink: /adr/`, porque si no se convertiría
+en `adr/README.html` y `/Funny/adr/` seguiría vacío.
+
+Si algún día se añade un documento a `docs/`, tiene que llevar su cabecera o su
+enlace no funcionará.
+
+#### 4. La donación va en esa misma página
+
+Es lo que pide el punto 4.4.4 de la plantilla: el enlace de «invítame a un café»
+en la página del proyecto, con el mismo texto que en la app y sin prometer nada a
+cambio. Ya está en [index.md](index.md).
+
+#### 5. Un solo idioma es suficiente, y aun así
+
+Google no exige la política traducida, ni siquiera con la ficha en trece idiomas:
+basta una URL con el texto en un idioma. Está en castellano. Si algún día llegan
+usuarios de fuera preguntando por sus datos, tener una versión en inglés ahorra
+explicaciones —y es media hora de trabajo, no un proyecto—. Queda anotado, no
+hecho.
 
 ---
 
@@ -433,7 +490,9 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 ### Antes de subir
 
 - [ ] Cuenta de Google Play verificada (identidad y dirección)
-- [ ] Política de privacidad publicada y accesible **de incógnito**
+- [ ] Repositorio en **público** (Pages no funciona en privado con cuenta gratuita)
+- [ ] Pages activado: Settings → Pages → `main` + `/docs`
+- [ ] Política de privacidad publicada y accesible **de incógnito**, sin 404
 - [x] `./gradlew :app:check` en verde — 174 pruebas, 0 errores de lint
 - [x] `:app:dependencies` sin ninguna librería de facturación — 181 artefactos
       revisados por `verificarSinFacturacion`, enganchada a `check`

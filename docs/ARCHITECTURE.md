@@ -1,3 +1,8 @@
+---
+title: Arquitectura
+description: Las capas de Funny, el motor de juego y qué vigila cada test.
+---
+
 # Arquitectura de Funny
 
 Cómo está montada la app y, sobre todo, **por qué está montada así**. Las

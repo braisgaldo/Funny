@@ -1,3 +1,8 @@
+---
+title: Manual de usuario
+description: Cómo se juega a Funny: los dieciocho juegos, los tres modos, las cuatro modalidades y el modo de varios móviles.
+---
+
 # Manual de Funny
 
 **Versión 1.0.0**

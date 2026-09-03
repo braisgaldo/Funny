@@ -135,7 +135,22 @@ input[type=checkbox] { margin-right: .4em; }
 
 def leer(nombre):
     with io.open(os.path.join(AQUI, nombre), encoding="utf-8") as f:
-        return f.read()
+        return sin_front_matter(f.read())
+
+
+def sin_front_matter(texto):
+    """Quita la cabecera YAML de Jekyll, si la hay.
+
+    Los documentos la llevan porque sin ella GitHub Pages no los procesa y sus
+    URL dan 404. Aqui no sirve de nada: sin quitarla, el `---` sale como una
+    linea horizontal y el `title:` como un parrafo suelto al principio del PDF.
+    """
+    if not texto.startswith("---\n"):
+        return texto
+    fin = texto.find("\n---\n", 3)
+    if fin == -1:
+        return texto
+    return texto[fin + len("\n---\n"):].lstrip("\n")
 
 
 def resolver_includes(texto, vistos=None):
