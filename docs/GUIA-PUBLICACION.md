@@ -1,6 +1,6 @@
 ---
-title: Guía de publicación
-description: Los pasos para publicar Funny en Google Play, con lo que falta marcado.
+title: "Guía de publicación"
+description: "Los pasos para publicar Funny en Google Play, con lo que falta marcado."
 ---
 
 # Guía de publicación de Funny

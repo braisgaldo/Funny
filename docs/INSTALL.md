@@ -1,6 +1,6 @@
 ---
-title: Instalación y compilación
-description: Qué hace falta para compilar Funny y cómo instalarla en un móvil.
+title: "Instalación y compilación"
+description: "Qué hace falta para compilar Funny y cómo instalarla en un móvil."
 ---
 
 # Compilar, firmar e instalar Funny

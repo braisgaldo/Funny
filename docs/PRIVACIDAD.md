@@ -1,6 +1,6 @@
 ---
-title: Política de privacidad
-description: Funny no recoge ningún dato: la app no declara el permiso de internet, así que Android le impide conectarse.
+title: "Política de privacidad"
+description: "Funny no recoge ningún dato: la app no declara el permiso de internet, así que Android le impide conectarse."
 ---
 
 # Política de privacidad de Funny

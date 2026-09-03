@@ -1,6 +1,6 @@
 ---
-title: Manual técnico
-description: Arquitectura, compilación, firma y publicación de Funny.
+title: "Manual técnico"
+description: "Arquitectura, compilación, firma y publicación de Funny."
 ---
 
 # Manual técnico de Funny

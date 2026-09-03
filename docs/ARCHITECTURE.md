@@ -1,6 +1,6 @@
 ---
-title: Arquitectura
-description: Las capas de Funny, el motor de juego y qué vigila cada test.
+title: "Arquitectura"
+description: "Las capas de Funny, el motor de juego y qué vigila cada test."
 ---
 
 # Arquitectura de Funny

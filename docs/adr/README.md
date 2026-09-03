@@ -1,7 +1,7 @@
 ---
-title: Decisiones de arquitectura
-description: Las decisiones de diseño de Funny, cada una con su contexto y sus consecuencias.
-permalink: /adr/
+title: "Decisiones de arquitectura"
+description: "Las decisiones de diseño de Funny, cada una con su contexto y sus consecuencias."
+permalink: "/adr/"
 ---
 
 # Decisiones de arquitectura (ADR)

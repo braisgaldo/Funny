@@ -30,6 +30,7 @@ bajando un nivel el resto de sus encabezados. Es lo que permite que el manual
 tecnico contenga el manual de usuario sin duplicar una sola linea.
 """
 import argparse
+import glob
 import io
 import os
 import re
@@ -40,6 +41,17 @@ import tempfile
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 SALIDA = os.path.join(AQUI, "out")
+
+# Los ADR se leen en el repositorio y desde su indice, no tienen URL propia en
+# el sitio, asi que no necesitan cabecera de Jekyll. El indice si.
+SIN_CABECERA = {
+    "adr/ADR-0001-stack.md",
+    "adr/ADR-0002-sin-backend.md",
+    "adr/ADR-0003-salon-nearby.md",
+    "adr/ADR-0004-donacion-sin-facturacion.md",
+    "adr/ADR-0005-contenido-sin-derechos.md",
+    "adr/ADR-0006-licencia.md",
+}
 
 DOCUMENTOS = [
     ("MANUAL-USUARIO.md", "Funny — Manual de usuario"),
@@ -421,10 +433,64 @@ def a_docx(md, titulo, ruta, version):
 
 # ------------------------------------------------------------------ main
 
+def revisar_front_matter():
+    """Comprueba la cabecera de Jekyll de cada documento de `docs/`.
+
+    Existe porque un error aqui **no se ve hasta que GitHub Pages se cae**, y
+    cuando se cae no publica nada: se queda la version anterior o un 404, y la
+    politica de privacidad es una de las paginas afectadas. Paso de verdad: dos
+    descripciones llevaban dos puntos seguidos de espacio sin entrecomillar
+    —«no recoge ningun dato: la app...»— y para YAML eso es el separador de una
+    clave, no texto. La compilacion entera fallo por dos lineas.
+
+    La regla es mas estricta que YAML a proposito: **todo valor entrecomillado**.
+    Asi no hay que acordarse de que caracteres son especiales (`:`, `#`, `&`,
+    `*`, `[`, `{`, `|`, `>`, `%`, `@`) ni distinguir donde molestan.
+    """
+    problemas = []
+    rutas = sorted(glob.glob(os.path.join(AQUI, "*.md")))
+    rutas += sorted(glob.glob(os.path.join(AQUI, "adr", "*.md")))
+    for ruta in rutas:
+        with io.open(ruta, encoding="utf-8") as f:
+            texto = f.read()
+        nombre = os.path.relpath(ruta, AQUI).replace(os.sep, "/")
+        if not texto.startswith("---\n"):
+            # Los ADR no se sirven de uno en uno; solo su indice necesita cabecera.
+            if nombre in SIN_CABECERA:
+                continue
+            problemas.append("%s: sin cabecera, Pages no lo procesara y dara 404" % nombre)
+            continue
+        fin = texto.find("\n---\n", 3)
+        if fin == -1:
+            problemas.append("%s: la cabecera no se cierra con ---" % nombre)
+            continue
+        for numero, linea in enumerate(texto[4:fin].split("\n"), start=2):
+            if not linea.strip():
+                continue
+            m = re.match(r"^([a-z_]+): (.*)$", linea)
+            if not m:
+                problemas.append("%s:%d: no es «clave: valor» -> %s" % (nombre, numero, linea))
+                continue
+            valor = m.group(2)
+            if not (valor.startswith('"') and valor.endswith('"') and len(valor) >= 2):
+                problemas.append(
+                    "%s:%d: el valor de «%s» tiene que ir entre comillas dobles"
+                    % (nombre, numero, m.group(1))
+                )
+    return problemas
+
+
 def main():
     ap = argparse.ArgumentParser(description="Genera los documentos de Funny.")
     ap.add_argument("--solo", choices=("html", "pdf", "docx"), help="un solo formato")
     args = ap.parse_args()
+
+    problemas = revisar_front_matter()
+    if problemas:
+        print("La cabecera de Jekyll esta mal y GitHub Pages no compilaria:")
+        for linea in problemas:
+            print("   %s" % linea)
+        return 1
 
     formatos = {args.solo} if args.solo else {"html", "pdf", "docx"}
     os.makedirs(SALIDA, exist_ok=True)

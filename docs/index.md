@@ -1,6 +1,6 @@
 ---
-title: Funny
-description: Juego de fiesta para Android. 18 juegos, 3 modos, 13 idiomas. Sin internet y sin anuncios.
+title: "Funny"
+description: "Juego de fiesta para Android. 18 juegos, 3 modos, 13 idiomas. Sin internet y sin anuncios."
 ---
 
 # 🎉 Funny
