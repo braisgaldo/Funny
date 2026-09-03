@@ -16,7 +16,33 @@ Nada todavía.
 
 ---
 
-## [1.0.0] — pendiente de publicación
+## [1.0.1] — pendiente de publicación
+
+**Misma app que la 1.0.0. Lo que cambia es el número, y no por capricho.**
+
+Play **consume el `versionCode` en cuanto se sube un artefacto**, aunque no se
+publique en ningún canal y aunque se descarte después. El 10000 se gastó en la
+primera subida, y al subir el siguiente AAB la consola contesta «el código de
+versión 10000 ya se ha usado».
+
+La fórmula de este proyecto ata el `versionCode` al `versionName`
+(`major * 10_000 + minor * 100 + patch`), así que la forma de obtener un código
+nuevo es subir la versión: **1.0.1 → 10001**. La alternativa —dejar el
+`versionName` en 1.0.0 y sumarle un desplazamiento al código— rompería la
+propiedad que hace útil la fórmula: que de un `versionCode` se lee la versión y
+al revés.
+
+Que la primera versión que llegue a la gente sea una 1.0.1 no es un problema:
+la 1.0.0 no llegó a publicarse y nadie la tiene instalada. Todo lo que se
+describe abajo va dentro de esta.
+
+**Para la próxima:** un `versionCode` gastado no se recupera. Conviene subir a
+Play solo artefactos que se pretenda publicar, y llevar la cuenta: cada intento
+descartado cuesta un número.
+
+---
+
+## [1.0.0] — subida a Play, nunca publicada
 
 Primera versión publicable. Parte de una app anterior llamada «Fiestón» —un juego
 por equipos, en castellano, con seis pruebas y un solo móvil— y la convierte en

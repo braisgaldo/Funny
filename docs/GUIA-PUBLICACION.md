@@ -5,7 +5,7 @@ description: "Los pasos para publicar Funny en Google Play, con lo que falta mar
 
 # Guía de publicación de Funny
 
-**Versión 1.0.0** · Google Play y App Store
+**Versión 1.0.1** · Google Play y App Store
 
 Todo lo necesario para publicar, en el orden en el que hay que hacerlo. Los textos
 de la ficha, en los trece idiomas, están en [google_play/](google_play/).
@@ -150,9 +150,9 @@ aparece un «customise», habrá que separarlos—.
 
 No van en la ficha sino **en la versión**: Producción → Crear versión → Notas de
 la versión, y hay un campo por idioma. Play las guarda por versión, así que las de
-la 1.0.0 se quedan asociadas a ella y en la siguiente se escriben otras.
+la 1.0.1 se quedan asociadas a ella y en la siguiente se escriben otras.
 
-Las de la 1.0.0 cuentan qué es la app, que es lo que corresponde en una primera
+Las de la 1.0.1 cuentan qué es la app, que es lo que corresponde en una primera
 publicación: no hay nada anterior con lo que comparar. A partir de la 1.1.0 tocará
 contar lo que cambia, y conviene sacarlas del CHANGELOG en lugar de escribirlas
 dos veces.
@@ -160,6 +160,28 @@ dos veces.
 La cifra de cartas de cada idioma **no es el total de 3.194**: es la de su mazo.
 Quien lee la ficha francesa juega con el mazo inglés —1.526 cartas— y no con los
 dos sumados. Prometer 3.194 en la ficha francesa sería falso.
+
+### El `versionCode` se gasta al subir, no al publicar
+
+Esto costó una versión, así que queda escrito. **Play reserva el `versionCode` en
+cuanto se sube el artefacto**, aunque no se publique en ningún canal y aunque se
+descarte a continuación. Al subir otro AAB con el mismo número, la consola
+responde:
+
+> El código de versión 10000 ya se ha usado. Prueba con otro código de versión.
+
+Y no se puede reutilizar: no hay forma de liberarlo.
+
+En este proyecto el `versionCode` **se deriva del `versionName`** con
+`major * 10_000 + minor * 100 + patch`, así que no se toca a mano: se sube la
+versión en `app/build.gradle.kts` (`versionSemVer`) y el código sale solo.
+
+```
+1.0.0 -> 10000     1.0.1 -> 10001     1.1.0 -> 10100
+```
+
+Consecuencia práctica: **sube a Play solo lo que pretendas publicar.** Cada
+intento descartado cuesta un número, y los números no vuelven.
 
 ### Categoría y etiquetas
 
@@ -448,8 +470,11 @@ keystore significa **no poder volver a actualizar la app nunca** con esa ficha.
 
 ### Versión
 
-`versionCode` 10000 para la 1.0.0, calculado desde el SemVer. Cada subida necesita
-uno mayor, y al derivarse de la versión no hay que acordarse de subirlo.
+`versionCode` **10001** para la 1.0.1, calculado desde el SemVer. Cada subida
+necesita uno mayor, y al derivarse de la versión no hay que acordarse de subirlo.
+
+El 10000 se gastó en una subida de la 1.0.0 que no se publicó. Ver el apartado
+«El `versionCode` se gasta al subir, no al publicar», en el punto 2.
 
 ---
 
@@ -579,7 +604,7 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 
 ### Después de publicar
 
-- [ ] Tag `v1.0.0` empujado y GitHub Release publicada con el AAB, el APK y los
+- [ ] Tag `v1.0.1` empujado y GitHub Release publicada con el AAB, el APK y los
       documentos
 - [ ] CHANGELOG cerrado con la fecha de publicación
 - [ ] README actualizado con el enlace real de Play

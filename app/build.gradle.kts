@@ -20,7 +20,7 @@ plugins {
 // leer la versión de un APK sin abrirlo. Queda documentada en
 // docs/ARCHITECTURE.md por si algún día hay que cambiarla.
 // --------------------------------------------------------------------------
-val versionSemVer = "1.0.0"
+val versionSemVer = "1.0.1"
 
 fun codigoDeVersion(semver: String): Int {
     val partes = semver.split(".").map { it.toIntOrNull() ?: 0 }
