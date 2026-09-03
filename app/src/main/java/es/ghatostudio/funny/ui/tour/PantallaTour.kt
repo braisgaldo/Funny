@@ -52,7 +52,7 @@ import es.ghatostudio.funny.ui.tema.paleta
 /**
  * Un paso del tour: título, texto y qué se ilustra debajo.
  *
- * La ilustración no es decorativa: en el paso de los juegos se pintan los doce
+ * La ilustración no es decorativa: en el paso de los juegos se pintan los dieciocho
  * de verdad, con su color y sus instrucciones, y en el de los modos las tres
  * tarjetas reales. Un tour que solo enseñara texto sería un manual con botones.
  */
