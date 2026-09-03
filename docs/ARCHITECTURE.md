@@ -255,9 +255,15 @@ Decisiones que importan:
 - **RTL sigue al idioma elegido, no al del sistema.** Poner la app en árabe con el
   móvil en castellano gira la interfaz igualmente, porque `LocalLayoutDirection` lo
   fija el idioma activo.
-- **Inglés y árabe llevan insignia neutra**, no bandera: ninguna nación es dueña de
-  esos idiomas. Los idiomas cuyo emoji de bandera no se dibuja de forma fiable
-  (gallego, catalán, euskera) llevan su código.
+- **Once de los trece llevan su bandera.** Ocho la tienen en emoji. El gallego, el
+  catalán y el euskera **se dibujan en Compose**: su emoji es una secuencia de
+  etiquetas de subdivisión que no está en el conjunto RGI de Unicode —de las
+  subdivisiones solo están Inglaterra, Escocia y Gales— y ninguna fuente de
+  Android la pinta, así que salía una bandera negra o un rectángulo vacío. Son
+  tres formas geométricas: ni un PNG en el APK.
+- **Inglés y árabe llevan un icono neutro** —un globo, también dibujado— y no una
+  bandera: ninguna nación es dueña de esos idiomas y elegir una sería arbitrario.
+  Lo pide el punto 4.3 de la plantilla. Los distingue su nombre al lado.
 - **Locales por app** con `AppCompatDelegate` + `locales_config.xml`.
 
 ### Lo que vigila la build

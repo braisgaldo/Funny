@@ -1,28 +1,44 @@
 package es.ghatostudio.funny.ui.i18n
 
+/** Las banderas que hay que dibujar porque no tienen emoji. Ver `BanderaPintada`. */
+enum class BanderaDibujada {
+    GALICIA,
+    CATALUNA,
+    EUSKADI,
+}
+
 /**
  * Cómo se representa un idioma en el selector.
  *
- * Los idiomas con una bandera nacional evidente la llevan. Los demás llevan su
- * código en una insignia, y no por pereza:
+ * **Los trece llevan bandera menos dos**, y esos dos no es por pereza: lo pide
+ * el punto 4.3 de la plantilla.
  *
- * - El **inglés** y el **árabe** no son de ningún país en concreto, y elegir
- *   uno sería tan arbitrario como ofensivo. Lo pide así el punto 4.3 de la
- *   plantilla.
- * - El **gallego**, el **catalán** y el **euskera** sí tienen bandera, pero su
- *   emoji es una secuencia de etiquetas de subdivisión que casi ningún teclado
- *   ni fuente de Android dibuja: saldría un rectángulo vacío o, peor, las
- *   letras del código en crudo. Una insignia dibujada por nosotros se ve
- *   siempre igual de bien en los seis temas.
+ * - Nueve tienen una bandera nacional con emoji, y la llevan tal cual.
+ * - El **gallego**, el **catalán** y el **euskera** tienen bandera, pero su
+ *   emoji es una secuencia de etiquetas de subdivisión que **no está en el
+ *   conjunto RGI de Unicode** —de las subdivisiones solo están Inglaterra,
+ *   Escocia y Gales— y ninguna fuente de Android la dibuja: saldría una bandera
+ *   negra o un rectángulo vacío. Así que se dibujan, con tres formas
+ *   geométricas y sin una sola imagen en el APK.
+ * - El **inglés** y el **árabe** llevan un icono neutro de idioma, un globo.
+ *   Ninguno de los dos es de un país concreto y elegir una bandera nacional
+ *   —¿la del Reino Unido o la de Estados Unidos? ¿y para el árabe, cuál de
+ *   veintidós?— sería arbitrario. Los dos llevan el mismo icono; lo que los
+ *   distingue es su nombre al lado, escrito en su propio idioma.
  */
 sealed interface Insignia {
+    /** Bandera nacional con emoji. */
     data class Bandera(
         val emoji: String,
     ) : Insignia
 
-    data class Codigo(
-        val texto: String,
+    /** Bandera sin emoji fiable: se pinta. */
+    data class Pintada(
+        val cual: BanderaDibujada,
     ) : Insignia
+
+    /** Icono neutro de idioma, para los que no son de ningún país. */
+    data object Neutra : Insignia
 }
 
 /**
@@ -38,7 +54,7 @@ enum class Idioma(
     val insignia: Insignia,
     val esRtl: Boolean = false,
 ) {
-    INGLES("en", "English", Insignia.Codigo("EN")),
+    INGLES("en", "English", Insignia.Neutra),
     CASTELLANO("es", "Español", Insignia.Bandera("🇪🇸")),
     FRANCES("fr", "Français", Insignia.Bandera("🇫🇷")),
     ALEMAN("de", "Deutsch", Insignia.Bandera("🇩🇪")),
@@ -47,10 +63,10 @@ enum class Idioma(
     RUSO("ru", "Русский", Insignia.Bandera("🇷🇺")),
     ITALIANO("it", "Italiano", Insignia.Bandera("🇮🇹")),
     GRIEGO("el", "Ελληνικά", Insignia.Bandera("🇬🇷")),
-    ARABE("ar", "العربية", Insignia.Codigo("AR"), esRtl = true),
-    GALLEGO("gl", "Galego", Insignia.Codigo("GL")),
-    CATALAN("ca", "Català", Insignia.Codigo("CA")),
-    EUSKERA("eu", "Euskara", Insignia.Codigo("EU")),
+    ARABE("ar", "العربية", Insignia.Neutra, esRtl = true),
+    GALLEGO("gl", "Galego", Insignia.Pintada(BanderaDibujada.GALICIA)),
+    CATALAN("ca", "Català", Insignia.Pintada(BanderaDibujada.CATALUNA)),
+    EUSKERA("eu", "Euskara", Insignia.Pintada(BanderaDibujada.EUSKADI)),
     ;
 
     companion object {

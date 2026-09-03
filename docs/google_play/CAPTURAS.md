@@ -114,8 +114,12 @@ está en blanco**, comprobado comparando sus firmas.
   móvil está en castellano, así que la dirección la manda el idioma **elegido**.
 - `05b-ar-titulo.png` — el título «FUNNY» en árabe, después de arreglar el fallo
   que lo escribía «YNNUF».
-- `00-selector.png` — insignia neutra **EN** para el inglés y **AR** para el
-  árabe, y códigos **GL**/**CA**/**EU** donde el emoji de bandera no se dibuja.
+- `00-selector.png` y `01-selector-abajo.png` — los trece idiomas con su
+  insignia. Ocho banderas en emoji; la gallega, la senyera y la ikurriña
+  **dibujadas**, porque su emoji no lo pinta ninguna fuente de Android; y un
+  globo para el inglés y el árabe, que no son de ningún país. Comprobadas en un
+  tema oscuro y en uno claro: el contorno es lo que evita que el blanco de la
+  gallega y el amarillo de la senyera se pierdan sobre una tarjeta clara.
 
 ### `capturas/donacion/` — la hoja del café
 

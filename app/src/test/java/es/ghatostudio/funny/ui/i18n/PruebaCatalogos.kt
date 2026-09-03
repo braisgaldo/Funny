@@ -139,23 +139,65 @@ class PruebaCatalogos {
     }
 
     @Test
-    fun `el ingles y el arabe llevan insignia neutra en lugar de bandera`() {
+    fun `solo el ingles y el arabe llevan icono neutro en lugar de bandera`() {
         // Lo pide el punto 4.3 de la plantilla: ninguno de los dos es de un
-        // país concreto y elegir uno sería arbitrario.
-        assertTrue(Idioma.INGLES.insignia is Insignia.Codigo)
-        assertTrue(Idioma.ARABE.insignia is Insignia.Codigo)
+        // país concreto y elegir uno sería arbitrario. Los ONCE restantes sí
+        // tienen que llevar su bandera, y esa es la mitad que importa de esta
+        // prueba: si alguien vuelve a poner letras en un idioma, salta.
+        val neutros = Idioma.entries.filter { it.insignia is Insignia.Neutra }
+        assertEquals(
+            listOf(Idioma.INGLES, Idioma.ARABE),
+            neutros,
+            "idiomas con icono neutro: $neutros",
+        )
     }
 
     @Test
-    fun `los idiomas sin bandera emoji fiable llevan codigo`() {
+    fun `los otros once idiomas llevan bandera, en emoji o pintada`() {
+        val sinBandera =
+            Idioma.entries.filter {
+                it.insignia !is Insignia.Bandera && it.insignia !is Insignia.Pintada
+            } - setOf(Idioma.INGLES, Idioma.ARABE)
+        assertTrue(sinBandera.isEmpty(), "sin bandera: $sinBandera")
+        // Ocho con emoji y tres pintadas: once. Las cifras van escritas para que
+        // añadir un idioma obligue a decidir qué insignia lleva en lugar de
+        // colarse sin ninguna.
+        assertEquals(
+            8,
+            Idioma.entries.count { it.insignia is Insignia.Bandera },
+            "banderas con emoji",
+        )
+        assertEquals(
+            3,
+            Idioma.entries.count { it.insignia is Insignia.Pintada },
+            "banderas pintadas",
+        )
+        assertEquals(13, Idioma.entries.size, "idiomas")
+    }
+
+    @Test
+    fun `las tres banderas sin emoji se pintan, y cada una la suya`() {
         // El gallego, el catalán y el euskera tienen bandera, pero su emoji es
-        // una secuencia de etiquetas que casi ninguna fuente de Android dibuja.
-        listOf(Idioma.GALLEGO, Idioma.CATALAN, Idioma.EUSKERA).forEach { idioma ->
-            assertTrue(
-                idioma.insignia is Insignia.Codigo,
-                "$idioma lleva bandera y no se vería en muchos móviles",
-            )
-        }
+        // una secuencia de etiquetas de subdivisión que no está en el conjunto
+        // RGI: ninguna fuente de Android la dibuja. Se pintan, y cada idioma
+        // tiene que apuntar a un dibujo distinto —copiar y pegar la línea de al
+        // lado dejaría dos idiomas con la misma bandera y nadie lo notaría en
+        // una lista de trece—.
+        val pintadas =
+            listOf(Idioma.GALLEGO, Idioma.CATALAN, Idioma.EUSKERA).map {
+                val insignia = it.insignia
+                assertTrue(insignia is Insignia.Pintada, "$it no se pinta")
+                (insignia as Insignia.Pintada).cual
+            }
+        assertEquals(
+            listOf(BanderaDibujada.GALICIA, BanderaDibujada.CATALUNA, BanderaDibujada.EUSKADI),
+            pintadas,
+        )
+        assertEquals(
+            BanderaDibujada.entries.size,
+            pintadas.toSet().size,
+            "hay banderas pintadas repetidas o sin usar: $pintadas",
+        )
     }
 
     @Test

@@ -388,7 +388,13 @@ fun FilaInterruptor(
     )
 }
 
-/** Insignia de idioma: bandera cuando la hay, código cuando no. Ver [Insignia]. */
+/**
+ * Insignia de idioma: la bandera del idioma, siempre que haya bandera.
+ *
+ * Nueve la tienen en emoji, tres se pintan porque su emoji no lo dibuja ninguna
+ * fuente de Android, y el inglés y el árabe llevan un icono neutro porque no son
+ * de ningún país. El razonamiento entero está en [Insignia].
+ */
 @Composable
 fun InsigniaDeIdioma(idioma: Idioma, modifier: Modifier = Modifier) {
     val t = textos()
@@ -407,21 +413,9 @@ fun InsigniaDeIdioma(idioma: Idioma, modifier: Modifier = Modifier) {
                     style = MaterialTheme.typography.headlineMedium,
                 )
 
-            is Insignia.Codigo ->
-                Box(
-                    modifier =
-                        Modifier
-                            .clip(RoundedCornerShape(7.dp))
-                            .background(SuperficieAlta)
-                            .border(1.dp, Contorno, RoundedCornerShape(7.dp))
-                            .padding(horizontal = 7.dp, vertical = 4.dp),
-                ) {
-                    Text(
-                        insignia.texto,
-                        style = MaterialTheme.typography.labelLarge,
-                        color = TextoTenue,
-                    )
-                }
+            is Insignia.Pintada -> BanderaPintada(insignia.cual)
+
+            Insignia.Neutra -> IconoDeIdioma()
         }
     }
 }
