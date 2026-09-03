@@ -1,0 +1,77 @@
+# Publica la documentacion de `docs/` en GitHub Pages.
+#
+# Existe por una razon concreta: **Google Play exige que la politica de
+# privacidad este en una URL publica**, y sin este workflow no hay URL. El
+# destino es
+#
+#     https://braisgaldo.github.io/Funny/PRIVACIDAD
+#
+# Por que un workflow y no «Deploy from a branch», que no necesita ficheros:
+# porque asi la configuracion **esta en el repositorio** en lugar de en unos
+# ajustes que nadie recuerda haber tocado. El paso `configure-pages` con
+# `enablement: true` activa Pages y pone la fuente en «GitHub Actions» el solo,
+# asi que este fichero es todo lo que hace falta.
+#
+# Lo que se publica NO es todo `docs/`: `_config.yml` deja fuera los scripts, los
+# binarios y FIRMA.md. Y cada documento necesita su cabecera YAML o Jekyll no lo
+# procesa y su URL da 404; eso lo vigila `generar-docs.py`.
+
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    # Solo cuando cambia la documentacion. Un cambio en Kotlin no necesita
+    # republicar el sitio.
+    paths:
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez, y sin cancelar el que ya esta a medias: dejar el sitio
+# a medio publicar es peor que esperar.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    name: Construir el sitio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Traer el codigo
+        uses: actions/checkout@v4
+
+      - name: Preparar Pages
+        # `enablement: true` activa Pages en el repositorio si no lo estaba y
+        # pone la fuente en «GitHub Actions». Es lo que evita tener que entrar en
+        # Settings a mano.
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Construir con Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./_site
+
+      - name: Subir el sitio
+        uses: actions/upload-pages-artifact@v3
+
+  desplegar:
+    name: Desplegar
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - name: Desplegar en Pages
+        id: despliegue
+        uses: actions/deploy-pages@v4
