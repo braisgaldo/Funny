@@ -28,7 +28,7 @@ app avisa y sigue funcionando con un solo móvil.
 | | Versión | Nota |
 |---|---|---|
 | JDK | **17** | Ni 11 ni 21: AGP 8.7 pide 17 |
-| Android SDK | **API 35** | `compileSdk` y `targetSdk` |
+| Android SDK | **API 36** | `compileSdk` y `targetSdk` — Play lo exige |
 | Gradle | 8.11.1 | lo trae el *wrapper*, no lo instales |
 | Android Studio | Ladybug o superior | opcional, la línea de comandos basta |
 

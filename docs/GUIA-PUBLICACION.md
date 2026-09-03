@@ -161,6 +161,56 @@ La cifra de cartas de cada idioma **no es el total de 3.194**: es la de su mazo.
 Quien lee la ficha francesa juega con el mazo inglés —1.526 cartas— y no con los
 dos sumados. Prometer 3.194 en la ficha francesa sería falso.
 
+### El nivel de API que exige Play sube cada año
+
+Play **rechaza** el AAB que no apunte al nivel mínimo vigente. Lo dice así:
+
+> Actualmente, tu aplicación está orientada al nivel 35 de la API, pero debe
+> orientarse, al menos, al nivel 36.
+
+Es un **error**, no un aviso: sin arreglarlo no se puede publicar. Ahora mismo el
+proyecto apunta al **36**, y el requisito sube aproximadamente una vez al año, así
+que conviene comprobarlo antes de cada versión.
+
+Subir de nivel no es cambiar un número: arrastra la cadena de herramientas.
+
+1. **El SDK de la plataforma.** `sdkmanager "platforms;android-36"
+   "build-tools;36.0.0"`.
+2. **AGP.** Cada rama de AGP solo está probada hasta un `compileSdk`; la 8.7 lo
+   estaba hasta el 35. Al elegir versión, mirar también qué Gradle pide: la
+   8.10 funciona con el 8.11.1 que ya hay, y la 8.11 exigiría subir el wrapper.
+3. **Robolectric.** Va siempre por detrás de la plataforma. Si no hay versión que
+   soporte el nivel nuevo, los tests que necesitan un `Context` fallan en la
+   configuración y hay que fijar el nivel que emula en
+   `app/src/test/resources/robolectric.properties`.
+4. **El comportamiento.** Cada nivel cambia cosas que solo se ven en un
+   dispositivo con esa versión de Android. Si no hay uno a mano, **decirlo** en
+   lugar de dar por bueno lo que no se ha probado.
+
+### Los símbolos nativos necesitan el NDK
+
+El otro mensaje de la consola es un **aviso**, no un error:
+
+> Este App Bundle contiene código nativo, pero no has subido símbolos de
+> depuración.
+
+El código nativo no es de este proyecto: entra con AndroidX
+(`libandroidx.graphics.path.so` de Compose y `libdatastore_shared_counter.so` de
+DataStore, unos 10 KB cada una). El proyecto ya pide los símbolos con
+`debugSymbolLevel = "SYMBOL_TABLE"` en el `buildType` de release, pero
+**extraerlos necesita el NDK**: AGP usa su `objcopy`. Sin NDK la tarea avisa con
+«Unable to strip the following libraries, packaging them as they are» y el bundle
+sale sin ellos.
+
+Dos caminos, y el segundo es el que se sigue:
+
+- Instalar el NDK (unos 2 GB) para simbolizar dos librerías de 10 KB que no son
+  nuestras.
+- **Compilar la release en CI**, donde el runner de Ubuntu ya trae NDK. Es lo que
+  hace el workflow de release, así que el AAB que sale de ahí sí los lleva.
+
+Si se sube un AAB compilado a mano, el aviso aparece y **no impide publicar**.
+
 ### El `versionCode` se gasta al subir, no al publicar
 
 Esto costó una versión, así que queda escrito. **Play reserva el `versionCode` en

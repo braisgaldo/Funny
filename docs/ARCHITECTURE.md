@@ -32,7 +32,7 @@ decisiones grandes tienen su propio ADR en [adr/](adr/); aquí está el mapa.
 |---|---|
 | Lenguaje | Kotlin 2.0.21 |
 | Interfaz | Jetpack Compose, Material 3, **una sola `Activity`** |
-| Mínimo | Android 8.0 (API 26) · compila y apunta a API 35 |
+| Mínimo | Android 8.0 (API 26) · compila y apunta a API 36 |
 | Módulos | uno, `:app` |
 | Dependencias | Gradle version catalog, versiones fijadas |
 | Persistencia | DataStore Preferences |

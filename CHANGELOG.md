@@ -40,6 +40,38 @@ describe abajo va dentro de esta.
 Play solo artefactos que se pretenda publicar, y llevar la cuenta: cada intento
 descartado cuesta un número.
 
+### Cambiado
+
+- **Apunta al nivel 36 de API** (Android 16), antes al 35. No es una mejora
+  buscada: Play **rechaza** el AAB que apunte a menos de 36. Arrastró tres cosas:
+  - **AGP 8.7.3 → 8.10.1.** La 8.7 solo está probada hasta `compileSdk` 35. Es
+    la última rama que funciona con Gradle 8.11.1, así que el wrapper no se
+    toca.
+  - **Robolectric 4.14.1 → 4.15.1**, y aun así **fijado al nivel 35** en
+    `app/src/test/resources/robolectric.properties`. La 4.15.1 es la última
+    publicada y su tope sigue siendo el 35: los cuatro tests que necesitan un
+    `Context` fallaban en la configuración con `targetSdkVersion=36 >
+    maxSdkVersion=35`. Ninguno depende de una API que cambie entre el 35 y el
+    36. Se quita el fichero en cuanto salga una Robolectric que acepte el 36.
+  - **SDK 36 y build-tools 36** instalados en la máquina de desarrollo.
+
+  Lo que el 36 cambia de comportamiento —sobre todo que *edge to edge* deja de
+  ser opcional— ya estaba cubierto: `MainActivity` llama a `enableEdgeToEdge()`
+  y las pantallas usan `safeDrawingPadding()`. **Y no se ha podido verificar en
+  un Android 16**: el único dispositivo a mano tiene Android 13, donde el
+  binario del 36 se comporta igual que el del 35. Lo que sí se hizo fue jugar
+  una tanda entera del reto en solitario con el APK del 36 instalado.
+
+- **Símbolos de depuración del código nativo** en el AAB
+  (`debugSymbolLevel = "SYMBOL_TABLE"`), que es la otra cosa que reclama la
+  consola. El código nativo no es de este proyecto: son
+  `libandroidx.graphics.path.so` (Compose UI) y
+  `libdatastore_shared_counter.so` (DataStore), unos 10 KB cada una.
+  **Extraerlos necesita el NDK**, porque AGP usa su `objcopy`; en una máquina
+  sin NDK la tarea avisa con «Unable to strip the following libraries» y el AAB
+  sale sin símbolos. El AAB del workflow de release sí los llevará, porque el
+  runner de Ubuntu trae NDK. Es una recomendación de Play, no un requisito.
+
 ---
 
 ## [1.0.0] — subida a Play, nunca publicada

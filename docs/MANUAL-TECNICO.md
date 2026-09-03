@@ -40,8 +40,8 @@ literalmente `MANUAL-USUARIO.md`, `ARCHITECTURE.md` e `INSTALL.md`.
 | Versión | 1.0.0 (`versionCode` 10000) |
 | Lenguaje | Kotlin 2.0.21 |
 | Interfaz | Jetpack Compose · Material 3 · una sola `Activity` |
-| Android | mínimo 8.0 (API 26) · compila y apunta a API 35 |
-| Construcción | Gradle 8.11.1 · AGP 8.7.3 · version catalog |
+| Android | mínimo 8.0 (API 26) · compila y apunta a API 36 |
+| Construcción | Gradle 8.11.1 · AGP 8.10.1 · version catalog |
 | Persistencia | DataStore Preferences |
 | Red | **ninguna**: no se declara el permiso `INTERNET` |
 | Multidispositivo | Nearby Connections (`P2P_STAR`), hasta 1 mesa + 4 mandos |

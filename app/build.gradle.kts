@@ -76,12 +76,12 @@ val hayFirmaDeRelease = rutaKeystore != null && file(rutaKeystore).exists()
 
 android {
     namespace = "es.ghatostudio.funny"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "es.ghatostudio.funny"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = codigoDeVersion(versionSemVer)
         versionName = versionSemVer
 
@@ -144,6 +144,37 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+
+            // Símbolos de depuración del código nativo, para el AAB.
+            //
+            // Play avisa de que el bundle lleva código nativo sin símbolos. Ese
+            // código **no es de este proyecto**: son dos librerías que entran
+            // con AndroidX y que ni se llaman directamente.
+            //
+            //     libandroidx.graphics.path.so      (Compose UI, ~10 KB)
+            //     libdatastore_shared_counter.so    (DataStore, ~7 KB)
+            //
+            // Con esto, si alguna vez un fallo ocurre dentro de una de las dos,
+            // la consola enseña nombres de función en lugar de direcciones. Es
+            // lo único que aporta: no hay nada nuestro que simbolizar.
+            //
+            // SYMBOL_TABLE y no FULL: la tabla de símbolos basta para leer una
+            // pila de llamadas, y FULL mete la información de depuración
+            // completa de librerías que vienen ya recortadas, así que engordaría
+            // la subida sin añadir nada. El fichero viaja **solo en el AAB**, no
+            // en lo que se instala.
+            //
+            // OJO, y por eso está escrito: **extraer los símbolos necesita el
+            // NDK**, porque AGP usa su `objcopy`. En una máquina sin NDK la
+            // tarea corre, avisa con «Unable to strip the following libraries,
+            // packaging them as they are» y el AAB sale sin símbolos. El AAB del
+            // workflow de release SÍ los lleva, porque el runner de Ubuntu de
+            // GitHub trae NDK. Si se compila la release a mano y se quiere el
+            // fichero, hay que instalar el NDK (unos 2 GB) para dos librerías de
+            // 10 KB que no son nuestras; Play solo lo pide como recomendación.
+            ndk {
+                debugSymbolLevel = "SYMBOL_TABLE"
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
