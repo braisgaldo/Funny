@@ -83,6 +83,63 @@ Categoría del cuestionario: **Juego**.
 | Compartir la ubicación con otros usuarios | **No** |
 | Compartir información personal | **No** |
 | Contenido generado por usuarios | **No** |
+| Humor escatológico (eructos, ventosidades, vómitos) | **No** |
+| Esvásticas o símbolos nazis | **No** |
+| Contenido contra la identidad nacional de Corea del Sur | **No** |
+| Promoción de actos terroristas | **No** |
+| Delitos realistas o técnicas delictivas | **No** |
+
+Cuando la respuesta a la primera de esas es «No», la pregunta de seguimiento
+—*qué* funciones corporales se usan— **no aparece**. No hay que marcar ninguna
+de sus cuatro opciones.
+
+### Cómo se comprobaron, y no de memoria
+
+Las respuestas de arriba salen de buscar en los **treinta y seis mazos** de los
+dos idiomas, no de recordar qué se escribió. El barrido está en el historial y se
+puede repetir; esto es lo que dio:
+
+| Se buscó | Aciertos | Qué eran |
+|---|---|---|
+| eructo, burp | 0 | — |
+| pedo, flatulencia, ventosidad, fart | 0 | — |
+| caca, heces, excremento, poop | 0 | — |
+| moco, mucosidad, snot | 0 | — |
+| orina, mear, pee, urin | 0 | los 6 aparentes eran «d**urin**g» y «end**urin**g» |
+| vómito, vomitar, vomit | 2 | «Los caballos no pueden vomitar», carta de verdadero o falso |
+| nazi, esvástica, Hitler, Reich, fascismo | 0 | los 44 aparentes eran `SS` dentro de «pa**ss**», «ble**ss**», «ba**ss**» |
+| robo, ladrón, secuestro, hackear, falsificar | 0 | — |
+| drogas, cocaína, cannabis | 0 | — |
+
+El mazo de más riesgo para la pregunta escatológica es **🔊 Sonidos**, porque son
+treinta y dos cartas de imitar ruidos con la boca. Se leyeron las treinta y dos:
+una moto que no arranca, un microondas, un globo deshinchándose, un fax, un
+detector de humos con la pila baja. Las dos más cercanas al límite son «imita a
+alguien sorbiendo sopa muy caliente» y «imita el ruido de un estómago con mucha
+hambre»: son sonidos del cuerpo, pero no están en la lista del cuestionario
+—mucosidad, flatulencia, excrementos, vómito, micción— y no es humor
+escatológico. Si algún día se añade una carta de eructar, **esta respuesta pasa a
+Sí** y hay que rehacer el cuestionario.
+
+Los tres aciertos de «Corea» son opciones de respuesta de preguntas de cultura
+general (de dónde viene el taekwondo, y similares). No hay ningún hecho histórico
+distorsionado.
+
+### Referencias a hechos reales, que no cambian la clasificación
+
+El mazo **📅 ¿Cuándo?** pide acertar el año de hechos históricos, y entre ellos
+hay tres tragedias reales: la bomba de Hiroshima (los dos idiomas), los atentados
+del 11 de septiembre y los del 11-M (solo en castellano).
+
+Para el cuestionario son **referencias**, no promoción: la carta dice el hecho y
+el año, sin descripción, sin imagen y sin juicio. Por eso «promoción de actos
+terroristas» es **No**.
+
+Cosa distinta, y no es una decisión de clasificación sino de gusto: son tres
+cartas que pueden cortar el ambiente en una mesa de fiesta, y en el caso del 11-M
+hay quien las tenga cerca. Quitarlas no cambiaría nada del juego —el mazo tiene
+muchas más— y dejarlas tampoco incumple nada. Está anotado para decidirlo a
+conciencia y no por descuido.
 
 ### Las tres que conviene poder explicar
 
