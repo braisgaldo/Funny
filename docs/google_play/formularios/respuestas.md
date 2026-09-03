@@ -13,12 +13,19 @@ porque algunas hay que poder defenderlas.
 | Descripción corta | `ficha/<idioma>/corta.txt` |
 | Descripción completa | `ficha/<idioma>/larga.txt` |
 | Categoría | Juegos → **Juegos de mesa** |
-| Etiquetas | fiesta, juego de mesa, multijugador local, sin conexión |
-| ¿Es un juego? | Sí |
+| Etiquetas | juegos de fiesta, juegos de mesa, multijugador local, preguntas y respuestas, juegos de palabras |
+| ¿Es un juego? | Sí — tipo de aplicación **Juego**, no «Aplicación» |
 | Correo de contacto | GhatoStudioOfficial@gmail.com |
 | Sitio web | https://braisgaldo.github.io/Funny/ |
 | Política de privacidad | https://braisgaldo.github.io/Funny/PRIVACIDAD |
 | Teléfono de contacto | *no se facilita* |
+
+Las etiquetas son **hasta cinco de la lista cerrada de Play**: no se escriben, se
+eligen de su selector, así que los nombres reales pueden variar. El porqué de la
+categoría y el orden de prioridad de las etiquetas están en la guía de
+publicación, apartado «Categoría y etiquetas»: se resume en que ninguno de los
+dieciocho juegos manda lo suficiente para llevarse la categoría, y lo común a
+todos es el tablero.
 
 ---
 

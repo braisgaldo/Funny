@@ -163,9 +163,59 @@ dos sumados. Prometer 3.194 en la ficha francesa sería falso.
 
 ### Categoría y etiquetas
 
+- **Tipo de aplicación**: **Juego** (no «Aplicación»)
 - **Categoría**: Juegos → **Juegos de mesa**
-- **Etiquetas**: fiesta, mesa, multijugador local, sin conexión
-- **Es un juego**: sí
+- **Etiquetas** (hasta cinco, de la lista cerrada de Play): juegos de fiesta,
+  juegos de mesa, multijugador local, preguntas y respuestas, juegos de palabras
+
+#### Por qué «Juegos de mesa» y no otra
+
+Play no tiene categoría de «fiesta», y ninguno de los dieciocho juegos manda lo
+suficiente para llevarse la categoría entera. Repartidos por lo que se hace en
+cada uno:
+
+| Tipo | Cuántos | Cuáles |
+|---|---|---|
+| Actuar delante de la mesa | 6 | Mímica, Canta, Trabalenguas, Acentos, Sonidos, Desafío |
+| Cultura general | 5 | Preguntas, ¿Cuándo?, ¿Te lo crees?, Refranes, ¿Antes o después? |
+| Palabras | 3 | Tabú, Anagramas, Encadenados |
+| Ingenio | 2 | Emojis, Ordena |
+| Dibujar | 1 | Pinturillo |
+| Contrarreloj | 1 | Reto rápido |
+
+Lo que sí es común a los dieciocho es **el marco**: un tablero, un dado y unas
+fichas que avanzan. Eso es lo que sostiene la partida y lo que se ve en la
+pantalla la mayor parte del tiempo, así que la categoría honesta es la del
+tablero.
+
+**La alternativa era «Preguntas y respuestas»** y se descartó: son cinco mazos de
+dieciocho, y quien busque un juego de preguntas y se encuentre mímica y dibujo
+se sentirá engañado. Play también penaliza la categoría equivocada: el
+descubrimiento va por categoría, y estar en la que no toca te compara con apps
+que hacen otra cosa.
+
+Contra: «Juegos de mesa» es una categoría con gigantes (Monopoly, Ludo, ajedrez)
+y un desconocido no aparece en sus listas. Se acepta: la ficha no se gana en la
+lista de la categoría sino en la búsqueda, y ahí trabajan las etiquetas y el
+título.
+
+#### Sobre las etiquetas
+
+**La lista de Play es cerrada**: se eligen hasta cinco de su taxonomía, no se
+escriben. Los nombres de arriba son los conceptos que hay que buscar en el
+selector; las etiquetas reales pueden llamarse algo distinto según cómo las tenga
+Play ese día. El orden es de prioridad, por si alguna no existe:
+
+1. **Juegos de fiesta** — es lo que la app es, y la que mejor filtra a quien la
+   busca.
+2. **Juegos de mesa** — refuerza la categoría.
+3. **Multijugador local** — es la diferencia real con el resto: cinco móviles sin
+   internet y sin router.
+4. **Preguntas y respuestas** — cubre los cinco mazos de cultura general.
+5. **Juegos de palabras** — cubre Tabú, Anagramas y Encadenados.
+
+Lo que **no** conviene poner aunque exista: nada de «multijugador en línea»
+—no lo es— ni «educativo», que cambia el público esperado.
 
 ### Gráficos
 
@@ -173,12 +223,11 @@ dos sumados. Prometer 3.194 en la ficha francesa sería falso.
 |---|---|---|
 | Icono | 512×512 PNG 32 bits, sin transparencia | `google_play/graficos/icono-512.png` |
 | Gráfico destacado | 1024×500 PNG o JPG | `google_play/graficos/destacado-1024x500.png` |
-| Capturas de teléfono | mín. 2, máx. 8 · 16:9 o 9:16 · lado mínimo 320 px | 4 de 8 |
+| Capturas de teléfono | mín. 2, máx. 8 · 16:9 o 9:16 · lado mínimo 320 px | 7 de 8 |
 | Capturas de tablet 7″ y 10″ | opcionales, pero mejoran la ficha | pendiente |
 
-**Hay cuatro de las ocho**, tomadas en un SM-S908U con Android 13. Faltan Tabú,
-Pinturillo, la rejilla de los dieciocho juegos y el salón; las dos primeras salen
-dejando activo solo ese juego en Ajustes. Detalle en
+**Hay siete de las ocho**, tomadas en un SM-S908U con Android 13. Falta **el
+salón**, y esa necesita un segundo móvil: no se puede fingir. Detalle en
 `google_play/CAPTURAS.md`, que incluye también un aviso: las capturas del
 repositorio están optimizadas a 256 colores para no engordarlo, así que las de la
 ficha conviene volver a tomarlas sin optimizar.
