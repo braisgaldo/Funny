@@ -43,6 +43,7 @@ EMOJIS_DE_LOS_JUEGOS = ["🎭", "🎨", "📅", "❓",
 MAX_TITULO = 30
 MAX_CORTA = 80
 MAX_LARGA = 4000
+MAX_NOVEDADES = 500
 
 # Palabras que no pueden aparecer, por idioma. No es una lista exhaustiva de
 # traducciones: son las que de verdad se colarian al escribir sobre una donacion.
@@ -63,6 +64,26 @@ PROHIBIDAS = {
     "ja-JP": ["購入", "課金", "アンロック", "プレミアム", "サブスク", "価格"],
 }
 
+# El numeral que la lista de juegos tiene que anunciar en cada idioma. Existe
+# porque el barrido de «doce -> dieciocho» dejo el japones a medias y ningun
+# test lo vio: los emojis estaban los dieciocho, pero el encabezado seguia
+# diciendo doce.
+NUMERAL_DE_LOS_JUEGOS = {
+    "es-ES": "DIECIOCHO PRUEBAS",
+    "en-US": "EIGHTEEN CHALLENGES",
+    "fr-FR": "DIX-HUIT ÉPREUVES",
+    "de-DE": "ACHTZEHN AUFGABEN",
+    "it-IT": "DICIOTTO PROVE",
+    "gl-ES": "DEZAOITO PROBAS",
+    "ca-ES": "DIVUIT PROVES",
+    "eu-ES": "HEMEZORTZI PROBA",
+    "el-GR": "ΔΕΚΑΟΚΤΩ ΔΟΚΙΜΑΣΙΕΣ",
+    "ru-RU": "ВОСЕМНАДЦАТЬ ЗАДАНИЙ",
+    "ar": "ثمانية عشر تحديًا",
+    "zh-CN": "十八个项目",
+    "ja-JP": "18種類のお題",
+}
+
 TITULO = "Funny"
 
 # --------------------------------------------------------------------------
@@ -80,6 +101,13 @@ TITULO = "Funny"
 FICHA = {}
 
 FICHA["es-ES"] = {
+    "novedades": """Primera versión de Funny.
+
+Dieciocho pruebas, tres modos, cuatro modalidades de partida y trece idiomas. Más de 1.600 cartas escritas a mano, ninguna generada.
+
+Se juega con un móvil que va de mano en mano, o con hasta cinco conectados entre ellos por Bluetooth o Wi-Fi Direct, sin internet y sin router.
+
+Sin anuncios, sin cuentas, sin registro y sin recoger ningún dato: la app no declara ni el permiso de internet.""",
     "corta": "Juego de fiesta con 18 pruebas. Sin internet, sin anuncios, sin extras.",
     "larga": """Funny es un juego de fiesta para jugar alrededor de una mesa, con la gente que tengas delante. Con un solo móvil que va pasando de mano en mano, o con un móvil por persona.
 
@@ -140,6 +168,13 @@ Hecho por una persona, en Galicia.""",
 }
 
 FICHA["en-US"] = {
+    "novedades": """First release of Funny.
+
+Eighteen challenges, three modes, four game lengths and thirteen languages. Over 1,500 cards written by hand, none generated.
+
+Play with one phone passed around, or with up to five phones connected to each other over Bluetooth or Wi-Fi Direct — no internet, no router.
+
+No ads, no accounts, no sign-up and no data collected: the app doesn't even declare the internet permission.""",
     "corta": "Party game with 18 challenges. No internet, no ads, nothing held back.",
     "larga": """Funny is a party game for playing around a table, with the people in front of you. With one phone passed from hand to hand, or with a phone each.
 
@@ -200,6 +235,13 @@ Made by one person, in Galicia.""",
 }
 
 FICHA["fr-FR"] = {
+    "novedades": """Première version de Funny.
+
+Dix-huit épreuves, trois modes, quatre formats de partie et treize langues. Plus de 1 500 cartes écrites à la main, aucune générée.
+
+On joue avec un seul téléphone qui circule, ou avec jusqu'à cinq téléphones reliés entre eux par Bluetooth ou Wi-Fi Direct, sans internet et sans routeur.
+
+Sans publicité, sans compte, sans inscription et sans collecte de données : l'app ne déclare même pas la permission internet.""",
     "corta": "Jeu d'ambiance, 18 épreuves. Sans internet, sans publicité, rien de réservé.",
     "larga": """Funny est un jeu d'ambiance pour jouer autour d'une table, avec les gens en face de vous. Avec un seul téléphone qui passe de main en main, ou un téléphone chacun.
 
@@ -260,6 +302,13 @@ Fait par une seule personne, en Galice.""",
 }
 
 FICHA["de-DE"] = {
+    "novedades": """Erste Version von Funny.
+
+Achtzehn Aufgaben, drei Modi, vier Partieformate und dreizehn Sprachen. Über 1.500 handgeschriebene Karten, keine generiert.
+
+Gespielt wird mit einem Handy, das herumgeht, oder mit bis zu fünf Handys, die per Bluetooth oder Wi-Fi Direct miteinander verbunden sind – ohne Internet und ohne Router.
+
+Keine Werbung, keine Konten, keine Anmeldung und keine Datenerfassung: die App fordert nicht einmal die Internet-Berechtigung an.""",
     "corta": "Partyspiel mit 18 Aufgaben. Ohne Internet, ohne Werbung, ohne Extras.",
     "larga": """Funny ist ein Partyspiel für den Tisch, mit den Leuten, die dir gegenübersitzen. Mit einem Handy, das herumgeht, oder mit einem Handy pro Person.
 
@@ -320,6 +369,13 @@ Von einer Person gemacht, in Galicien.""",
 }
 
 FICHA["it-IT"] = {
+    "novedades": """Prima versione di Funny.
+
+Diciotto prove, tre modi di gioco, quattro formati di partita e tredici lingue. Più di 1.500 carte scritte a mano, nessuna generata.
+
+Si gioca con un solo telefono che passa di mano, o con un massimo di cinque telefoni collegati tra loro via Bluetooth o Wi-Fi Direct, senza internet e senza router.
+
+Senza pubblicità, senza account, senza registrazione e senza raccogliere dati: l'app non dichiara nemmeno il permesso di internet.""",
     "corta": "Gioco di società, 18 prove. Senza internet, senza pubblicità, senza extra.",
     "larga": """Funny è un gioco di società da fare intorno a un tavolo, con le persone che hai davanti. Con un telefono che passa di mano in mano, o con un telefono ciascuno.
 
@@ -380,6 +436,13 @@ Fatto da una persona sola, in Galizia.""",
 }
 
 FICHA["gl-ES"] = {
+    "novedades": """Primeira versión de Funny.
+
+Dezaoito probas, tres modos, catro modalidades de partida e trece idiomas. Máis de 1.600 cartas escritas a man, ningunha xerada.
+
+Xógase cun móbil que vai de man en man, ou con ata cinco móbiles conectados entre eles por Bluetooth ou Wi-Fi Direct, sen internet e sen router.
+
+Sen anuncios, sen contas, sen rexistro e sen recoller ningún dato: a app non declara nin o permiso de internet.""",
     "corta": "Xogo de festa con 18 probas. Sen internet, sen anuncios e sen extras.",
     "larga": """Funny é un xogo de festa para xogar ao redor dunha mesa, coa xente que teñas diante. Cun só móbil que vai pasando de man en man, ou cun móbil por persoa.
 
@@ -440,6 +503,13 @@ Feito por unha persoa, en Galicia.""",
 }
 
 FICHA["ca-ES"] = {
+    "novedades": """Primera versió de Funny.
+
+Divuit proves, tres modes, quatre modalitats de partida i tretze idiomes. Més de 1.500 cartes escrites a mà, cap generada.
+
+Es juga amb un mòbil que va de mà en mà, o amb fins a cinc mòbils connectats entre ells per Bluetooth o Wi-Fi Direct, sense internet i sense router.
+
+Sense anuncis, sense comptes, sense registre i sense recollir cap dada: l'app no declara ni el permís d'internet.""",
     "corta": "Joc de festa amb 18 proves. Sense internet, sense anuncis i sense extres.",
     "larga": """Funny és un joc de festa per jugar al voltant d'una taula, amb la gent que tens al davant. Amb un sol mòbil que va passant de mà en mà, o amb un mòbil per persona.
 
@@ -500,6 +570,13 @@ Fet per una persona, a Galícia.""",
 }
 
 FICHA["eu-ES"] = {
+    "novedades": """Funny-ren lehen bertsioa.
+
+Hemezortzi proba, hiru modu, lau jokaldi-modalitate eta hamairu hizkuntza. 1.500 karta baino gehiago eskuz idatzita, bat ere ez sortuta.
+
+Mugikor bakarrarekin joka daiteke, eskuz esku, edo bost mugikor arte elkarri konektatuta Bluetooth edo Wi-Fi Direct bidez, internetik eta routerrik gabe.
+
+Iragarkirik gabe, konturik gabe, izena eman beharrik gabe eta daturik jaso gabe: app-ak internet baimena ere ez du eskatzen.""",
     "corta": "Festa-jokoa, 18 proba. Internetik gabe, iragarkirik gabe, gehigarririk gabe.",
     "larga": """Funny mahai baten inguruan jokatzeko festa-jokoa da, aurrean duzun jendearekin. Esku batetik bestera pasatzen den mugikor bakarrarekin, edo pertsona bakoitzak bere mugikorrarekin.
 
@@ -560,6 +637,13 @@ Pertsona bakar batek egina, Galizian.""",
 }
 
 FICHA["el-GR"] = {
+    "novedades": """Πρώτη έκδοση του Funny.
+
+Δεκαοκτώ δοκιμασίες, τρεις τρόποι παιχνιδιού, τέσσερα μεγέθη παρτίδας και δεκατρείς γλώσσες. Πάνω από 1.500 κάρτες γραμμένες στο χέρι, καμία παραγόμενη.
+
+Παίζεται με ένα κινητό που περνάει από χέρι σε χέρι, ή με έως πέντε κινητά συνδεδεμένα μεταξύ τους μέσω Bluetooth ή Wi-Fi Direct, χωρίς internet και χωρίς router.
+
+Χωρίς διαφημίσεις, χωρίς λογαριασμούς, χωρίς εγγραφή και χωρίς συλλογή δεδομένων.""",
     "corta": "Παιχνίδι πάρτι με 18 δοκιμασίες. Χωρίς internet, χωρίς διαφημίσεις.",
     "larga": """Το Funny είναι ένα παιχνίδι πάρτι για να παίζεται γύρω από ένα τραπέζι, με τους ανθρώπους που έχεις μπροστά σου. Με ένα κινητό που περνάει από χέρι σε χέρι, ή με ένα κινητό ανά άτομο.
 
@@ -620,6 +704,13 @@ FICHA["el-GR"] = {
 }
 
 FICHA["ru-RU"] = {
+    "novedades": """Первая версия Funny.
+
+Восемнадцать заданий, три режима, четыре формата партии и тринадцать языков. Больше 1500 карточек, написанных вручную, — ни одной сгенерированной.
+
+Играть можно одним телефоном, передавая его по кругу, или подключив до пяти телефонов друг к другу по Bluetooth или Wi-Fi Direct — без интернета и без роутера.
+
+Без рекламы, без аккаунтов, без регистрации и без сбора данных: приложение даже не запрашивает разрешение на интернет.""",
     "corta": "Игра для компании, 18 заданий. Без интернета, без рекламы, всё сразу.",
     "larga": """Funny — игра для компании за одним столом, с теми, кто сидит напротив. С одним телефоном, который передают из рук в руки, или с телефоном у каждого.
 
@@ -680,6 +771,13 @@ FICHA["ru-RU"] = {
 }
 
 FICHA["ar"] = {
+    "novedades": """الإصدار الأول من Funny.
+
+ثمانية عشر تحديًا، وثلاثة أنماط لعب، وأربعة أنماط للجولة، وثلاث عشرة لغة. أكثر من 1500 بطاقة مكتوبة يدويًا، ولا واحدة مُولَّدة.
+
+يمكن اللعب بهاتف واحد يتناقله الجميع، أو بربط خمسة هواتف ببعضها عبر البلوتوث أو Wi-Fi Direct، بلا إنترنت وبلا راوتر.
+
+بلا إعلانات، بلا حسابات، بلا تسجيل وبلا جمع أي بيانات: التطبيق لا يُعلن حتى صلاحية الإنترنت.""",
     "corta": "لعبة جماعية بـ 18 تحديًا. بلا إنترنت، بلا إعلانات، بلا إضافات.",
     "larga": """‏Funny لعبة جماعية تُلعب حول طاولة، مع من أمامك. بهاتف واحد يتناقله الجميع، أو بهاتف لكل شخص.
 
@@ -740,6 +838,13 @@ FICHA["ar"] = {
 }
 
 FICHA["zh-CN"] = {
+    "novedades": """Funny 的第一个版本。
+
+十八个项目、三种玩法、四种局的长短和十三种语言。1500 多张手写卡片，不是生成的。
+
+可以一部手机轮着玩，也可以最多五部手机通过蓝牙或 Wi-Fi Direct 互相连接。不用联网，不用路由器。
+
+没有广告，没有账号，不用注册，也不收集任何数据：应用连联网权限都没有声明。""",
     "corta": "18 个项目的聚会游戏。无需联网，没有广告，没有额外内容。",
     "larga": """Funny 是一款围着桌子玩的聚会游戏，和坐在你对面的人一起玩。可以只用一部手机轮流传递，也可以每人一部。
 
@@ -800,10 +905,17 @@ Funny 连联网权限都没有声明，所以就算它想连，Android 也不会
 }
 
 FICHA["ja-JP"] = {
+    "novedades": """Funny の最初のバージョンです。
+
+18種類のお題、3つのモード、4つのゲームモード、13の言語。1500枚以上のカードは、生成ではなく手書きです。
+
+1台のスマホを回して遊ぶことも、最大5台をBluetoothまたはWi-Fi Directでつないで遊ぶこともできます。インターネットもルーターも不要。
+
+広告なし、アカウントなし、登録なし、データ収集なし。インターネット権限そのものを宣言していません。""",
     "corta": "18種類のお題で遊ぶパーティーゲーム。ネット接続なし、広告なし。",
     "larga": """Funny は、テーブルを囲んで、目の前にいる人たちと遊ぶパーティーゲームです。1台のスマホを回して遊んでも、ひとり1台で遊んでも大丈夫。
 
-12種類のお題
+18種類のお題
 
 🎭 ジェスチャー — しゃべらずに演じる
 🎨 お絵かき — 画面に描く
@@ -866,6 +978,13 @@ def validar(codigo, textos):
     if len(TITULO) > MAX_TITULO:
         problemas.append("el titulo tiene %d caracteres (max %d)" % (len(TITULO), MAX_TITULO))
     corta, larga = textos["corta"], textos["larga"]
+    novedades = textos["novedades"]
+    if len(novedades) > MAX_NOVEDADES:
+        problemas.append(
+            "las novedades tienen %d caracteres (max %d)" % (len(novedades), MAX_NOVEDADES)
+        )
+    if not novedades.strip():
+        problemas.append("novedades vacias")
     if len(corta) > MAX_CORTA:
         problemas.append("la corta tiene %d caracteres (max %d)" % (len(corta), MAX_CORTA))
     if len(larga) > MAX_LARGA:
@@ -873,7 +992,7 @@ def validar(codigo, textos):
     if not corta.strip() or not larga.strip():
         problemas.append("texto vacio")
 
-    todo = (corta + "\n" + larga).lower()
+    todo = (corta + "\n" + larga + "\n" + novedades).lower()
     for palabra in PROHIBIDAS.get(codigo, []):
         if palabra.lower() in todo:
             problemas.append("vocabulario prohibido: «%s»" % palabra.strip())
@@ -885,13 +1004,31 @@ def validar(codigo, textos):
     faltan = [e for e in EMOJIS_DE_LOS_JUEGOS if e not in larga]
     if faltan:
         problemas.append("faltan %d juegos en la enumeracion: %s" % (len(faltan), " ".join(faltan)))
+
+    # Y el encabezado tiene que anunciar el numero que hay. Los emojis pueden
+    # estar los dieciocho mientras el titulo sigue diciendo doce.
+    numeral = NUMERAL_DE_LOS_JUEGOS.get(codigo)
+    if numeral and numeral not in larga:
+        problemas.append("el encabezado no dice «%s»" % numeral)
+
+    # Una linea por juego, ni una mas: si un mazo se anade y no se enumera, o se
+    # enumera dos veces, sale aqui.
+    lineas = [
+        ln for ln in larga.split("\n")
+        if ln[:2].strip() and any(ln.startswith(e) for e in EMOJIS_DE_LOS_JUEGOS)
+    ]
+    if len(lineas) != len(EMOJIS_DE_LOS_JUEGOS):
+        problemas.append(
+            "la lista tiene %d lineas de juego y hay %d juegos"
+            % (len(lineas), len(EMOJIS_DE_LOS_JUEGOS))
+        )
     return problemas
 
 
 def main():
     fallos = 0
-    print("%-8s %6s %6s  %s" % ("idioma", "corta", "larga", "estado"))
-    print("-" * 58)
+    print("%-8s %6s %6s %6s  %s" % ("idioma", "corta", "larga", "notas", "estado"))
+    print("-" * 66)
     for codigo in sorted(FICHA):
         textos = FICHA[codigo]
         carpeta = os.path.join(SALIDA, codigo)
@@ -900,6 +1037,7 @@ def main():
             ("titulo.txt", TITULO),
             ("corta.txt", textos["corta"]),
             ("larga.txt", textos["larga"]),
+            ("novedades.txt", textos["novedades"]),
         ):
             with io.open(os.path.join(carpeta, nombre), "w", encoding="utf-8", newline="\n") as f:
                 f.write(contenido.strip() + "\n")
@@ -909,11 +1047,17 @@ def main():
         if problemas:
             fallos += 1
         print(
-            "%-8s %6d %6d  %s"
-            % (codigo, len(textos["corta"]), len(textos["larga"]), estado)
+            "%-8s %6d %6d %6d  %s"
+            % (
+                codigo,
+                len(textos["corta"]),
+                len(textos["larga"]),
+                len(textos["novedades"]),
+                estado,
+            )
         )
 
-    print("-" * 58)
+    print("-" * 66)
     print("%d idiomas escritos en ficha/" % len(FICHA))
     if len(FICHA) != 13:
         print("OJO: son %d y tendrian que ser 13" % len(FICHA))

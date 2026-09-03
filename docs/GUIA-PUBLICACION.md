@@ -78,6 +78,23 @@ añade ahí el enlace de «invítame a un café», con el mismo texto que en la 
 Los trece idiomas están escritos. En Play Console: Presencia en Play → Ficha de
 Play principal, y luego una traducción por idioma.
 
+### Notas de la versión
+
+**Novedades** (máx. 500 por idioma): en `google_play/ficha/<idioma>/novedades.txt`
+
+No van en la ficha sino **en la versión**: Producción → Crear versión → Notas de
+la versión, y hay un campo por idioma. Play las guarda por versión, así que las de
+la 1.0.0 se quedan asociadas a ella y en la siguiente se escriben otras.
+
+Las de la 1.0.0 cuentan qué es la app, que es lo que corresponde en una primera
+publicación: no hay nada anterior con lo que comparar. A partir de la 1.1.0 tocará
+contar lo que cambia, y conviene sacarlas del CHANGELOG en lugar de escribirlas
+dos veces.
+
+La cifra de cartas de cada idioma **no es el total de 3.194**: es la de su mazo.
+Quien lee la ficha francesa juega con el mazo inglés —1.526 cartas— y no con los
+dos sumados. Prometer 3.194 en la ficha francesa sería falso.
+
 ### Categoría y etiquetas
 
 - **Categoría**: Juegos → **Juegos de mesa**
@@ -426,6 +443,7 @@ contacto. Y antes de eso, según el punto 6 de la plantilla, **parar y consultar
 
 - [ ] Ficha principal completa
 - [ ] Las 12 traducciones añadidas
+- [ ] **Notas de la versión** en los 13 idiomas · `ficha/<idioma>/novedades.txt`
 - [ ] Categoría: Juegos → Juegos de mesa
 - [ ] Formulario de Seguridad de los datos: **no se recogen datos**
 - [ ] Cuestionario de clasificación de contenido

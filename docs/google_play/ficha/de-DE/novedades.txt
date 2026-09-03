@@ -1,0 +1,7 @@
+Erste Version von Funny.
+
+Achtzehn Aufgaben, drei Modi, vier Partieformate und dreizehn Sprachen. Über 1.500 handgeschriebene Karten, keine generiert.
+
+Gespielt wird mit einem Handy, das herumgeht, oder mit bis zu fünf Handys, die per Bluetooth oder Wi-Fi Direct miteinander verbunden sind – ohne Internet und ohne Router.
+
+Keine Werbung, keine Konten, keine Anmeldung und keine Datenerfassung: die App fordert nicht einmal die Internet-Berechtigung an.

@@ -10,7 +10,7 @@ Esta carpeta es el material; ese documento es el orden en el que usarlo.
 ## Qué hay aquí
 
 ```
-ficha/<idioma>/          titulo.txt, corta.txt, larga.txt · 13 idiomas
+ficha/<idioma>/          titulo.txt, corta.txt, larga.txt, novedades.txt · 13 idiomas
 graficos/                icono-512.png, icono-1024.png, destacado-1024x500.png
 formularios/             las respuestas de los formularios de Play, ya decididas
 politicas/               dónde guardar las capturas de las políticas consultadas

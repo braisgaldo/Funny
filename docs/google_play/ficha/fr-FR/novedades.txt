@@ -1,0 +1,7 @@
+Première version de Funny.
+
+Dix-huit épreuves, trois modes, quatre formats de partie et treize langues. Plus de 1 500 cartes écrites à la main, aucune générée.
+
+On joue avec un seul téléphone qui circule, ou avec jusqu'à cinq téléphones reliés entre eux par Bluetooth ou Wi-Fi Direct, sans internet et sans routeur.
+
+Sans publicité, sans compte, sans inscription et sans collecte de données : l'app ne déclare même pas la permission internet.

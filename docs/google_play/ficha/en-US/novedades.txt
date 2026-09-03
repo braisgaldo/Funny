@@ -1,0 +1,7 @@
+First release of Funny.
+
+Eighteen challenges, three modes, four game lengths and thirteen languages. Over 1,500 cards written by hand, none generated.
+
+Play with one phone passed around, or with up to five phones connected to each other over Bluetooth or Wi-Fi Direct — no internet, no router.
+
+No ads, no accounts, no sign-up and no data collected: the app doesn't even declare the internet permission.
