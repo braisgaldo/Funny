@@ -16,7 +16,7 @@ apartado 1 tienes suficiente.
 2. [Cómo funciona el tablero](#2-cómo-funciona-el-tablero)
 3. [Los tres modos de juego](#3-los-tres-modos-de-juego)
 4. [Las cuatro modalidades: cuánto dura la partida](#4-las-cuatro-modalidades-cuánto-dura-la-partida)
-5. [Las doce pruebas, una por una](#5-las-doce-pruebas-una-por-una)
+5. [Las dieciocho pruebas, una por una](#5-las-dieciocho-pruebas-una-por-una)
 6. [Jugar con varios móviles](#6-jugar-con-varios-móviles)
 7. [Ajustes](#7-ajustes)
 8. [Guardar y recuperar tus datos](#8-guardar-y-recuperar-tus-datos)
@@ -37,8 +37,8 @@ apartado 1 tienes suficiente.
 Ya está. En su turno, cada uno pulsa el dado, avanza, hace la prueba que le toque
 y la mesa decide si la ha superado.
 
-La primera vez, la app te ofrece un **tour guiado** que explica los doce juegos y
-los tres modos. Son seis pantallas y se puede saltar; está siempre disponible en
+La primera vez, la app te ofrece un **tour guiado** que explica los dieciocho juegos y
+los tres modos. Son ocho pantallas y se puede saltar; está siempre disponible en
 **Ajustes → Ayuda → Ver el tour otra vez**.
 
 ---
@@ -133,7 +133,7 @@ dejarte sin tablero.
 
 ---
 
-## 5. Las doce pruebas, una por una
+## 5. Las dieciocho pruebas, una por una
 
 Cada prueba tiene su tiempo, y el tiempo se estira o se acorta con el **ritmo** que
 elijas en Ajustes (rápido, normal o tranquilo).
@@ -191,6 +191,35 @@ poco más difícil.
 ### 🤸 Desafío — *atrévete*
 Una prueba física o absurda: quedarte a la pata coja, hablar sin usar la letra E,
 imitar a alguien de la mesa. Tienen tres niveles de dificultad.
+
+### 📜 Refranes — *completa el refrán*
+Sale media frase hecha y cuatro finales. **Los otros tres son finales de refranes
+de verdad**, así que no vale ir por eliminación: hay que saberse el refrán.
+
+### ⏳ ¿Antes o después? — *¿qué pasó primero?*
+Dos hechos históricos y hay que decir cuál fue antes. Al resolver aparecen los
+dos años, y ahí es donde se aprende algo casi sin querer.
+
+### 🔤 Anagramas — *ordena las letras*
+Unas letras revueltas y cuatro palabras candidatas. Las tres falsas usan casi las
+mismas letras, así que contarlas no ayuda.
+
+### 🗣 Acentos — *dilo con esa voz*
+Hay que decir una frase con la voz que pida la carta: un presentador de
+telediario, un robot sin batería, un villano de dibujos. La mesa decide si valía.
+
+Los acentos son de **oficios y situaciones**, nunca de nacionalidades ni
+regiones: imitar a un presentador hace gracia sin ir a costa de nadie.
+
+### 🔊 Sonidos — *imítalo con la boca*
+Una moto que no arranca, un microondas terminando, un pato que ha perdido la voz.
+**Solo con la boca**: nada de palmas, ni golpes en la mesa, ni objetos. Con las
+manos el juego pierde toda la gracia.
+
+### 🔗 Encadenados — *palabra tras palabra*
+Se parte de una palabra y cada siguiente empieza por la **última sílaba** de la
+anterior: casa → sapo → poste. El contador lo lleváis vosotros, y discutir si una
+vale es parte del juego.
 
 ---
 
@@ -327,7 +356,7 @@ Funny es gratis, no tiene anuncios y no recoge ningún dato. Si te resulta útil
 puedes invitarme a un café de 1 €.
 
 **La donación no desbloquea nada.** Ni funciones, ni temas, ni contenido. Los seis
-temas, los trece idiomas, los doce juegos y el modo de varios móviles están ahí
+temas, los trece idiomas, los dieciocho juegos y el modo de varios móviles están ahí
 desde la primera vez que abres la app. No hay «versión completa» porque no hay
 versión incompleta.
 
@@ -370,7 +399,8 @@ Individual, de 2 a 8 personas. Con varios móviles, hasta cinco móviles.
 Sí. Saldrán como «Equipo 1», «Jugador 2»…
 
 **¿Puedo quitar juegos que no nos gustan?**
-Sí, uno a uno, en Ajustes → Juegos de la partida.
+Sí, los dieciocho uno a uno, en Ajustes → Juegos de la partida. Si los quitas
+todos, la app ignora la preferencia en lugar de dejarte sin tablero.
 
 **¿Cuánto dura una partida?**
 Lo que elijas: unos 18 minutos la rápida, 30 la normal, 48 la extrema, o lo que

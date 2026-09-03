@@ -14,8 +14,8 @@ Los hechos que importan para elegir:
 
 - Es una app **gratuita, sin anuncios y sin compras**, publicada en Google Play y
   con el APK también en las GitHub Releases y (previsto) en F-Droid.
-- Su valor no está tanto en el código como en las **2.601 cartas escritas a mano**
-  y en las **392 claves traducidas a trece idiomas**. Eso es lo que cuesta meses.
+- Su valor no está tanto en el código como en las **3.194 cartas escritas a mano**
+  y en las **413 claves traducidas a trece idiomas**. Eso es lo que cuesta meses.
 - El repositorio es público. Cualquiera puede coger el árbol entero.
 - Lo que no quiero es lo evidente: que alguien recompile esto, le meta anuncios y
   lo suba a la misma tienda como si fuera suyo.
@@ -46,7 +46,7 @@ es la forma recomendada por la FSF y no cuesta nada.
 
 ### El contenido: CC BY-SA 4.0
 
-Fichero `LICENSE-CONTENIDO`. Cubre `app/src/main/assets/contenido/` —las 2.601
+Fichero `LICENSE-CONTENIDO`. Cubre `app/src/main/assets/contenido/` —las 3.194
 cartas— y los catálogos de idioma.
 
 La GPL está escrita para programas y encaja mal con textos: hablar del «código

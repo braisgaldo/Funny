@@ -32,11 +32,13 @@ if hasattr(sys.stdout, "reconfigure"):
 AQUI = os.path.dirname(os.path.abspath(__file__))
 SALIDA = os.path.join(AQUI, "ficha")
 
-# Los emojis de los doce juegos, en el orden del enum `Juego`. Sirven para
+# Los emojis de los dieciocho juegos, en el orden del enum `Juego`. Sirven para
 # comprobar que la ficha los enumera todos sin depender del idioma.
 EMOJIS_DE_LOS_JUEGOS = ["🎭", "🎨", "📅", "❓",
                         "🤐", "⚡", "🍿", "🤥",
-                        "👅", "🔢", "🎤", "🤸"]
+                        "👅", "🔢", "🎤", "🤸",
+                        "📜", "⏳", "🔤", "🗣",
+                        "🔊", "🔗"]
 
 MAX_TITULO = 30
 MAX_CORTA = 80
@@ -78,10 +80,10 @@ TITULO = "Funny"
 FICHA = {}
 
 FICHA["es-ES"] = {
-    "corta": "Juego de fiesta con 12 pruebas. Sin internet, sin anuncios, sin extras.",
+    "corta": "Juego de fiesta con 18 pruebas. Sin internet, sin anuncios, sin extras.",
     "larga": """Funny es un juego de fiesta para jugar alrededor de una mesa, con la gente que tengas delante. Con un solo móvil que va pasando de mano en mano, o con un móvil por persona.
 
-DOCE PRUEBAS
+DIECIOCHO PRUEBAS
 
 🎭 Mímica — represéntalo sin hablar
 🎨 Pinturillo — dibújalo en la pantalla
@@ -95,8 +97,14 @@ DOCE PRUEBAS
 🔢 Ordena — ponlo en su sitio
 🎤 Canta — sigue la canción
 🤸 Desafío — atrévete
+📜 Refranes — completa el refrán
+⏳ ¿Antes o después? — ¿qué pasó primero?
+🔤 Anagramas — ordena las letras
+🗣 Acentos — dilo con esa voz
+🔊 Sonidos — imítalo con la boca
+🔗 Encadenados — palabra tras palabra
 
-Más de 1.300 cartas escritas a mano, no generadas.
+Más de 1.600 cartas escritas a mano, no generadas.
 
 TRES MODOS
 
@@ -124,7 +132,7 @@ Tres temas oscuros y tres claros, o que siga al del sistema. Y trece idiomas com
 
 GRATIS, Y GRATIS DE VERDAD
 
-Los doce juegos, los seis temas, los trece idiomas y el modo de varios móviles están ahí desde la primera vez que abres la app. No hay versión reducida, no hay contenido reservado y no hay nada que conseguir aparte.
+Los dieciocho juegos, los seis temas, los trece idiomas y el modo de varios móviles están ahí desde la primera vez que abres la app. No hay versión reducida, no hay contenido reservado y no hay nada que conseguir aparte.
 
 Hay una opción para invitarme a un café si te apetece, y no da absolutamente nada a cambio: no cambia nada dentro del juego. Se abre en el navegador del sistema y la app no gestiona ningún cobro.
 
@@ -132,10 +140,10 @@ Hecho por una persona, en Galicia.""",
 }
 
 FICHA["en-US"] = {
-    "corta": "Party game with 12 challenges. No internet, no ads, nothing held back.",
+    "corta": "Party game with 18 challenges. No internet, no ads, nothing held back.",
     "larga": """Funny is a party game for playing around a table, with the people in front of you. With one phone passed from hand to hand, or with a phone each.
 
-TWELVE CHALLENGES
+EIGHTEEN CHALLENGES
 
 🎭 Mime — act it out without speaking
 🎨 Draw it — sketch on the screen
@@ -149,8 +157,14 @@ TWELVE CHALLENGES
 🔢 Put in order — get the sequence right
 🎤 Sing — carry on the song
 🤸 Dare — go on, then
+📜 Proverbs — finish the saying
+⏳ Which came first? — put history in order
+🔤 Anagrams — unscramble the letters
+🗣 Voices — say it like that
+🔊 Sound effects — do it with your mouth
+🔗 Word chain — one word after another
 
-Over 1,200 cards written by hand, not generated.
+Over 1,500 cards written by hand, not generated.
 
 THREE MODES
 
@@ -178,7 +192,7 @@ Three dark themes and three light ones, or follow the system. And thirteen compl
 
 FREE, AND ACTUALLY FREE
 
-The twelve games, the six themes, the thirteen languages and the multi-phone mode are all there the first time you open the app. There's no cut-down version, no reserved content and nothing to obtain separately.
+The eighteen games, the six themes, the thirteen languages and the multi-phone mode are all there the first time you open the app. There's no cut-down version, no reserved content and nothing to obtain separately.
 
 There's an option to treat me to a coffee if you feel like it, and it gives you absolutely nothing in return: it changes nothing inside the game. It opens in the system browser and the app handles no payment at all.
 
@@ -186,10 +200,10 @@ Made by one person, in Galicia.""",
 }
 
 FICHA["fr-FR"] = {
-    "corta": "Jeu d'ambiance, 12 épreuves. Sans internet, sans publicité, rien de réservé.",
+    "corta": "Jeu d'ambiance, 18 épreuves. Sans internet, sans publicité, rien de réservé.",
     "larga": """Funny est un jeu d'ambiance pour jouer autour d'une table, avec les gens en face de vous. Avec un seul téléphone qui passe de main en main, ou un téléphone chacun.
 
-DOUZE ÉPREUVES
+DIX-HUIT ÉPREUVES
 
 🎭 Mime — sans parler
 🎨 Dessine — sur l'écran
@@ -203,8 +217,14 @@ DOUZE ÉPREUVES
 🔢 Dans l'ordre — remettez tout à sa place
 🎤 Chante — reprenez la chanson
 🤸 Cap ou pas cap
+📜 Proverbes — complète le proverbe
+⏳ Avant ou après ? — qu'est-ce qui s'est passé d'abord ?
+🔤 Anagrammes — remets les lettres en ordre
+🗣 Voix — dis-le avec cette voix
+🔊 Bruitages — imite-le avec la bouche
+🔗 Mots enchaînés — un mot après l'autre
 
-Plus de 1 200 cartes écrites à la main, pas générées.
+Plus de 1 500 cartes écrites à la main, pas générées.
 
 TROIS MODES
 
@@ -232,7 +252,7 @@ Trois thèmes sombres et trois clairs, ou suivre le système. Et treize langues 
 
 GRATUIT, ET VRAIMENT GRATUIT
 
-Les douze jeux, les six thèmes, les treize langues et le mode multi-téléphone sont là dès la première ouverture. Pas de version réduite, pas de contenu réservé, rien à obtenir à part.
+Les dix-huit jeux, les six thèmes, les treize langues et le mode multi-téléphone sont là dès la première ouverture. Pas de version réduite, pas de contenu réservé, rien à obtenir à part.
 
 Il y a une option pour m'offrir un café si l'envie vous prend, et elle ne donne absolument rien en échange : elle ne change rien dans le jeu. Elle s'ouvre dans le navigateur du système et l'application ne gère aucune transaction.
 
@@ -240,10 +260,10 @@ Fait par une seule personne, en Galice.""",
 }
 
 FICHA["de-DE"] = {
-    "corta": "Partyspiel mit 12 Aufgaben. Ohne Internet, ohne Werbung, ohne Extras.",
+    "corta": "Partyspiel mit 18 Aufgaben. Ohne Internet, ohne Werbung, ohne Extras.",
     "larga": """Funny ist ein Partyspiel für den Tisch, mit den Leuten, die dir gegenübersitzen. Mit einem Handy, das herumgeht, oder mit einem Handy pro Person.
 
-ZWÖLF AUFGABEN
+ACHTZEHN AUFGABEN
 
 🎭 Pantomime — ohne zu sprechen
 🎨 Zeichnen — auf dem Bildschirm
@@ -257,8 +277,14 @@ ZWÖLF AUFGABEN
 🔢 Sortieren — in die richtige Reihenfolge
 🎤 Singen — das Lied weiterführen
 🤸 Wagnis — trau dich
+📜 Sprichwörter — vervollständige das Sprichwort
+⏳ Vorher oder nachher? — was war zuerst?
+🔤 Anagramme — bring die Buchstaben in Ordnung
+🗣 Stimmen — sag es mit dieser Stimme
+🔊 Geräusche — mach es mit dem Mund
+🔗 Wortkette — ein Wort nach dem anderen
 
-Über 1.200 handgeschriebene Karten, nicht generiert.
+Über 1.500 handgeschriebene Karten, nicht generiert.
 
 DREI MODI
 
@@ -286,7 +312,7 @@ Drei dunkle und drei helle Designs, oder dem System folgen. Und dreizehn vollst�
 
 KOSTENLOS, UND WIRKLICH KOSTENLOS
 
-Die zwölf Spiele, die sechs Designs, die dreizehn Sprachen und der Mehrgeräte-Modus sind beim ersten Start alle da. Keine abgespeckte Fassung, keine zurückgehaltenen Inhalte, nichts extra zu holen.
+Die achtzehn Spiele, die sechs Designs, die dreizehn Sprachen und der Mehrgeräte-Modus sind beim ersten Start alle da. Keine abgespeckte Fassung, keine zurückgehaltenen Inhalte, nichts extra zu holen.
 
 Es gibt eine Möglichkeit, mir einen Kaffee zu spendieren, wenn du magst, und sie gibt absolut nichts zurück: sie ändert nichts im Spiel. Sie öffnet den System-Browser, und die App verarbeitet keine Zahlung.
 
@@ -294,10 +320,10 @@ Von einer Person gemacht, in Galicien.""",
 }
 
 FICHA["it-IT"] = {
-    "corta": "Gioco di società, 12 prove. Senza internet, senza pubblicità, senza extra.",
+    "corta": "Gioco di società, 18 prove. Senza internet, senza pubblicità, senza extra.",
     "larga": """Funny è un gioco di società da fare intorno a un tavolo, con le persone che hai davanti. Con un telefono che passa di mano in mano, o con un telefono ciascuno.
 
-DODICI PROVE
+DICIOTTO PROVE
 
 🎭 Mimo — senza parlare
 🎨 Disegna — sullo schermo
@@ -311,8 +337,14 @@ DODICI PROVE
 🔢 Metti in ordine
 🎤 Canta — vai avanti tu
 🤸 Sfida — coraggio
+📜 Proverbi — completa il proverbio
+⏳ Prima o dopo? — cosa è successo prima?
+🔤 Anagrammi — rimetti in ordine le lettere
+🗣 Voci — dillo con quella voce
+🔊 Suoni — imitalo con la bocca
+🔗 Parole in catena — una parola dopo l'altra
 
-Più di 1.200 carte scritte a mano, non generate.
+Più di 1.500 carte scritte a mano, non generate.
 
 TRE MODALITÀ
 
@@ -340,7 +372,7 @@ Tre temi scuri e tre chiari, o seguire il sistema. E tredici lingue complete: it
 
 GRATIS, E GRATIS DAVVERO
 
-I dodici giochi, i sei temi, le tredici lingue e la modalità multi-telefono sono lì dalla prima volta che apri l'app. Nessuna versione ridotta, nessun contenuto riservato, niente da ottenere a parte.
+I diciotto giochi, i sei temi, le tredici lingue e la modalità multi-telefono sono lì dalla prima volta che apri l'app. Nessuna versione ridotta, nessun contenuto riservato, niente da ottenere a parte.
 
 C'è un'opzione per offrirmi un caffè, se ti va, e non dà assolutamente nulla in cambio: non cambia niente dentro il gioco. Si apre nel browser di sistema e l'app non gestisce alcuna transazione.
 
@@ -348,10 +380,10 @@ Fatto da una persona sola, in Galizia.""",
 }
 
 FICHA["gl-ES"] = {
-    "corta": "Xogo de festa con 12 probas. Sen internet, sen anuncios e sen extras.",
+    "corta": "Xogo de festa con 18 probas. Sen internet, sen anuncios e sen extras.",
     "larga": """Funny é un xogo de festa para xogar ao redor dunha mesa, coa xente que teñas diante. Cun só móbil que vai pasando de man en man, ou cun móbil por persoa.
 
-DOCE PROBAS
+DEZAOITO PROBAS
 
 🎭 Mímica — represéntao sen falar
 🎨 Pinturillo — debúxao na pantalla
@@ -365,8 +397,14 @@ DOCE PROBAS
 🔢 Ordena — ponno no seu sitio
 🎤 Canta — segue a canción
 🤸 Desafío — atrévete
+📜 Refráns — completa o refrán
+⏳ ¿Antes ou despois? — ¿que pasou primeiro?
+🔤 Anagramas — ordena as letras
+🗣 Acentos — dío con esa voz
+🔊 Sons — imítao coa boca
+🔗 Encadeados — palabra tras palabra
 
-Máis de 1.300 cartas escritas a man, non xeradas.
+Máis de 1.600 cartas escritas a man, non xeradas.
 
 TRES MODOS
 
@@ -394,7 +432,7 @@ Tres temas escuros e tres claros, ou que siga ao do sistema. E trece idiomas com
 
 DE GRAZA, E DE GRAZA DE VERDADE
 
-Os doce xogos, os seis temas, os trece idiomas e o modo de varios móbiles están aí desde a primeira vez que abres a app. Non hai versión reducida, non hai contido reservado e non hai nada que conseguir aparte.
+Os dezaoito xogos, os seis temas, os trece idiomas e o modo de varios móbiles están aí desde a primeira vez que abres a app. Non hai versión reducida, non hai contido reservado e non hai nada que conseguir aparte.
 
 Hai unha opción para convidarme a un café se che apetece, e non dá absolutamente nada a cambio: non cambia nada dentro do xogo. Ábrese no navegador do sistema e a app non xestiona ningún cobro.
 
@@ -402,10 +440,10 @@ Feito por unha persoa, en Galicia.""",
 }
 
 FICHA["ca-ES"] = {
-    "corta": "Joc de festa amb 12 proves. Sense internet, sense anuncis i sense extres.",
+    "corta": "Joc de festa amb 18 proves. Sense internet, sense anuncis i sense extres.",
     "larga": """Funny és un joc de festa per jugar al voltant d'una taula, amb la gent que tens al davant. Amb un sol mòbil que va passant de mà en mà, o amb un mòbil per persona.
 
-DOTZE PROVES
+DIVUIT PROVES
 
 🎭 Mímica — representa-ho sense parlar
 🎨 Pinturillo — dibuixa-ho a la pantalla
@@ -419,8 +457,14 @@ DOTZE PROVES
 🔢 Ordena — posa-ho al seu lloc
 🎤 Canta — segueix la cançó
 🤸 Desafiament — atreveix-t'hi
+📜 Refranys — completa el refrany
+⏳ Abans o després? — què va passar primer?
+🔤 Anagrames — ordena les lletres
+🗣 Veus — digues-ho amb aquella veu
+🔊 Sons — imita-ho amb la boca
+🔗 Encadenats — paraula rere paraula
 
-Més de 1.200 cartes escrites a mà, no generades.
+Més de 1.500 cartes escrites a mà, no generades.
 
 TRES MODES
 
@@ -448,7 +492,7 @@ Tres temes foscos i tres clars, o que segueixi el del sistema. I tretze idiomes 
 
 GRATIS, I GRATIS DE VERITAT
 
-Els dotze jocs, els sis temes, els tretze idiomes i el mode de diversos mòbils hi són des de la primera vegada que obres l'app. No hi ha versió reduïda, no hi ha contingut reservat i no hi ha res a aconseguir a part.
+Els divuit jocs, els sis temes, els tretze idiomes i el mode de diversos mòbils hi són des de la primera vegada que obres l'app. No hi ha versió reduïda, no hi ha contingut reservat i no hi ha res a aconseguir a part.
 
 Hi ha una opció per convidar-me a un cafè si et ve de gust, i no dona absolutament res a canvi: no canvia res dins del joc. S'obre al navegador del sistema i l'app no gestiona cap cobrament.
 
@@ -456,10 +500,10 @@ Fet per una persona, a Galícia.""",
 }
 
 FICHA["eu-ES"] = {
-    "corta": "Festa-jokoa, 12 proba. Internetik gabe, iragarkirik gabe, gehigarririk gabe.",
+    "corta": "Festa-jokoa, 18 proba. Internetik gabe, iragarkirik gabe, gehigarririk gabe.",
     "larga": """Funny mahai baten inguruan jokatzeko festa-jokoa da, aurrean duzun jendearekin. Esku batetik bestera pasatzen den mugikor bakarrarekin, edo pertsona bakoitzak bere mugikorrarekin.
 
-HAMABI PROBA
+HEMEZORTZI PROBA
 
 🎭 Mimika — antzeztu hitz egin gabe
 🎨 Marraztu — pantailan
@@ -473,8 +517,14 @@ HAMABI PROBA
 🔢 Ordenatu — jarri bere lekuan
 🎤 Kantatu — jarraitu abestia
 🤸 Desafioa — ausartu
+📜 Esaerak — osatu esaera
+⏳ Lehen ala gero? — zer gertatu zen lehenago?
+🔤 Anagramak — ordenatu letrak
+🗣 Ahotsak — esan ahots horrekin
+🔊 Soinuak — imitatu ahoarekin
+🔗 Kateatuak — hitz bat bestearen atzetik
 
-1.200 karta baino gehiago eskuz idatzita, ez sortuta.
+1.500 karta baino gehiago eskuz idatzita, ez sortuta.
 
 HIRU MODU
 
@@ -502,7 +552,7 @@ Hiru itxura ilun eta hiru argi, edo sistemarena jarraitu. Eta hamahiru hizkuntza
 
 DOAN, ETA BENETAN DOAN
 
-Hamabi jokoak, sei itxurak, hamahiru hizkuntzak eta mugikor anitzeko modua hor daude app-a lehen aldiz irekitzen duzunetik. Ez dago bertsio murriztua, ez dago eduki gordea eta ez dago aparte lortu beharreko ezer.
+Hemezortzi jokoak, sei itxurak, hamahiru hizkuntzak eta mugikor anitzeko modua hor daude app-a lehen aldiz irekitzen duzunetik. Ez dago bertsio murriztua, ez dago eduki gordea eta ez dago aparte lortu beharreko ezer.
 
 Kafe bat gonbidatzeko aukera bat dago, gogoa baduzu, eta ez du ezer ematen ordainetan: ez du ezer aldatzen jokoaren barruan. Sistemaren nabigatzailean irekitzen da eta app-ak ez du inolako kobrantza kudeatzen.
 
@@ -510,10 +560,10 @@ Pertsona bakar batek egina, Galizian.""",
 }
 
 FICHA["el-GR"] = {
-    "corta": "Παιχνίδι πάρτι με 12 δοκιμασίες. Χωρίς internet, χωρίς διαφημίσεις.",
+    "corta": "Παιχνίδι πάρτι με 18 δοκιμασίες. Χωρίς internet, χωρίς διαφημίσεις.",
     "larga": """Το Funny είναι ένα παιχνίδι πάρτι για να παίζεται γύρω από ένα τραπέζι, με τους ανθρώπους που έχεις μπροστά σου. Με ένα κινητό που περνάει από χέρι σε χέρι, ή με ένα κινητό ανά άτομο.
 
-ΔΩΔΕΚΑ ΔΟΚΙΜΑΣΙΕΣ
+ΔΕΚΑΟΚΤΩ ΔΟΚΙΜΑΣΙΕΣ
 
 🎭 Παντομίμα — χωρίς να μιλάς
 🎨 Ζωγράφισέ το — στην οθόνη
@@ -527,8 +577,14 @@ FICHA["el-GR"] = {
 🔢 Βάλε σε σειρά
 🎤 Τραγούδα — συνέχισε το τραγούδι
 🤸 Πρόκληση — τόλμησε
+📜 Παροιμίες — συμπλήρωσε την παροιμία
+⏳ Πριν ή μετά; — τι έγινε πρώτα;
+🔤 Αναγραμματισμοί — βάλε τα γράμματα σε σειρά
+🗣 Φωνές — πες το με αυτή τη φωνή
+🔊 Ήχοι — μίμησέ το με το στόμα
+🔗 Αλυσίδα λέξεων — λέξη μετά λέξη
 
-Πάνω από 1.200 κάρτες γραμμένες στο χέρι, όχι παραγόμενες.
+Πάνω από 1.500 κάρτες γραμμένες στο χέρι, όχι παραγόμενες.
 
 ΤΡΕΙΣ ΤΡΟΠΟΙ
 
@@ -556,7 +612,7 @@ FICHA["el-GR"] = {
 
 ΔΩΡΕΑΝ, ΚΑΙ ΔΩΡΕΑΝ ΣΤΑ ΑΛΗΘΕΙΑ
 
-Τα δώδεκα παιχνίδια, τα έξι θέματα, οι δεκατρείς γλώσσες και ο τρόπος με πολλά κινητά είναι εκεί από την πρώτη φορά που ανοίγεις την εφαρμογή. Δεν υπάρχει περιορισμένη έκδοση, δεν υπάρχει δεσμευμένο περιεχόμενο και δεν υπάρχει τίποτα να αποκτήσεις ξεχωριστά.
+Τα δεκαοκτώ παιχνίδια, τα έξι θέματα, οι δεκατρείς γλώσσες και ο τρόπος με πολλά κινητά είναι εκεί από την πρώτη φορά που ανοίγεις την εφαρμογή. Δεν υπάρχει περιορισμένη έκδοση, δεν υπάρχει δεσμευμένο περιεχόμενο και δεν υπάρχει τίποτα να αποκτήσεις ξεχωριστά.
 
 Υπάρχει μια επιλογή να μου κεράσεις έναν καφέ, αν σου κάνει κέφι, και δεν δίνει απολύτως τίποτα σε αντάλλαγμα: δεν αλλάζει τίποτα μέσα στο παιχνίδι. Ανοίγει στο πρόγραμμα περιήγησης του συστήματος και η εφαρμογή δεν διαχειρίζεται καμία χρέωση.
 
@@ -564,10 +620,10 @@ FICHA["el-GR"] = {
 }
 
 FICHA["ru-RU"] = {
-    "corta": "Игра для компании, 12 заданий. Без интернета, без рекламы, всё сразу.",
+    "corta": "Игра для компании, 18 заданий. Без интернета, без рекламы, всё сразу.",
     "larga": """Funny — игра для компании за одним столом, с теми, кто сидит напротив. С одним телефоном, который передают из рук в руки, или с телефоном у каждого.
 
-ДВЕНАДЦАТЬ ЗАДАНИЙ
+ВОСЕМНАДЦАТЬ ЗАДАНИЙ
 
 🎭 Пантомима — покажи без слов
 🎨 Нарисуй — на экране
@@ -581,8 +637,14 @@ FICHA["ru-RU"] = {
 🔢 Расставь по порядку
 🎤 Пой — продолжи песню
 🤸 Вызов — рискни
+📜 Пословицы — закончи пословицу
+⏳ Раньше или позже? — что было раньше?
+🔤 Анаграммы — собери слово из букв
+🗣 Голоса — скажи это таким голосом
+🔊 Звуки — изобрази это ртом
+🔗 Цепочка слов — слово за словом
 
-Больше 1200 карточек, написанных вручную, а не сгенерированных.
+Больше 1500 карточек, написанных вручную, а не сгенерированных.
 
 ТРИ РЕЖИМА
 
@@ -610,7 +672,7 @@ FICHA["ru-RU"] = {
 
 БЕСПЛАТНО, И БЕСПЛАТНО ПО-НАСТОЯЩЕМУ
 
-Двенадцать игр, шесть тем, тринадцать языков и режим нескольких телефонов есть с первого запуска. Нет урезанной версии, нет закрытого содержимого и нечего получать отдельно.
+Восемнадцать игр, шесть тем, тринадцать языков и режим нескольких телефонов есть с первого запуска. Нет урезанной версии, нет закрытого содержимого и нечего получать отдельно.
 
 Есть возможность угостить меня кофе, если захочется, и она не даёт совершенно ничего взамен: внутри игры не меняется ничего. Она открывает системный браузер, и приложение в этом никак не участвует.
 
@@ -618,10 +680,10 @@ FICHA["ru-RU"] = {
 }
 
 FICHA["ar"] = {
-    "corta": "لعبة جماعية بـ 12 تحديًا. بلا إنترنت، بلا إعلانات، بلا إضافات.",
+    "corta": "لعبة جماعية بـ 18 تحديًا. بلا إنترنت، بلا إعلانات، بلا إضافات.",
     "larga": """‏Funny لعبة جماعية تُلعب حول طاولة، مع من أمامك. بهاتف واحد يتناقله الجميع، أو بهاتف لكل شخص.
 
-اثنا عشر تحديًا
+ثمانية عشر تحديًا
 
 🎭 تمثيل صامت — مثّلها دون كلام
 🎨 ارسمها — على الشاشة
@@ -635,8 +697,14 @@ FICHA["ar"] = {
 🔢 رتّبها — ضعها في مكانها
 🎤 غنِّ — أكمل الأغنية
 🤸 جرأة — تجرّأ
+📜 أمثال — أكمل المثل
+⏳ قبل أم بعد؟ — ما الذي حدث أولًا؟
+🔤 الجناس — رتّب الحروف
+🗣 أصوات وأداء — قلها بهذا الصوت
+🔊 مؤثرات صوتية — قلّدها بفمك
+🔗 سلسلة كلمات — كلمة بعد كلمة
 
-أكثر من 1200 بطاقة مكتوبة يدويًا، لا مُولَّدة.
+أكثر من 1500 بطاقة مكتوبة يدويًا، لا مُولَّدة.
 
 ثلاثة أنماط
 
@@ -664,7 +732,7 @@ FICHA["ar"] = {
 
 مجانية، ومجانية فعلًا
 
-الألعاب الاثنتا عشرة وأنماط المظهر الستة واللغات الثلاث عشرة ونمط الهواتف المتعددة كلها موجودة من أول مرة تفتح فيها التطبيق. لا نسخة مختصرة، ولا محتوى محجوز، ولا شيء يُحصَّل على حدة.
+الألعاب الثمانية عشرة وأنماط المظهر الستة واللغات الثلاث عشرة ونمط الهواتف المتعددة كلها موجودة من أول مرة تفتح فيها التطبيق. لا نسخة مختصرة، ولا محتوى محجوز، ولا شيء يُحصَّل على حدة.
 
 هناك خيار لتدعوني إلى قهوة إن رغبت، ولا يمنح أي شيء بالمقابل: لا يغيّر شيئًا داخل اللعبة. يُفتح في متصفح النظام، والتطبيق لا يتولى أي تحصيل.
 
@@ -672,10 +740,10 @@ FICHA["ar"] = {
 }
 
 FICHA["zh-CN"] = {
-    "corta": "12 个项目的聚会游戏。无需联网，没有广告，没有额外内容。",
+    "corta": "18 个项目的聚会游戏。无需联网，没有广告，没有额外内容。",
     "larga": """Funny 是一款围着桌子玩的聚会游戏，和坐在你对面的人一起玩。可以只用一部手机轮流传递，也可以每人一部。
 
-十二个项目
+十八个项目
 
 🎭 你演我猜 — 不许说话
 🎨 你画我猜 — 在屏幕上画
@@ -689,8 +757,14 @@ FICHA["zh-CN"] = {
 🔢 排排序 — 放到正确的位置
 🎤 接着唱 — 把歌接下去
 🤸 敢不敢 — 来吧
+📜 谚语接龙 — 把谚语补完
+⏳ 先后顺序 — 哪件事先发生？
+🔤 字母重组 — 把字母排好
+🗣 变声 — 用那种声音说
+🔊 拟声 — 用嘴巴模仿
+🔗 词语接龙 — 一个词接一个词
 
-1200 多张手写卡片，不是生成的。
+1500 多张手写卡片，不是生成的。
 
 三种模式
 
@@ -718,7 +792,7 @@ Funny 连联网权限都没有声明，所以就算它想连，Android 也不会
 
 免费，而且是真的免费
 
-十二个游戏、六种主题、十三种语言和多手机模式，第一次打开就全都在。没有精简版，没有保留内容，也没有需要另外获取的东西。
+十八个游戏、六种主题、十三种语言和多手机模式，第一次打开就全都在。没有精简版，没有保留内容，也没有需要另外获取的东西。
 
 如果你愿意，可以请我喝杯咖啡，而这不会带来任何回报：游戏里什么都不会改变。它会打开系统浏览器，应用本身不处理任何收款。
 
@@ -726,7 +800,7 @@ Funny 连联网权限都没有声明，所以就算它想连，Android 也不会
 }
 
 FICHA["ja-JP"] = {
-    "corta": "12種類のお題で遊ぶパーティーゲーム。ネット接続なし、広告なし。",
+    "corta": "18種類のお題で遊ぶパーティーゲーム。ネット接続なし、広告なし。",
     "larga": """Funny は、テーブルを囲んで、目の前にいる人たちと遊ぶパーティーゲームです。1台のスマホを回して遊んでも、ひとり1台で遊んでも大丈夫。
 
 12種類のお題
@@ -743,8 +817,14 @@ FICHA["ja-JP"] = {
 🔢 並べかえ — 正しい順番に
 🎤 歌って — 続きを歌う
 🤸 チャレンジ — やってみる
+📜 ことわざ — ことわざを完成させて
+⏳ どっちが先？ — 先に起きたのはどっち？
+🔤 アナグラム — 文字を並べかえて
+🗣 声まね — その声で言って
+🔊 音まね — 口だけでまねして
+🔗 しりとり — ことばをつないで
 
-1200枚以上のカードは、生成ではなく手書きです。
+1500枚以上のカードは、生成ではなく手書きです。
 
 3つのモード
 
@@ -772,7 +852,7 @@ Funny はインターネット権限そのものを宣言していないので�
 
 無料、それも本当に無料
 
-12のゲーム、6つのテーマ、13の言語、複数スマホモード。アプリを最初に開いた時点で全部揃っています。制限版もなく、取り置きの内容もなく、別に手に入れるものもありません。
+18のゲーム、6つのテーマ、13の言語、複数スマホモード。アプリを最初に開いた時点で全部揃っています。制限版もなく、取り置きの内容もなく、別に手に入れるものもありません。
 
 よければコーヒーをおごる、という選択肢がありますが、見返りは一切ありません。ゲームの中は何も変わりません。システムのブラウザが開くだけで、アプリは支払いを一切扱いません。
 

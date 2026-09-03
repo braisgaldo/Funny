@@ -3,7 +3,7 @@ package es.ghatostudio.funny.dominio
 import es.ghatostudio.funny.dominio.textos.Clave
 
 /**
- * Los doce juegos de Funny.
+ * Los dieciocho juegos de Funny.
  *
  * Esta clase es deliberadamente tonta: solo describe *qué* es cada juego y con
  * qué reglas se comporta. No sabe de colores (eso vive en `ui/tema`) ni de
@@ -170,6 +170,72 @@ enum class Juego(
         claveNombre = Clave.JUEGO_DESAFIO_NOMBRE,
         claveLema = Clave.JUEGO_DESAFIO_LEMA,
         claveInstrucciones = Clave.JUEGO_DESAFIO_INSTRUCCIONES,
+    ),
+    REFRANES(
+        clave = "refranes",
+        emoji = "📜",
+        segundosBase = 35,
+        soloActuante = false,
+        veredictoDeLaMesa = false,
+        valeEnSolitario = true,
+        claveNombre = Clave.JUEGO_REFRANES_NOMBRE,
+        claveLema = Clave.JUEGO_REFRANES_LEMA,
+        claveInstrucciones = Clave.JUEGO_REFRANES_INSTRUCCIONES,
+    ),
+    ANTES(
+        clave = "antes_despues",
+        emoji = "⏳",
+        segundosBase = 30,
+        soloActuante = false,
+        veredictoDeLaMesa = false,
+        valeEnSolitario = true,
+        claveNombre = Clave.JUEGO_ANTES_NOMBRE,
+        claveLema = Clave.JUEGO_ANTES_LEMA,
+        claveInstrucciones = Clave.JUEGO_ANTES_INSTRUCCIONES,
+    ),
+    ANAGRAMAS(
+        clave = "anagramas",
+        emoji = "🔤",
+        segundosBase = 45,
+        soloActuante = false,
+        veredictoDeLaMesa = false,
+        valeEnSolitario = true,
+        claveNombre = Clave.JUEGO_ANAGRAMAS_NOMBRE,
+        claveLema = Clave.JUEGO_ANAGRAMAS_LEMA,
+        claveInstrucciones = Clave.JUEGO_ANAGRAMAS_INSTRUCCIONES,
+    ),
+    ACENTOS(
+        clave = "acentos",
+        emoji = "🗣",
+        segundosBase = 45,
+        soloActuante = false,
+        veredictoDeLaMesa = true,
+        valeEnSolitario = true,
+        claveNombre = Clave.JUEGO_ACENTOS_NOMBRE,
+        claveLema = Clave.JUEGO_ACENTOS_LEMA,
+        claveInstrucciones = Clave.JUEGO_ACENTOS_INSTRUCCIONES,
+    ),
+    SONIDOS(
+        clave = "sonidos",
+        emoji = "🔊",
+        segundosBase = 40,
+        soloActuante = false,
+        veredictoDeLaMesa = true,
+        valeEnSolitario = true,
+        claveNombre = Clave.JUEGO_SONIDOS_NOMBRE,
+        claveLema = Clave.JUEGO_SONIDOS_LEMA,
+        claveInstrucciones = Clave.JUEGO_SONIDOS_INSTRUCCIONES,
+    ),
+    CADENA(
+        clave = "encadenados",
+        emoji = "🔗",
+        segundosBase = 60,
+        soloActuante = false,
+        veredictoDeLaMesa = false,
+        valeEnSolitario = true,
+        claveNombre = Clave.JUEGO_CADENA_NOMBRE,
+        claveLema = Clave.JUEGO_CADENA_LEMA,
+        claveInstrucciones = Clave.JUEGO_CADENA_INSTRUCCIONES,
     ),
     ;
 

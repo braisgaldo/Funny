@@ -1,0 +1,133 @@
+{
+  "_comentario": "Noises to imitate WITH YOUR MOUTH ONLY: no clapping, no banging the table, no props. If hands are allowed the game stops being fun.",
+  "cartas": [
+    {
+      "texto": "Imitate a motorbike that won't start.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a microwave finishing.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a door creaking open very slowly.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a balloon deflating.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a hen that has seen something odd.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate someone slurping very hot soup.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a car's reversing beep.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate an old rotary telephone.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate rain on a metal roof.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate an ambulance siren driving away.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a mosquito closing in on your ear.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a zip going up and down.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a train going through a tunnel.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate someone snoring in three different stages.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a fizzy drink can opening.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a lawnmower starting up.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate an alarm clock you don't want to hear.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a cow that is very far away.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate footsteps on snow.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate an old fax machine.",
+      "nivel": 3
+    },
+    {
+      "texto": "Imitate a mop being wrung out.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a very hungry stomach.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a jammed printer.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a cat that wants to come into a room.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a lift arriving at its floor.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imitate a jet ski at full speed.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a glass breaking, without breaking anything.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a smoke alarm with a low battery.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate wind whistling through a window frame.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a duck that has lost its voice.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate a blender making a very thick smoothie.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imitate three different animals without repeating a sound, clearly enough to tell apart.",
+      "nivel": 3
+    }
+  ]
+}

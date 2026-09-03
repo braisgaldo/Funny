@@ -99,7 +99,7 @@ class PruebaProtocolo {
     }
 
     @Test
-    fun `los doce juegos viajan por su clave`() {
+    fun `los dieciocho juegos viajan por su clave`() {
         Juego.entries.forEach { juego ->
             val original =
                 Mensaje.Vista(

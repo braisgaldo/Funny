@@ -148,6 +148,9 @@ internal val catalogoFrances =
                 PRUEBA_CANTA_PISTA to "Commencez par là",
                 PRUEBA_TRABALENGUAS_AYUDA to "Dites-le en entier et sans bafouiller.",
                 PRUEBA_DESAFIO_AYUDA to "On va voir comment vous vous en sortez.",
+                PRUEBA_ACENTOS_AYUDA to "Dis-le avec cette voix",
+                PRUEBA_SONIDOS_AYUDA to "Avec la bouche seulement",
+                PRUEBA_CADENA_AYUDA to "Enchaînez les mots",
                 RONDA_TODOS_PASA_MOVIL to "Passez le téléphone sans regarder la réponse des autres.",
                 RONDA_TODOS_RESPONDE to "%1\$s répond",
                 RONDA_TODOS_RESUMEN to "Qui a trouvé",
@@ -225,7 +228,7 @@ internal val catalogoFrances =
                 AJUSTES_AYUDA to "Aide",
                 AJUSTES_AYUDA_DETALLE to "Comment jouer et questions fréquentes",
                 AJUSTES_TOUR to "Visite guidée",
-                AJUSTES_TOUR_DETALLE to "Les douze jeux et les trois modes, expliqués",
+                AJUSTES_TOUR_DETALLE to "Les dix-huit jeux et les trois modes, expliqués",
                 AJUSTES_ACERCA_DE to "À propos",
                 AJUSTES_ACERCA_DE_DETALLE to "Version, licences et confidentialité",
                 TEMA_MODO_CLARO to "Clairs",
@@ -275,7 +278,7 @@ internal val catalogoFrances =
                 AYUDA_SUBTITULO to "Tout ce qu'il faut pour que personne ne se perde.",
                 AYUDA_QUE_ES_TITULO to "Qu'est-ce que Funny ?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Un jeu d'ambiance avec douze épreuves différentes. On joue avec un " +
+                    "Un jeu d'ambiance avec dix-huit épreuves différentes. On joue avec un " +
                     "téléphone qui passe de main en main ou, si plusieurs d'entre vous en ont " +
                     "un, en les connectant entre eux. Internet n'est jamais nécessaire.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "La partie",
@@ -345,7 +348,7 @@ internal val catalogoFrances =
                 ACERCA_SIN_ANUNCIOS to "Sans publicité, sans analytique et sans comptes.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Visite guidée",
-                TOUR_SUBTITULO to "Les douze jeux et les trois modes, en deux minutes.",
+                TOUR_SUBTITULO to "Les dix-huit jeux et les trois modes, en deux minutes.",
                 TOUR_EMPEZAR to "COMMENCER LA VISITE",
                 TOUR_SALTAR to "Passer",
                 TOUR_ANTERIOR to "Précédent",
@@ -354,8 +357,9 @@ internal val catalogoFrances =
                 TOUR_PROGRESO to "%1\$d sur %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Bienvenue dans Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Douze jeux, trois façons de jouer et aucun besoin d'internet. Je vous " +
-                    "explique tout en deux minutes ; vous pouvez passer quand vous voulez.",
+                    "Dix-huit jeux, trois façons de jouer et aucun besoin d'internet. Je " +
+                    "vous explique tout en deux minutes ; vous pouvez passer quand vous " +
+                    "voulez.",
                 TOUR_MODOS_TITULO to "Trois façons de jouer",
                 TOUR_MODOS_TEXTO to
                     "En équipes, c'est le classique : de 2 à 6 équipes, chacun son tour de " +
@@ -374,7 +378,7 @@ internal val catalogoFrances =
                     "le monde joue : la même épreuve pour toute la table, et chacun qui " +
                     "trouve avance d'une case.\n🏁 Arrivée : une épreuve finale au hasard. " +
                     "Sans la réussir, on ne gagne pas.",
-                TOUR_JUEGOS_TITULO to "Les douze jeux",
+                TOUR_JUEGOS_TITULO to "Les dix-huit jeux",
                 TOUR_JUEGOS_TEXTO to
                     "Les voici tous. Vous pouvez désactiver ceux qui ne vous plaisent pas dans " +
                     "les Réglages.",
@@ -503,6 +507,40 @@ internal val catalogoFrances =
                     "Un petit défi devant tout le monde. Rien de dangereux, rien " +
                     "d'humiliant : juste du ridicule bon enfant. C'est la table qui " +
                     "juge.",
+                JUEGO_REFRANES_NOMBRE to "Proverbes",
+                JUEGO_REFRANES_LEMA to "Complète le proverbe",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "La moitié d'un proverbe et quatre fins possibles. Les trois " +
+                    "autres sont des fins de vrais proverbes, alors ouvre l'œil.",
+                JUEGO_ANTES_NOMBRE to "Avant ou après ?",
+                JUEGO_ANTES_LEMA to "Qu'est-ce qui s'est passé d'abord ?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Deux faits, et il faut dire lequel est arrivé avant. La " +
+                    "correction montre les deux années, et c'est là qu'on apprend.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagrammes",
+                JUEGO_ANAGRAMAS_LEMA to "Remets les lettres en ordre",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Des lettres mélangées et quatre mots candidats. Les trois " +
+                    "faux utilisent presque les mêmes lettres : compter ne sert à " +
+                    "rien.",
+                JUEGO_ACENTOS_NOMBRE to "Voix",
+                JUEGO_ACENTOS_LEMA to "Dis-le avec cette voix",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Il faut dire une phrase avec la voix demandée : un présentateur " +
+                    "du journal, un robot à plat, un méchant de dessin animé. La " +
+                    "table tranche.",
+                JUEGO_SONIDOS_NOMBRE to "Bruitages",
+                JUEGO_SONIDOS_LEMA to "Imite-le avec la bouche",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Imiter un bruit avec la bouche seulement. Pas de mains, pas de " +
+                    "coups sur la table, pas d'objets : avec les mains ça perd tout " +
+                    "son sel.",
+                JUEGO_CADENA_NOMBRE to "Mots enchaînés",
+                JUEGO_CADENA_LEMA to "Un mot après l'autre",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Chaque mot commence par la dernière syllabe du précédent. C'est " +
+                    "vous qui comptez, et discuter de ce qui compte fait partie du " +
+                    "jeu.",
                 RITMO_RAPIDO to "Rapide",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquille",

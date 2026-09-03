@@ -146,6 +146,9 @@ internal val catalogoGriego =
                 PRUEBA_CANTA_PISTA to "Ξεκίνα από εδώ",
                 PRUEBA_TRABALENGUAS_AYUDA to "Πες το ολόκληρο και χωρίς να μπερδευτείς.",
                 PRUEBA_DESAFIO_AYUDA to "Να δούμε πώς θα τη βγάλεις.",
+                PRUEBA_ACENTOS_AYUDA to "Πες το με αυτή τη φωνή",
+                PRUEBA_SONIDOS_AYUDA to "Μόνο με το στόμα",
+                PRUEBA_CADENA_AYUDA to "Φτιάξτε αλυσίδα λέξεων",
                 RONDA_TODOS_PASA_MOVIL to "Δώσε το κινητό χωρίς να δεις την απάντηση κανενός.",
                 RONDA_TODOS_RESPONDE to "Απαντά ο %1\$s",
                 RONDA_TODOS_RESUMEN to "Ποιος τη βρήκε",
@@ -223,7 +226,7 @@ internal val catalogoGriego =
                 AJUSTES_AYUDA to "Βοήθεια",
                 AJUSTES_AYUDA_DETALLE to "Πώς παίζεται και συχνές ερωτήσεις",
                 AJUSTES_TOUR to "Ξενάγηση",
-                AJUSTES_TOUR_DETALLE to "Τα δώδεκα παιχνίδια και οι τρεις τρόποι, εξηγημένα",
+                AJUSTES_TOUR_DETALLE to "Τα δεκαοκτώ παιχνίδια και οι τρεις τρόποι, εξηγημένα",
                 AJUSTES_ACERCA_DE to "Σχετικά",
                 AJUSTES_ACERCA_DE_DETALLE to "Έκδοση, άδειες και απόρρητο",
                 TEMA_MODO_CLARO to "Φωτεινά",
@@ -277,7 +280,7 @@ internal val catalogoGriego =
                 AYUDA_SUBTITULO to "Όλα όσα χρειάζονται για να μη χαθεί κανείς.",
                 AYUDA_QUE_ES_TITULO to "Τι είναι το Funny;",
                 AYUDA_QUE_ES_TEXTO to
-                    "Ένα παιχνίδι πάρτι με δώδεκα διαφορετικές δοκιμασίες. Παίζεται με ένα " +
+                    "Ένα παιχνίδι πάρτι με δεκαοκτώ διαφορετικές δοκιμασίες. Παίζεται με ένα " +
                     "κινητό που περνάει από χέρι σε χέρι ή, αν είστε πολλοί με κινητό, " +
                     "συνδέοντάς τα μεταξύ τους. Δεν χρειάζεται ποτέ ίντερνετ.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "Η παρτίδα",
@@ -347,7 +350,7 @@ internal val catalogoGriego =
                 ACERCA_SIN_ANUNCIOS to "Χωρίς διαφημίσεις, χωρίς αναλυτικά και χωρίς λογαριασμούς.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Ξενάγηση",
-                TOUR_SUBTITULO to "Τα δώδεκα παιχνίδια και οι τρεις τρόποι, σε δύο λεπτά.",
+                TOUR_SUBTITULO to "Τα δεκαοκτώ παιχνίδια και οι τρεις τρόποι, σε δύο λεπτά.",
                 TOUR_EMPEZAR to "ΞΕΚΙΝΑ ΤΗΝ ΞΕΝΑΓΗΣΗ",
                 TOUR_SALTAR to "Παράλειψη",
                 TOUR_ANTERIOR to "Προηγούμενο",
@@ -356,7 +359,7 @@ internal val catalogoGriego =
                 TOUR_PROGRESO to "%1\$d από %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Καλώς όρισες στο Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Δώδεκα παιχνίδια, τρεις τρόποι να παίξεις και μηδέν ανάγκη για " +
+                    "Δεκαοκτώ παιχνίδια, τρεις τρόποι να παίξεις και μηδέν ανάγκη για " +
                     "ίντερνετ. Σε δύο λεπτά σου τα λέω όλα· μπορείς να το προσπεράσεις " +
                     "όποτε θέλεις.",
                 TOUR_MODOS_TITULO to "Τρεις τρόποι να παίξεις",
@@ -377,7 +380,7 @@ internal val catalogoGriego =
                     "Παίζουν όλοι: η ίδια δοκιμασία για όλο το τραπέζι, και όποιος τη βρει " +
                     "προχωρά μία θέση.\n🏁 Τέρμα: τελική δοκιμασία στην τύχη. Χωρίς να την " +
                     "περάσεις δεν κερδίζεις.",
-                TOUR_JUEGOS_TITULO to "Τα δώδεκα παιχνίδια",
+                TOUR_JUEGOS_TITULO to "Τα δεκαοκτώ παιχνίδια",
                 TOUR_JUEGOS_TEXTO to
                     "Αυτά είναι όλα. Μπορείς να απενεργοποιήσεις όσα δεν σας αρέσουν στις " +
                     "Ρυθμίσεις.",
@@ -507,6 +510,40 @@ internal val catalogoGriego =
                 JUEGO_DESAFIO_INSTRUCCIONES to
                     "Μια μικρή πρόκληση μπροστά σε όλους. Τίποτα επικίνδυνο, τίποτα " +
                     "εξευτελιστικό: μόνο η καλή γελοιότητα. Κρίνει το τραπέζι.",
+                JUEGO_REFRANES_NOMBRE to "Παροιμίες",
+                JUEGO_REFRANES_LEMA to "Συμπλήρωσε την παροιμία",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Η μισή παροιμία και τέσσερα πιθανά τέλη. Τα άλλα τρία είναι " +
+                    "τέλη αληθινών παροιμιών, γι' αυτό πρόσεχε.",
+                JUEGO_ANTES_NOMBRE to "Πριν ή μετά;",
+                JUEGO_ANTES_LEMA to "Τι έγινε πρώτα;",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Δύο γεγονότα και πρέπει να πεις ποιο έγινε πρώτο. Στη λύση " +
+                    "φαίνονται και οι δύο χρονιές, κι εκεί μαθαίνεις κάτι.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Αναγραμματισμοί",
+                JUEGO_ANAGRAMAS_LEMA to "Βάλε τα γράμματα σε σειρά",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Ανακατεμένα γράμματα και τέσσερις υποψήφιες λέξεις. Οι τρεις " +
+                    "λάθος έχουν σχεδόν τα ίδια γράμματα, άρα το μέτρημα δεν " +
+                    "βοηθά.",
+                JUEGO_ACENTOS_NOMBRE to "Φωνές",
+                JUEGO_ACENTOS_LEMA to "Πες το με αυτή τη φωνή",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Πρέπει να πεις μια φράση με τη φωνή που ζητά η κάρτα: " +
+                    "παρουσιαστής δελτίου, ρομπότ με άδεια μπαταρία, κακός των " +
+                    "κινουμένων σχεδίων. Αποφασίζει το τραπέζι.",
+                JUEGO_SONIDOS_NOMBRE to "Ήχοι",
+                JUEGO_SONIDOS_LEMA to "Μίμησέ το με το στόμα",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Μίμηση ενός ήχου μόνο με το στόμα. Χωρίς παλαμάκια, χωρίς " +
+                    "χτυπήματα στο τραπέζι, χωρίς αντικείμενα: με τα χέρια χάνει τη " +
+                    "χάρη του.",
+                JUEGO_CADENA_NOMBRE to "Αλυσίδα λέξεων",
+                JUEGO_CADENA_LEMA to "Λέξη μετά λέξη",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Κάθε λέξη ξεκινά από την τελευταία συλλαβή της προηγούμενης. Τη " +
+                    "μέτρηση την κρατάτε εσείς, και η διαφωνία είναι μέρος του " +
+                    "παιχνιδιού.",
                 RITMO_RAPIDO to "Γρήγορο",
                 RITMO_NORMAL to "Κανονικό",
                 RITMO_TRANQUILO to "Χαλαρό",

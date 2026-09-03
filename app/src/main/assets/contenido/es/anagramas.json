@@ -1,0 +1,445 @@
+{
+  "_comentario": "Letras revueltas y cuatro candidatas. Los senuelos usan casi las mismas letras para que no se acierte contando.",
+  "preguntas": [
+    {
+      "texto": "M C L O R E G U I A",
+      "opciones": [
+        "MURCIELAGO",
+        "MURCILEGOA",
+        "CIMURLEGAO",
+        "GLAMURCEIO"
+      ],
+      "correcta": 0,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "I I E B L T A B O C",
+      "opciones": [
+        "BICLIOTEBA",
+        "BIBLIOTECA",
+        "BIBLOTECIA",
+        "BILBIOTECA"
+      ],
+      "correcta": 1,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "E L E E T N A F",
+      "opciones": [
+        "TELEFANE",
+        "FELEANTE",
+        "ELEFANTE",
+        "ELEFANTA"
+      ],
+      "correcta": 2,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "E N T A N A V",
+      "opciones": [
+        "VENTANO",
+        "NAVETAN",
+        "TAVENNA",
+        "VENTANA"
+      ],
+      "correcta": 3,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "E C T O A H L C O",
+      "opciones": [
+        "CHOCOLATE",
+        "CHOCOLATA",
+        "COCHOLATE",
+        "CHOLOCATE"
+      ],
+      "correcta": 0,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "A I Z T A A L P L",
+      "opciones": [
+        "ZATAPILLA",
+        "ZAPATILLA",
+        "ZAPATILLO",
+        "PAZATILLA"
+      ],
+      "correcta": 1,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "I T C E I L B C A",
+      "opciones": [
+        "CIBICLETA",
+        "BICILCETA",
+        "BICICLETA",
+        "BICICLETO"
+      ],
+      "correcta": 2,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "A O N R E O D D R",
+      "opciones": [
+        "ORDENADER",
+        "ORDANEDOR",
+        "DORNEADOR",
+        "ORDENADOR"
+      ],
+      "correcta": 3,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "S O R O F A M E",
+      "opciones": [
+        "SEMAFORO",
+        "SEMAFERO",
+        "MESAFORO",
+        "SAMEFORO"
+      ],
+      "correcta": 0,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "U G A R A P S A",
+      "opciones": [
+        "PAGUARAS",
+        "PARAGUAS",
+        "PARAGUES",
+        "GUAPARAS"
+      ],
+      "correcta": 1,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "T E S N L I O E V I",
+      "opciones": [
+        "VELETISION",
+        "TELESIVION",
+        "TELEVISION",
+        "TELEVISIAN"
+      ],
+      "correcta": 2,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "N I T E C L A C",
+      "opciones": [
+        "CALCETON",
+        "CETALCIN",
+        "CALTECIN",
+        "CALCETIN"
+      ],
+      "correcta": 3,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "O N T A N A M",
+      "opciones": [
+        "MONTANA",
+        "MONTANO",
+        "NAMONTA",
+        "TAMONAN"
+      ],
+      "correcta": 0,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "U G A R R A T I",
+      "opciones": [
+        "GUIRRATA",
+        "GUITARRA",
+        "GUITARRO",
+        "TAGUIRRA"
+      ],
+      "correcta": 1,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "P R A O E O R U T E",
+      "opciones": [
+        "PUERTOAERO",
+        "AEROPERUTO",
+        "AEROPUERTO",
+        "AEROPUERTA"
+      ],
+      "correcta": 2,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "I R A M A S O P",
+      "opciones": [
+        "MARIPOSE",
+        "POSAMARI",
+        "MAPIROSA",
+        "MARIPOSA"
+      ],
+      "correcta": 3,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "E A R E L A C S",
+      "opciones": [
+        "ESCALERA",
+        "ESCALERO",
+        "CALESERA",
+        "ESCARELA"
+      ],
+      "correcta": 0,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "D V T A R N L O E I",
+      "opciones": [
+        "VENTIDALOR",
+        "VENTILADOR",
+        "VENTILADER",
+        "LADORVENTI"
+      ],
+      "correcta": 1,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "U C H A R A C",
+      "opciones": [
+        "CHARACU",
+        "CURACHA",
+        "CUCHARA",
+        "CUCHARO"
+      ],
+      "correcta": 2,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "A D A H O M L A",
+      "opciones": [
+        "ALMOHADO",
+        "HADAALMO",
+        "ALMAHODA",
+        "ALMOHADA"
+      ],
+      "correcta": 3,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "O O I C R I E D P",
+      "opciones": [
+        "PERIODICO",
+        "PERIODICA",
+        "DICOPERIO",
+        "PEDIORICO"
+      ],
+      "correcta": 0,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "A R A N J A N",
+      "opciones": [
+        "RANANJA",
+        "NARANJA",
+        "NARANJO",
+        "JARANAN"
+      ],
+      "correcta": 1,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "L L I N R O T O",
+      "opciones": [
+        "NILLOTOR",
+        "TROLLINO",
+        "TORNILLO",
+        "TORNILLA"
+      ],
+      "correcta": 2,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "A M P A N A C",
+      "opciones": [
+        "CAMPANO",
+        "PANCAMA",
+        "CAPAMAN",
+        "CAMPANA"
+      ],
+      "correcta": 3,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "L A R O D A V A",
+      "opciones": [
+        "LAVADORA",
+        "LAVADORO",
+        "DORALAVA",
+        "LADAVORA"
+      ],
+      "correcta": 0,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "E R B M O S O R",
+      "opciones": [
+        "SOMBERRO",
+        "SOMBRERO",
+        "SOMBRERA",
+        "BREROSOM"
+      ],
+      "correcta": 1,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "I N R A E P D A A",
+      "opciones": [
+        "DERIAPANA",
+        "PANEDARIA",
+        "PANADERIA",
+        "PANADERIO"
+      ],
+      "correcta": 2,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "E N E D O R T",
+      "opciones": [
+        "TENEDER",
+        "DORTENE",
+        "TEDENOR",
+        "TENEDOR"
+      ],
+      "correcta": 3,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "A N Z A N A M",
+      "opciones": [
+        "MANZANA",
+        "MANZANO",
+        "ZANAMAN",
+        "MANAZNA"
+      ],
+      "correcta": 0,
+      "tema": "7 letras"
+    },
+    {
+      "texto": "E R O R E J O L",
+      "opciones": [
+        "RELEJORO",
+        "RELOJERO",
+        "RELOJERA",
+        "JERORELO"
+      ],
+      "correcta": 1,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "E A T C E A R R R",
+      "opciones": [
+        "TERACARRE",
+        "CARRTEERA",
+        "CARRETERA",
+        "CARRETERO"
+      ],
+      "correcta": 2,
+      "tema": "9 letras"
+    },
+    {
+      "texto": "B M O B A L L I",
+      "opciones": [
+        "BOMBILLO",
+        "BILLABOM",
+        "BOMLLIBA",
+        "BOMBILLA"
+      ],
+      "correcta": 3,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "E A L L E R T S",
+      "opciones": [
+        "ESTRELLA",
+        "ESTRELLO",
+        "TRELLAES",
+        "ESTERLLA"
+      ],
+      "correcta": 0,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "N E I M I P O T",
+      "opciones": [
+        "PIMEINTO",
+        "PIMIENTO",
+        "PIMIENTA",
+        "MIENTOPI"
+      ],
+      "correcta": 1,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "I E C P T O R N R A",
+      "opciones": [
+        "TEROCARPIN",
+        "CARPETINRO",
+        "CARPINTERO",
+        "CARPINTERA"
+      ],
+      "correcta": 2,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "N L E A L V T I A N",
+      "opciones": [
+        "VENTANILLO",
+        "NILLAVENTA",
+        "VENTALLINA",
+        "VENTANILLA"
+      ],
+      "correcta": 3,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "A D N A S A I L",
+      "opciones": [
+        "SANDALIA",
+        "SANDALIO",
+        "DALIASAN",
+        "SANADLIA"
+      ],
+      "correcta": 0,
+      "tema": "8 letras"
+    },
+    {
+      "texto": "T T M E O R M R E O",
+      "opciones": [
+        "TERMEMOTRO",
+        "TERMOMETRO",
+        "TERMOMETRA",
+        "METROTERMO"
+      ],
+      "correcta": 1,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "I E Q R P U E A L U",
+      "opciones": [
+        "QUERIAPELU",
+        "PELQUUERIA",
+        "PELUQUERIA",
+        "PELUQUERIO"
+      ],
+      "correcta": 2,
+      "tema": "10 letras"
+    },
+    {
+      "texto": "O C H I L A M",
+      "opciones": [
+        "MOCHILO",
+        "CHILAMO",
+        "MOLCHIA",
+        "MOCHILA"
+      ],
+      "correcta": 3,
+      "tema": "7 letras"
+    }
+  ]
+}

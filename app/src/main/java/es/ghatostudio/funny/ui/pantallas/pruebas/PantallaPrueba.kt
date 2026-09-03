@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import es.ghatostudio.funny.dominio.Juego
 import es.ghatostudio.funny.dominio.Prueba
 import es.ghatostudio.funny.dominio.textos.Clave
 import es.ghatostudio.funny.plataforma.Sonidos
@@ -42,6 +43,12 @@ fun PantallaPrueba(vm: JuegoViewModel, sonidos: Sonidos) {
         is Prueba.DeOrdena -> PruebaOrdena(vm, prueba, sonidos)
         is Prueba.DeCanta -> PruebaCanta(vm, prueba.cancion, sonidos)
         is Prueba.DeDesafio -> PruebaDesafio(vm, prueba.desafio, sonidos)
+        is Prueba.DeRefranes -> PruebaRefranes(vm, prueba, sonidos)
+        is Prueba.DeAntesDespues -> PruebaAntesDespues(vm, prueba, sonidos)
+        is Prueba.DeAnagramas -> PruebaAnagramas(vm, prueba, sonidos)
+        is Prueba.DeAcentos -> PruebaAcentos(vm, prueba.carta, sonidos)
+        is Prueba.DeSonidos -> PruebaSonidos(vm, prueba.carta, sonidos)
+        is Prueba.DeEncadenados -> PruebaReto(vm, prueba.reto, sonidos, Juego.CADENA)
         null -> SinContenido(vm)
     }
 }

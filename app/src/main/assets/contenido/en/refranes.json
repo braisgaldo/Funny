@@ -1,0 +1,445 @@
+{
+  "_comentario": "Real English proverbs, public domain. The decoys are endings of OTHER real proverbs, never invented ones. These are not translations of the Spanish deck: a literally translated proverb is one nobody recognises.",
+  "preguntas": [
+    {
+      "texto": "The early bird…",
+      "opciones": [
+        "catches the worm",
+        "gets the sunrise",
+        "sings the loudest",
+        "wakes the house"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Don't count your chickens…",
+      "opciones": [
+        "on a windy day",
+        "before they hatch",
+        "before you feed them",
+        "in the dark"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "A picture is worth…",
+      "opciones": [
+        "more than gold",
+        "two good books",
+        "a thousand words",
+        "a long story"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Don't put all your eggs…",
+      "opciones": [
+        "on one shelf",
+        "in the same nest",
+        "under one hen",
+        "in one basket"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "When in Rome…",
+      "opciones": [
+        "do as the Romans do",
+        "look at the roads",
+        "keep your coat on",
+        "count your coins"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "A watched pot…",
+      "opciones": [
+        "spills over",
+        "never boils",
+        "burns the soup",
+        "cools down fast"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Actions speak…",
+      "opciones": [
+        "for themselves",
+        "in the end",
+        "louder than words",
+        "before thinking"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Better late…",
+      "opciones": [
+        "than sorry",
+        "than early",
+        "than rushed",
+        "than never"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Curiosity killed…",
+      "opciones": [
+        "the cat",
+        "the mouse",
+        "the messenger",
+        "the evening"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Don't judge a book…",
+      "opciones": [
+        "by its weight",
+        "by its cover",
+        "by its title",
+        "before the end"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Every cloud has…",
+      "opciones": [
+        "its own shape",
+        "rain inside",
+        "a silver lining",
+        "a shadow below"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Great minds…",
+      "opciones": [
+        "work alone",
+        "argue often",
+        "start small",
+        "think alike"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Honesty is…",
+      "opciones": [
+        "the best policy",
+        "hard to keep",
+        "its own reward",
+        "rarely cheap"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "If it ain't broke…",
+      "opciones": [
+        "check it twice",
+        "don't fix it",
+        "leave the shop",
+        "sell it fast"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Practice makes…",
+      "opciones": [
+        "the master",
+        "it easier",
+        "perfect",
+        "patience"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Rome wasn't built…",
+      "opciones": [
+        "by one hand",
+        "on sand",
+        "for the poor",
+        "in a day"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "The grass is always greener…",
+      "opciones": [
+        "on the other side",
+        "after the rain",
+        "near the river",
+        "in the spring"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "There's no smoke…",
+      "opciones": [
+        "after the rain",
+        "without fire",
+        "without wind",
+        "in an empty house"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Too many cooks…",
+      "opciones": [
+        "burn the bread",
+        "argue over salt",
+        "spoil the broth",
+        "crowd the kitchen"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "You can't have your cake…",
+      "opciones": [
+        "and keep the plate",
+        "for breakfast",
+        "without flour",
+        "and eat it"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "A stitch in time…",
+      "opciones": [
+        "saves nine",
+        "holds the seam",
+        "beats a patch",
+        "costs nothing"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "All that glitters…",
+      "opciones": [
+        "hides a flaw",
+        "is not gold",
+        "catches the eye",
+        "sells quickly"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Barking dogs…",
+      "opciones": [
+        "wake the street",
+        "fear the dark",
+        "seldom bite",
+        "guard the gate"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Beggars can't…",
+      "opciones": [
+        "be trusted",
+        "wait long",
+        "keep secrets",
+        "be choosers"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Birds of a feather…",
+      "opciones": [
+        "flock together",
+        "fly the highest",
+        "share a nest",
+        "sing at dawn"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Blood is thicker…",
+      "opciones": [
+        "than promises",
+        "than water",
+        "than wine",
+        "than ink"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Charity begins…",
+      "opciones": [
+        "in small change",
+        "on Sundays",
+        "at home",
+        "with a smile"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Do unto others…",
+      "opciones": [
+        "before they do it first",
+        "and expect nothing",
+        "what you can today",
+        "as you would have them do unto you"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Fortune favours…",
+      "opciones": [
+        "the bold",
+        "the patient",
+        "the honest",
+        "the early"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Give someone an inch…",
+      "opciones": [
+        "and ask for two",
+        "and they'll take a mile",
+        "and they'll thank you",
+        "and lose it"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Laughter is…",
+      "opciones": [
+        "hard to fake",
+        "worth the wait",
+        "the best medicine",
+        "free of charge"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Let sleeping dogs…",
+      "opciones": [
+        "rest easy",
+        "guard the door",
+        "dream on",
+        "lie"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Look before…",
+      "opciones": [
+        "you leap",
+        "you speak",
+        "you buy",
+        "you knock"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Necessity is the mother…",
+      "opciones": [
+        "of hard work",
+        "of invention",
+        "of patience",
+        "of all trades"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Out of the frying pan…",
+      "opciones": [
+        "and out the door",
+        "and into the pot",
+        "into the fire",
+        "and onto the plate"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Still waters…",
+      "opciones": [
+        "hide stones",
+        "freeze first",
+        "reflect best",
+        "run deep"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "The pen is mightier…",
+      "opciones": [
+        "than the sword",
+        "than the crown",
+        "than the law",
+        "than the purse"
+      ],
+      "correcta": 0,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "Two wrongs…",
+      "opciones": [
+        "cost double",
+        "don't make a right",
+        "make a mess",
+        "cancel out"
+      ],
+      "correcta": 1,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "What goes around…",
+      "opciones": [
+        "gets lost",
+        "wears out",
+        "comes around",
+        "never stops"
+      ],
+      "correcta": 2,
+      "tema": "Proverbs"
+    },
+    {
+      "texto": "You reap…",
+      "opciones": [
+        "in the autumn",
+        "before winter",
+        "what you can",
+        "what you sow"
+      ],
+      "correcta": 3,
+      "tema": "Proverbs"
+    }
+  ]
+}

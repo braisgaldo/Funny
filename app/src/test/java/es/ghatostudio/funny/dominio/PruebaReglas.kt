@@ -130,13 +130,13 @@ class PruebaReglas {
         assertNull(coloresDisponibles((0 until MAXIMO_PARTICIPANTES).toSet()))
     }
 
-    // ---------------------------------------------------- los doce juegos
+    // ---------------------------------------------------- los dieciocho juegos
 
     @Test
-    fun `hay doce juegos y todos tienen clave distinta`() {
-        assertEquals(12, Juego.entries.size)
+    fun `hay dieciocho juegos y todos tienen clave distinta`() {
+        assertEquals(18, Juego.entries.size)
         assertEquals(
-            12,
+            18,
             Juego.entries
                 .map { it.clave }
                 .toSet()
@@ -144,7 +144,7 @@ class PruebaReglas {
             "hay claves repetidas",
         )
         assertEquals(
-            12,
+            18,
             Juego.entries
                 .map { it.emoji }
                 .toSet()
@@ -154,7 +154,7 @@ class PruebaReglas {
     }
 
     @Test
-    fun `porClave encuentra los doce y rechaza lo que no existe`() {
+    fun `porClave encuentra los dieciocho y rechaza lo que no existe`() {
         Juego.entries.forEach { assertEquals(it, Juego.porClave(it.clave)) }
         assertNull(Juego.porClave("no-existe"))
         assertNull(Juego.porClave(""))

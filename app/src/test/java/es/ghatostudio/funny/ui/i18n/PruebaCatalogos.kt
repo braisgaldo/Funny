@@ -257,7 +257,7 @@ class PruebaCatalogos {
     // --------------------------------------------------------- los juegos
 
     @Test
-    fun `los doce juegos tienen nombre, lema e instrucciones en todos los idiomas`() {
+    fun `los dieciocho juegos tienen nombre, lema e instrucciones en todos los idiomas`() {
         // Las instrucciones se comprueban por forma y no por longitud en
         // caracteres. La primera versión de este test exigía más de treinta
         // caracteres y suspendía en chino: «出现一个事件和四个可能的年份。要决定是哪一年发生的。»
@@ -289,7 +289,7 @@ class PruebaCatalogos {
     }
 
     @Test
-    fun `los nombres de los doce juegos no se repiten`() {
+    fun `los nombres de los dieciocho juegos no se repiten`() {
         IDIOMAS_TERMINADOS.forEach { idioma ->
             val t = textosDe(idioma)
             val nombres = Juego.entries.map { t.nombreDe(it) }

@@ -1,0 +1,365 @@
+{
+  "_comentario": "Dos hechos y hay que decir cual fue primero. Los anos van en el campo `tema`, que la pantalla ensena sobre la pregunta: se ven los dos anos, pero no cual es de cada hecho.",
+  "preguntas": [
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La Revolución Francesa",
+        "La independencia de Estados Unidos"
+      ],
+      "correcta": 1,
+      "tema": "1776 y 1789"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El hundimiento del Titanic",
+        "El primer vuelo de los hermanos Wright"
+      ],
+      "correcta": 1,
+      "tema": "1903 y 1912"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La caída del muro de Berlín",
+        "La llegada del hombre a la Luna"
+      ],
+      "correcta": 1,
+      "tema": "1969 y 1989"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La llegada de Colón a América",
+        "La invención de la imprenta de Gutenberg"
+      ],
+      "correcta": 1,
+      "tema": "1455 y 1492"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El estreno de «Blancanieves» de Disney",
+        "El estreno de «Lo que el viento se llevó»"
+      ],
+      "correcta": 0,
+      "tema": "1937 y 1939"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La construcción de la Gran Pirámide de Guiza",
+        "La fundación de Roma según la tradición"
+      ],
+      "correcta": 0,
+      "tema": "-2560 y -753"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El primer Mundial de fútbol",
+        "Los primeros Juegos Olímpicos modernos"
+      ],
+      "correcta": 1,
+      "tema": "1896 y 1930"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La caída de Constantinopla",
+        "La Peste Negra en Europa"
+      ],
+      "correcta": 1,
+      "tema": "1347 y 1453"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La invención del teléfono",
+        "La invención de la bombilla incandescente comercial"
+      ],
+      "correcta": 0,
+      "tema": "1876 y 1879"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La fundación de la ONU",
+        "El fin de la Segunda Guerra Mundial"
+      ],
+      "correcta": 0,
+      "tema": "1945 y 1945"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La primera vacuna, la de la viruela",
+        "El descubrimiento de la penicilina"
+      ],
+      "correcta": 0,
+      "tema": "1796 y 1928"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La muerte de Shakespeare",
+        "La publicación de «Don Quijote», primera parte"
+      ],
+      "correcta": 1,
+      "tema": "1605 y 1616"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El primer satélite artificial, el Sputnik",
+        "El primer humano en el espacio"
+      ],
+      "correcta": 0,
+      "tema": "1957 y 1961"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La Revolución Rusa",
+        "La Revolución Industrial en Inglaterra"
+      ],
+      "correcta": 1,
+      "tema": "1760 y 1917"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El descubrimiento de la tumba de Tutankamón",
+        "El accidente de Chernóbil"
+      ],
+      "correcta": 0,
+      "tema": "1922 y 1986"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La fundación de Google",
+        "La creación de la World Wide Web"
+      ],
+      "correcta": 1,
+      "tema": "1989 y 1998"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La abolición de la esclavitud en Estados Unidos",
+        "La Primera Guerra Mundial"
+      ],
+      "correcta": 0,
+      "tema": "1865 y 1914"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La caída del Imperio Romano de Occidente",
+        "La erupción del Vesubio que sepultó Pompeya"
+      ],
+      "correcta": 1,
+      "tema": "79 y 476"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El estreno de la primera película de Star Wars",
+        "El lanzamiento del primer iPhone"
+      ],
+      "correcta": 0,
+      "tema": "1977 y 2007"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La construcción del Empire State",
+        "La construcción de la Torre Eiffel"
+      ],
+      "correcta": 1,
+      "tema": "1889 y 1931"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El primer trasplante de corazón humano",
+        "El primer ordenador personal de IBM"
+      ],
+      "correcta": 0,
+      "tema": "1967 y 1981"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El descubrimiento de la estructura del ADN",
+        "La coronación de Isabel II"
+      ],
+      "correcta": 0,
+      "tema": "1953 y 1953"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La independencia de India",
+        "La revolución cubana"
+      ],
+      "correcta": 0,
+      "tema": "1947 y 1959"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El nacimiento de Beethoven",
+        "El nacimiento de Mozart"
+      ],
+      "correcta": 1,
+      "tema": "1756 y 1770"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La invención de la fotografía",
+        "La primera proyección de cine de los Lumière"
+      ],
+      "correcta": 0,
+      "tema": "1826 y 1895"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La conquista del Imperio inca",
+        "La construcción de Machu Picchu"
+      ],
+      "correcta": 1,
+      "tema": "1450 y 1533"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La firma de la Carta Magna inglesa",
+        "El inicio del Renacimiento italiano"
+      ],
+      "correcta": 0,
+      "tema": "1215 y 1400"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La apertura del Canal de Suez",
+        "El primer metro del mundo, en Londres"
+      ],
+      "correcta": 1,
+      "tema": "1863 y 1869"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La publicación de «El origen de las especies»",
+        "El primer vuelo transatlántico sin escalas"
+      ],
+      "correcta": 0,
+      "tema": "1859 y 1919"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La entrada de España en la Unión Europea",
+        "La caída de la Unión Soviética"
+      ],
+      "correcta": 0,
+      "tema": "1986 y 1991"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El estreno de «Los Simpson» como serie",
+        "El estreno de «Friends»"
+      ],
+      "correcta": 0,
+      "tema": "1989 y 1994"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La invención de la pólvora en China",
+        "La invención del papel en China"
+      ],
+      "correcta": 1,
+      "tema": "105 y 900"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "El descubrimiento de los rayos X",
+        "El descubrimiento de la radioactividad"
+      ],
+      "correcta": 0,
+      "tema": "1895 y 1896"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La construcción de la Alhambra",
+        "La construcción del Coliseo de Roma"
+      ],
+      "correcta": 1,
+      "tema": "80 y 1238"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La primera Copa de Europa de fútbol",
+        "El primer Balón de Oro"
+      ],
+      "correcta": 1,
+      "tema": "1956 y 1956"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La Guerra Civil estadounidense",
+        "La muerte de Napoleón"
+      ],
+      "correcta": 1,
+      "tema": "1821 y 1861"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La invención de la máquina de vapor de Watt",
+        "El primer ferrocarril de pasajeros"
+      ],
+      "correcta": 0,
+      "tema": "1769 y 1825"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La primera prueba nuclear",
+        "El descubrimiento de la penicilina"
+      ],
+      "correcta": 1,
+      "tema": "1928 y 1945"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La fundación de la Universidad de Bolonia",
+        "La fundación de la Universidad de Salamanca"
+      ],
+      "correcta": 0,
+      "tema": "1088 y 1218"
+    },
+    {
+      "texto": "¿Qué pasó primero?",
+      "opciones": [
+        "La primera oveja clonada, Dolly",
+        "El primer trasplante de riñón con éxito"
+      ],
+      "correcta": 1,
+      "tema": "1954 y 1996"
+    }
+  ]
+}

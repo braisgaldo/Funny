@@ -42,8 +42,8 @@ literalmente `MANUAL-USUARIO.md`, `ARCHITECTURE.md` e `INSTALL.md`.
 | Multidispositivo | Nearby Connections (`P2P_STAR`), hasta 1 mesa + 4 mandos |
 | Módulos | uno, `:app` |
 | Código | 79 ficheros Kotlin · 20.242 líneas de producción · 3.069 de pruebas |
-| Contenido | 2.601 cartas (1.366 es + 1.235 en) en 12 mazos |
-| Textos | 392 claves × 13 idiomas |
+| Contenido | 3.194 cartas (1.668 es + 1.526 en) en 18 mazos |
+| Textos | 413 claves × 13 idiomas |
 | Pruebas | 164, todas en la JVM, sin emulador |
 | Licencias | GPL-3.0-or-later (código) · CC BY-SA 4.0 (contenido) |
 

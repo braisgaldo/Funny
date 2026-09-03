@@ -36,7 +36,7 @@ es.ghatostudio.funny
 │   ├── Modelos.kt         estado, ajustes, participantes, modalidades
 │   ├── Reglas.kt          mazos, tablero, funciones puras
 │   ├── Contenido.kt       modelo de las cartas
-│   ├── textos/Clave.kt    las 392 claves de i18n
+│   ├── textos/Clave.kt    las 413 claves de i18n
 │   └── salon/Protocolo.kt mensajes y códec del salón
 ├── datos/        Preferencias (DataStore), copia de seguridad, carga de assets
 ├── plataforma/   Lo que solo existe en Android: Nearby, sonido, háptica, Custom Tabs

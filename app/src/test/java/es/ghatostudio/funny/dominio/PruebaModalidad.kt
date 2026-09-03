@@ -179,6 +179,40 @@ class PruebaModalidad {
     }
 
     @Test
+    fun `los numeros a medida no se los come la modalidad elegida`() {
+        // La pantalla enseña el resumen de las cuatro modalidades a la vez, y
+        // el de «a mi manera» tiene que decir SUS números aunque esté elegida
+        // otra. Salió jugando en el móvil: con la extrema puesta, la fila de la
+        // personalizada anunciaba 32 casillas y 16 pruebas —las de la extrema—
+        // en lugar de las 20 y 10 que había guardadas.
+        val ajustes =
+            Ajustes(
+                modalidad = Modalidad.EXTREMA,
+                casillasPersonalizadas = 20,
+                pruebasPersonalizadas = 10,
+            )
+        assertEquals(20, ajustes.casillasAMedida)
+        assertEquals(10, ajustes.pruebasAMedida)
+        // Y la partida sigue siendo la extrema, que es la elegida.
+        assertEquals(Modalidad.EXTREMA.casillas, ajustes.casillas)
+        assertEquals(Modalidad.EXTREMA.pruebas, ajustes.pruebasSolitario)
+    }
+
+    @Test
+    fun `los numeros a medida tambien se recortan sin estar elegidos`() {
+        // El recorte no puede vivir solo en `casillas`: el resumen de la fila
+        // personalizada lee `casillasAMedida` directamente.
+        val ajustes =
+            Ajustes(
+                modalidad = Modalidad.RAPIDA,
+                casillasPersonalizadas = 5_000,
+                pruebasPersonalizadas = -3,
+            )
+        assertEquals(Modalidad.CASILLAS_POSIBLES.last, ajustes.casillasAMedida)
+        assertEquals(Modalidad.PRUEBAS_POSIBLES.first, ajustes.pruebasAMedida)
+    }
+
+    @Test
     fun `un numero absurdo se recorta en lugar de llegar al tablero`() {
         // Estos dos valores no salen de la interfaz, que no deja pasar de los
         // extremos: salen de unas preferencias en disco o de un fichero de

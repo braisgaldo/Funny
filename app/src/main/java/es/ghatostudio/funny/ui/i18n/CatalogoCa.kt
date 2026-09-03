@@ -148,6 +148,9 @@ internal val catalogoCatalan =
                 PRUEBA_CANTA_PISTA to "Comença per aquí",
                 PRUEBA_TRABALENGUAS_AYUDA to "Digue'l sencer i sense embarbussar-te.",
                 PRUEBA_DESAFIO_AYUDA to "A veure com te'n surts.",
+                PRUEBA_ACENTOS_AYUDA to "Digues-ho amb aquella veu",
+                PRUEBA_SONIDOS_AYUDA to "Només amb la boca",
+                PRUEBA_CADENA_AYUDA to "Encadeneu paraules",
                 RONDA_TODOS_PASA_MOVIL to "Passa el mòbil sense mirar la resposta de ningú.",
                 RONDA_TODOS_RESPONDE to "Respon %1\$s",
                 RONDA_TODOS_RESUMEN to "Qui ho ha encertat",
@@ -223,7 +226,7 @@ internal val catalogoCatalan =
                 AJUSTES_AYUDA to "Ajuda",
                 AJUSTES_AYUDA_DETALLE to "Com es juga i preguntes freqüents",
                 AJUSTES_TOUR to "Tour guiat",
-                AJUSTES_TOUR_DETALLE to "Els dotze jocs i els tres modes, explicats",
+                AJUSTES_TOUR_DETALLE to "Els divuit jocs i els tres modes, explicats",
                 AJUSTES_ACERCA_DE to "Quant a",
                 AJUSTES_ACERCA_DE_DETALLE to "Versió, llicències i privacitat",
                 TEMA_MODO_CLARO to "Clars",
@@ -271,7 +274,7 @@ internal val catalogoCatalan =
                 AYUDA_SUBTITULO to "Tot el que cal per no perdre's.",
                 AYUDA_QUE_ES_TITULO to "Què és Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Un joc de festa amb dotze proves diferents. Es juga amb un mòbil que va " +
+                    "Un joc de festa amb divuit proves diferents. Es juga amb un mòbil que va " +
                     "passant de mà en mà o, si sou uns quants amb mòbil, connectant-los entre " +
                     "ells. No cal internet en cap moment.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "La partida",
@@ -338,7 +341,7 @@ internal val catalogoCatalan =
                 ACERCA_SIN_ANUNCIOS to "Sense anuncis, sense analítica i sense comptes.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Tour guiat",
-                TOUR_SUBTITULO to "Els dotze jocs i els tres modes, en dos minuts.",
+                TOUR_SUBTITULO to "Els divuit jocs i els tres modes, en dos minuts.",
                 TOUR_EMPEZAR to "COMENÇA EL TOUR",
                 TOUR_SALTAR to "Salta",
                 TOUR_ANTERIOR to "Anterior",
@@ -347,8 +350,8 @@ internal val catalogoCatalan =
                 TOUR_PROGRESO to "%1\$d de %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Benvingut a Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Dotze jocs, tres maneres de jugar i zero necessitat d'internet. En un " +
-                    "parell de minuts t'ho explico tot; pots saltar-t'ho quan vulguis.",
+                    "Divuit jocs, tres maneres de jugar i zero necessitat d'internet. En " +
+                    "un parell de minuts t'ho explico tot; pots saltar-t'ho quan vulguis.",
                 TOUR_MODOS_TITULO to "Tres maneres de jugar",
                 TOUR_MODOS_TEXTO to
                     "Per equips és el clàssic: de 2 a 6 equips i va rotant qui actua. " +
@@ -366,7 +369,7 @@ internal val catalogoCatalan =
                     "🃏 Jòquer: el rival tria la prova que et toca.\n👥 Juguen tots: la " +
                     "mateixa prova per a tota la taula, i cadascú que l'encerta avança una " +
                     "casella.\n🏁 Meta: prova final a l'atzar. Sense superar-la no es guanya.",
-                TOUR_JUEGOS_TITULO to "Els dotze jocs",
+                TOUR_JUEGOS_TITULO to "Els divuit jocs",
                 TOUR_JUEGOS_TEXTO to "Aquests són tots. Pots desactivar els que no us agradin a la Configuració.",
                 TOUR_SALON_TITULO to "Diversos mòbils a la vegada",
                 TOUR_SALON_TEXTO to
@@ -488,6 +491,40 @@ internal val catalogoCatalan =
                 JUEGO_DESAFIO_INSTRUCCIONES to
                     "Un petit repte davant de tothom. Res perillós, res humiliant: " +
                     "només ridícul del bo. Ho jutja la taula.",
+                JUEGO_REFRANES_NOMBRE to "Refranys",
+                JUEGO_REFRANES_LEMA to "Completa el refrany",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Surt mitja frase feta i quatre finals possibles. Els altres " +
+                    "tres són finals de refranys de veritat, així que cal " +
+                    "fixar-s'hi.",
+                JUEGO_ANTES_NOMBRE to "Abans o després?",
+                JUEGO_ANTES_LEMA to "Què va passar primer?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Dos fets i cal dir quin va ser abans. Al resoldre es veuen els " +
+                    "dos anys, que és la part que ensenya alguna cosa.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagrames",
+                JUEGO_ANAGRAMAS_LEMA to "Ordena les lletres",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Unes lletres barrejades i quatre paraules candidates. Les " +
+                    "tres falses fan servir gairebé les mateixes lletres, així que " +
+                    "comptar no serveix.",
+                JUEGO_ACENTOS_NOMBRE to "Veus",
+                JUEGO_ACENTOS_LEMA to "Digues-ho amb aquella veu",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Cal dir una frase amb la veu que digui la carta: un " +
+                    "presentador, un robot sense bateria, un dolent de dibuixos. " +
+                    "Decideix la taula.",
+                JUEGO_SONIDOS_NOMBRE to "Sons",
+                JUEGO_SONIDOS_LEMA to "Imita-ho amb la boca",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Imitar un soroll fent servir només la boca. Res de palmes, ni " +
+                    "cops a la taula, ni objectes: amb les mans perd la gràcia.",
+                JUEGO_CADENA_NOMBRE to "Encadenats",
+                JUEGO_CADENA_LEMA to "Paraula rere paraula",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Cada paraula comença per l'última síl·laba de l'anterior. El " +
+                    "comptador el porteu vosaltres, i discutir si val és part del " +
+                    "joc.",
                 RITMO_RAPIDO to "Ràpid",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquil",

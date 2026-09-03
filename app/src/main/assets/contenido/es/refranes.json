@@ -1,0 +1,445 @@
+{
+  "_comentario": "Refranes tradicionales, de dominio publico. Los senuelos son finales de OTROS refranes reales, no inventados: asi quien no lo sepa duda de verdad.",
+  "preguntas": [
+    {
+      "texto": "A quien madruga…",
+      "opciones": [
+        "Dios le ayuda",
+        "le sale el sol",
+        "buena falta le hace",
+        "la suerte le acompaña"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "En casa del herrero…",
+      "opciones": [
+        "la fragua apagada",
+        "cuchillo de palo",
+        "poco hierro",
+        "mucho humo"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "No por mucho madrugar…",
+      "opciones": [
+        "se acaba el camino",
+        "se gana la partida",
+        "amanece más temprano",
+        "se llega más lejos"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "A caballo regalado…",
+      "opciones": [
+        "no le pongas silla",
+        "no le busques dueño",
+        "no le cuentes los años",
+        "no le mires el diente"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Más vale pájaro en mano…",
+      "opciones": [
+        "que ciento volando",
+        "que dos en el nido",
+        "que mil en el árbol",
+        "que un águila lejos"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Perro ladrador…",
+      "opciones": [
+        "dueño temeroso",
+        "poco mordedor",
+        "mal guardián",
+        "buen vigilante"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Cría cuervos…",
+      "opciones": [
+        "y comerán de tu mano",
+        "y no te lo agradecerán",
+        "y te sacarán los ojos",
+        "y volarán lejos"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Quien siembra vientos…",
+      "opciones": [
+        "cosecha lluvias",
+        "no recoge nada",
+        "espera en vano",
+        "recoge tempestades"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Dime con quién andas…",
+      "opciones": [
+        "y te diré quién eres",
+        "y sabré adónde vas",
+        "y te diré lo que piensas",
+        "y verás quién te sigue"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Al pan pan…",
+      "opciones": [
+        "y a la sal sal",
+        "y al vino vino",
+        "y a la mesa mesa",
+        "y al agua agua"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "De tal palo…",
+      "opciones": [
+        "tal rama",
+        "tal tronco",
+        "tal astilla",
+        "tal madera"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Ojo por ojo…",
+      "opciones": [
+        "mano por mano",
+        "vida por vida",
+        "y todos ciegos",
+        "diente por diente"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "No hay mal…",
+      "opciones": [
+        "que por bien no venga",
+        "que dure cien años",
+        "que se cure solo",
+        "que no tenga remedio"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "En boca cerrada…",
+      "opciones": [
+        "no entra el hambre",
+        "no entran moscas",
+        "no cabe mentira",
+        "no hay secreto"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Zapatero…",
+      "opciones": [
+        "a tu cuero",
+        "a tu horma",
+        "a tus zapatos",
+        "a tu banco"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Quien mucho abarca…",
+      "opciones": [
+        "nada sujeta",
+        "mucho pierde",
+        "todo suelta",
+        "poco aprieta"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "A falta de pan…",
+      "opciones": [
+        "buenas son tortas",
+        "se come cebolla",
+        "buena es la sopa",
+        "vale el hambre"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "El que ríe último…",
+      "opciones": [
+        "no ríe nada",
+        "ríe mejor",
+        "ríe solo",
+        "ríe dos veces"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Aunque la mona se vista de seda…",
+      "opciones": [
+        "nadie la mira",
+        "el mono la deja",
+        "mona se queda",
+        "seda no es"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Más vale tarde…",
+      "opciones": [
+        "que corriendo",
+        "que mal",
+        "que a destiempo",
+        "que nunca"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "A buen entendedor…",
+      "opciones": [
+        "pocas palabras bastan",
+        "poca explicación",
+        "media frase sirve",
+        "no hace falta hablar"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Agua que no has de beber…",
+      "opciones": [
+        "dásela al vecino",
+        "déjala correr",
+        "no la enturbies",
+        "guárdala en el pozo"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Cada oveja…",
+      "opciones": [
+        "en su prado",
+        "con su cordero",
+        "con su pareja",
+        "con su pastor"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Del dicho al hecho…",
+      "opciones": [
+        "va un mundo",
+        "media un abismo",
+        "hay poco camino",
+        "hay mucho trecho"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Donde manda patrón…",
+      "opciones": [
+        "no manda marinero",
+        "se calla la tripulación",
+        "no hay discusión",
+        "cada uno a lo suyo"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "El hábito…",
+      "opciones": [
+        "no engaña a nadie",
+        "no hace al monje",
+        "hace al hombre",
+        "abriga poco"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Mal de muchos…",
+      "opciones": [
+        "alivio de nadie",
+        "cosa de todos",
+        "consuelo de tontos",
+        "remedio de pocos"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Nunca digas nunca…",
+      "opciones": [
+        "más",
+        "de esta agua no beberé",
+        "que te arrepentirás",
+        "jamás"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Ojos que no ven…",
+      "opciones": [
+        "corazón que no siente",
+        "boca que no habla",
+        "mente que no piensa",
+        "mano que no toca"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Quien avisa…",
+      "opciones": [
+        "es amigo",
+        "no es traidor",
+        "no es culpable",
+        "no miente"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Sarna con gusto…",
+      "opciones": [
+        "no molesta",
+        "da igual",
+        "no pica",
+        "se cura sola"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Unos nacen con estrella…",
+      "opciones": [
+        "y otros sin ella",
+        "y otros de noche",
+        "y otros con suerte",
+        "y otros nacen estrellados"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Vísteme despacio…",
+      "opciones": [
+        "que tengo prisa",
+        "que llego tarde",
+        "que hace frío",
+        "que ya me voy"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Quien no llora…",
+      "opciones": [
+        "no aprende",
+        "no mama",
+        "no ríe",
+        "no siente"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "A río revuelto…",
+      "opciones": [
+        "agua turbia",
+        "barca perdida",
+        "ganancia de pescadores",
+        "poca pesca"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Cuando el río suena…",
+      "opciones": [
+        "algo trae",
+        "piedras arrastra",
+        "llueve arriba",
+        "agua lleva"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Dios los cría…",
+      "opciones": [
+        "y ellos se juntan",
+        "y el diablo los junta",
+        "y ellos se pierden",
+        "y luego los separa"
+      ],
+      "correcta": 0,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "El que algo quiere…",
+      "opciones": [
+        "algo espera",
+        "algo le cuesta",
+        "algo consigue",
+        "algo pierde"
+      ],
+      "correcta": 1,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "La cabra siempre tira…",
+      "opciones": [
+        "al camino",
+        "al corral",
+        "al monte",
+        "a la hierba"
+      ],
+      "correcta": 2,
+      "tema": "Refranero"
+    },
+    {
+      "texto": "Más vale prevenir…",
+      "opciones": [
+        "que llorar",
+        "que arreglar",
+        "que lamentar",
+        "que curar"
+      ],
+      "correcta": 3,
+      "tema": "Refranero"
+    }
+  ]
+}

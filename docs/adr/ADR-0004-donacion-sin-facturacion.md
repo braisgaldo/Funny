@@ -34,7 +34,7 @@ hay un agradecimiento por algo que ya es gratis.
 
 2. **La donación no desbloquea nada.** Ni funciones, ni temas, ni contenido, ni
    quitar publicidad (no hay publicidad). Los seis temas, los trece idiomas, los
-   doce juegos, las cuatro modalidades y el salón están disponibles desde la
+   dieciocho juegos, las cuatro modalidades y el salón están disponibles desde la
    primera vez que se abre la app. No hay «versión completa» porque no hay versión
    incompleta.
 

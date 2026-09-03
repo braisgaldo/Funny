@@ -299,7 +299,7 @@ private fun CasillaDemo(emoji: String, color: androidx.compose.ui.graphics.Color
 }
 
 /**
- * Los doce juegos con su nombre, su color y su descripción.
+ * Los dieciocho juegos con su nombre, su color y su descripción.
  *
  * Es el paso que el brief pedía explícitamente: el tour tiene que describir
  * todos los juegos, no solo mencionar que existen.

@@ -17,7 +17,7 @@
 
 | Fichero | Qué demuestra |
 |---|---|
-| `01-inicio.png` | Pantalla de inicio con los doce juegos y sus colores |
+| `01-inicio.png` | Pantalla de inicio (con los doce de entonces) |
 | `02-modo.png` | Los tres modos, con su descripción |
 | `03-participantes.png` | Alta de equipos: emoji y color distintos por equipo |
 | `07-modalidad.png` | **Las cuatro modalidades** con casillas, pruebas y minutos |
@@ -31,12 +31,14 @@
 | `09-tras-fallar.png` | La ficha vuelve a la casilla 0 al fallar |
 | `11-ajustes.png` | Ajustes: punto único de entrada |
 | `12-tour.png` | Tour, paso 1 de 8 |
-| `05-tour-juegos.png` | **Tour, paso 5: los doce juegos con lema e instrucciones** |
+| `05-tour-juegos.png` | **Tour, paso 5: los dieciocho juegos con lema e instrucciones** |
 
-### `capturas/juegos/` — los doce juegos, probados en el móvil
+### `capturas/juegos/` — los dieciocho juegos, probados en el móvil
 
-Los doce juegos se reparten en **siete pantallas** distintas. Las siete se han
-recorrido en el dispositivo, tocando de verdad sus controles:
+Los dieciocho juegos se reparten en **siete pantallas** distintas. Las siete se
+han recorrido en el dispositivo, tocando de verdad sus controles. Esta tabla es
+de la primera pasada, cuando el juego tenía doce pruebas; los seis nuevos vienen
+más abajo:
 
 | Pantalla | Juegos que la usan | Qué se comprobó | Captura |
 |---|---|---|---|
@@ -48,7 +50,7 @@ recorrido en el dispositivo, tocando de verdad sus controles:
 | `PruebaReto.kt` | Reto rápido | El contador suma al tocarlo (0→3 de 6) y hay −1 para corregir | `08b-reto-contador.png` |
 | `PruebaVeredicto.kt` | **Trabalenguas**, Canta, Desafío | Contenido y veredicto ✗ NO / ✓ ¡SÍ! | `09-veredicto-trabalenguas.png` |
 
-**Siete de los doce juegos se abrieron uno a uno** (Emojis, Pinturillo, Tabú,
+**Siete de los doce primeros se abrieron uno a uno** (Emojis, Pinturillo, Tabú,
 Ordena, ¿Te lo crees?, Reto rápido, Trabalenguas). Los otros cinco —Mímica,
 ¿Cuándo?, Preguntas, Canta y Desafío— **no se entraron**: comparten pantalla con
 uno ya probado y solo cambia el contenido, que sí lo valida `PruebaContenido` en
@@ -58,6 +60,35 @@ De paso salió una comprobación que no estaba buscando: al desactivar **los doc
 juegos en Ajustes, la app **no se queda con el tablero vacío**, ignora la
 preferencia y reparte de todos. Es el resguardo de `juegosActivos`, y se vio
 funcionando por accidente.
+
+#### Los seis nuevos, jugados de verdad
+
+Los seis que se añadieron después se dejaron **solos** en el filtro de Ajustes
+—«6 de 18 activos»— y se jugó una tanda entera del reto en solitario en modalidad
+extrema, 16 pruebas, hasta el marcador final (27 puntos, marca personal nueva).
+Los seis salieron y se resolvieron tocando sus controles:
+
+| Juego | Pantalla que reutiliza | Qué se vio en el móvil | Captura |
+|---|---|---|---|
+| 📜 Refranes | `PruebaOpciones.kt` | «Cuando el río suena…» con cuatro remates, y los tres señuelos son remates de otros refranes | `12-refranes.png` |
+| ⏳ ¿Antes o después? | `PruebaOpciones.kt` | Dos hechos, los dos años como tema, ✓ en la respuesta al resolver | `13-antes.png` |
+| 🔤 Anagramas | `PruebaOpciones.kt` | «7 LETRAS · A R A N J A N» y cuatro candidatas | `14-anagramas.png` |
+| 🗣 Acentos | `PruebaVeredicto.kt` | «DILO CON ESA VOZ» y veredicto ✗ NO / ✓ ¡SÍ! | `15-acentos.png` |
+| 🔊 Sonidos | `PruebaVeredicto.kt` | «SOLO CON LA BOCA» y el mismo veredicto | `16-sonidos.png` |
+| 🔗 Encadenados | `PruebaReto.kt` | Contador de 0 a 6 tocándolo, −1 y NOS RENDIMOS | `17-encadenados.png` |
+
+Cada uno tiene además su `-intro.png`: la pantalla de presentación con emoji,
+nombre, lema, instrucciones y segundos.
+
+La tanda se condujo **leyendo el árbol de accesibilidad** en cada paso, no con
+coordenadas fijas. No es un detalle técnico: las otras apps del móvil se ponen en
+primer plano por su cuenta —pasó dos veces, con ShardPay y con NexaPDF— y una
+secuencia de toques a ciegas acaba tocando en la app de otro. Ahora se comprueba
+qué app está delante antes de cada toque y, si no es Funny, se para.
+
+**Y salió un fallo**: con la partida extrema elegida, la fila de «a mi manera»
+anunciaba «32 casillas · 16 pruebas» —las de la extrema— en lugar de los números
+guardados. Corregido y con prueba propia; está contado en el CHANGELOG.
 
 ### `capturas/temas/` — los seis temas
 
@@ -110,12 +141,13 @@ De las ocho que Play luce mejor, **hay seis**:
 - [x] **Pinturillo** con algo dibujado · `juegos/01c-lienzo-dibujado.png`
 - [x] Modalidad · `telefono/07-modalidad.png`
 - [x] Idiomas · `idiomas/00-selector.png`
-- [ ] La rejilla de los **doce juegos** en Ajustes, con alguno desactivado
+- [x] La rejilla de los **dieciocho juegos** en Ajustes, con doce desactivados ·
+      `juegos/00-filtro-seis-nuevos.png`
 - [ ] El **salón** con dos o tres móviles — necesita un segundo móvil
 
 El truco que sirvió para llegar a Tabú y a Pinturillo: en Ajustes → Juegos de la
-partida, apaga los once que no quieras. El tablero se llena del que queda y sale
-en la primera tirada. Ojo con el detalle que costó un rato: los doce empiezan
+partida, apaga los diecisiete que no quieras. El tablero se llena del que queda y sale
+en la primera tirada. Ojo con el detalle que costó un rato: los dieciocho empiezan
 encendidos, así que **solo hay que apagar los otros**; tocar también el que
 quieres lo apaga, y con cero activos la app reparte de todos.
 

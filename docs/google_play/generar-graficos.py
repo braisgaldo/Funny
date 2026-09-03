@@ -235,7 +235,7 @@ def destacado(ruta, ancho=1024, alto=500):
     disponible = ancho - x - margen
 
     nombre = "Funny"
-    lemas = ("12 juegos · 3 modos · 13 idiomas", "Sin internet, sin anuncios")
+    lemas = ("18 juegos · 3 modos · 13 idiomas", "Sin internet, sin anuncios")
 
     f_nombre = fuente_que_quepa(d, nombre, disponible, int(alto * 0.30))
     f_lema = fuente_que_quepa(

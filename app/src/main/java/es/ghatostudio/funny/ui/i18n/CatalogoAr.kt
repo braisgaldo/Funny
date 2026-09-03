@@ -149,6 +149,9 @@ internal val catalogoArabe =
                 PRUEBA_CANTA_PISTA to "ابدأ من هنا",
                 PRUEBA_TRABALENGUAS_AYUDA to "قلها كاملة ودون تعثّر.",
                 PRUEBA_DESAFIO_AYUDA to "لنرَ كيف تتخلص من هذه.",
+                PRUEBA_ACENTOS_AYUDA to "قلها بهذا الصوت",
+                PRUEBA_SONIDOS_AYUDA to "بالفم فقط",
+                PRUEBA_CADENA_AYUDA to "شكّلوا سلسلة كلمات",
                 RONDA_TODOS_PASA_MOVIL to "مرّر الهاتف دون النظر إلى إجابة أحد.",
                 RONDA_TODOS_RESPONDE to "يجيب %1\$s",
                 RONDA_TODOS_RESUMEN to "من أصاب",
@@ -266,7 +269,7 @@ internal val catalogoArabe =
                 AYUDA_SUBTITULO to "كل ما يحتاجه الجميع حتى لا يضيع أحد.",
                 AYUDA_QUE_ES_TITULO to "ما هو Funny؟",
                 AYUDA_QUE_ES_TEXTO to
-                    "لعبة حفلات فيها اثنا عشر تحديًا مختلفًا. تُلعب بهاتف واحد يتناقله " +
+                    "لعبة حفلات فيها ثمانية عشر تحديًا مختلفًا. تُلعب بهاتف واحد يتناقله " +
                     "الجميع، أو بربط عدة هواتف بعضها ببعض إن كان لدى أكثر من شخص هاتف. لا " +
                     "حاجة إلى الإنترنت في أي لحظة.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "الجولة",
@@ -453,6 +456,36 @@ internal val catalogoArabe =
                 JUEGO_DESAFIO_INSTRUCCIONES to
                     "تحدٍّ صغير أمام الجميع. لا شيء خطير ولا شيء مهين: مجرد طرافة " +
                     "لطيفة. الطاولة هي التي تحكم.",
+                JUEGO_REFRANES_NOMBRE to "أمثال",
+                JUEGO_REFRANES_LEMA to "أكمل المثل",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "نصف مثل وأربع نهايات محتملة. الثلاث الأخرى نهايات أمثال " +
+                    "حقيقية، فانظر بتمعّن.",
+                JUEGO_ANTES_NOMBRE to "قبل أم بعد؟",
+                JUEGO_ANTES_LEMA to "ما الذي حدث أولًا؟",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "حدثان وعليك تحديد أيهما جاء أولًا. عند الحل يظهر العامان، وهذا هو " +
+                    "الجزء الذي يعلّم شيئًا.",
+                JUEGO_ANAGRAMAS_NOMBRE to "الجناس",
+                JUEGO_ANAGRAMAS_LEMA to "رتّب الحروف",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "حروف مبعثرة وأربع كلمات محتملة. الثلاث الخاطئة تستخدم الحروف " +
+                    "نفسها تقريبًا، فالعدّ لا يفيد.",
+                JUEGO_ACENTOS_NOMBRE to "أصوات وأداء",
+                JUEGO_ACENTOS_LEMA to "قلها بهذا الصوت",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "عليك قول عبارة بالصوت الذي تطلبه البطاقة: مذيع أخبار، روبوت " +
+                    "نفدت بطاريته، شرير كرتوني. الطاولة تحكم.",
+                JUEGO_SONIDOS_NOMBRE to "مؤثرات صوتية",
+                JUEGO_SONIDOS_LEMA to "قلّدها بفمك",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "تقليد صوت بالفم فقط. بلا تصفيق ولا طرق على الطاولة ولا أدوات: " +
+                    "باليدين تفقد اللعبة طرافتها.",
+                JUEGO_CADENA_NOMBRE to "سلسلة كلمات",
+                JUEGO_CADENA_LEMA to "كلمة بعد كلمة",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "كل كلمة تبدأ بالمقطع الأخير من التي قبلها. العدّ عليكم، والنقاش " +
+                    "حول ما يُحتسب جزء من اللعبة.",
                 RITMO_RAPIDO to "سريع",
                 RITMO_NORMAL to "عادي",
                 RITMO_TRANQUILO to "هادئ",

@@ -94,7 +94,7 @@ Play principal, y luego una traducción por idioma.
 | Capturas de tablet 7″ y 10″ | opcionales, pero mejoran la ficha | pendiente |
 
 **Hay cuatro de las ocho**, tomadas en un SM-S908U con Android 13. Faltan Tabú,
-Pinturillo, la rejilla de los doce juegos y el salón; las dos primeras salen
+Pinturillo, la rejilla de los dieciocho juegos y el salón; las dos primeras salen
 dejando activo solo ese juego en Ajustes. Detalle en
 `google_play/CAPTURAS.md`, que incluye también un aviso: las capturas del
 repositorio están optimizadas a 256 colores para no engordarlo, así que las de la
@@ -130,7 +130,7 @@ El argumento, en tres frases:
    servicio digital dentro de la app**.
 2. **La donación de Funny no desbloquea absolutamente nada**: ni funciones, ni
    temas, ni contenido, ni quitar publicidad (no hay publicidad). Los seis temas,
-   los trece idiomas, los doce juegos, las cuatro modalidades y el modo de varios
+   los trece idiomas, los dieciocho juegos, las cuatro modalidades y el modo de varios
    móviles están disponibles desde la primera vez que se abre la app.
 3. Por tanto no se compra nada: se agradece algo que ya es gratis, y el pago ocurre
    **fuera de la app**, en el navegador del sistema.

@@ -233,7 +233,7 @@ internal val catalogoCastellano =
                 AJUSTES_AYUDA to "Ayuda",
                 AJUSTES_AYUDA_DETALLE to "Cómo se juega y preguntas frecuentes",
                 AJUSTES_TOUR to "Tour guiado",
-                AJUSTES_TOUR_DETALLE to "Los doce juegos y los tres modos, explicados",
+                AJUSTES_TOUR_DETALLE to "Los dieciocho juegos y los tres modos, explicados",
                 AJUSTES_ACERCA_DE to "Acerca de",
                 AJUSTES_ACERCA_DE_DETALLE to "Versión, licencias y privacidad",
                 // -------------------------------------------------------------- temas
@@ -288,7 +288,7 @@ internal val catalogoCastellano =
                 AYUDA_SUBTITULO to "Todo lo que hace falta para no perderse.",
                 AYUDA_QUE_ES_TITULO to "¿Qué es Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Un juego de fiesta con doce pruebas distintas. Se juega con un móvil que va " +
+                    "Un juego de fiesta con dieciocho pruebas distintas. Se juega con un móvil que va " +
                     "pasando de mano en mano o, si sois varios con móvil, conectándolos entre ellos. " +
                     "No hace falta internet en ningún momento.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "La partida",
@@ -351,7 +351,7 @@ internal val catalogoCastellano =
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 // --------------------------------------------------------------- tour
                 TOUR_TITULO to "Tour guiado",
-                TOUR_SUBTITULO to "Los doce juegos y los tres modos, en dos minutos.",
+                TOUR_SUBTITULO to "Los dieciocho juegos y los tres modos, en dos minutos.",
                 TOUR_EMPEZAR to "EMPEZAR EL TOUR",
                 TOUR_SALTAR to "Saltar",
                 TOUR_ANTERIOR to "Anterior",
@@ -360,7 +360,7 @@ internal val catalogoCastellano =
                 TOUR_PROGRESO to "%1\$d de %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Bienvenido a Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Doce juegos, tres formas de jugar y cero necesidad de internet. " +
+                    "Dieciocho juegos, tres formas de jugar y cero necesidad de internet. " +
                     "En un par de minutos te lo cuento todo; puedes saltártelo cuando quieras.",
                 TOUR_MODOS_TITULO to "Tres formas de jugar",
                 TOUR_MODOS_TEXTO to
@@ -380,7 +380,7 @@ internal val catalogoCastellano =
                     "👥 Juegan todos: la misma prueba para toda la mesa, y cada uno que acierta " +
                     "avanza una casilla.\n" +
                     "🏁 Meta: prueba final al azar. Sin superarla no se gana.",
-                TOUR_JUEGOS_TITULO to "Los doce juegos",
+                TOUR_JUEGOS_TITULO to "Los dieciocho juegos",
                 TOUR_JUEGOS_TEXTO to
                     "Estos son todos. Puedes desactivar los que no os gusten en Ajustes.",
                 TOUR_SALON_TITULO to "Varios móviles a la vez",
@@ -442,7 +442,7 @@ internal val catalogoCastellano =
                 SALON_SIN_NOMBRE to "Sin nombre",
                 SALON_TU_TURNO to "¡Te toca!",
                 SALON_MIRA_EL_HUB to "Mira el móvil de la mesa.",
-                // --------------------------------------------------- los doce juegos
+                // --------------------------------------------------- los dieciocho juegos
                 JUEGO_MIMICA_NOMBRE to "Mímica",
                 JUEGO_MIMICA_LEMA to "Represéntalo sin hablar",
                 JUEGO_MIMICA_INSTRUCCIONES to
@@ -525,6 +525,39 @@ internal val catalogoCastellano =
                 A11Y_LIENZO_DIBUJO to "Lienzo para dibujar con el dedo",
                 A11Y_TEMA_MUESTRA to "Muestra de colores del tema %1\$s",
                 A11Y_BANDERA_IDIOMA to "Idioma %1\$s",
+                JUEGO_REFRANES_NOMBRE to "Refranes",
+                JUEGO_REFRANES_LEMA to "Completa el refrán",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Sale media frase hecha y cuatro finales posibles. Los otros tres son finales " +
+                    "de refranes de verdad, así que hay que fijarse.",
+                JUEGO_ANTES_NOMBRE to "¿Antes o después?",
+                JUEGO_ANTES_LEMA to "¿Qué pasó primero?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Dos hechos y hay que decir cuál fue antes. Al resolver se ven los dos años, " +
+                    "que es la parte que enseña algo.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagramas",
+                JUEGO_ANAGRAMAS_LEMA to "Ordena las letras",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Unas letras revueltas y cuatro palabras candidatas. Las tres falsas usan " +
+                    "casi las mismas letras, así que contar no sirve.",
+                JUEGO_ACENTOS_NOMBRE to "Acentos",
+                JUEGO_ACENTOS_LEMA to "Dilo con esa voz",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Hay que decir una frase con la voz que diga la carta: un presentador, un " +
+                    "robot sin batería, un villano. Decide la mesa.",
+                JUEGO_SONIDOS_NOMBRE to "Sonidos",
+                JUEGO_SONIDOS_LEMA to "Imítalo con la boca",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Imitar un ruido usando solo la boca. Nada de palmas, ni golpes en la mesa, " +
+                    "ni objetos: con las manos pierde la gracia.",
+                JUEGO_CADENA_NOMBRE to "Encadenados",
+                JUEGO_CADENA_LEMA to "Palabra tras palabra",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Cada palabra empieza por la última sílaba de la anterior. El contador lo " +
+                    "lleváis vosotros, y discutir si vale es parte del juego.",
+                PRUEBA_ACENTOS_AYUDA to "Dilo con esa voz",
+                PRUEBA_SONIDOS_AYUDA to "Solo con la boca",
+                PRUEBA_CADENA_AYUDA to "Encadenad palabras",
                 A11Y_REDUCIR to "Reducir",
                 A11Y_AUMENTAR to "Aumentar",
             ),

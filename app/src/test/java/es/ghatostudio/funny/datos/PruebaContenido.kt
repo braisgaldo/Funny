@@ -12,7 +12,7 @@ import kotlin.test.assertTrue
 /**
  * El contenido de los assets.
  *
- * Comprueba lo que un JSON mal escrito rompería sin avisar: que los doce juegos
+ * Comprueba lo que un JSON mal escrito rompería sin avisar: que los dieciocho juegos
  * tienen cartas en los dos idiomas con contenido propio, que las cartas están
  * bien formadas y que los índices de respuesta correcta apuntan a algo.
  *
@@ -27,7 +27,7 @@ class PruebaContenido {
     private val idiomasConContenido = listOf("es", "en")
 
     @Test
-    fun `los doce juegos tienen cartas en castellano y en ingles`() {
+    fun `los dieciocho juegos tienen cartas en castellano y en ingles`() {
         idiomasConContenido.forEach { idioma ->
             val contenido = fuente.cargar(idioma)
             Juego.entries.forEach { juego ->

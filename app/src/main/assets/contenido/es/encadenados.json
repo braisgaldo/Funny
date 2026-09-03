@@ -1,0 +1,101 @@
+{
+  "_comentario": "Cadenas de palabras. El contador lo lleva la mesa: la app no puede saber si «casa - sapo - poste» vale, y esa discusion es parte del juego.",
+  "retos": [
+    {
+      "texto": "Encadena palabras a partir de «CASA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «MESA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «PATO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «CAMINO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «PELOTA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «BOTELLA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «VENTANA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «CARAMELO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «MONEDA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «TELEFONO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «ZAPATO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «CAMISA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «PLATANO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «SEMILLA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «CUCHARA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «PALOMA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «MARTILLO». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «TOMATE». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «CABEZA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Encadena palabras a partir de «LIBRETA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «MANZANA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «PANTALLA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «CARRETA». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Encadena palabras a partir de «BOTON». Cada una empieza por la última sílaba de la anterior.",
+      "objetivo": 6
+    }
+  ]
+}

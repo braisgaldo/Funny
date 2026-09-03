@@ -80,7 +80,7 @@ fun SelectorDeModalidad(
                 Spacer(Modifier.height(14.dp))
                 PasoNumerico(
                     titulo = t[Clave.MODALIDAD_CASILLAS],
-                    valor = ajustes.casillas,
+                    valor = ajustes.casillasAMedida,
                     rango = Modalidad.CASILLAS_POSIBLES,
                     paso = Modalidad.PASO_CASILLAS,
                     onCambio = { onCambio(ajustes.copy(casillasPersonalizadas = it)) },
@@ -88,7 +88,7 @@ fun SelectorDeModalidad(
                 Spacer(Modifier.height(10.dp))
                 PasoNumerico(
                     titulo = t[Clave.MODALIDAD_PRUEBAS],
-                    valor = ajustes.pruebasSolitario,
+                    valor = ajustes.pruebasAMedida,
                     rango = Modalidad.PRUEBAS_POSIBLES,
                     paso = Modalidad.PASO_PRUEBAS,
                     nota = t[Clave.MODALIDAD_PRUEBAS_NOTA],
@@ -111,8 +111,8 @@ private fun resumenDe(
     modalidad: Modalidad,
     ajustes: Ajustes,
 ): String {
-    val casillas = modalidad.casillas ?: ajustes.casillas
-    val pruebas = modalidad.pruebas ?: ajustes.pruebasSolitario
+    val casillas = modalidad.casillas ?: ajustes.casillasAMedida
+    val pruebas = modalidad.pruebas ?: ajustes.pruebasAMedida
     return t.con(
         Clave.MODALIDAD_RESUMEN,
         casillas,

@@ -1,0 +1,101 @@
+{
+  "_comentario": "Word chains. The table keeps the count: the app cannot know whether «house - seven - venue» counts, and arguing about it is part of the game.",
+  "retos": [
+    {
+      "texto": "Chain words starting from «HOUSE». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «TABLE». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «WATER». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «GARDEN». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «BUTTON». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «BOTTLE». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «WINDOW». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «CANDLE». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «MONEY». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «TELEPHONE». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «PICTURE». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «MORNING». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «BANANA». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «SILVER». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «SPOON». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «PIGEON». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «HAMMER». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «TOMATO». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    },
+    {
+      "texto": "Chain words starting from «SHOULDER». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «NOTEBOOK». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «APPLE». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «CURTAIN». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «BASKET». Each one begins with the last syllable of the one before.",
+      "objetivo": 5
+    },
+    {
+      "texto": "Chain words starting from «MIRROR». Each one begins with the last syllable of the one before.",
+      "objetivo": 6
+    }
+  ]
+}

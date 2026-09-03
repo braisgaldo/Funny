@@ -147,6 +147,9 @@ internal val catalogoAleman =
                 PRUEBA_CANTA_PISTA to "Fang hier an",
                 PRUEBA_TRABALENGUAS_AYUDA to "Sag ihn ganz und ohne zu stolpern.",
                 PRUEBA_DESAFIO_AYUDA to "Mal sehen, wie du da rauskommst.",
+                PRUEBA_ACENTOS_AYUDA to "Sag es mit dieser Stimme",
+                PRUEBA_SONIDOS_AYUDA to "Nur mit dem Mund",
+                PRUEBA_CADENA_AYUDA to "Bildet eine Wortkette",
                 RONDA_TODOS_PASA_MOVIL to "Gib das Handy weiter, ohne die Antwort der anderen anzusehen.",
                 RONDA_TODOS_RESPONDE to "%1\$s antwortet",
                 RONDA_TODOS_RESUMEN to "Wer richtig lag",
@@ -224,7 +227,7 @@ internal val catalogoAleman =
                 AJUSTES_AYUDA to "Hilfe",
                 AJUSTES_AYUDA_DETALLE to "So wird gespielt und häufige Fragen",
                 AJUSTES_TOUR to "Geführte Tour",
-                AJUSTES_TOUR_DETALLE to "Alle zwölf Spiele und drei Modi, erklärt",
+                AJUSTES_TOUR_DETALLE to "Alle achtzehn Spiele und drei Modi, erklärt",
                 AJUSTES_ACERCA_DE to "Über die App",
                 AJUSTES_ACERCA_DE_DETALLE to "Version, Lizenzen und Datenschutz",
                 TEMA_MODO_CLARO to "Hell",
@@ -274,9 +277,9 @@ internal val catalogoAleman =
                 AYUDA_SUBTITULO to "Alles, damit niemand den Faden verliert.",
                 AYUDA_QUE_ES_TITULO to "Was ist Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Ein Partyspiel mit zwölf verschiedenen Aufgaben. Gespielt wird mit einem " +
-                    "Handy, das herumgeht, oder, wenn mehrere von euch ein Handy haben, indem " +
-                    "man sie miteinander verbindet. Internet braucht man nie.",
+                    "Ein Partyspiel mit achtzehn verschiedenen Aufgaben. Gespielt wird mit " +
+                    "einem Handy, das herumgeht, oder, wenn mehrere von euch ein Handy haben, " +
+                    "indem man sie miteinander verbindet. Internet braucht man nie.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "Die Partie",
                 AYUDA_PARTIDA_1 to "Wählt den Modus: in Teams, einzeln oder die Solo-Herausforderung.",
                 AYUDA_PARTIDA_2 to "Jedes Team oder jeder Spieler hat eine Figur, und alle starten am START.",
@@ -344,7 +347,7 @@ internal val catalogoAleman =
                 ACERCA_SIN_ANUNCIOS to "Ohne Werbung, ohne Analyse und ohne Konten.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Geführte Tour",
-                TOUR_SUBTITULO to "Die zwölf Spiele und drei Modi, in zwei Minuten.",
+                TOUR_SUBTITULO to "Die achtzehn Spiele und drei Modi, in zwei Minuten.",
                 TOUR_EMPEZAR to "TOUR STARTEN",
                 TOUR_SALTAR to "Überspringen",
                 TOUR_ANTERIOR to "Zurück",
@@ -353,8 +356,8 @@ internal val catalogoAleman =
                 TOUR_PROGRESO to "%1\$d von %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Willkommen bei Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Zwölf Spiele, drei Arten zu spielen und kein Internet nötig. In zwei " +
-                    "Minuten erkläre ich dir alles; du kannst jederzeit überspringen.",
+                    "Achtzehn Spiele, drei Arten zu spielen und kein Internet nötig. In " +
+                    "zwei Minuten erkläre ich dir alles; du kannst jederzeit überspringen.",
                 TOUR_MODOS_TITULO to "Drei Arten zu spielen",
                 TOUR_MODOS_TEXTO to
                     "In Teams ist der Klassiker: 2 bis 6 Teams, und wer vorspielt, wechselt " +
@@ -373,7 +376,7 @@ internal val catalogoAleman =
                     "dieselbe Aufgabe für den ganzen Tisch, und wer richtig liegt, rückt ein " +
                     "Feld vor.\n🏁 Ziel: eine zufällige Endaufgabe. Ohne sie zu bestehen, " +
                     "gewinnt man nicht.",
-                TOUR_JUEGOS_TITULO to "Die zwölf Spiele",
+                TOUR_JUEGOS_TITULO to "Die achtzehn Spiele",
                 TOUR_JUEGOS_TEXTO to
                     "Das sind alle. Du kannst die, die euch nicht gefallen, in den " +
                     "Einstellungen abschalten.",
@@ -501,6 +504,40 @@ internal val catalogoAleman =
                     "Eine kleine Mutprobe vor allen. Nichts Gefährliches, nichts " +
                     "Erniedrigendes: nur die gute Art von Albernheit. Der Tisch " +
                     "urteilt.",
+                JUEGO_REFRANES_NOMBRE to "Sprichwörter",
+                JUEGO_REFRANES_LEMA to "Vervollständige das Sprichwort",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Die Hälfte eines Sprichworts und vier mögliche Enden. Die " +
+                    "anderen drei sind Enden echter Sprichwörter, also gut " +
+                    "hinschauen.",
+                JUEGO_ANTES_NOMBRE to "Vorher oder nachher?",
+                JUEGO_ANTES_LEMA to "Was war zuerst?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Zwei Ereignisse, und du musst sagen, was zuerst kam. Bei der " +
+                    "Auflösung erscheinen beide Jahre, und da lernt man etwas.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagramme",
+                JUEGO_ANAGRAMAS_LEMA to "Bring die Buchstaben in Ordnung",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Vermischte Buchstaben und vier mögliche Wörter. Die drei " +
+                    "falschen benutzen fast dieselben Buchstaben: Zählen hilft " +
+                    "nicht.",
+                JUEGO_ACENTOS_NOMBRE to "Stimmen",
+                JUEGO_ACENTOS_LEMA to "Sag es mit dieser Stimme",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Einen Satz mit der Stimme sagen, die die Karte verlangt: ein " +
+                    "Nachrichtensprecher, ein Roboter mit leerem Akku, ein " +
+                    "Zeichentrickschurke. Der Tisch entscheidet.",
+                JUEGO_SONIDOS_NOMBRE to "Geräusche",
+                JUEGO_SONIDOS_LEMA to "Mach es mit dem Mund",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Ein Geräusch nur mit dem Mund nachmachen. Kein Klatschen, kein " +
+                    "Klopfen auf den Tisch, keine Gegenstände: mit den Händen ist es " +
+                    "nicht mehr witzig.",
+                JUEGO_CADENA_NOMBRE to "Wortkette",
+                JUEGO_CADENA_LEMA to "Ein Wort nach dem anderen",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Jedes Wort beginnt mit der letzten Silbe des vorigen. Gezählt " +
+                    "wird von euch, und der Streit darüber gehört dazu.",
                 RITMO_RAPIDO to "Schnell",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Gemütlich",

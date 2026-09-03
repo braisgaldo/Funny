@@ -1,6 +1,6 @@
 Funny è un gioco di società da fare intorno a un tavolo, con le persone che hai davanti. Con un telefono che passa di mano in mano, o con un telefono ciascuno.
 
-DODICI PROVE
+DICIOTTO PROVE
 
 🎭 Mimo — senza parlare
 🎨 Disegna — sullo schermo
@@ -14,8 +14,14 @@ DODICI PROVE
 🔢 Metti in ordine
 🎤 Canta — vai avanti tu
 🤸 Sfida — coraggio
+📜 Proverbi — completa il proverbio
+⏳ Prima o dopo? — cosa è successo prima?
+🔤 Anagrammi — rimetti in ordine le lettere
+🗣 Voci — dillo con quella voce
+🔊 Suoni — imitalo con la bocca
+🔗 Parole in catena — una parola dopo l'altra
 
-Più di 1.200 carte scritte a mano, non generate.
+Più di 1.500 carte scritte a mano, non generate.
 
 TRE MODALITÀ
 
@@ -43,7 +49,7 @@ Tre temi scuri e tre chiari, o seguire il sistema. E tredici lingue complete: it
 
 GRATIS, E GRATIS DAVVERO
 
-I dodici giochi, i sei temi, le tredici lingue e la modalità multi-telefono sono lì dalla prima volta che apri l'app. Nessuna versione ridotta, nessun contenuto riservato, niente da ottenere a parte.
+I diciotto giochi, i sei temi, le tredici lingue e la modalità multi-telefono sono lì dalla prima volta che apri l'app. Nessuna versione ridotta, nessun contenuto riservato, niente da ottenere a parte.
 
 C'è un'opzione per offrirmi un caffè, se ti va, e non dà assolutamente nulla in cambio: non cambia niente dentro il gioco. Si apre nel browser di sistema e l'app non gestisce alcuna transazione.
 

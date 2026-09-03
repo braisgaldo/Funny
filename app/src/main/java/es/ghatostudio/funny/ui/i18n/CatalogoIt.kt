@@ -145,6 +145,9 @@ internal val catalogoItaliano =
                 PRUEBA_CANTA_PISTA to "Inizia da qui",
                 PRUEBA_TRABALENGUAS_AYUDA to "Dillo tutto e senza inciampare.",
                 PRUEBA_DESAFIO_AYUDA to "Vediamo come te la cavi.",
+                PRUEBA_ACENTOS_AYUDA to "Dillo con quella voce",
+                PRUEBA_SONIDOS_AYUDA to "Solo con la bocca",
+                PRUEBA_CADENA_AYUDA to "Incatenate le parole",
                 RONDA_TODOS_PASA_MOVIL to "Passa il telefono senza guardare la risposta di nessuno.",
                 RONDA_TODOS_RESPONDE to "Risponde %1\$s",
                 RONDA_TODOS_RESUMEN to "Chi ha indovinato",
@@ -222,7 +225,7 @@ internal val catalogoItaliano =
                 AJUSTES_AYUDA to "Aiuto",
                 AJUSTES_AYUDA_DETALLE to "Come si gioca e domande frequenti",
                 AJUSTES_TOUR to "Tour guidato",
-                AJUSTES_TOUR_DETALLE to "I dodici giochi e i tre modi, spiegati",
+                AJUSTES_TOUR_DETALLE to "I diciotto giochi e i tre modi, spiegati",
                 AJUSTES_ACERCA_DE to "Informazioni",
                 AJUSTES_ACERCA_DE_DETALLE to "Versione, licenze e privacy",
                 TEMA_MODO_CLARO to "Chiari",
@@ -272,7 +275,7 @@ internal val catalogoItaliano =
                 AYUDA_SUBTITULO to "Tutto quello che serve perché nessuno si perda.",
                 AYUDA_QUE_ES_TITULO to "Cos'è Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Un gioco di società con dodici prove diverse. Si gioca con un telefono " +
+                    "Un gioco di società con diciotto prove diverse. Si gioca con un telefono " +
                     "che passa di mano in mano o, se siete in più con il telefono, " +
                     "collegandoli fra loro. Internet non serve in nessun momento.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "La partita",
@@ -339,7 +342,7 @@ internal val catalogoItaliano =
                 ACERCA_SIN_ANUNCIOS to "Senza pubblicità, senza analitiche e senza account.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Tour guidato",
-                TOUR_SUBTITULO to "I dodici giochi e i tre modi, in due minuti.",
+                TOUR_SUBTITULO to "I diciotto giochi e i tre modi, in due minuti.",
                 TOUR_EMPEZAR to "INIZIA IL TOUR",
                 TOUR_SALTAR to "Salta",
                 TOUR_ANTERIOR to "Indietro",
@@ -348,7 +351,7 @@ internal val catalogoItaliano =
                 TOUR_PROGRESO to "%1\$d di %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Benvenuto in Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Dodici giochi, tre modi di giocare e zero bisogno di internet. Ti " +
+                    "Diciotto giochi, tre modi di giocare e zero bisogno di internet. Ti " +
                     "spiego tutto in un paio di minuti; puoi saltare quando vuoi.",
                 TOUR_MODOS_TITULO to "Tre modi di giocare",
                 TOUR_MODOS_TEXTO to
@@ -367,7 +370,7 @@ internal val catalogoItaliano =
                     "🃏 Jolly: l'avversario sceglie la prova che ti tocca.\n👥 Giocano tutti: " +
                     "la stessa prova per tutto il tavolo, e chi indovina avanza di una " +
                     "casella.\n🏁 Arrivo: prova finale a caso. Senza superarla non si vince.",
-                TOUR_JUEGOS_TITULO to "I dodici giochi",
+                TOUR_JUEGOS_TITULO to "I diciotto giochi",
                 TOUR_JUEGOS_TEXTO to
                     "Questi sono tutti. Puoi disattivare quelli che non vi piacciono nelle " +
                     "Impostazioni.",
@@ -489,6 +492,37 @@ internal val catalogoItaliano =
                 JUEGO_DESAFIO_INSTRUCCIONES to
                     "Una piccola sfida davanti a tutti. Niente di pericoloso, niente " +
                     "di umiliante: solo ridicolo di quello buono. Giudica il tavolo.",
+                JUEGO_REFRANES_NOMBRE to "Proverbi",
+                JUEGO_REFRANES_LEMA to "Completa il proverbio",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Metà di un proverbio e quattro finali possibili. Gli altri tre " +
+                    "sono finali di proverbi veri, quindi occhio.",
+                JUEGO_ANTES_NOMBRE to "Prima o dopo?",
+                JUEGO_ANTES_LEMA to "Cosa è successo prima?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Due fatti e bisogna dire quale è arrivato prima. La correzione " +
+                    "mostra i due anni, ed è lì che si impara qualcosa.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagrammi",
+                JUEGO_ANAGRAMAS_LEMA to "Rimetti in ordine le lettere",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Lettere mescolate e quattro parole candidate. Le tre " +
+                    "sbagliate usano quasi le stesse lettere: contare non serve.",
+                JUEGO_ACENTOS_NOMBRE to "Voci",
+                JUEGO_ACENTOS_LEMA to "Dillo con quella voce",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Bisogna dire una frase con la voce che chiede la carta: un " +
+                    "giornalista del telegiornale, un robot con la batteria scarica, " +
+                    "un cattivo dei cartoni. Decide il tavolo.",
+                JUEGO_SONIDOS_NOMBRE to "Suoni",
+                JUEGO_SONIDOS_LEMA to "Imitalo con la bocca",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Imitare un rumore solo con la bocca. Niente mani, niente colpi " +
+                    "sul tavolo, niente oggetti: con le mani non fa più ridere.",
+                JUEGO_CADENA_NOMBRE to "Parole in catena",
+                JUEGO_CADENA_LEMA to "Una parola dopo l'altra",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Ogni parola inizia con l'ultima sillaba di quella prima. Il " +
+                    "conto lo tenete voi, e discutere se vale fa parte del gioco.",
                 RITMO_RAPIDO to "Rapido",
                 RITMO_NORMAL to "Normale",
                 RITMO_TRANQUILO to "Tranquillo",

@@ -1,0 +1,365 @@
+{
+  "_comentario": "Two events; say which came first. The years live in the `tema` field, which the screen shows above the question: both years are visible, but not which event each one belongs to.",
+  "preguntas": [
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The French Revolution",
+        "American independence"
+      ],
+      "correcta": 1,
+      "tema": "1776 and 1789"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The sinking of the Titanic",
+        "The Wright brothers' first flight"
+      ],
+      "correcta": 1,
+      "tema": "1903 and 1912"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The fall of the Berlin Wall",
+        "The Moon landing"
+      ],
+      "correcta": 1,
+      "tema": "1969 and 1989"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Columbus reaching America",
+        "Gutenberg's printing press"
+      ],
+      "correcta": 1,
+      "tema": "1455 and 1492"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Disney's «Snow White»",
+        "«Gone with the Wind»"
+      ],
+      "correcta": 0,
+      "tema": "1937 and 1939"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The Great Pyramid of Giza",
+        "The founding of Rome, by tradition"
+      ],
+      "correcta": 0,
+      "tema": "-2560 and -753"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first football World Cup",
+        "The first modern Olympic Games"
+      ],
+      "correcta": 1,
+      "tema": "1896 and 1930"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The fall of Constantinople",
+        "The Black Death in Europe"
+      ],
+      "correcta": 1,
+      "tema": "1347 and 1453"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The invention of the telephone",
+        "The first commercial light bulb"
+      ],
+      "correcta": 0,
+      "tema": "1876 and 1879"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The discovery of penicillin",
+        "The first smallpox vaccine"
+      ],
+      "correcta": 1,
+      "tema": "1796 and 1928"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "«Don Quixote», part one",
+        "The death of Shakespeare"
+      ],
+      "correcta": 0,
+      "tema": "1605 and 1616"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first human in space",
+        "The Sputnik satellite"
+      ],
+      "correcta": 1,
+      "tema": "1957 and 1961"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The British Industrial Revolution",
+        "The Russian Revolution"
+      ],
+      "correcta": 0,
+      "tema": "1760 and 1917"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The Chernobyl accident",
+        "Tutankhamun's tomb discovered"
+      ],
+      "correcta": 1,
+      "tema": "1922 and 1986"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The creation of the World Wide Web",
+        "The founding of Google"
+      ],
+      "correcta": 0,
+      "tema": "1989 and 1998"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The First World War",
+        "The abolition of slavery in the US"
+      ],
+      "correcta": 1,
+      "tema": "1865 and 1914"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Vesuvius burying Pompeii",
+        "The fall of the Western Roman Empire"
+      ],
+      "correcta": 0,
+      "tema": "79 and 476"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first iPhone",
+        "The first Star Wars film"
+      ],
+      "correcta": 1,
+      "tema": "1977 and 2007"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The Eiffel Tower is built",
+        "The Empire State Building is built"
+      ],
+      "correcta": 0,
+      "tema": "1889 and 1931"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first IBM personal computer",
+        "The first human heart transplant"
+      ],
+      "correcta": 1,
+      "tema": "1967 and 1981"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Indian independence",
+        "The Cuban revolution"
+      ],
+      "correcta": 0,
+      "tema": "1947 and 1959"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Beethoven is born",
+        "Mozart is born"
+      ],
+      "correcta": 1,
+      "tema": "1756 and 1770"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The invention of photography",
+        "The Lumière brothers' first screening"
+      ],
+      "correcta": 0,
+      "tema": "1826 and 1895"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The conquest of the Inca Empire",
+        "Machu Picchu is built"
+      ],
+      "correcta": 1,
+      "tema": "1450 and 1533"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The Magna Carta is signed",
+        "The Italian Renaissance begins"
+      ],
+      "correcta": 0,
+      "tema": "1215 and 1400"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The Suez Canal opens",
+        "The first underground railway, in London"
+      ],
+      "correcta": 1,
+      "tema": "1863 and 1869"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "«On the Origin of Species» is published",
+        "The first non-stop transatlantic flight"
+      ],
+      "correcta": 0,
+      "tema": "1859 and 1919"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Spain joins the European Union",
+        "The collapse of the Soviet Union"
+      ],
+      "correcta": 0,
+      "tema": "1986 and 1991"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "«The Simpsons» becomes a series",
+        "«Friends» premieres"
+      ],
+      "correcta": 0,
+      "tema": "1989 and 1994"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Gunpowder is invented in China",
+        "Paper is invented in China"
+      ],
+      "correcta": 1,
+      "tema": "105 and 900"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "X-rays are discovered",
+        "Radioactivity is discovered"
+      ],
+      "correcta": 0,
+      "tema": "1895 and 1896"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The Alhambra is built",
+        "The Colosseum is built"
+      ],
+      "correcta": 1,
+      "tema": "80 and 1238"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "Napoleon dies",
+        "The American Civil War begins"
+      ],
+      "correcta": 0,
+      "tema": "1821 and 1861"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first passenger railway",
+        "Watt's steam engine"
+      ],
+      "correcta": 1,
+      "tema": "1769 and 1825"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The discovery of penicillin",
+        "The first nuclear test"
+      ],
+      "correcta": 0,
+      "tema": "1928 and 1945"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The University of Salamanca is founded",
+        "The University of Bologna is founded"
+      ],
+      "correcta": 1,
+      "tema": "1088 and 1218"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first successful kidney transplant",
+        "Dolly the cloned sheep"
+      ],
+      "correcta": 0,
+      "tema": "1954 and 1996"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first Ballon d'Or",
+        "The first Eurovision Song Contest"
+      ],
+      "correcta": 0,
+      "tema": "1956 and 1956"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The London Great Fire",
+        "The Lisbon earthquake"
+      ],
+      "correcta": 0,
+      "tema": "1666 and 1755"
+    },
+    {
+      "texto": "Which came first?",
+      "opciones": [
+        "The first Tour de France",
+        "The first modern marathon"
+      ],
+      "correcta": 1,
+      "tema": "1896 and 1903"
+    }
+  ]
+}

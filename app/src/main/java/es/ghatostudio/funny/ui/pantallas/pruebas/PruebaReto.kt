@@ -51,9 +51,15 @@ import kotlinx.coroutines.delay
  * mesa de verdad.
  */
 @Composable
-fun PruebaReto(vm: JuegoViewModel, reto: RetoRapido, sonidos: Sonidos) {
+fun PruebaReto(
+    vm: JuegoViewModel,
+    reto: RetoRapido,
+    sonidos: Sonidos,
+    // Encadenados usa esta misma pantalla: mismo contador, otro juego y
+    // otro color. Por eso el juego es un parámetro y no una constante.
+    juego: Juego = Juego.RETO,
+) {
     val t = textos()
-    val juego = Juego.RETO
     val p = paleta()
     val color = p.colorDe(juego)
     var contador by remember { mutableIntStateOf(0) }

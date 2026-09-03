@@ -26,9 +26,10 @@ otra cosa.
 
 **Juegos y modos**
 
-- **Seis pruebas nuevas**, de seis a doce: Tabú, Emojis, ¿Te lo crees?,
-  Trabalenguas, Ordena, Canta y Desafío se suman a Mímica, Pinturillo, ¿Cuándo?,
-  Preguntas y Reto rápido.
+- **Doce pruebas nuevas**, de seis a dieciocho. A las de la app anterior
+  —Mímica, Pinturillo, ¿Cuándo?, Preguntas y Reto rápido— se suman Tabú, Emojis,
+  ¿Te lo crees?, Trabalenguas, Ordena, Canta, Desafío, Refranes,
+  ¿Antes o después?, Anagramas, Acentos, Sonidos y Encadenados.
 - **Modo individual** (2–8 jugadores) sin equipos.
 - **Reto en solitario** (1 jugador): sin tablero, una tanda de pruebas seguidas
   con puntuación y mejor marca personal. Los juegos que necesitan público —los
@@ -36,7 +37,7 @@ otra cosa.
 - **Cuatro modalidades de partida**: rápida (12 casillas / 6 pruebas), normal
   (20 / 10), extrema (32 / 16) y una a medida en la que se eligen los dos números.
 - **Elegir qué juegos entran** en la partida, uno a uno.
-- **2.601 cartas** escritas para la app: 1.366 en castellano y 1.235 en inglés.
+- **3.194 cartas** escritas para la app: 1.668 en castellano y 1.526 en inglés.
 
 **Salón multidispositivo**
 
@@ -51,7 +52,7 @@ otra cosa.
 - **Seis temas**: tres oscuros (Fiesta, Neón, Medianoche) y tres claros (Papel,
   Menta, Atardecer), más «seguir al sistema». Todos con contraste AA verificado
   por tests, no supuesto.
-- **Trece idiomas** completos, 392 claves cada uno: inglés, castellano, francés,
+- **Trece idiomas** completos, 413 claves cada uno: inglés, castellano, francés,
   alemán, chino simplificado, japonés, ruso, italiano, griego, árabe, gallego,
   catalán y euskera.
 - **Árabe en RTL**, con la dirección de lectura siguiendo al idioma elegido y no
@@ -67,7 +68,7 @@ otra cosa.
 - **Exportación e importación** a un fichero `.funny.bak` con cabecera de esquema,
   validación, **copia de seguridad automática antes de importar** y elección entre
   fusionar y reemplazar.
-- **Tour guiado** interno que describe los doce juegos y los tres modos.
+- **Tour guiado** interno que describe los dieciocho juegos y los tres modos.
 - «Acerca de» con versión, número de compilación, fecha, hash del commit,
   licencias y contacto.
 
@@ -120,7 +121,21 @@ igual: compilaba y se cerraba al abrirla.
   resto de un renombrado que no da ningún error, solo queda raro.
 
 Ninguna de las 164 pruebas podía verlos: ninguna instanciaba la Activity ni el
-ViewModel, y ninguna renderiza en RTL. Ahora hay 172 y cada uno tiene la suya.
+ViewModel, y ninguna renderiza en RTL. Ahora hay 174 y cada uno tiene la suya.
+
+#### Lo que encontró la segunda pasada por el móvil
+
+- **La fila «a mi manera» anunciaba los números de otra modalidad.** El resumen
+  de las cuatro se enseña a la vez, y el de la personalizada leía
+  `ajustes.casillas`, que ya venía resuelto por la modalidad elegida: con la
+  extrema puesta decía «32 casillas · 16 pruebas» en lugar de las 20 y 10 que
+  había guardadas. Ahora hay `casillasAMedida` y `pruebasAMedida`, que son los
+  números a mano sin pasar por la elección, con su prueba.
+- **El comentario del mazo de ¿Antes o después? describía otra pantalla.** Decía
+  que los dos años se ven «al resolver», y la pantalla los enseña desde el
+  principio como tema de la carta. Se ha corregido el comentario, no la pantalla:
+  ver los dos años sin saber de quién es cada uno es justo la dificultad que
+  tiene que tener el juego.
 
 #### Reglas de R8 que faltaban
 

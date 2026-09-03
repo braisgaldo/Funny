@@ -1,0 +1,133 @@
+{
+  "_comentario": "Lines to deliver in a given voice or register. Deliberately about JOBS and SITUATIONS, never nationalities or regions: doing a news anchor is funny without being at anyone's expense.",
+  "cartas": [
+    {
+      "texto": "Say «I dropped my phone in the toilet» like a TV news anchor.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «there's no milk left» like it's the worst news of your life.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «nice weather today» like a nature documentary narrator.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «I'm getting some water» like you're in an action film.",
+      "nivel": 1
+    },
+    {
+      "texto": "Ask for the time like a robot running out of battery.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «good afternoon» like you've just run ten kilometres.",
+      "nivel": 1
+    },
+    {
+      "texto": "Explain how to make an omelette like a football commentator.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «it's my turn» in a whisper, like a state secret.",
+      "nivel": 1
+    },
+    {
+      "texto": "Read out the shopping list like a very sad poem.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «I'm hungry» like a cartoon villain.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say thank you like you've just won a major award.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «the power's out» like an old-time radio announcer.",
+      "nivel": 2
+    },
+    {
+      "texto": "Count to five like you're falling asleep.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «I can't believe it» like someone who absolutely believes it.",
+      "nivel": 2
+    },
+    {
+      "texto": "Ask «is there any pudding left?» like you're asking after a loved one.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «good morning» like a ship's captain in a storm.",
+      "nivel": 2
+    },
+    {
+      "texto": "Explain the rules of this game like a shopping channel host.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «I'm going to sit down» like it's a historic decision.",
+      "nivel": 1
+    },
+    {
+      "texto": "Read this line like a tour guide who has lost their voice.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «I've lost my keys» like you're narrating the end of a novel.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «pass the salt» like you're talking to a newborn.",
+      "nivel": 1
+    },
+    {
+      "texto": "Announce that you're going to the loo like a gala host.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «it's so hot» like a classical stage actor.",
+      "nivel": 2
+    },
+    {
+      "texto": "Describe your breakfast like it's classified information.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «I'm off to bed» like you're leaving forever.",
+      "nivel": 2
+    },
+    {
+      "texto": "Ask «whose turn is it?» like a very stern judge.",
+      "nivel": 1
+    },
+    {
+      "texto": "Say «this tastes amazing» without using the letter E.",
+      "nivel": 3
+    },
+    {
+      "texto": "Introduce the person on your right like a rock star.",
+      "nivel": 2
+    },
+    {
+      "texto": "Say «see you later» like a shopping centre lift.",
+      "nivel": 2
+    },
+    {
+      "texto": "Tell everyone the time as if in a made-up language.",
+      "nivel": 3
+    },
+    {
+      "texto": "Say «I'm cold» like you're in space and out of oxygen.",
+      "nivel": 2
+    },
+    {
+      "texto": "Recite the days of the week like a magic spell.",
+      "nivel": 2
+    }
+  ]
+}

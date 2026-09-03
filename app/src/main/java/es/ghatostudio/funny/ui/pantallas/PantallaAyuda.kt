@@ -35,7 +35,7 @@ import es.ghatostudio.funny.ui.tema.paleta
 
 /**
  * Ayuda escrita para quien juega, no para quien programa: qué es Funny, cómo se
- * juega con uno o con varios móviles, los doce juegos, preguntas frecuentes y
+ * juega con uno o con varios móviles, los dieciocho juegos, preguntas frecuentes y
  * qué hacer si algo falla.
  */
 @Composable
@@ -78,7 +78,7 @@ fun PantallaAyuda(vm: JuegoViewModel) {
                     Punto("🏁  ${t[Clave.CASILLA_META_AVISO]}")
                 }
 
-                // Los doce juegos, con su color y sus instrucciones reales:
+                // Los dieciocho juegos, con su color y sus instrucciones reales:
                 // exactamente las mismas que se ven antes de cada prueba, para
                 // que no haya dos versiones de las reglas.
                 Bloque(t[Clave.TOUR_JUEGOS_TITULO]) {

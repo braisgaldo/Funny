@@ -1,0 +1,133 @@
+{
+  "_comentario": "Ruidos que hay que imitar SOLO CON LA BOCA: nada de palmas, golpes en la mesa ni objetos. Si vale usar las manos, el juego deja de tener gracia.",
+  "cartas": [
+    {
+      "texto": "Imita con la boca una moto que no arranca.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de un microondas terminando.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita una puerta que chirría muy despacio.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de un globo deshinchándose.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita una gallina que ha visto algo raro.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de alguien sorbiendo sopa muy caliente.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el pitido de un coche marcha atrás.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita un teléfono antiguo de los de rueda.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido de la lluvia sobre un tejado de chapa.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita una sirena de ambulancia alejándose.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de un mosquito acercándose a tu oreja.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita una cremallera subiendo y bajando.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido de un tren pasando por un túnel.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita a alguien roncando en tres fases distintas.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido de una lata de refresco al abrirse.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el arranque de una cortadora de césped.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido de un despertador que no quieres oír.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita una vaca que está muy lejos.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de unos pasos sobre nieve.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita un fax de los de antes.",
+      "nivel": 3
+    },
+    {
+      "texto": "Imita el sonido de una fregona escurriéndose.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el ruido de un estómago con mucha hambre.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de una impresora atascada.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita a un gato que quiere entrar en una habitación.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita el sonido de un ascensor llegando a su planta.",
+      "nivel": 1
+    },
+    {
+      "texto": "Imita una moto de agua a toda velocidad.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido de un vaso rompiéndose, sin romper nada.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el pitido de un detector de humos con la pila baja.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido del viento entre las rendijas de una ventana.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita a un pato que ha perdido la voz.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita el sonido de una batidora haciendo un batido muy espeso.",
+      "nivel": 2
+    },
+    {
+      "texto": "Imita tres animales distintos sin repetir sonido, y que se distingan.",
+      "nivel": 3
+    }
+  ]
+}

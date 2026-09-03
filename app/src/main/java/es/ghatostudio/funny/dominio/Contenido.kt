@@ -3,7 +3,7 @@ package es.ghatostudio.funny.dominio
 import kotlin.random.Random
 
 // ---------------------------------------------------------------------------
-// Contenido de los doce juegos.
+// Contenido de los dieciocho juegos.
 //
 // Son tipos puros: quien los rellene (assets, un fichero importado o un test)
 // es asunto de la capa de datos.
@@ -97,6 +97,14 @@ data class Contenido(
     val ordenar: List<RetoOrdenar> = emptyList(),
     val canciones: List<Cancion> = emptyList(),
     val desafios: List<Desafio> = emptyList(),
+    // Los seis mazos de los juegos nuevos. Reutilizan modelos de carta que
+    // ya existian: no hacia falta inventar ninguno.
+    val refranes: List<PreguntaTrivial> = emptyList(),
+    val antesDespues: List<PreguntaTrivial> = emptyList(),
+    val anagramas: List<PreguntaTrivial> = emptyList(),
+    val acentos: List<Desafio> = emptyList(),
+    val sonidos: List<Desafio> = emptyList(),
+    val encadenados: List<RetoRapido> = emptyList(),
 ) {
     /** Cuántas cartas hay para un juego. Cero significa «no se puede jugar». */
     fun cantidadDe(juego: Juego): Int =
@@ -113,6 +121,12 @@ data class Contenido(
             Juego.ORDENA -> ordenar.size
             Juego.CANTA -> canciones.size
             Juego.DESAFIO -> desafios.size
+            Juego.REFRANES -> refranes.size
+            Juego.ANTES -> antesDespues.size
+            Juego.ANAGRAMAS -> anagramas.size
+            Juego.ACENTOS -> acentos.size
+            Juego.SONIDOS -> sonidos.size
+            Juego.CADENA -> encadenados.size
         }
 
     /** Los juegos que tienen material suficiente para entrar en una partida. */
@@ -126,6 +140,48 @@ data class Contenido(
  * pintar la prueba, ya elegido y ya barajado.
  */
 sealed interface Prueba {
+    // --- los seis juegos nuevos ---
+    // Cada uno lleva su propio tipo aunque comparta modelo de carta con otro:
+    // asi la pantalla sabe de que juego es sin mirar un campo, y el `when` de
+    // `PantallaPrueba` sigue siendo exhaustivo.
+
+    /** [opciones] y [correcta] salen de la carta; se guardan aparte por comodidad. */
+    data class DeRefranes(
+        val pregunta: PreguntaTrivial,
+    ) : Prueba {
+        override val juego = Juego.REFRANES
+    }
+
+    data class DeAntesDespues(
+        val pregunta: PreguntaTrivial,
+    ) : Prueba {
+        override val juego = Juego.ANTES
+    }
+
+    data class DeAnagramas(
+        val pregunta: PreguntaTrivial,
+    ) : Prueba {
+        override val juego = Juego.ANAGRAMAS
+    }
+
+    data class DeAcentos(
+        val carta: Desafio,
+    ) : Prueba {
+        override val juego = Juego.ACENTOS
+    }
+
+    data class DeSonidos(
+        val carta: Desafio,
+    ) : Prueba {
+        override val juego = Juego.SONIDOS
+    }
+
+    data class DeEncadenados(
+        val reto: RetoRapido,
+    ) : Prueba {
+        override val juego = Juego.CADENA
+    }
+
     val juego: Juego
 
     data class DeMimica(

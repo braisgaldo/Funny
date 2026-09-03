@@ -6,8 +6,8 @@
 
 ## Contexto
 
-Funny lleva **2.601 cartas** escritas a mano (1.366 en castellano y 1.235 en
-inglés), repartidas en doce mazos. Dos de esos mazos rozan material protegido:
+Funny lleva **3.194 cartas** escritas a mano (1.668 en castellano y 1.526 en
+inglés), repartidas en dieciocho mazos. Dos de esos mazos rozan material protegido:
 
 - **🎤 Canta**: el juego consiste en arrancar a cantar una canción conocida.
 - **🎬 Emojis**: hay que adivinar una película o serie a partir de emojis.
@@ -73,7 +73,7 @@ regla antes de romperla:
 - No hay ningún titular de derechos que pueda pedir la retirada de la app, y no
   hay que documentar licencias de contenido de terceros en «Acerca de» porque no
   hay contenido de terceros.
-- El APK es pequeño: 2.601 cartas de texto pesan menos que una sola imagen.
+- El APK es pequeño: 3.194 cartas de texto pesan menos que una sola imagen.
 
 **En contra**
 
@@ -82,7 +82,7 @@ regla antes de romperla:
   eligiendo canciones muy conocidas, pero es una pérdida real de comodidad
   respecto a un juego que sí pusiera la letra. Es un intercambio consciente:
   prefiero un juego un poco más difícil a distribuir letras que no son mías.
-- Escribir 2.601 cartas a mano es lento. La alternativa —copiarlas de algún
+- Escribir 3.194 cartas a mano es lento. La alternativa —copiarlas de algún
   sitio— no era una alternativa.
 
 ## Cómo se vigila

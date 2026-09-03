@@ -1,80 +1,515 @@
 {
   "_comment": "Odd statements with the explanation shown after answering. The explanation is half the fun of the round, so it is never left out.",
   "afirmaciones": [
-    { "texto": "Octopuses have three hearts.", "verdadera": true, "explicacion": "Two pump blood to the gills and the third to the rest of the body. The third stops when they swim, which is why they prefer walking." },
-    { "texto": "Honey never spoils.", "verdadera": true, "explicacion": "Its acidity and very low moisture stop bacteria growing. Edible honey has been found in Egyptian tombs." },
-    { "texto": "The Great Wall of China is visible to the naked eye from the Moon.", "verdadera": false, "explicacion": "It is enormously long but very narrow. No human structure is visible from the Moon." },
-    { "texto": "Bananas are slightly radioactive.", "verdadera": true, "explicacion": "They contain potassium, and some natural potassium is the isotope potassium-40. The dose is negligible." },
-    { "texto": "Lightning never strikes the same place twice.", "verdadera": false, "explicacion": "The Empire State Building is hit around twenty times a year." },
-    { "texto": "Flamingos are born grey.", "verdadera": true, "explicacion": "The pink comes from carotenoids in what they eat, mostly crustaceans and algae." },
-    { "texto": "Hot water weighs more than cold water.", "verdadera": false, "explicacion": "Water expands when heated, so a litre of hot water weighs slightly less." },
-    { "texto": "Snails can sleep for three years straight.", "verdadera": true, "explicacion": "In very dry conditions they enter estivation and can stay inactive for years." },
-    { "texto": "Napoleon was unusually short for his time.", "verdadera": false, "explicacion": "He was about 1.68 m, slightly above the French average of the day. The myth comes from British propaganda." },
-    { "texto": "Dolphins sleep with half their brain at a time.", "verdadera": true, "explicacion": "They alternate hemispheres so they can keep surfacing to breathe." },
-    { "texto": "Sound travels faster in water than in air.", "verdadera": true, "explicacion": "About 1,480 m/s versus 343 m/s, because water is far less compressible." },
-    { "texto": "Camels store water in their humps.", "verdadera": false, "explicacion": "The hump is fat. Water is held in their blood and tissues." },
-    { "texto": "There are more stars in the observable universe than grains of sand on Earth.", "verdadera": true, "explicacion": "Estimates give around 10^22 stars against roughly 10^19 grains of sand." },
-    { "texto": "Tomatoes are technically a fruit.", "verdadera": true, "explicacion": "Botanically they are a fruit: they grow from the flower and carry seeds." },
-    { "texto": "Your heart stops when you sneeze.", "verdadera": false, "explicacion": "The rhythm changes for a moment because of the pressure, but the heart does not stop." },
-    { "texto": "Mars has the tallest volcano in the solar system.", "verdadera": true, "explicacion": "Olympus Mons, about 22 km high, more than twice Everest." },
-    { "texto": "Giraffes have more neck vertebrae than humans.", "verdadera": false, "explicacion": "They have seven, the same as us. Much longer ones, mind you." },
-    { "texto": "Glass is a liquid that flows very slowly.", "verdadera": false, "explicacion": "It is an amorphous solid. Old panes are thicker at the bottom because of how they were made." },
-    { "texto": "Koalas sleep up to twenty hours a day.", "verdadera": true, "explicacion": "Eucalyptus gives very little energy and is hard to digest." },
-    { "texto": "A year on Venus is shorter than a day on Venus.", "verdadera": true, "explicacion": "It orbits the Sun in 225 Earth days and spins once in 243." },
-    { "texto": "Humans share more than 90 % of their DNA with bananas.", "verdadera": false, "explicacion": "Depending on how you measure, the real figure is around 40-60 % and only counts comparable genes." },
-    { "texto": "Blood is never blue.", "verdadera": true, "explicacion": "Venous blood is dark red. It looks blue because of how skin scatters light." },
-    { "texto": "There are penguins at the North Pole.", "verdadera": false, "explicacion": "Every wild species lives in the southern hemisphere." },
-    { "texto": "A teaspoon of neutron star would weigh more than Everest.", "verdadera": true, "explicacion": "Its density is around a billion tonnes per cubic centimetre." },
-    { "texto": "Bats are blind.", "verdadera": false, "explicacion": "Almost all of them can see; they use echolocation because it works better at night." },
-    { "texto": "White chocolate contains no cocoa at all.", "verdadera": false, "explicacion": "It contains cocoa butter, just not cocoa solids, which is what would give it colour." },
-    { "texto": "You cannot cry in space the way you do on Earth.", "verdadera": true, "explicacion": "Without gravity tears do not fall: they cling in a ball around the eye." },
-    { "texto": "Ostriches bury their heads in the sand when frightened.", "verdadera": false, "explicacion": "They lower their heads to eat or turn their eggs. When scared, they run." },
-    { "texto": "Everest grows a few millimetres every year.", "verdadera": true, "explicacion": "The Indian plate keeps pushing against the Eurasian one." },
-    { "texto": "Steel is lighter than aluminium.", "verdadera": false, "explicacion": "Steel is almost three times denser." },
-    { "texto": "One country has a flag that is not rectangular.", "verdadera": true, "explicacion": "Nepal's flag is two overlapping pennants." },
-    { "texto": "Cats cannot taste sweetness.", "verdadera": true, "explicacion": "They lack working sugar receptors; they are strict carnivores." },
-    { "texto": "Greenland belongs to Denmark.", "verdadera": true, "explicacion": "It has been an autonomous territory of the Kingdom of Denmark since 1979." },
-    { "texto": "The largest desert in the world is the Sahara.", "verdadera": false, "explicacion": "It is Antarctica: a desert is defined by rainfall, not temperature." },
-    { "texto": "Bees can recognise human faces.", "verdadera": true, "explicacion": "Experiments show they distinguish facial patterns and remember them." },
-    { "texto": "Gold is edible.", "verdadera": true, "explicacion": "Gold leaf is inert and is approved as a food additive." },
-    { "texto": "There are ants in Antarctica.", "verdadera": false, "explicacion": "It is the only continent with no native ants." },
-    { "texto": "A garden snail has thousands of teeth.", "verdadera": true, "explicacion": "Its radula carries thousands of tiny teeth it uses to rasp food." },
-    { "texto": "The Leaning Tower of Pisa started leaning because of an earthquake.", "verdadera": false, "explicacion": "It began leaning during construction, on soft, uneven ground." },
-    { "texto": "Decaffeinated coffee contains no caffeine whatsoever.", "verdadera": false, "explicacion": "A small amount remains: EU rules allow up to 0.1 %." },
-    { "texto": "Saturn would float in water if you had a big enough bath.", "verdadera": true, "explicacion": "Its average density is less than water's, around 0.69 g/cm³." },
-    { "texto": "Newborns see in colour from day one.", "verdadera": false, "explicacion": "Colour vision develops over the first few months." },
-    { "texto": "The largest living organism on the planet is a fungus.", "verdadera": true, "explicacion": "An Armillaria in Oregon covers several square kilometres." },
-    { "texto": "Sharks existed before trees.", "verdadera": true, "explicacion": "Sharks go back about 400 million years; the first trees about 385." },
-    { "texto": "The Moon is moving away from Earth.", "verdadera": true, "explicacion": "About 3.8 cm a year, measured using reflectors left by the Apollo missions." },
-    { "texto": "Hair and nails keep growing after death.", "verdadera": false, "explicacion": "The skin dehydrates and retracts, which makes it look as if they have grown." },
-    { "texto": "There are more trees on Earth than stars in the Milky Way.", "verdadera": true, "explicacion": "About three trillion trees against a hundred to four hundred billion stars." },
-    { "texto": "Wi-Fi works using radio waves.", "verdadera": true, "explicacion": "It uses microwaves, which are high-frequency radio waves." },
-    { "texto": "Elephants are the only animals that cannot jump.", "verdadera": false, "explicacion": "They cannot, but neither can sloths, hippos or rhinos." },
-    { "texto": "The deepest point in the ocean is in the Pacific.", "verdadera": true, "explicacion": "The Mariana Trench, at nearly 11,000 metres." },
-    { "texto": "Emperor penguins incubate their egg on their feet.", "verdadera": true, "explicacion": "The male does it, enduring months of Antarctic winter without eating." },
-    { "texto": "The river carrying the most water in the world is the Nile.", "verdadera": false, "explicacion": "It is the Amazon. The Nile is among the longest but carries far less water." },
-    { "texto": "You can hear the northern lights crackle.", "verdadera": false, "explicacion": "They happen tens of kilometres up, and sound does not travel through a vacuum." },
-    { "texto": "Horses cannot vomit.", "verdadera": true, "explicacion": "The anatomy of their oesophageal sphincter prevents it, which is why colic is so serious." },
-    { "texto": "There are more than a thousand varieties of banana.", "verdadera": true, "explicacion": "Over a thousand cultivated varieties are known, even if almost all trade uses one." },
-    { "texto": "Iceland has no mosquitoes.", "verdadera": true, "explicacion": "Its climate and thaw cycles do not let them complete their life cycle." },
-    { "texto": "The first computer weighed less than a hundred kilos.", "verdadera": false, "explicacion": "ENIAC weighed about 27 tonnes and filled a whole room." },
-    { "texto": "Sunflowers follow the Sun all their lives.", "verdadera": false, "explicacion": "Only while young; once they flower they settle facing east." },
-    { "texto": "A litre of seawater contains more than thirty grams of salt.", "verdadera": true, "explicacion": "Average salinity is around 35 grams per litre." },
-    { "texto": "The tongue has separate zones for each taste.", "verdadera": false, "explicacion": "The famous tongue map is a misunderstanding: receptors for all tastes are spread all over it." },
-    { "texto": "Lightning is hotter than the surface of the Sun.", "verdadera": true, "explicacion": "A lightning channel can exceed 27,000 °C; the solar surface is about 5,500 °C." },
-    { "texto": "A sheet of paper folded 42 times would reach the Moon.", "verdadera": true, "explicacion": "Each fold doubles the thickness: 2^42 times 0.1 mm is over 400,000 km. Actually folding it is another matter." },
-    { "texto": "Sea otters hold hands while they sleep.", "verdadera": true, "explicacion": "They form rafts, holding on to each other so the current does not separate them." },
-    { "texto": "The metric system was born in France.", "verdadera": true, "explicacion": "It was adopted during the French Revolution, at the end of the 18th century." },
-    { "texto": "An avocado is a fruit with a stone, like a peach.", "verdadera": true, "explicacion": "Botanically it is a single-seeded berry." },
-    { "texto": "Zebras are white with black stripes.", "verdadera": false, "explicacion": "Their skin is dark: the white comes from areas without pigment." },
-    { "texto": "The human eye can distinguish millions of colours.", "verdadera": true, "explicacion": "Common estimates are around a million, and some go considerably higher." },
-    { "texto": "A jellyfish can be biologically immortal.", "verdadera": true, "explicacion": "Turritopsis dohrnii can revert to its polyp stage and start over." },
-    { "texto": "Adults have fewer bones than babies.", "verdadera": true, "explicacion": "We are born with about 300 and many fuse until 206 remain." },
-    { "texto": "The first commercial video game was Pong.", "verdadera": false, "explicacion": "Computer Space came first, in 1971; Pong is from 1972 and was the one that took off." },
-    { "texto": "The capital of Turkey is Istanbul.", "verdadera": false, "explicacion": "It has been Ankara since 1923, even though Istanbul is far bigger." },
-    { "texto": "There is a shark that lives more than three hundred years.", "verdadera": true, "explicacion": "The Greenland shark is the longest-lived vertebrate known." },
-    { "texto": "Coca-Cola was originally green.", "verdadera": false, "explicacion": "It was always caramel coloured; the bottles were green." },
-    { "texto": "There is a country with no rivers at all.", "verdadera": true, "explicacion": "Several, in fact, including Saudi Arabia and Malta." },
-    { "texto": "Antarctica has no time zone of its own.", "verdadera": true, "explicacion": "Stations use the time zone of whichever country supplies them." }
+    {
+      "texto": "Octopuses have three hearts.",
+      "verdadera": true,
+      "explicacion": "Two pump blood to the gills and the third to the rest of the body. The third stops when they swim, which is why they prefer walking."
+    },
+    {
+      "texto": "Honey never spoils.",
+      "verdadera": true,
+      "explicacion": "Its acidity and very low moisture stop bacteria growing. Edible honey has been found in Egyptian tombs."
+    },
+    {
+      "texto": "The Great Wall of China is visible to the naked eye from the Moon.",
+      "verdadera": false,
+      "explicacion": "It is enormously long but very narrow. No human structure is visible from the Moon."
+    },
+    {
+      "texto": "Bananas are slightly radioactive.",
+      "verdadera": true,
+      "explicacion": "They contain potassium, and some natural potassium is the isotope potassium-40. The dose is negligible."
+    },
+    {
+      "texto": "Lightning never strikes the same place twice.",
+      "verdadera": false,
+      "explicacion": "The Empire State Building is hit around twenty times a year."
+    },
+    {
+      "texto": "Flamingos are born grey.",
+      "verdadera": true,
+      "explicacion": "The pink comes from carotenoids in what they eat, mostly crustaceans and algae."
+    },
+    {
+      "texto": "Hot water weighs more than cold water.",
+      "verdadera": false,
+      "explicacion": "Water expands when heated, so a litre of hot water weighs slightly less."
+    },
+    {
+      "texto": "Snails can sleep for three years straight.",
+      "verdadera": true,
+      "explicacion": "In very dry conditions they enter estivation and can stay inactive for years."
+    },
+    {
+      "texto": "Napoleon was unusually short for his time.",
+      "verdadera": false,
+      "explicacion": "He was about 1.68 m, slightly above the French average of the day. The myth comes from British propaganda."
+    },
+    {
+      "texto": "Dolphins sleep with half their brain at a time.",
+      "verdadera": true,
+      "explicacion": "They alternate hemispheres so they can keep surfacing to breathe."
+    },
+    {
+      "texto": "Sound travels faster in water than in air.",
+      "verdadera": true,
+      "explicacion": "About 1,480 m/s versus 343 m/s, because water is far less compressible."
+    },
+    {
+      "texto": "Camels store water in their humps.",
+      "verdadera": false,
+      "explicacion": "The hump is fat. Water is held in their blood and tissues."
+    },
+    {
+      "texto": "There are more stars in the observable universe than grains of sand on Earth.",
+      "verdadera": true,
+      "explicacion": "Estimates give around 10^22 stars against roughly 10^19 grains of sand."
+    },
+    {
+      "texto": "Tomatoes are technically a fruit.",
+      "verdadera": true,
+      "explicacion": "Botanically they are a fruit: they grow from the flower and carry seeds."
+    },
+    {
+      "texto": "Your heart stops when you sneeze.",
+      "verdadera": false,
+      "explicacion": "The rhythm changes for a moment because of the pressure, but the heart does not stop."
+    },
+    {
+      "texto": "Mars has the tallest volcano in the solar system.",
+      "verdadera": true,
+      "explicacion": "Olympus Mons, about 22 km high, more than twice Everest."
+    },
+    {
+      "texto": "Giraffes have more neck vertebrae than humans.",
+      "verdadera": false,
+      "explicacion": "They have seven, the same as us. Much longer ones, mind you."
+    },
+    {
+      "texto": "Glass is a liquid that flows very slowly.",
+      "verdadera": false,
+      "explicacion": "It is an amorphous solid. Old panes are thicker at the bottom because of how they were made."
+    },
+    {
+      "texto": "Koalas sleep up to twenty hours a day.",
+      "verdadera": true,
+      "explicacion": "Eucalyptus gives very little energy and is hard to digest."
+    },
+    {
+      "texto": "A year on Venus is shorter than a day on Venus.",
+      "verdadera": true,
+      "explicacion": "It orbits the Sun in 225 Earth days and spins once in 243."
+    },
+    {
+      "texto": "Humans share more than 90 % of their DNA with bananas.",
+      "verdadera": false,
+      "explicacion": "Depending on how you measure, the real figure is around 40-60 % and only counts comparable genes."
+    },
+    {
+      "texto": "Blood is never blue.",
+      "verdadera": true,
+      "explicacion": "Venous blood is dark red. It looks blue because of how skin scatters light."
+    },
+    {
+      "texto": "There are penguins at the North Pole.",
+      "verdadera": false,
+      "explicacion": "Every wild species lives in the southern hemisphere."
+    },
+    {
+      "texto": "A teaspoon of neutron star would weigh more than Everest.",
+      "verdadera": true,
+      "explicacion": "Its density is around a billion tonnes per cubic centimetre."
+    },
+    {
+      "texto": "Bats are blind.",
+      "verdadera": false,
+      "explicacion": "Almost all of them can see; they use echolocation because it works better at night."
+    },
+    {
+      "texto": "White chocolate contains no cocoa at all.",
+      "verdadera": false,
+      "explicacion": "It contains cocoa butter, just not cocoa solids, which is what would give it colour."
+    },
+    {
+      "texto": "You cannot cry in space the way you do on Earth.",
+      "verdadera": true,
+      "explicacion": "Without gravity tears do not fall: they cling in a ball around the eye."
+    },
+    {
+      "texto": "Ostriches bury their heads in the sand when frightened.",
+      "verdadera": false,
+      "explicacion": "They lower their heads to eat or turn their eggs. When scared, they run."
+    },
+    {
+      "texto": "Everest grows a few millimetres every year.",
+      "verdadera": true,
+      "explicacion": "The Indian plate keeps pushing against the Eurasian one."
+    },
+    {
+      "texto": "Steel is lighter than aluminium.",
+      "verdadera": false,
+      "explicacion": "Steel is almost three times denser."
+    },
+    {
+      "texto": "One country has a flag that is not rectangular.",
+      "verdadera": true,
+      "explicacion": "Nepal's flag is two overlapping pennants."
+    },
+    {
+      "texto": "Cats cannot taste sweetness.",
+      "verdadera": true,
+      "explicacion": "They lack working sugar receptors; they are strict carnivores."
+    },
+    {
+      "texto": "Greenland belongs to Denmark.",
+      "verdadera": true,
+      "explicacion": "It has been an autonomous territory of the Kingdom of Denmark since 1979."
+    },
+    {
+      "texto": "The largest desert in the world is the Sahara.",
+      "verdadera": false,
+      "explicacion": "It is Antarctica: a desert is defined by rainfall, not temperature."
+    },
+    {
+      "texto": "Bees can recognise human faces.",
+      "verdadera": true,
+      "explicacion": "Experiments show they distinguish facial patterns and remember them."
+    },
+    {
+      "texto": "Gold is edible.",
+      "verdadera": true,
+      "explicacion": "Gold leaf is inert and is approved as a food additive."
+    },
+    {
+      "texto": "There are ants in Antarctica.",
+      "verdadera": false,
+      "explicacion": "It is the only continent with no native ants."
+    },
+    {
+      "texto": "A garden snail has thousands of teeth.",
+      "verdadera": true,
+      "explicacion": "Its radula carries thousands of tiny teeth it uses to rasp food."
+    },
+    {
+      "texto": "The Leaning Tower of Pisa started leaning because of an earthquake.",
+      "verdadera": false,
+      "explicacion": "It began leaning during construction, on soft, uneven ground."
+    },
+    {
+      "texto": "Decaffeinated coffee contains no caffeine whatsoever.",
+      "verdadera": false,
+      "explicacion": "A small amount remains: EU rules allow up to 0.1 %."
+    },
+    {
+      "texto": "Saturn would float in water if you had a big enough bath.",
+      "verdadera": true,
+      "explicacion": "Its average density is less than water's, around 0.69 g/cm³."
+    },
+    {
+      "texto": "Newborns see in colour from day one.",
+      "verdadera": false,
+      "explicacion": "Colour vision develops over the first few months."
+    },
+    {
+      "texto": "The largest living organism on the planet is a fungus.",
+      "verdadera": true,
+      "explicacion": "An Armillaria in Oregon covers several square kilometres."
+    },
+    {
+      "texto": "Sharks existed before trees.",
+      "verdadera": true,
+      "explicacion": "Sharks go back about 400 million years; the first trees about 385."
+    },
+    {
+      "texto": "The Moon is moving away from Earth.",
+      "verdadera": true,
+      "explicacion": "About 3.8 cm a year, measured using reflectors left by the Apollo missions."
+    },
+    {
+      "texto": "Hair and nails keep growing after death.",
+      "verdadera": false,
+      "explicacion": "The skin dehydrates and retracts, which makes it look as if they have grown."
+    },
+    {
+      "texto": "There are more trees on Earth than stars in the Milky Way.",
+      "verdadera": true,
+      "explicacion": "About three trillion trees against a hundred to four hundred billion stars."
+    },
+    {
+      "texto": "Wi-Fi works using radio waves.",
+      "verdadera": true,
+      "explicacion": "It uses microwaves, which are high-frequency radio waves."
+    },
+    {
+      "texto": "Elephants are the only animals that cannot jump.",
+      "verdadera": false,
+      "explicacion": "They cannot, but neither can sloths, hippos or rhinos."
+    },
+    {
+      "texto": "The deepest point in the ocean is in the Pacific.",
+      "verdadera": true,
+      "explicacion": "The Mariana Trench, at nearly 11,000 metres."
+    },
+    {
+      "texto": "Emperor penguins incubate their egg on their feet.",
+      "verdadera": true,
+      "explicacion": "The male does it, enduring months of Antarctic winter without eating."
+    },
+    {
+      "texto": "The river carrying the most water in the world is the Nile.",
+      "verdadera": false,
+      "explicacion": "It is the Amazon. The Nile is among the longest but carries far less water."
+    },
+    {
+      "texto": "You can hear the northern lights crackle.",
+      "verdadera": false,
+      "explicacion": "They happen tens of kilometres up, and sound does not travel through a vacuum."
+    },
+    {
+      "texto": "Horses cannot vomit.",
+      "verdadera": true,
+      "explicacion": "The anatomy of their oesophageal sphincter prevents it, which is why colic is so serious."
+    },
+    {
+      "texto": "There are more than a thousand varieties of banana.",
+      "verdadera": true,
+      "explicacion": "Over a thousand cultivated varieties are known, even if almost all trade uses one."
+    },
+    {
+      "texto": "Iceland has no mosquitoes.",
+      "verdadera": true,
+      "explicacion": "Its climate and thaw cycles do not let them complete their life cycle."
+    },
+    {
+      "texto": "The first computer weighed less than a hundred kilos.",
+      "verdadera": false,
+      "explicacion": "ENIAC weighed about 27 tonnes and filled a whole room."
+    },
+    {
+      "texto": "Sunflowers follow the Sun all their lives.",
+      "verdadera": false,
+      "explicacion": "Only while young; once they flower they settle facing east."
+    },
+    {
+      "texto": "A litre of seawater contains more than thirty grams of salt.",
+      "verdadera": true,
+      "explicacion": "Average salinity is around 35 grams per litre."
+    },
+    {
+      "texto": "The tongue has separate zones for each taste.",
+      "verdadera": false,
+      "explicacion": "The famous tongue map is a misunderstanding: receptors for all tastes are spread all over it."
+    },
+    {
+      "texto": "Lightning is hotter than the surface of the Sun.",
+      "verdadera": true,
+      "explicacion": "A lightning channel can exceed 27,000 °C; the solar surface is about 5,500 °C."
+    },
+    {
+      "texto": "A sheet of paper folded 42 times would reach the Moon.",
+      "verdadera": true,
+      "explicacion": "Each fold doubles the thickness: 2^42 times 0.1 mm is over 400,000 km. Actually folding it is another matter."
+    },
+    {
+      "texto": "Sea otters hold hands while they sleep.",
+      "verdadera": true,
+      "explicacion": "They form rafts, holding on to each other so the current does not separate them."
+    },
+    {
+      "texto": "The metric system was born in France.",
+      "verdadera": true,
+      "explicacion": "It was adopted during the French Revolution, at the end of the 18th century."
+    },
+    {
+      "texto": "An avocado is a fruit with a stone, like a peach.",
+      "verdadera": true,
+      "explicacion": "Botanically it is a single-seeded berry."
+    },
+    {
+      "texto": "Zebras are white with black stripes.",
+      "verdadera": false,
+      "explicacion": "Their skin is dark: the white comes from areas without pigment."
+    },
+    {
+      "texto": "The human eye can distinguish millions of colours.",
+      "verdadera": true,
+      "explicacion": "Common estimates are around a million, and some go considerably higher."
+    },
+    {
+      "texto": "A jellyfish can be biologically immortal.",
+      "verdadera": true,
+      "explicacion": "Turritopsis dohrnii can revert to its polyp stage and start over."
+    },
+    {
+      "texto": "Adults have fewer bones than babies.",
+      "verdadera": true,
+      "explicacion": "We are born with about 300 and many fuse until 206 remain."
+    },
+    {
+      "texto": "The first commercial video game was Pong.",
+      "verdadera": false,
+      "explicacion": "Computer Space came first, in 1971; Pong is from 1972 and was the one that took off."
+    },
+    {
+      "texto": "The capital of Turkey is Istanbul.",
+      "verdadera": false,
+      "explicacion": "It has been Ankara since 1923, even though Istanbul is far bigger."
+    },
+    {
+      "texto": "There is a shark that lives more than three hundred years.",
+      "verdadera": true,
+      "explicacion": "The Greenland shark is the longest-lived vertebrate known."
+    },
+    {
+      "texto": "Coca-Cola was originally green.",
+      "verdadera": false,
+      "explicacion": "It was always caramel coloured; the bottles were green."
+    },
+    {
+      "texto": "There is a country with no rivers at all.",
+      "verdadera": true,
+      "explicacion": "Several, in fact, including Saudi Arabia and Malta."
+    },
+    {
+      "texto": "Antarctica has no time zone of its own.",
+      "verdadera": true,
+      "explicacion": "Stations use the time zone of whichever country supplies them."
+    },
+    {
+      "texto": "Bananas are berries, botanically speaking.",
+      "verdadera": true,
+      "explicacion": "And strawberries are not: their «seeds» are the actual fruits."
+    },
+    {
+      "texto": "A snail can sleep for three years straight.",
+      "verdadera": true,
+      "explicacion": "In dry weather it enters estivation and can stay put for years."
+    },
+    {
+      "texto": "There are more stars in the universe than grains of sand on Earth.",
+      "verdadera": true,
+      "explicacion": "Estimates give around 10²² stars against 10¹⁹ grains."
+    },
+    {
+      "texto": "A blue whale's heart can weigh as much as a small car.",
+      "verdadera": true,
+      "explicacion": "Around 180 kg, roughly a large engine."
+    },
+    {
+      "texto": "Napoleon was shorter than average for his time.",
+      "verdadera": false,
+      "explicacion": "He was about 1.68 m, which was normal in France back then."
+    },
+    {
+      "texto": "Tongue prints are unique, like fingerprints.",
+      "verdadera": true,
+      "explicacion": "The pattern of papillae differs from person to person."
+    },
+    {
+      "texto": "Octopuses have three hearts and nine brains.",
+      "verdadera": true,
+      "explicacion": "A central brain plus a ganglion per arm, and two gill hearts."
+    },
+    {
+      "texto": "The Eiffel Tower can be 15 cm taller in summer.",
+      "verdadera": true,
+      "explicacion": "Iron expands with heat."
+    },
+    {
+      "texto": "Eating carrots noticeably improves night vision.",
+      "verdadera": false,
+      "explicacion": "They provide vitamin A, which you need, but no extra night vision."
+    },
+    {
+      "texto": "Sharks are older than trees.",
+      "verdadera": true,
+      "explicacion": "The first sharks date back around 400 million years."
+    },
+    {
+      "texto": "Bees always die after stinging.",
+      "verdadera": false,
+      "explicacion": "Honeybee workers do; other bees and wasps do not."
+    },
+    {
+      "texto": "Lightning can strike the same place twice.",
+      "verdadera": true,
+      "explicacion": "The Empire State Building is hit dozens of times a year."
+    },
+    {
+      "texto": "Swallowed chewing gum takes five years to digest.",
+      "verdadera": false,
+      "explicacion": "It is not digested at all: it passes through in a couple of days."
+    },
+    {
+      "texto": "Honey does not spoil.",
+      "verdadera": true,
+      "explicacion": "Edible honey thousands of years old has been found in Egyptian tombs."
+    },
+    {
+      "texto": "You cannot cry in space.",
+      "verdadera": false,
+      "explicacion": "You can, but the tears stay stuck to your eye in a blob."
+    },
+    {
+      "texto": "Dolphins sleep with half their brain awake.",
+      "verdadera": true,
+      "explicacion": "That way they keep surfacing to breathe and stay alert."
+    },
+    {
+      "texto": "Scotland has a mythical animal as its national animal.",
+      "verdadera": true,
+      "explicacion": "The unicorn, since the 15th century."
+    },
+    {
+      "texto": "Stainless steel was invented by accident.",
+      "verdadera": true,
+      "explicacion": "Harry Brearley was after a steel for gun barrels and noticed it did not rust."
+    },
+    {
+      "texto": "Clouds weigh nothing.",
+      "verdadera": false,
+      "explicacion": "A medium cloud weighs hundreds of tonnes; it floats because the air below is denser."
+    },
+    {
+      "texto": "The country with the most pyramids is Egypt.",
+      "verdadera": false,
+      "explicacion": "It is Sudan, with around 250 in the Meroe region."
+    },
+    {
+      "texto": "A spoonful of neutron star would weigh billions of tonnes.",
+      "verdadera": true,
+      "explicacion": "Its density is on the order of 10¹⁷ kg/m³."
+    },
+    {
+      "texto": "The highest point on Earth measured from the centre is Everest.",
+      "verdadera": false,
+      "explicacion": "It is Chimborazo in Ecuador: the Earth is flattened at the poles."
+    },
+    {
+      "texto": "A pig cannot look up at the sky.",
+      "verdadera": true,
+      "explicacion": "Its neck anatomy almost entirely prevents it."
+    },
+    {
+      "texto": "Lightning heats the air hotter than the surface of the Sun.",
+      "verdadera": true,
+      "explicacion": "Up to about 30,000 °C against the Sun's 5,500 °C surface."
+    },
+    {
+      "texto": "Giraffes have more neck vertebrae than people.",
+      "verdadera": false,
+      "explicacion": "They have seven, same as us, just far longer."
+    },
+    {
+      "texto": "Humans share about half their genes with a banana.",
+      "verdadera": true,
+      "explicacion": "Many basic cell genes are common to almost all life."
+    },
+    {
+      "texto": "A group of crows is called a murder.",
+      "verdadera": true,
+      "explicacion": "It is the standard collective noun in English."
+    }
   ]
 }

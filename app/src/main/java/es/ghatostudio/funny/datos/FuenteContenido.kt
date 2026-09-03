@@ -124,8 +124,38 @@ class ContenidoDeAssets(
                 ) { o ->
                     Desafio(texto = o.getString("texto"), nivel = o.optInt("nivel", 1))
                 },
+            refranes = preguntasDe(carpetas, "refranes.json"),
+            antesDespues = preguntasDe(carpetas, "antes_despues.json"),
+            anagramas = preguntasDe(carpetas, "anagramas.json"),
+            acentos = desafiosDe(carpetas, "acentos.json"),
+            sonidos = desafiosDe(carpetas, "sonidos.json"),
+            encadenados =
+                objetos(carpetas, "encadenados.json", "retos") { o ->
+                    RetoRapido(texto = o.getString("texto"), objetivo = o.getInt("objetivo"))
+                },
         )
     }
+
+    /**
+     * Los tres juegos nuevos de opciones comparten formato de carta con las
+     * preguntas, así que comparten lector. El fichero siempre trae la lista
+     * bajo la clave `preguntas`.
+     */
+    private fun preguntasDe(carpetas: List<String>, fichero: String): List<PreguntaTrivial> =
+        objetos(carpetas, fichero, "preguntas") { o ->
+            PreguntaTrivial(
+                texto = o.getString("texto"),
+                opciones = listaDeTextos(o.getJSONArray("opciones")),
+                correcta = o.getInt("correcta"),
+                tema = o.optString("tema", ""),
+            )
+        }
+
+    /** Acentos y sonidos comparten formato con los desafíos. */
+    private fun desafiosDe(carpetas: List<String>, fichero: String): List<Desafio> =
+        objetos(carpetas, fichero, "cartas") { o ->
+            Desafio(texto = o.getString("texto"), nivel = o.optInt("nivel", 1))
+        }
 
     /** Orden de búsqueda: el idioma pedido, luego inglés, luego castellano. */
     private fun carpetasParaIdioma(idioma: String): List<String> =

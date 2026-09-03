@@ -233,22 +233,30 @@ data class Ajustes(
     val mejorMarcaSolitario: Int = 0,
 ) {
     /**
-     * Casillas del tablero, ya resuelta la modalidad.
+     * Las casillas elegidas a mano, sea o no la modalidad activa.
      *
      * Se recorta al rango posible porque el número personalizado ha pasado por
      * unas preferencias en disco y por un fichero de copia de seguridad, y
      * ninguno de los dos garantiza que siga siendo sensato.
+     *
+     * Existe aparte de [casillas] porque la pantalla enseña el resumen de las
+     * cuatro modalidades a la vez: el de «a mi manera» tiene que decir sus
+     * propios números aunque en ese momento esté elegida otra.
      */
+    val casillasAMedida: Int
+        get() = casillasPersonalizadas.coerceIn(Modalidad.CASILLAS_POSIBLES)
+
+    /** Las pruebas elegidas a mano, sea o no la modalidad activa. */
+    val pruebasAMedida: Int
+        get() = pruebasPersonalizadas.coerceIn(Modalidad.PRUEBAS_POSIBLES)
+
+    /** Casillas del tablero, ya resuelta la modalidad. */
     val casillas: Int
-        get() =
-            modalidad.casillas
-                ?: casillasPersonalizadas.coerceIn(Modalidad.CASILLAS_POSIBLES)
+        get() = modalidad.casillas ?: casillasAMedida
 
     /** Pruebas del reto en solitario, ya resuelta la modalidad. */
     val pruebasSolitario: Int
-        get() =
-            modalidad.pruebas
-                ?: pruebasPersonalizadas.coerceIn(Modalidad.PRUEBAS_POSIBLES)
+        get() = modalidad.pruebas ?: pruebasAMedida
 
     fun juegosActivos(contenido: Contenido): List<Juego> {
         val jugables = contenido.juegosJugables

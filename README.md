@@ -1,6 +1,6 @@
 # 🎉 Funny
 
-Juego de fiesta para Android. Doce pruebas, tres modos de juego, cuatro
+Juego de fiesta para Android. **Dieciocho pruebas**, tres modos de juego, cuatro
 modalidades de partida y trece idiomas. Se puede jugar **con un solo móvil que va
 de mano en mano** o con **varios móviles conectados entre sí**, sin internet y sin
 router.
@@ -16,7 +16,7 @@ avanza, y la casilla en la que cae decide la prueba. Si la supera se queda ahí;
 falla, vuelve a donde estaba. Gana quien llega a la **META** y supera la prueba
 final.
 
-### Las doce pruebas
+### Las dieciocho pruebas
 
 | | Prueba | Qué hay que hacer |
 |---|---|---|
@@ -32,6 +32,12 @@ final.
 | 🔢 | **Ordena** | Poner cuatro cosas en su orden correcto. |
 | 🎤 | **Canta** | Seguir la canción a partir del título y una pista. |
 | 🤸 | **Desafío** | Atreverse con una prueba física o absurda. |
+| 📜 | **Refranes** | Completar el refrán entre cuatro finales, y los otros tres son de refranes de verdad. |
+| ⏳ | **¿Antes o después?** | Dos hechos: decir cuál pasó primero. Al resolver salen los dos años. |
+| 🔤 | **Anagramas** | Unas letras revueltas y cuatro palabras candidatas. |
+| 🗣 | **Acentos** | Decir una frase con la voz que pida la carta: presentador, robot sin batería, villano. |
+| 🔊 | **Sonidos** | Imitar un ruido solo con la boca. Sin palmas, sin golpes, sin objetos. |
+| 🔗 | **Encadenados** | Cada palabra empieza por la última sílaba de la anterior, contrarreloj. |
 
 ### Los tres modos
 
@@ -53,8 +59,8 @@ pruebas tiene el reto en solitario.
 | 🔥 | **Partida extrema** | 32 | 16 | ~48 min |
 | 🎛 | **A mi manera** | 8–40 | 4–24 | lo que salga |
 
-Y, aparte, se puede desactivar cualquiera de los doce juegos para que no salga en
-la partida.
+Y, aparte, se puede desactivar cualquiera de los dieciocho juegos para que no
+salga en la partida.
 
 ### El salón: varios móviles a la vez
 
@@ -107,7 +113,7 @@ Funny es gratuita, no tiene anuncios y no recoge datos. Si te resulta útil, pue
 invitarme a un café en **[revolut.me/brais2oz6](https://revolut.me/brais2oz6)**.
 
 **La donación no desbloquea nada.** Ni funciones, ni temas, ni contenido. Los seis
-temas, los trece idiomas, los doce juegos y el salón están ahí desde la primera
+temas, los trece idiomas, los dieciocho juegos y el salón están ahí desde la primera
 vez que abres la app. No hay «versión completa» porque no hay versión incompleta.
 
 No hay ninguna librería de facturación en el binario, y hay una tarea de Gradle
@@ -165,8 +171,8 @@ Dos licencias, una para cada cosa (el porqué está en el
 
 - **El código** — [GPL-3.0-or-later](LICENSE). Quien distribuya un derivado tiene
   que publicar su código con la misma licencia.
-- **El contenido** — [CC BY-SA 4.0](LICENSE-CONTENIDO). Cubre las 2.601 cartas de
-  los doce juegos, las 392 claves traducidas y esta documentación.
+- **El contenido** — [CC BY-SA 4.0](LICENSE-CONTENIDO). Cubre las 3.194 cartas de
+  los dieciocho juegos, las 413 claves traducidas y esta documentación.
 
 Los títulos de canciones, películas y series que aparecen en las cartas son de sus
 titulares y se nombran solo para identificarlos. **No se distribuye ninguna letra

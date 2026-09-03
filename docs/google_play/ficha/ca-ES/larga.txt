@@ -1,6 +1,6 @@
 Funny és un joc de festa per jugar al voltant d'una taula, amb la gent que tens al davant. Amb un sol mòbil que va passant de mà en mà, o amb un mòbil per persona.
 
-DOTZE PROVES
+DIVUIT PROVES
 
 🎭 Mímica — representa-ho sense parlar
 🎨 Pinturillo — dibuixa-ho a la pantalla
@@ -14,8 +14,14 @@ DOTZE PROVES
 🔢 Ordena — posa-ho al seu lloc
 🎤 Canta — segueix la cançó
 🤸 Desafiament — atreveix-t'hi
+📜 Refranys — completa el refrany
+⏳ Abans o després? — què va passar primer?
+🔤 Anagrames — ordena les lletres
+🗣 Veus — digues-ho amb aquella veu
+🔊 Sons — imita-ho amb la boca
+🔗 Encadenats — paraula rere paraula
 
-Més de 1.200 cartes escrites a mà, no generades.
+Més de 1.500 cartes escrites a mà, no generades.
 
 TRES MODES
 
@@ -43,7 +49,7 @@ Tres temes foscos i tres clars, o que segueixi el del sistema. I tretze idiomes 
 
 GRATIS, I GRATIS DE VERITAT
 
-Els dotze jocs, els sis temes, els tretze idiomes i el mode de diversos mòbils hi són des de la primera vegada que obres l'app. No hi ha versió reduïda, no hi ha contingut reservat i no hi ha res a aconseguir a part.
+Els divuit jocs, els sis temes, els tretze idiomes i el mode de diversos mòbils hi són des de la primera vegada que obres l'app. No hi ha versió reduïda, no hi ha contingut reservat i no hi ha res a aconseguir a part.
 
 Hi ha una opció per convidar-me a un cafè si et ve de gust, i no dona absolutament res a canvi: no canvia res dins del joc. S'obre al navegador del sistema i l'app no gestiona cap cobrament.
 

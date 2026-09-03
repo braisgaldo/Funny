@@ -1,0 +1,445 @@
+{
+  "_comentario": "Scrambled letters and four candidates. English words, not translations of the Spanish deck: an anagram does not survive translation.",
+  "preguntas": [
+    {
+      "texto": "E T N A H P E L",
+      "opciones": [
+        "ELEPHANT",
+        "ELEPHENT",
+        "PELEHANT",
+        "HELEPANT"
+      ],
+      "correcta": 0,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "I B R A R Y L",
+      "opciones": [
+        "LIRBARY",
+        "LIBRARY",
+        "LIBRERY",
+        "BRILARY"
+      ],
+      "correcta": 1,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "O W W I N D",
+      "opciones": [
+        "DOWWIN",
+        "WODNIW",
+        "WINDOW",
+        "WINDOE"
+      ],
+      "correcta": 2,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "A H L C O E C T O",
+      "opciones": [
+        "CHOCOLATA",
+        "COCHOLATE",
+        "CHOLOCATE",
+        "CHOCOLATE"
+      ],
+      "correcta": 3,
+      "tema": "9 letters"
+    },
+    {
+      "texto": "I C Y C L E B",
+      "opciones": [
+        "BICYCLE",
+        "BICYCEL",
+        "CYBICLE",
+        "BYCICLE"
+      ],
+      "correcta": 0,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "O C R E T U P M",
+      "opciones": [
+        "PUTERCOM",
+        "COMPUTER",
+        "COMPUTOR",
+        "COMTUPER"
+      ],
+      "correcta": 1,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "L L E R B M U A",
+      "opciones": [
+        "BRELLAUM",
+        "UMRBELLA",
+        "UMBRELLA",
+        "UMBRELLO"
+      ],
+      "correcta": 2,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "I T E S N L I O E V",
+      "opciones": [
+        "TELEVISIAN",
+        "VELETISION",
+        "TELESIVION",
+        "TELEVISION"
+      ],
+      "correcta": 3,
+      "tema": "10 letters"
+    },
+    {
+      "texto": "M N I A T N U O",
+      "opciones": [
+        "MOUNTAIN",
+        "MOUNTIAN",
+        "TAINMOUN",
+        "MONUTAIN"
+      ],
+      "correcta": 0,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "T A R G U I",
+      "opciones": [
+        "GITUAR",
+        "GUITAR",
+        "GUITER",
+        "TARGUI"
+      ],
+      "correcta": 1,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "I R P O R T A",
+      "opciones": [
+        "PORTAIR",
+        "AIPROTR",
+        "AIRPORT",
+        "AIRPORE"
+      ],
+      "correcta": 2,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "E Y T L T F U R B",
+      "opciones": [
+        "BUTTERFLE",
+        "FLYBUTTER",
+        "BUTTREFLY",
+        "BUTTERFLY"
+      ],
+      "correcta": 3,
+      "tema": "9 letters"
+    },
+    {
+      "texto": "A T C S R E I S A",
+      "opciones": [
+        "STAIRCASE",
+        "STAIRCASA",
+        "CASESTAIR",
+        "STIARCASE"
+      ],
+      "correcta": 0,
+      "tema": "9 letters"
+    },
+    {
+      "texto": "O P N O S",
+      "opciones": [
+        "SOPON",
+        "SPOON",
+        "SPOONS",
+        "NOOPS"
+      ],
+      "correcta": 1,
+      "tema": "5 letters"
+    },
+    {
+      "texto": "O W P I L L",
+      "opciones": [
+        "LOWPIL",
+        "PLILOW",
+        "PILLOW",
+        "PILLOE"
+      ],
+      "correcta": 2,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "S E W P E A N P R",
+      "opciones": [
+        "NEWSPAPRE",
+        "PAPERNEWS",
+        "NEWPSAPER",
+        "NEWSPAPER"
+      ],
+      "correcta": 3,
+      "tema": "9 letters"
+    },
+    {
+      "texto": "A N G E O R",
+      "opciones": [
+        "ORANGE",
+        "ORANGA",
+        "RANGEO",
+        "ONRAGE"
+      ],
+      "correcta": 0,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "A M M E R H",
+      "opciones": [
+        "HAMMRE",
+        "HAMMER",
+        "HAMMAR",
+        "MERHAM"
+      ],
+      "correcta": 1,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "I T C H E N K",
+      "opciones": [
+        "CHENKIT",
+        "KTICHEN",
+        "KITCHEN",
+        "KITCHAN"
+      ],
+      "correcta": 2,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "R E D L U O H S",
+      "opciones": [
+        "SHOULDAR",
+        "DERSHOUL",
+        "SHOLUDER",
+        "SHOULDER"
+      ],
+      "correcta": 3,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "N A I R T E L G",
+      "opciones": [
+        "TRIANGLE",
+        "TRIANGEL",
+        "GLETRIAN",
+        "TRIALGNE"
+      ],
+      "correcta": 0,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "O H L A T I P S",
+      "opciones": [
+        "HOSPTIAL",
+        "HOSPITAL",
+        "HOSPITEL",
+        "TALHOSPI"
+      ],
+      "correcta": 1,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "O R N I N G M",
+      "opciones": [
+        "NINGMOR",
+        "MRONING",
+        "MORNING",
+        "MORNENG"
+      ],
+      "correcta": 2,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "L A N K E T B",
+      "opciones": [
+        "BLANKAT",
+        "KETBLAN",
+        "BLNAKET",
+        "BLANKET"
+      ],
+      "correcta": 3,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "H I M N E Y C",
+      "opciones": [
+        "CHIMNEY",
+        "CHIMNAY",
+        "NEYCHIM",
+        "CHMINEY"
+      ],
+      "correcta": 0,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "H I S T L E W",
+      "opciones": [
+        "WHSITLE",
+        "WHISTLE",
+        "WHISTEL",
+        "TLEWHIS"
+      ],
+      "correcta": 1,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "E N G U I N P",
+      "opciones": [
+        "GUINPEN",
+        "PNEGUIN",
+        "PENGUIN",
+        "PENGUEN"
+      ],
+      "correcta": 2,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "H C I W D N A S",
+      "opciones": [
+        "SANDWICK",
+        "WICHSAND",
+        "SNADWICH",
+        "SANDWICH"
+      ],
+      "correcta": 3,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "H U N D E R T",
+      "opciones": [
+        "THUNDER",
+        "THUNDAR",
+        "DERTHUN",
+        "TUHNDER"
+      ],
+      "correcta": 0,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "A R D E N G",
+      "opciones": [
+        "GRADEN",
+        "GARDEN",
+        "GARDAN",
+        "DENGAR"
+      ],
+      "correcta": 1,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "I R R O R M",
+      "opciones": [
+        "RORMIR",
+        "MRIROR",
+        "MIRROR",
+        "MIRRER"
+      ],
+      "correcta": 2,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "U O R T S R E S",
+      "opciones": [
+        "TROUSARS",
+        "SERSTROU",
+        "TORUSERS",
+        "TROUSERS"
+      ],
+      "correcta": 3,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "L E C A N D",
+      "opciones": [
+        "CANDLE",
+        "CANDEL",
+        "DLECAN",
+        "CNADLE"
+      ],
+      "correcta": 0,
+      "tema": "6 letters"
+    },
+    {
+      "texto": "A L C O N Y B",
+      "opciones": [
+        "BLACONY",
+        "BALCONY",
+        "BALCONE",
+        "CONYBAL"
+      ],
+      "correcta": 1,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "U Q S L E R R I",
+      "opciones": [
+        "RRELSQUI",
+        "SQURIREL",
+        "SQUIRREL",
+        "SQIURREL"
+      ],
+      "correcta": 2,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "D R A O B Y E K",
+      "opciones": [
+        "KEYBORAD",
+        "BOARDKEY",
+        "KYEBOARD",
+        "KEYBOARD"
+      ],
+      "correcta": 3,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "A I N B O W R",
+      "opciones": [
+        "RAINBOW",
+        "RAINBOE",
+        "BOWRAIN",
+        "RIANBOW"
+      ],
+      "correcta": 0,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "H S E C A L E O",
+      "opciones": [
+        "SHEOLACE",
+        "SHOELACE",
+        "SHOELACA",
+        "LACESHOE"
+      ],
+      "correcta": 1,
+      "tema": "8 letters"
+    },
+    {
+      "texto": "A N C A K E P",
+      "opciones": [
+        "CAKEPAN",
+        "PNACAKE",
+        "PANCAKE",
+        "PANCAKA"
+      ],
+      "correcta": 2,
+      "tema": "7 letters"
+    },
+    {
+      "texto": "A N T E R N L",
+      "opciones": [
+        "LANTARN",
+        "TERNLAN",
+        "LNATERN",
+        "LANTERN"
+      ],
+      "correcta": 3,
+      "tema": "7 letters"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 Funny is a party game for playing around a table, with the people in front of you. With one phone passed from hand to hand, or with a phone each.
 
-TWELVE CHALLENGES
+EIGHTEEN CHALLENGES
 
 🎭 Mime — act it out without speaking
 🎨 Draw it — sketch on the screen
@@ -14,8 +14,14 @@ TWELVE CHALLENGES
 🔢 Put in order — get the sequence right
 🎤 Sing — carry on the song
 🤸 Dare — go on, then
+📜 Proverbs — finish the saying
+⏳ Which came first? — put history in order
+🔤 Anagrams — unscramble the letters
+🗣 Voices — say it like that
+🔊 Sound effects — do it with your mouth
+🔗 Word chain — one word after another
 
-Over 1,200 cards written by hand, not generated.
+Over 1,500 cards written by hand, not generated.
 
 THREE MODES
 
@@ -43,7 +49,7 @@ Three dark themes and three light ones, or follow the system. And thirteen compl
 
 FREE, AND ACTUALLY FREE
 
-The twelve games, the six themes, the thirteen languages and the multi-phone mode are all there the first time you open the app. There's no cut-down version, no reserved content and nothing to obtain separately.
+The eighteen games, the six themes, the thirteen languages and the multi-phone mode are all there the first time you open the app. There's no cut-down version, no reserved content and nothing to obtain separately.
 
 There's an option to treat me to a coffee if you feel like it, and it gives you absolutely nothing in return: it changes nothing inside the game. It opens in the system browser and the app handles no payment at all.
 

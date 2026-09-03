@@ -25,6 +25,12 @@ class Repartidor(
     private val mazoOrdenar = Mazo(contenido.ordenar, rnd)
     private val mazoCanciones = Mazo(contenido.canciones, rnd)
     private val mazoDesafios = Mazo(contenido.desafios, rnd)
+    private val mazoRefranes = Mazo(contenido.refranes, rnd)
+    private val mazoAntes = Mazo(contenido.antesDespues, rnd)
+    private val mazoAnagramas = Mazo(contenido.anagramas, rnd)
+    private val mazoAcentos = Mazo(contenido.acentos, rnd)
+    private val mazoSonidos = Mazo(contenido.sonidos, rnd)
+    private val mazoEncadenados = Mazo(contenido.encadenados, rnd)
 
     /**
      * Prepara la prueba de un juego. Devuelve null si ese juego se ha quedado
@@ -68,6 +74,12 @@ class Repartidor(
 
             Juego.CANTA -> mazoCanciones.sacar()?.let { Prueba.DeCanta(it) }
             Juego.DESAFIO -> mazoDesafios.sacar()?.let { Prueba.DeDesafio(it) }
+            Juego.REFRANES -> mazoRefranes.sacar()?.let { Prueba.DeRefranes(it) }
+            Juego.ANTES -> mazoAntes.sacar()?.let { Prueba.DeAntesDespues(it) }
+            Juego.ANAGRAMAS -> mazoAnagramas.sacar()?.let { Prueba.DeAnagramas(it) }
+            Juego.ACENTOS -> mazoAcentos.sacar()?.let { Prueba.DeAcentos(it) }
+            Juego.SONIDOS -> mazoSonidos.sacar()?.let { Prueba.DeSonidos(it) }
+            Juego.CADENA -> mazoEncadenados.sacar()?.let { Prueba.DeEncadenados(it) }
         }
 
     /**

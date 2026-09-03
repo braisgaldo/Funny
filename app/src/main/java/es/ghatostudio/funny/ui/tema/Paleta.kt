@@ -55,7 +55,7 @@ data class Paleta(
     /**
      * Color de texto legible encima de [fondoDelBoton].
      *
-     * Se calcula en lugar de apuntarlo a mano porque los doce colores de juego
+     * Se calcula en lugar de apuntarlo a mano porque los dieciocho colores de juego
      * se usan como fondo de botón en las pruebas, y unos son claros y otros
      * oscuros. Y se elige comparando los dos contrastes, no con un umbral de
      * luminancia: un rosa medio como el de mímica cae del lado «claro» de
@@ -88,7 +88,7 @@ fun contraste(uno: Color, otro: Color): Double {
 }
 
 // ---------------------------------------------------------------------------
-// Colores de los doce juegos
+// Colores de los dieciocho juegos
 //
 // Doce tonos repartidos por la rueda de color para que se distingan de un
 // vistazo en el tablero, en dos versiones: brillante para los temas oscuros y
@@ -110,6 +110,12 @@ private val JUEGOS_OSCURO =
         Color(0xFF6E8FFF), // ordena
         Color(0xFFFF6FD8), // canta
         Color(0xFF4FE3D8), //  desafío
+        Color(0xFFD9B382), // refranes
+        Color(0xFFA9BFD8), // ¿antes o después?
+        Color(0xFFC8E85C), // anagramas
+        Color(0xFFFF9FB8), // acentos
+        Color(0xFF9FA8FF), // sonidos
+        Color(0xFFE0A46B), // encadenados
     )
 
 private val JUEGOS_CLARO =
@@ -126,6 +132,12 @@ private val JUEGOS_CLARO =
         Color(0xFF2B49C4),
         Color(0xFFA8248F),
         Color(0xFF00695F),
+        Color(0xFF7A5518), // refranes
+        Color(0xFF3F5A73), // ¿antes o después?
+        Color(0xFF4F5C00), // anagramas
+        Color(0xFF9B2B4B), // acentos
+        Color(0xFF3A3FA8), // sonidos
+        Color(0xFF7A4A12), // encadenados
     )
 
 private val PARTICIPANTES_OSCURO =

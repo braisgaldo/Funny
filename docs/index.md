@@ -1,11 +1,11 @@
 ---
 title: Funny
-description: Juego de fiesta para Android. 12 juegos, 3 modos, 13 idiomas. Sin internet y sin anuncios.
+description: Juego de fiesta para Android. 18 juegos, 3 modos, 13 idiomas. Sin internet y sin anuncios.
 ---
 
 # 🎉 Funny
 
-**Juego de fiesta para Android.** Doce pruebas, tres modos, cuatro modalidades y
+**Juego de fiesta para Android.** Dieciocho pruebas, tres modos, cuatro modalidades y
 trece idiomas. Se juega con un móvil que va de mano en mano o con varios móviles
 conectados entre ellos.
 
@@ -17,12 +17,14 @@ conectados entre ellos.
 
 ---
 
-## Las doce pruebas
+## Las dieciocho pruebas
 
 🎭 Mímica · 🎨 Pinturillo · 📅 ¿Cuándo? · ❓ Preguntas · 🤐 Tabú · ⚡ Reto rápido ·
-🍿 Emojis · 🤥 ¿Te lo crees? · 👅 Trabalenguas · 🔢 Ordena · 🎤 Canta · 🤸 Desafío
+🍿 Emojis · 🤥 ¿Te lo crees? · 👅 Trabalenguas · 🔢 Ordena · 🎤 Canta · 🤸 Desafío ·
+📜 Refranes · ⏳ ¿Antes o después? · 🔤 Anagramas · 🗣 Acentos · 🔊 Sonidos ·
+🔗 Encadenados
 
-Más de 2.600 cartas escritas a mano.
+Más de 3.100 cartas escritas a mano.
 
 ## Tres modos
 

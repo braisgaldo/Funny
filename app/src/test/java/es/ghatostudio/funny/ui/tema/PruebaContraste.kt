@@ -82,7 +82,7 @@ class PruebaContraste {
     }
 
     @Test
-    fun `los doce colores de juego se leen como texto sobre la superficie`() {
+    fun `los dieciocho colores de juego se leen como texto sobre la superficie`() {
         paletas.forEach { p ->
             Juego.entries.forEach { juego ->
                 val razon = contraste(p.colorDe(juego), p.superficie)

@@ -151,6 +151,9 @@ internal val catalogoRuso =
                 PRUEBA_CANTA_PISTA to "Начни отсюда",
                 PRUEBA_TRABALENGUAS_AYUDA to "Скажи целиком и не запнувшись.",
                 PRUEBA_DESAFIO_AYUDA to "Посмотрим, как ты выкрутишься.",
+                PRUEBA_ACENTOS_AYUDA to "Скажи это таким голосом",
+                PRUEBA_SONIDOS_AYUDA to "Только ртом",
+                PRUEBA_CADENA_AYUDA to "Составьте цепочку слов",
                 RONDA_TODOS_PASA_MOVIL to "Передай телефон, не подглядывая в чужой ответ.",
                 RONDA_TODOS_RESPONDE to "Отвечает %1\$s",
                 RONDA_TODOS_RESUMEN to "Кто угадал",
@@ -226,7 +229,7 @@ internal val catalogoRuso =
                 AJUSTES_AYUDA to "Справка",
                 AJUSTES_AYUDA_DETALLE to "Как играть и частые вопросы",
                 AJUSTES_TOUR to "Обзор",
-                AJUSTES_TOUR_DETALLE to "Все двенадцать игр и три режима, с объяснениями",
+                AJUSTES_TOUR_DETALLE to "Все восемнадцать игр и три режима, с объяснениями",
                 AJUSTES_ACERCA_DE to "О приложении",
                 AJUSTES_ACERCA_DE_DETALLE to "Версия, лицензии и конфиденциальность",
                 TEMA_MODO_CLARO to "Светлые",
@@ -274,7 +277,7 @@ internal val catalogoRuso =
                 AYUDA_SUBTITULO to "Всё, что нужно, чтобы никто не запутался.",
                 AYUDA_QUE_ES_TITULO to "Что такое Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Игра для вечеринки с двенадцатью разными заданиями. Играют одним " +
+                    "Игра для вечеринки с восемнадцатью разными заданиями. Играют одним " +
                     "телефоном, который передают по кругу, или, если у нескольких есть " +
                     "телефон, соединяя их между собой. Интернет не нужен ни на минуту.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "Партия",
@@ -339,7 +342,7 @@ internal val catalogoRuso =
                 ACERCA_SIN_ANUNCIOS to "Без рекламы, без аналитики и без аккаунтов.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Обзор",
-                TOUR_SUBTITULO to "Двенадцать игр и три режима за две минуты.",
+                TOUR_SUBTITULO to "Восемнадцать игр и три режима за две минуты.",
                 TOUR_EMPEZAR to "НАЧАТЬ ОБЗОР",
                 TOUR_SALTAR to "Пропустить",
                 TOUR_ANTERIOR to "Назад",
@@ -348,7 +351,7 @@ internal val catalogoRuso =
                 TOUR_PROGRESO to "%1\$d из %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Добро пожаловать в Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Двенадцать игр, три способа играть и никакого интернета. За пару " +
+                    "Восемнадцать игр, три способа играть и никакого интернета. За пару " +
                     "минут расскажу всё; пропустить можно в любой момент.",
                 TOUR_MODOS_TITULO to "Три способа играть",
                 TOUR_MODOS_TEXTO to
@@ -367,7 +370,7 @@ internal val catalogoRuso =
                     "🃏 Джокер: соперник выбирает задание для тебя.\n👥 Играют все: одно " +
                     "задание на весь стол, и каждый, кто угадает, продвигается на клетку.\n🏁 " +
                     "Финиш: случайное финальное задание. Без него не победить.",
-                TOUR_JUEGOS_TITULO to "Двенадцать игр",
+                TOUR_JUEGOS_TITULO to "Восемнадцать игр",
                 TOUR_JUEGOS_TEXTO to "Вот они все. Те, которые вам не нравятся, можно отключить в Настройках.",
                 TOUR_SALON_TITULO to "Несколько телефонов сразу",
                 TOUR_SALON_TEXTO to
@@ -487,6 +490,37 @@ internal val catalogoRuso =
                 JUEGO_DESAFIO_INSTRUCCIONES to
                     "Небольшой вызов на глазах у всех. Ничего опасного, ничего " +
                     "унизительного: только хорошая доля глупости. Судит стол.",
+                JUEGO_REFRANES_NOMBRE to "Пословицы",
+                JUEGO_REFRANES_LEMA to "Закончи пословицу",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Половина пословицы и четыре возможных конца. Остальные три — " +
+                    "концы настоящих пословиц, так что смотри внимательно.",
+                JUEGO_ANTES_NOMBRE to "Раньше или позже?",
+                JUEGO_ANTES_LEMA to "Что было раньше?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Два события, и надо сказать, что было раньше. При проверке видны " +
+                    "оба года, и вот тут узнаёшь что-то новое.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Анаграммы",
+                JUEGO_ANAGRAMAS_LEMA to "Собери слово из букв",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Перемешанные буквы и четыре слова на выбор. Три неверных " +
+                    "используют почти те же буквы, так что считать бесполезно.",
+                JUEGO_ACENTOS_NOMBRE to "Голоса",
+                JUEGO_ACENTOS_LEMA to "Скажи это таким голосом",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Надо произнести фразу голосом, который просит карточка: ведущий " +
+                    "новостей, робот на последнем заряде, злодей из мультфильма. " +
+                    "Решает стол.",
+                JUEGO_SONIDOS_NOMBRE to "Звуки",
+                JUEGO_SONIDOS_LEMA to "Изобрази это ртом",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Изобразить звук только ртом. Без хлопков, без стука по столу, " +
+                    "без предметов: с руками теряется весь смысл.",
+                JUEGO_CADENA_NOMBRE to "Цепочка слов",
+                JUEGO_CADENA_LEMA to "Слово за словом",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Каждое слово начинается с последнего слога предыдущего. Счёт " +
+                    "ведёте вы, и спор о том, что считается, — часть игры.",
                 RITMO_RAPIDO to "Быстрый",
                 RITMO_NORMAL to "Обычный",
                 RITMO_TRANQUILO to "Спокойный",

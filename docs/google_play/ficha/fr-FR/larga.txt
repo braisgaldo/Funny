@@ -1,6 +1,6 @@
 Funny est un jeu d'ambiance pour jouer autour d'une table, avec les gens en face de vous. Avec un seul téléphone qui passe de main en main, ou un téléphone chacun.
 
-DOUZE ÉPREUVES
+DIX-HUIT ÉPREUVES
 
 🎭 Mime — sans parler
 🎨 Dessine — sur l'écran
@@ -14,8 +14,14 @@ DOUZE ÉPREUVES
 🔢 Dans l'ordre — remettez tout à sa place
 🎤 Chante — reprenez la chanson
 🤸 Cap ou pas cap
+📜 Proverbes — complète le proverbe
+⏳ Avant ou après ? — qu'est-ce qui s'est passé d'abord ?
+🔤 Anagrammes — remets les lettres en ordre
+🗣 Voix — dis-le avec cette voix
+🔊 Bruitages — imite-le avec la bouche
+🔗 Mots enchaînés — un mot après l'autre
 
-Plus de 1 200 cartes écrites à la main, pas générées.
+Plus de 1 500 cartes écrites à la main, pas générées.
 
 TROIS MODES
 
@@ -43,7 +49,7 @@ Trois thèmes sombres et trois clairs, ou suivre le système. Et treize langues 
 
 GRATUIT, ET VRAIMENT GRATUIT
 
-Les douze jeux, les six thèmes, les treize langues et le mode multi-téléphone sont là dès la première ouverture. Pas de version réduite, pas de contenu réservé, rien à obtenir à part.
+Les dix-huit jeux, les six thèmes, les treize langues et le mode multi-téléphone sont là dès la première ouverture. Pas de version réduite, pas de contenu réservé, rien à obtenir à part.
 
 Il y a une option pour m'offrir un café si l'envie vous prend, et elle ne donne absolument rien en échange : elle ne change rien dans le jeu. Elle s'ouvre dans le navigateur du système et l'application ne gère aucune transaction.
 

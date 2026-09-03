@@ -204,3 +204,34 @@ fun PruebaDesafio(vm: JuegoViewModel, desafio: Desafio, sonidos: Sonidos) {
         sonidos = sonidos,
     )
 }
+
+/**
+ * Acentos: decir una frase con la voz que diga la carta.
+ *
+ * Va con veredicto por lo mismo que Canta: un movil no puede juzgar si alguien
+ * ha imitado bien a un presentador de telediario.
+ */
+@Composable
+fun PruebaAcentos(vm: JuegoViewModel, carta: Desafio, sonidos: Sonidos) {
+    val t = textos()
+    PruebaConVeredicto(
+        vm = vm,
+        juego = Juego.ACENTOS,
+        enunciado = carta.texto,
+        encabezado = t[Clave.PRUEBA_ACENTOS_AYUDA].uppercase(t.locale),
+        sonidos = sonidos,
+    )
+}
+
+/** Sonidos: imitar un ruido con la boca, sin objetos ni palmas. */
+@Composable
+fun PruebaSonidos(vm: JuegoViewModel, carta: Desafio, sonidos: Sonidos) {
+    val t = textos()
+    PruebaConVeredicto(
+        vm = vm,
+        juego = Juego.SONIDOS,
+        enunciado = carta.texto,
+        encabezado = t[Clave.PRUEBA_SONIDOS_AYUDA].uppercase(t.locale),
+        sonidos = sonidos,
+    )
+}

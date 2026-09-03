@@ -1,6 +1,6 @@
 Funny ist ein Partyspiel für den Tisch, mit den Leuten, die dir gegenübersitzen. Mit einem Handy, das herumgeht, oder mit einem Handy pro Person.
 
-ZWÖLF AUFGABEN
+ACHTZEHN AUFGABEN
 
 🎭 Pantomime — ohne zu sprechen
 🎨 Zeichnen — auf dem Bildschirm
@@ -14,8 +14,14 @@ ZWÖLF AUFGABEN
 🔢 Sortieren — in die richtige Reihenfolge
 🎤 Singen — das Lied weiterführen
 🤸 Wagnis — trau dich
+📜 Sprichwörter — vervollständige das Sprichwort
+⏳ Vorher oder nachher? — was war zuerst?
+🔤 Anagramme — bring die Buchstaben in Ordnung
+🗣 Stimmen — sag es mit dieser Stimme
+🔊 Geräusche — mach es mit dem Mund
+🔗 Wortkette — ein Wort nach dem anderen
 
-Über 1.200 handgeschriebene Karten, nicht generiert.
+Über 1.500 handgeschriebene Karten, nicht generiert.
 
 DREI MODI
 
@@ -43,7 +49,7 @@ Drei dunkle und drei helle Designs, oder dem System folgen. Und dreizehn vollst�
 
 KOSTENLOS, UND WIRKLICH KOSTENLOS
 
-Die zwölf Spiele, die sechs Designs, die dreizehn Sprachen und der Mehrgeräte-Modus sind beim ersten Start alle da. Keine abgespeckte Fassung, keine zurückgehaltenen Inhalte, nichts extra zu holen.
+Die achtzehn Spiele, die sechs Designs, die dreizehn Sprachen und der Mehrgeräte-Modus sind beim ersten Start alle da. Keine abgespeckte Fassung, keine zurückgehaltenen Inhalte, nichts extra zu holen.
 
 Es gibt eine Möglichkeit, mir einen Kaffee zu spendieren, wenn du magst, und sie gibt absolut nichts zurück: sie ändert nichts im Spiel. Sie öffnet den System-Browser, und die App verarbeitet keine Zahlung.
 

@@ -143,6 +143,9 @@ internal val catalogoGallego =
                 PRUEBA_CANTA_PISTA to "Empeza por aquí",
                 PRUEBA_TRABALENGUAS_AYUDA to "Dío enteiro e sen trabarte.",
                 PRUEBA_DESAFIO_AYUDA to "A ver como saes desta.",
+                PRUEBA_ACENTOS_AYUDA to "Dío con esa voz",
+                PRUEBA_SONIDOS_AYUDA to "Só coa boca",
+                PRUEBA_CADENA_AYUDA to "Encadeade palabras",
                 RONDA_TODOS_PASA_MOVIL to "Pasa o móbil sen mirar a resposta de ninguén.",
                 RONDA_TODOS_RESPONDE to "Responde %1\$s",
                 RONDA_TODOS_RESUMEN to "Quen acertou",
@@ -218,7 +221,7 @@ internal val catalogoGallego =
                 AJUSTES_AYUDA to "Axuda",
                 AJUSTES_AYUDA_DETALLE to "Como se xoga e preguntas frecuentes",
                 AJUSTES_TOUR to "Tour guiado",
-                AJUSTES_TOUR_DETALLE to "Os doce xogos e os tres modos, explicados",
+                AJUSTES_TOUR_DETALLE to "Os dezaoito xogos e os tres modos, explicados",
                 AJUSTES_ACERCA_DE to "Acerca de",
                 AJUSTES_ACERCA_DE_DETALLE to "Versión, licenzas e privacidade",
                 TEMA_MODO_CLARO to "Claros",
@@ -266,7 +269,7 @@ internal val catalogoGallego =
                 AYUDA_SUBTITULO to "Todo o que fai falta para non perderse.",
                 AYUDA_QUE_ES_TITULO to "Que é Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Un xogo de festa con doce probas distintas. Xógase cun móbil que vai " +
+                    "Un xogo de festa con dezaoito probas distintas. Xógase cun móbil que vai " +
                     "pasando de man en man ou, se sodes varios con móbil, conectándoos entre " +
                     "eles. Non fai falta internet en ningún momento.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "A partida",
@@ -326,7 +329,7 @@ internal val catalogoGallego =
                 ACERCA_SIN_ANUNCIOS to "Sen anuncios, sen analítica e sen contas.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Tour guiado",
-                TOUR_SUBTITULO to "Os doce xogos e os tres modos, en dous minutos.",
+                TOUR_SUBTITULO to "Os dezaoito xogos e os tres modos, en dous minutos.",
                 TOUR_EMPEZAR to "EMPEZAR O TOUR",
                 TOUR_SALTAR to "Saltar",
                 TOUR_ANTERIOR to "Anterior",
@@ -335,8 +338,8 @@ internal val catalogoGallego =
                 TOUR_PROGRESO to "%1\$d de %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Benvido a Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Doce xogos, tres formas de xogar e cero necesidade de internet. Nun " +
-                    "par de minutos cóntocho todo; podes saltalo cando queiras.",
+                    "Dezaoito xogos, tres formas de xogar e cero necesidade de internet. " +
+                    "Nun par de minutos cóntocho todo; podes saltalo cando queiras.",
                 TOUR_MODOS_TITULO to "Tres formas de xogar",
                 TOUR_MODOS_TEXTO to
                     "Por equipos é o clásico: de 2 a 6 equipos e vai rotando quen actúa. " +
@@ -354,7 +357,7 @@ internal val catalogoGallego =
                     "🃏 Comodín: o rival escolle a proba que che toca.\n👥 Xogan todos: a " +
                     "mesma proba para toda a mesa, e cada un que acerta avanza unha casa.\n🏁 " +
                     "Meta: proba final ao azar. Sen superala non se gaña.",
-                TOUR_JUEGOS_TITULO to "Os doce xogos",
+                TOUR_JUEGOS_TITULO to "Os dezaoito xogos",
                 TOUR_JUEGOS_TEXTO to "Estes son todos. Podes desactivar os que non vos gusten en Axustes.",
                 TOUR_SALON_TITULO to "Varios móbiles á vez",
                 TOUR_SALON_TEXTO to
@@ -475,6 +478,36 @@ internal val catalogoGallego =
                 JUEGO_DESAFIO_INSTRUCCIONES to
                     "Un pequeno reto diante de todos. Nada perigoso, nada " +
                     "humillante: só ridículo do bo. Xúlgao a mesa.",
+                JUEGO_REFRANES_NOMBRE to "Refráns",
+                JUEGO_REFRANES_LEMA to "Completa o refrán",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Sae media frase feita e catro finais posibles. Os outros tres " +
+                    "son finais de refráns de verdade, así que hai que fixarse.",
+                JUEGO_ANTES_NOMBRE to "¿Antes ou despois?",
+                JUEGO_ANTES_LEMA to "¿Que pasou primeiro?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Dous feitos e hai que dicir cal foi antes. Ao resolver vense os " +
+                    "dous anos, que é a parte que ensina algo.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagramas",
+                JUEGO_ANAGRAMAS_LEMA to "Ordena as letras",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Unhas letras revoltas e catro palabras candidatas. As tres " +
+                    "falsas usan case as mesmas letras, así que contar non serve.",
+                JUEGO_ACENTOS_NOMBRE to "Acentos",
+                JUEGO_ACENTOS_LEMA to "Dío con esa voz",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Hai que dicir unha frase coa voz que diga a carta: un " +
+                    "presentador, un robot sen batería, un vilán. Decide a mesa.",
+                JUEGO_SONIDOS_NOMBRE to "Sons",
+                JUEGO_SONIDOS_LEMA to "Imítao coa boca",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Imitar un ruído usando só a boca. Nada de palmas, nin golpes na " +
+                    "mesa, nin obxectos: coas mans perde a graza.",
+                JUEGO_CADENA_NOMBRE to "Encadeados",
+                JUEGO_CADENA_LEMA to "Palabra tras palabra",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Cada palabra empeza pola última sílaba da anterior. O contador " +
+                    "lévalo vós, e discutir se vale é parte do xogo.",
                 RITMO_RAPIDO to "Rápido",
                 RITMO_NORMAL to "Normal",
                 RITMO_TRANQUILO to "Tranquilo",

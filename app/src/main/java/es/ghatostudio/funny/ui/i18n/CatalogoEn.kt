@@ -227,7 +227,7 @@ internal val catalogoIngles =
                 AJUSTES_AYUDA to "Help",
                 AJUSTES_AYUDA_DETALLE to "How to play and frequent questions",
                 AJUSTES_TOUR to "Guided tour",
-                AJUSTES_TOUR_DETALLE to "All twelve games and three modes, explained",
+                AJUSTES_TOUR_DETALLE to "All eighteen games and three modes, explained",
                 AJUSTES_ACERCA_DE to "About",
                 AJUSTES_ACERCA_DE_DETALLE to "Version, licences and privacy",
                 TEMA_MODO_CLARO to "Light",
@@ -277,7 +277,7 @@ internal val catalogoIngles =
                 AYUDA_SUBTITULO to "Everything you need so nobody gets lost.",
                 AYUDA_QUE_ES_TITULO to "What is Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "A party game with twelve different rounds. You play with one phone passed " +
+                    "A party game with eighteen different rounds. You play with one phone passed " +
                     "around the table or, if several of you have a phone, by connecting them to " +
                     "each other. You never need the internet.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "The game",
@@ -339,7 +339,7 @@ internal val catalogoIngles =
                 ACERCA_SIN_ANUNCIOS to "No ads, no analytics and no accounts.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Guided tour",
-                TOUR_SUBTITULO to "The twelve games and three modes, in two minutes.",
+                TOUR_SUBTITULO to "The eighteen games and three modes, in two minutes.",
                 TOUR_EMPEZAR to "START THE TOUR",
                 TOUR_SALTAR to "Skip",
                 TOUR_ANTERIOR to "Back",
@@ -348,7 +348,7 @@ internal val catalogoIngles =
                 TOUR_PROGRESO to "%1\$d of %2\$d",
                 TOUR_BIENVENIDA_TITULO to "Welcome to Funny",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Twelve games, three ways to play and no need for the internet. " +
+                    "Eighteen games, three ways to play and no need for the internet. " +
                     "I'll walk you through it in a couple of minutes; you can skip whenever you like.",
                 TOUR_MODOS_TITULO to "Three ways to play",
                 TOUR_MODOS_TEXTO to
@@ -366,7 +366,7 @@ internal val catalogoIngles =
                     "👥 Everyone plays: the same round for the whole table, and everyone who gets it " +
                     "right moves one square.\n" +
                     "🏁 Finish: a random final round. You don't win without passing it.",
-                TOUR_JUEGOS_TITULO to "The twelve games",
+                TOUR_JUEGOS_TITULO to "The eighteen games",
                 TOUR_JUEGOS_TEXTO to
                     "Here they all are. You can switch off the ones you don't like in Settings.",
                 TOUR_SALON_TITULO to "Several phones at once",
@@ -504,6 +504,39 @@ internal val catalogoIngles =
                 A11Y_LIENZO_DIBUJO to "Canvas to draw with your finger",
                 A11Y_TEMA_MUESTRA to "Colour swatch for the %1\$s theme",
                 A11Y_BANDERA_IDIOMA to "%1\$s language",
+                JUEGO_REFRANES_NOMBRE to "Proverbs",
+                JUEGO_REFRANES_LEMA to "Finish the saying",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Half a proverb and four possible endings. The other three are endings of " +
+                    "real proverbs, so pay attention.",
+                JUEGO_ANTES_NOMBRE to "Which came first?",
+                JUEGO_ANTES_LEMA to "Put history in order",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Two events; say which happened first. The reveal shows both years, which is " +
+                    "the part that teaches you something.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagrams",
+                JUEGO_ANAGRAMAS_LEMA to "Unscramble the letters",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Scrambled letters and four candidate words. The three wrong ones use almost " +
+                    "the same letters, so counting will not help.",
+                JUEGO_ACENTOS_NOMBRE to "Voices",
+                JUEGO_ACENTOS_LEMA to "Say it like that",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Deliver a line in the voice the card asks for: a news anchor, a robot on low " +
+                    "battery, a cartoon villain. The table decides.",
+                JUEGO_SONIDOS_NOMBRE to "Sound effects",
+                JUEGO_SONIDOS_LEMA to "Do it with your mouth",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Imitate a noise using your mouth only. No clapping, no banging the table, no " +
+                    "props: with hands it stops being funny.",
+                JUEGO_CADENA_NOMBRE to "Word chain",
+                JUEGO_CADENA_LEMA to "One word after another",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Each word starts with the last syllable of the one before. You keep the " +
+                    "count, and arguing about it is part of the game.",
+                PRUEBA_ACENTOS_AYUDA to "Say it like that",
+                PRUEBA_SONIDOS_AYUDA to "Mouth only",
+                PRUEBA_CADENA_AYUDA to "Chain the words",
                 A11Y_REDUCIR to "Decrease",
                 A11Y_AUMENTAR to "Increase",
             ),

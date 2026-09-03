@@ -1,155 +1,924 @@
 {
   "eventos": [
-    { "texto": "Cae el Imperio Romano de Occidente", "anio": 476, "tema": "Historia" },
-    { "texto": "Gutenberg imprime su famosa Biblia", "anio": 1455, "tema": "Historia" },
-    { "texto": "Cristóbal Colón llega a América", "anio": 1492, "tema": "Historia" },
-    { "texto": "Los Reyes Católicos conquistan Granada", "anio": 1492, "tema": "Historia" },
-    { "texto": "Elcano completa la primera vuelta al mundo", "anio": 1522, "tema": "Historia" },
-    { "texto": "Se publica la primera parte de 'Don Quijote de la Mancha'", "anio": 1605, "tema": "Literatura" },
-    { "texto": "Mueren Cervantes y Shakespeare", "anio": 1616, "tema": "Literatura" },
-    { "texto": "Se firma la Declaración de Independencia de Estados Unidos", "anio": 1776, "tema": "Historia" },
-    { "texto": "Toma de la Bastilla, comienza la Revolución Francesa", "anio": 1789, "tema": "Historia" },
-    { "texto": "Batalla de Trafalgar", "anio": 1805, "tema": "Historia" },
-    { "texto": "Levantamiento del 2 de mayo en Madrid contra los franceses", "anio": 1808, "tema": "Historia" },
-    { "texto": "Se promulga la Constitución de Cádiz, 'La Pepa'", "anio": 1812, "tema": "Historia" },
-    { "texto": "Batalla de Waterloo, derrota final de Napoleón", "anio": 1815, "tema": "Historia" },
-    { "texto": "Darwin publica 'El origen de las especies'", "anio": 1859, "tema": "Ciencia" },
-    { "texto": "Se inventa la Coca-Cola", "anio": 1886, "tema": "Curiosidades" },
-    { "texto": "Se inaugura la Estatua de la Libertad", "anio": 1886, "tema": "Historia" },
-    { "texto": "Se inaugura la Torre Eiffel", "anio": 1889, "tema": "Historia" },
-    { "texto": "Se celebran los primeros Juegos Olímpicos modernos, en Atenas", "anio": 1896, "tema": "Deporte" },
-    { "texto": "Los hermanos Wright realizan el primer vuelo a motor", "anio": 1903, "tema": "Ciencia" },
-    { "texto": "Roban la Mona Lisa del museo del Louvre", "anio": 1911, "tema": "Arte" },
-    { "texto": "Se hunde el Titanic", "anio": 1912, "tema": "Historia" },
-    { "texto": "Empieza la Primera Guerra Mundial", "anio": 1914, "tema": "Historia" },
-    { "texto": "Einstein publica la teoría de la relatividad general", "anio": 1915, "tema": "Ciencia" },
-    { "texto": "Estalla la Revolución Rusa", "anio": 1917, "tema": "Historia" },
-    { "texto": "Termina la Primera Guerra Mundial", "anio": 1918, "tema": "Historia" },
-    { "texto": "Se descubre la tumba de Tutankamón", "anio": 1922, "tema": "Historia" },
-    { "texto": "Muere Antoni Gaudí atropellado por un tranvía", "anio": 1926, "tema": "Arte" },
-    { "texto": "Fleming descubre la penicilina", "anio": 1928, "tema": "Ciencia" },
-    { "texto": "Crack de la Bolsa de Nueva York", "anio": 1929, "tema": "Historia" },
-    { "texto": "Se proclama la Segunda República Española", "anio": 1931, "tema": "Historia" },
-    { "texto": "Se funda la empresa LEGO", "anio": 1932, "tema": "Curiosidades" },
-    { "texto": "Empieza la Guerra Civil Española", "anio": 1936, "tema": "Historia" },
-    { "texto": "Picasso pinta el Guernica", "anio": 1937, "tema": "Arte" },
-    { "texto": "Termina la Guerra Civil Española", "anio": 1939, "tema": "Historia" },
-    { "texto": "Empieza la Segunda Guerra Mundial", "anio": 1939, "tema": "Historia" },
-    { "texto": "Desembarco de Normandía, el Día D", "anio": 1944, "tema": "Historia" },
-    { "texto": "Se lanza la bomba atómica sobre Hiroshima", "anio": 1945, "tema": "Historia" },
-    { "texto": "Se funda la ONU", "anio": 1945, "tema": "Historia" },
-    { "texto": "Se publica '1984' de George Orwell", "anio": 1949, "tema": "Literatura" },
-    { "texto": "Se publica 'La Comunidad del Anillo' de Tolkien", "anio": 1954, "tema": "Literatura" },
-    { "texto": "Empieza a emitir Televisión Española", "anio": 1956, "tema": "Curiosidades" },
-    { "texto": "La URSS lanza el Sputnik, el primer satélite artificial", "anio": 1957, "tema": "Ciencia" },
-    { "texto": "Se funda la NASA", "anio": 1958, "tema": "Ciencia" },
-    { "texto": "Yuri Gagarin se convierte en el primer humano en el espacio", "anio": 1961, "tema": "Ciencia" },
-    { "texto": "Se construye el Muro de Berlín", "anio": 1961, "tema": "Historia" },
-    { "texto": "Asesinan a John F. Kennedy en Dallas", "anio": 1963, "tema": "Historia" },
-    { "texto": "Se realiza el primer trasplante de corazón", "anio": 1967, "tema": "Ciencia" },
-    { "texto": "Se publica 'Cien años de soledad' de García Márquez", "anio": 1967, "tema": "Literatura" },
-    { "texto": "Massiel gana Eurovisión con 'La, la, la'", "anio": 1968, "tema": "Música" },
-    { "texto": "El ser humano pisa la Luna por primera vez", "anio": 1969, "tema": "Ciencia" },
-    { "texto": "Se celebra el festival de Woodstock", "anio": 1969, "tema": "Música" },
-    { "texto": "Los Beatles se separan", "anio": 1970, "tema": "Música" },
-    { "texto": "Se estrena 'El Padrino'", "anio": 1972, "tema": "Cine" },
-    { "texto": "Se inventa el cubo de Rubik", "anio": 1974, "tema": "Curiosidades" },
-    { "texto": "Muere Francisco Franco", "anio": 1975, "tema": "Historia" },
-    { "texto": "Queen publica 'Bohemian Rhapsody'", "anio": 1975, "tema": "Música" },
-    { "texto": "Se estrena 'La guerra de las galaxias'", "anio": 1977, "tema": "Cine" },
-    { "texto": "Muere Elvis Presley", "anio": 1977, "tema": "Música" },
-    { "texto": "Se aprueba la Constitución Española", "anio": 1978, "tema": "Historia" },
-    { "texto": "Asesinan a John Lennon en Nueva York", "anio": 1980, "tema": "Música" },
-    { "texto": "Intento de golpe de Estado del 23-F", "anio": 1981, "tema": "Historia" },
-    { "texto": "Se estrena 'E.T., el extraterrestre'", "anio": 1982, "tema": "Cine" },
-    { "texto": "Michael Jackson publica el disco 'Thriller'", "anio": 1982, "tema": "Música" },
-    { "texto": "España organiza el Mundial de fútbol", "anio": 1982, "tema": "Deporte" },
-    { "texto": "Aparece el primer ordenador Macintosh de Apple", "anio": 1984, "tema": "Tecnología" },
-    { "texto": "Se crea el videojuego Tetris", "anio": 1984, "tema": "Videojuegos" },
-    { "texto": "Se estrena 'Regreso al futuro'", "anio": 1985, "tema": "Cine" },
-    { "texto": "Se celebra el concierto benéfico Live Aid", "anio": 1985, "tema": "Música" },
-    { "texto": "Nintendo lanza 'Super Mario Bros.'", "anio": 1985, "tema": "Videojuegos" },
-    { "texto": "Accidente nuclear de Chernóbil", "anio": 1986, "tema": "Historia" },
-    { "texto": "España entra en la Comunidad Económica Europea", "anio": 1986, "tema": "Historia" },
-    { "texto": "Maradona marca 'la mano de Dios' contra Inglaterra", "anio": 1986, "tema": "Deporte" },
-    { "texto": "Cae el Muro de Berlín", "anio": 1989, "tema": "Historia" },
-    { "texto": "Tim Berners-Lee propone la World Wide Web", "anio": 1989, "tema": "Tecnología" },
-    { "texto": "Nintendo lanza la Game Boy", "anio": 1989, "tema": "Videojuegos" },
-    { "texto": "Se emite el primer episodio de 'Los Simpson' como serie propia", "anio": 1989, "tema": "Series" },
-    { "texto": "Muere Freddie Mercury", "anio": 1991, "tema": "Música" },
-    { "texto": "Se disuelve la Unión Soviética", "anio": 1991, "tema": "Historia" },
-    { "texto": "Miguel Induráin gana su primer Tour de Francia", "anio": 1991, "tema": "Deporte" },
-    { "texto": "Se celebran los Juegos Olímpicos de Barcelona", "anio": 1992, "tema": "Deporte" },
-    { "texto": "Se celebra la Exposición Universal de Sevilla", "anio": 1992, "tema": "Historia" },
-    { "texto": "El F. C. Barcelona gana su primera Copa de Europa en Wembley", "anio": 1992, "tema": "Deporte" },
-    { "texto": "Se estrena 'Parque Jurásico'", "anio": 1993, "tema": "Cine" },
-    { "texto": "Se estrena 'El Rey León'", "anio": 1994, "tema": "Cine" },
-    { "texto": "Se emite el primer episodio de 'Friends'", "anio": 1994, "tema": "Series" },
-    { "texto": "Sony lanza la primera PlayStation", "anio": 1994, "tema": "Videojuegos" },
-    { "texto": "Jeff Bezos funda Amazon", "anio": 1994, "tema": "Tecnología" },
-    { "texto": "Se estrena 'Toy Story', el primer largometraje totalmente digital", "anio": 1995, "tema": "Cine" },
-    { "texto": "Microsoft lanza Windows 95", "anio": 1995, "tema": "Tecnología" },
-    { "texto": "Nace la oveja Dolly, el primer mamífero clonado", "anio": 1996, "tema": "Ciencia" },
-    { "texto": "Salen en Japón los primeros videojuegos de Pokémon", "anio": 1996, "tema": "Videojuegos" },
-    { "texto": "Se estrena la película 'Titanic'", "anio": 1997, "tema": "Cine" },
-    { "texto": "Se publica el primer libro de Harry Potter", "anio": 1997, "tema": "Literatura" },
-    { "texto": "Se inaugura el Museo Guggenheim de Bilbao", "anio": 1997, "tema": "Arte" },
-    { "texto": "Se funda Netflix, entonces un alquiler de DVD por correo", "anio": 1997, "tema": "Tecnología" },
-    { "texto": "Se funda Google", "anio": 1998, "tema": "Tecnología" },
-    { "texto": "Se estrena 'Matrix'", "anio": 1999, "tema": "Cine" },
-    { "texto": "Atentados del 11 de septiembre en Nueva York", "anio": 2001, "tema": "Historia" },
-    { "texto": "Nace Wikipedia", "anio": 2001, "tema": "Tecnología" },
-    { "texto": "Se estrena la primera película de Harry Potter", "anio": 2001, "tema": "Cine" },
-    { "texto": "El euro entra en circulación", "anio": 2002, "tema": "Historia" },
-    { "texto": "Se hunde el petrolero Prestige frente a Galicia", "anio": 2002, "tema": "Historia" },
-    { "texto": "Se completa el Proyecto Genoma Humano", "anio": 2003, "tema": "Ciencia" },
-    { "texto": "Atentados del 11-M en Madrid", "anio": 2004, "tema": "Historia" },
-    { "texto": "Mark Zuckerberg funda Facebook", "anio": 2004, "tema": "Tecnología" },
-    { "texto": "Tsunami del océano Índico", "anio": 2004, "tema": "Historia" },
-    { "texto": "Rafa Nadal gana su primer Roland Garros", "anio": 2005, "tema": "Deporte" },
-    { "texto": "Fernando Alonso gana su primer Mundial de Fórmula 1", "anio": 2005, "tema": "Deporte" },
-    { "texto": "Nace YouTube", "anio": 2005, "tema": "Tecnología" },
-    { "texto": "Se legaliza el matrimonio entre personas del mismo sexo en España", "anio": 2005, "tema": "Historia" },
-    { "texto": "Nace Twitter", "anio": 2006, "tema": "Tecnología" },
-    { "texto": "Steve Jobs presenta el primer iPhone", "anio": 2007, "tema": "Tecnología" },
-    { "texto": "España gana la Eurocopa en Viena", "anio": 2008, "tema": "Deporte" },
-    { "texto": "Quiebra Lehman Brothers y estalla la crisis financiera", "anio": 2008, "tema": "Historia" },
-    { "texto": "Se estrena la serie 'Breaking Bad'", "anio": 2008, "tema": "Series" },
-    { "texto": "Nace Spotify", "anio": 2008, "tema": "Tecnología" },
-    { "texto": "Se estrena 'Avatar'", "anio": 2009, "tema": "Cine" },
-    { "texto": "Muere Michael Jackson", "anio": 2009, "tema": "Música" },
-    { "texto": "Usain Bolt bate el récord de 100 metros con 9,58 segundos", "anio": 2009, "tema": "Deporte" },
-    { "texto": "Nace WhatsApp", "anio": 2009, "tema": "Tecnología" },
-    { "texto": "España gana su primer Mundial de fútbol", "anio": 2010, "tema": "Deporte" },
-    { "texto": "Nace Instagram", "anio": 2010, "tema": "Tecnología" },
-    { "texto": "Apple presenta el primer iPad", "anio": 2010, "tema": "Tecnología" },
-    { "texto": "Se emite el primer episodio de 'Juego de Tronos'", "anio": 2011, "tema": "Series" },
-    { "texto": "Se lanza la versión definitiva de Minecraft", "anio": 2011, "tema": "Videojuegos" },
-    { "texto": "Surge el movimiento 15-M en España", "anio": 2011, "tema": "Historia" },
-    { "texto": "El robot Curiosity aterriza en Marte", "anio": 2012, "tema": "Ciencia" },
-    { "texto": "Se estrena 'Frozen'", "anio": 2013, "tema": "Cine" },
-    { "texto": "El rey Juan Carlos I abdica en favor de Felipe VI", "anio": 2014, "tema": "Historia" },
-    { "texto": "El Real Madrid gana la Décima Copa de Europa", "anio": 2014, "tema": "Deporte" },
-    { "texto": "Se anuncia la detección de ondas gravitacionales", "anio": 2016, "tema": "Ciencia" },
-    { "texto": "Se celebra el referéndum del Brexit", "anio": 2016, "tema": "Historia" },
-    { "texto": "Se estrena la serie 'Stranger Things'", "anio": 2016, "tema": "Series" },
-    { "texto": "Pokémon GO desata la locura en las calles", "anio": 2016, "tema": "Videojuegos" },
-    { "texto": "Se estrena 'La casa de papel'", "anio": 2017, "tema": "Series" },
-    { "texto": "'Despacito' arrasa en todo el mundo", "anio": 2017, "tema": "Música" },
-    { "texto": "Rosalía publica 'El mal querer'", "anio": 2018, "tema": "Música" },
-    { "texto": "Se publica la primera imagen real de un agujero negro", "anio": 2019, "tema": "Ciencia" },
-    { "texto": "Se estrena 'Vengadores: Endgame'", "anio": 2019, "tema": "Cine" },
-    { "texto": "'Parásitos' gana el Óscar a la mejor película", "anio": 2020, "tema": "Cine" },
-    { "texto": "La OMS declara la pandemia de COVID-19", "anio": 2020, "tema": "Historia" },
-    { "texto": "El Reino Unido sale oficialmente de la Unión Europea", "anio": 2020, "tema": "Historia" },
-    { "texto": "La borrasca Filomena cubre Madrid de nieve", "anio": 2021, "tema": "Historia" },
-    { "texto": "Entra en erupción el volcán de La Palma", "anio": 2021, "tema": "Historia" },
-    { "texto": "Se lanza el telescopio espacial James Webb", "anio": 2021, "tema": "Ciencia" },
-    { "texto": "Se estrena 'El juego del calamar'", "anio": 2021, "tema": "Series" },
-    { "texto": "Se celebran los Juegos Olímpicos de Tokio, con un año de retraso", "anio": 2021, "tema": "Deporte" },
-    { "texto": "Se lanza ChatGPT al público", "anio": 2022, "tema": "Tecnología" },
-    { "texto": "Muere la reina Isabel II del Reino Unido", "anio": 2022, "tema": "Historia" },
-    { "texto": "Argentina gana el Mundial de fútbol de Catar", "anio": 2022, "tema": "Deporte" },
-    { "texto": "España gana el Mundial femenino de fútbol", "anio": 2023, "tema": "Deporte" }
+    {
+      "texto": "Cae el Imperio Romano de Occidente",
+      "anio": 476,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Gutenberg imprime su famosa Biblia",
+      "anio": 1455,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Cristóbal Colón llega a América",
+      "anio": 1492,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Los Reyes Católicos conquistan Granada",
+      "anio": 1492,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Elcano completa la primera vuelta al mundo",
+      "anio": 1522,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se publica la primera parte de 'Don Quijote de la Mancha'",
+      "anio": 1605,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Mueren Cervantes y Shakespeare",
+      "anio": 1616,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Se firma la Declaración de Independencia de Estados Unidos",
+      "anio": 1776,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Toma de la Bastilla, comienza la Revolución Francesa",
+      "anio": 1789,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Batalla de Trafalgar",
+      "anio": 1805,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Levantamiento del 2 de mayo en Madrid contra los franceses",
+      "anio": 1808,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se promulga la Constitución de Cádiz, 'La Pepa'",
+      "anio": 1812,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Batalla de Waterloo, derrota final de Napoleón",
+      "anio": 1815,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Darwin publica 'El origen de las especies'",
+      "anio": 1859,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se inventa la Coca-Cola",
+      "anio": 1886,
+      "tema": "Curiosidades"
+    },
+    {
+      "texto": "Se inaugura la Estatua de la Libertad",
+      "anio": 1886,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se inaugura la Torre Eiffel",
+      "anio": 1889,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se celebran los primeros Juegos Olímpicos modernos, en Atenas",
+      "anio": 1896,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Los hermanos Wright realizan el primer vuelo a motor",
+      "anio": 1903,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Roban la Mona Lisa del museo del Louvre",
+      "anio": 1911,
+      "tema": "Arte"
+    },
+    {
+      "texto": "Se hunde el Titanic",
+      "anio": 1912,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Empieza la Primera Guerra Mundial",
+      "anio": 1914,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Einstein publica la teoría de la relatividad general",
+      "anio": 1915,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Estalla la Revolución Rusa",
+      "anio": 1917,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Termina la Primera Guerra Mundial",
+      "anio": 1918,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se descubre la tumba de Tutankamón",
+      "anio": 1922,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Muere Antoni Gaudí atropellado por un tranvía",
+      "anio": 1926,
+      "tema": "Arte"
+    },
+    {
+      "texto": "Fleming descubre la penicilina",
+      "anio": 1928,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Crack de la Bolsa de Nueva York",
+      "anio": 1929,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se proclama la Segunda República Española",
+      "anio": 1931,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se funda la empresa LEGO",
+      "anio": 1932,
+      "tema": "Curiosidades"
+    },
+    {
+      "texto": "Empieza la Guerra Civil Española",
+      "anio": 1936,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Picasso pinta el Guernica",
+      "anio": 1937,
+      "tema": "Arte"
+    },
+    {
+      "texto": "Termina la Guerra Civil Española",
+      "anio": 1939,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Empieza la Segunda Guerra Mundial",
+      "anio": 1939,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Desembarco de Normandía, el Día D",
+      "anio": 1944,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se lanza la bomba atómica sobre Hiroshima",
+      "anio": 1945,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se funda la ONU",
+      "anio": 1945,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se publica '1984' de George Orwell",
+      "anio": 1949,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Se publica 'La Comunidad del Anillo' de Tolkien",
+      "anio": 1954,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Empieza a emitir Televisión Española",
+      "anio": 1956,
+      "tema": "Curiosidades"
+    },
+    {
+      "texto": "La URSS lanza el Sputnik, el primer satélite artificial",
+      "anio": 1957,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se funda la NASA",
+      "anio": 1958,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Yuri Gagarin se convierte en el primer humano en el espacio",
+      "anio": 1961,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se construye el Muro de Berlín",
+      "anio": 1961,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Asesinan a John F. Kennedy en Dallas",
+      "anio": 1963,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se realiza el primer trasplante de corazón",
+      "anio": 1967,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se publica 'Cien años de soledad' de García Márquez",
+      "anio": 1967,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Massiel gana Eurovisión con 'La, la, la'",
+      "anio": 1968,
+      "tema": "Música"
+    },
+    {
+      "texto": "El ser humano pisa la Luna por primera vez",
+      "anio": 1969,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se celebra el festival de Woodstock",
+      "anio": 1969,
+      "tema": "Música"
+    },
+    {
+      "texto": "Los Beatles se separan",
+      "anio": 1970,
+      "tema": "Música"
+    },
+    {
+      "texto": "Se estrena 'El Padrino'",
+      "anio": 1972,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se inventa el cubo de Rubik",
+      "anio": 1974,
+      "tema": "Curiosidades"
+    },
+    {
+      "texto": "Muere Francisco Franco",
+      "anio": 1975,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Queen publica 'Bohemian Rhapsody'",
+      "anio": 1975,
+      "tema": "Música"
+    },
+    {
+      "texto": "Se estrena 'La guerra de las galaxias'",
+      "anio": 1977,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Muere Elvis Presley",
+      "anio": 1977,
+      "tema": "Música"
+    },
+    {
+      "texto": "Se aprueba la Constitución Española",
+      "anio": 1978,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Asesinan a John Lennon en Nueva York",
+      "anio": 1980,
+      "tema": "Música"
+    },
+    {
+      "texto": "Intento de golpe de Estado del 23-F",
+      "anio": 1981,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se estrena 'E.T., el extraterrestre'",
+      "anio": 1982,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Michael Jackson publica el disco 'Thriller'",
+      "anio": 1982,
+      "tema": "Música"
+    },
+    {
+      "texto": "España organiza el Mundial de fútbol",
+      "anio": 1982,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Aparece el primer ordenador Macintosh de Apple",
+      "anio": 1984,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se crea el videojuego Tetris",
+      "anio": 1984,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Se estrena 'Regreso al futuro'",
+      "anio": 1985,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se celebra el concierto benéfico Live Aid",
+      "anio": 1985,
+      "tema": "Música"
+    },
+    {
+      "texto": "Nintendo lanza 'Super Mario Bros.'",
+      "anio": 1985,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Accidente nuclear de Chernóbil",
+      "anio": 1986,
+      "tema": "Historia"
+    },
+    {
+      "texto": "España entra en la Comunidad Económica Europea",
+      "anio": 1986,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Maradona marca 'la mano de Dios' contra Inglaterra",
+      "anio": 1986,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Cae el Muro de Berlín",
+      "anio": 1989,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Tim Berners-Lee propone la World Wide Web",
+      "anio": 1989,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Nintendo lanza la Game Boy",
+      "anio": 1989,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Se emite el primer episodio de 'Los Simpson' como serie propia",
+      "anio": 1989,
+      "tema": "Series"
+    },
+    {
+      "texto": "Muere Freddie Mercury",
+      "anio": 1991,
+      "tema": "Música"
+    },
+    {
+      "texto": "Se disuelve la Unión Soviética",
+      "anio": 1991,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Miguel Induráin gana su primer Tour de Francia",
+      "anio": 1991,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se celebran los Juegos Olímpicos de Barcelona",
+      "anio": 1992,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se celebra la Exposición Universal de Sevilla",
+      "anio": 1992,
+      "tema": "Historia"
+    },
+    {
+      "texto": "El F. C. Barcelona gana su primera Copa de Europa en Wembley",
+      "anio": 1992,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se estrena 'Parque Jurásico'",
+      "anio": 1993,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se estrena 'El Rey León'",
+      "anio": 1994,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se emite el primer episodio de 'Friends'",
+      "anio": 1994,
+      "tema": "Series"
+    },
+    {
+      "texto": "Sony lanza la primera PlayStation",
+      "anio": 1994,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Jeff Bezos funda Amazon",
+      "anio": 1994,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se estrena 'Toy Story', el primer largometraje totalmente digital",
+      "anio": 1995,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Microsoft lanza Windows 95",
+      "anio": 1995,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Nace la oveja Dolly, el primer mamífero clonado",
+      "anio": 1996,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Salen en Japón los primeros videojuegos de Pokémon",
+      "anio": 1996,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Se estrena la película 'Titanic'",
+      "anio": 1997,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se publica el primer libro de Harry Potter",
+      "anio": 1997,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Se inaugura el Museo Guggenheim de Bilbao",
+      "anio": 1997,
+      "tema": "Arte"
+    },
+    {
+      "texto": "Se funda Netflix, entonces un alquiler de DVD por correo",
+      "anio": 1997,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se funda Google",
+      "anio": 1998,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se estrena 'Matrix'",
+      "anio": 1999,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Atentados del 11 de septiembre en Nueva York",
+      "anio": 2001,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Nace Wikipedia",
+      "anio": 2001,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se estrena la primera película de Harry Potter",
+      "anio": 2001,
+      "tema": "Cine"
+    },
+    {
+      "texto": "El euro entra en circulación",
+      "anio": 2002,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se hunde el petrolero Prestige frente a Galicia",
+      "anio": 2002,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se completa el Proyecto Genoma Humano",
+      "anio": 2003,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Atentados del 11-M en Madrid",
+      "anio": 2004,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Mark Zuckerberg funda Facebook",
+      "anio": 2004,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Tsunami del océano Índico",
+      "anio": 2004,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Rafa Nadal gana su primer Roland Garros",
+      "anio": 2005,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Fernando Alonso gana su primer Mundial de Fórmula 1",
+      "anio": 2005,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Nace YouTube",
+      "anio": 2005,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se legaliza el matrimonio entre personas del mismo sexo en España",
+      "anio": 2005,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Nace Twitter",
+      "anio": 2006,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Steve Jobs presenta el primer iPhone",
+      "anio": 2007,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "España gana la Eurocopa en Viena",
+      "anio": 2008,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Quiebra Lehman Brothers y estalla la crisis financiera",
+      "anio": 2008,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se estrena la serie 'Breaking Bad'",
+      "anio": 2008,
+      "tema": "Series"
+    },
+    {
+      "texto": "Nace Spotify",
+      "anio": 2008,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se estrena 'Avatar'",
+      "anio": 2009,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Muere Michael Jackson",
+      "anio": 2009,
+      "tema": "Música"
+    },
+    {
+      "texto": "Usain Bolt bate el récord de 100 metros con 9,58 segundos",
+      "anio": 2009,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Nace WhatsApp",
+      "anio": 2009,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "España gana su primer Mundial de fútbol",
+      "anio": 2010,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Nace Instagram",
+      "anio": 2010,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Apple presenta el primer iPad",
+      "anio": 2010,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se emite el primer episodio de 'Juego de Tronos'",
+      "anio": 2011,
+      "tema": "Series"
+    },
+    {
+      "texto": "Se lanza la versión definitiva de Minecraft",
+      "anio": 2011,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Surge el movimiento 15-M en España",
+      "anio": 2011,
+      "tema": "Historia"
+    },
+    {
+      "texto": "El robot Curiosity aterriza en Marte",
+      "anio": 2012,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se estrena 'Frozen'",
+      "anio": 2013,
+      "tema": "Cine"
+    },
+    {
+      "texto": "El rey Juan Carlos I abdica en favor de Felipe VI",
+      "anio": 2014,
+      "tema": "Historia"
+    },
+    {
+      "texto": "El Real Madrid gana la Décima Copa de Europa",
+      "anio": 2014,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se anuncia la detección de ondas gravitacionales",
+      "anio": 2016,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se celebra el referéndum del Brexit",
+      "anio": 2016,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se estrena la serie 'Stranger Things'",
+      "anio": 2016,
+      "tema": "Series"
+    },
+    {
+      "texto": "Pokémon GO desata la locura en las calles",
+      "anio": 2016,
+      "tema": "Videojuegos"
+    },
+    {
+      "texto": "Se estrena 'La casa de papel'",
+      "anio": 2017,
+      "tema": "Series"
+    },
+    {
+      "texto": "'Despacito' arrasa en todo el mundo",
+      "anio": 2017,
+      "tema": "Música"
+    },
+    {
+      "texto": "Rosalía publica 'El mal querer'",
+      "anio": 2018,
+      "tema": "Música"
+    },
+    {
+      "texto": "Se publica la primera imagen real de un agujero negro",
+      "anio": 2019,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se estrena 'Vengadores: Endgame'",
+      "anio": 2019,
+      "tema": "Cine"
+    },
+    {
+      "texto": "'Parásitos' gana el Óscar a la mejor película",
+      "anio": 2020,
+      "tema": "Cine"
+    },
+    {
+      "texto": "La OMS declara la pandemia de COVID-19",
+      "anio": 2020,
+      "tema": "Historia"
+    },
+    {
+      "texto": "El Reino Unido sale oficialmente de la Unión Europea",
+      "anio": 2020,
+      "tema": "Historia"
+    },
+    {
+      "texto": "La borrasca Filomena cubre Madrid de nieve",
+      "anio": 2021,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Entra en erupción el volcán de La Palma",
+      "anio": 2021,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se lanza el telescopio espacial James Webb",
+      "anio": 2021,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se estrena 'El juego del calamar'",
+      "anio": 2021,
+      "tema": "Series"
+    },
+    {
+      "texto": "Se celebran los Juegos Olímpicos de Tokio, con un año de retraso",
+      "anio": 2021,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se lanza ChatGPT al público",
+      "anio": 2022,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Muere la reina Isabel II del Reino Unido",
+      "anio": 2022,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Argentina gana el Mundial de fútbol de Catar",
+      "anio": 2022,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "España gana el Mundial femenino de fútbol",
+      "anio": 2023,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se estrena la primera película de Star Wars",
+      "anio": 1977,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Cae el muro de Berlín",
+      "anio": 1989,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se funda la Wikipedia",
+      "anio": 2001,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "El Titanic se hunde en su viaje inaugural",
+      "anio": 1912,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se celebra el primer Mundial de fútbol, en Uruguay",
+      "anio": 1930,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Alexander Fleming descubre la penicilina",
+      "anio": 1928,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se inaugura el Canal de Panamá",
+      "anio": 1914,
+      "tema": "Ingeniería"
+    },
+    {
+      "texto": "Neil Armstrong pisa la Luna",
+      "anio": 1969,
+      "tema": "Espacio"
+    },
+    {
+      "texto": "Se publica «Cien años de soledad»",
+      "anio": 1967,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Se lanza el primer iPhone",
+      "anio": 2007,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Chernóbil sufre el accidente nuclear",
+      "anio": 1986,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se estrena «El Rey León» de Disney",
+      "anio": 1994,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Sale al mercado el primer Rubik comercial",
+      "anio": 1980,
+      "tema": "Juegos"
+    },
+    {
+      "texto": "Se estrena «Titanic» de James Cameron",
+      "anio": 1997,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se secuencia el primer borrador del genoma humano",
+      "anio": 2001,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Gutenberg imprime su Biblia",
+      "anio": 1455,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se estrena la primera temporada de «Los Simpson»",
+      "anio": 1989,
+      "tema": "Televisión"
+    },
+    {
+      "texto": "Colón llega a América",
+      "anio": 1492,
+      "tema": "Historia"
+    },
+    {
+      "texto": "Se inventa el teléfono, patentado por Bell",
+      "anio": 1876,
+      "tema": "Tecnología"
+    },
+    {
+      "texto": "Se abre al público el metro de Londres, el primero del mundo",
+      "anio": 1863,
+      "tema": "Ingeniería"
+    },
+    {
+      "texto": "Se estrena «Pulp Fiction»",
+      "anio": 1994,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se celebra el primer festival de Eurovisión",
+      "anio": 1956,
+      "tema": "Música"
+    },
+    {
+      "texto": "Yuri Gagarin es el primer humano en el espacio",
+      "anio": 1961,
+      "tema": "Espacio"
+    },
+    {
+      "texto": "Se publica «El señor de los anillos: La comunidad del anillo»",
+      "anio": 1954,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Muere Miguel de Cervantes",
+      "anio": 1616,
+      "tema": "Literatura"
+    },
+    {
+      "texto": "Se estrena «Casablanca»",
+      "anio": 1942,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se inaugura el Museo del Prado",
+      "anio": 1819,
+      "tema": "Arte"
+    },
+    {
+      "texto": "Se juega la primera Copa del Mundo de baloncesto",
+      "anio": 1950,
+      "tema": "Deporte"
+    },
+    {
+      "texto": "Se aprueba la Constitución Española vigente",
+      "anio": 1978,
+      "tema": "Historia"
+    },
+    {
+      "texto": "El telescopio Hubble se pone en órbita",
+      "anio": 1990,
+      "tema": "Espacio"
+    },
+    {
+      "texto": "Se estrena «Matrix»",
+      "anio": 1999,
+      "tema": "Cine"
+    },
+    {
+      "texto": "Se descubre la estructura del ADN",
+      "anio": 1953,
+      "tema": "Ciencia"
+    },
+    {
+      "texto": "Se lanza el primer satélite artificial, el Sputnik",
+      "anio": 1957,
+      "tema": "Espacio"
+    }
   ]
 }

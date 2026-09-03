@@ -148,6 +148,9 @@ internal val catalogoEuskera =
                 PRUEBA_CANTA_PISTA to "Hemendik hasi",
                 PRUEBA_TRABALENGUAS_AYUDA to "Esan osorik eta trabatu gabe.",
                 PRUEBA_DESAFIO_AYUDA to "Ikusiko dugu nola ateratzen zaren.",
+                PRUEBA_ACENTOS_AYUDA to "Esan ahots horrekin",
+                PRUEBA_SONIDOS_AYUDA to "Ahoarekin bakarrik",
+                PRUEBA_CADENA_AYUDA to "Kateatu hitzak",
                 RONDA_TODOS_PASA_MOVIL to "Pasatu mugikorra inoren erantzuna begiratu gabe.",
                 RONDA_TODOS_RESPONDE to "%1\$s-k erantzuten du",
                 RONDA_TODOS_RESUMEN to "Nork asmatu du",
@@ -225,7 +228,7 @@ internal val catalogoEuskera =
                 AJUSTES_AYUDA to "Laguntza",
                 AJUSTES_AYUDA_DETALLE to "Nola jolastu eta ohiko galderak",
                 AJUSTES_TOUR to "Bisitaldi gidatua",
-                AJUSTES_TOUR_DETALLE to "Hamabi jokoak eta hiru moduak, azalduta",
+                AJUSTES_TOUR_DETALLE to "Hemezortzi jokoak eta hiru moduak, azalduta",
                 AJUSTES_ACERCA_DE to "Honi buruz",
                 AJUSTES_ACERCA_DE_DETALLE to "Bertsioa, lizentziak eta pribatutasuna",
                 TEMA_MODO_CLARO to "Argiak",
@@ -273,9 +276,9 @@ internal val catalogoEuskera =
                 AYUDA_SUBTITULO to "Inor gal ez dadin behar den guztia.",
                 AYUDA_QUE_ES_TITULO to "Zer da Funny?",
                 AYUDA_QUE_ES_TEXTO to
-                    "Hamabi proba desberdin dituen festa-jokoa. Esku batetik bestera pasatzen " +
-                    "den mugikor batekin jolasten da edo, mugikorra duten bat baino gehiago " +
-                    "bazarete, haien artean konektatuz. Ez da inoiz internet behar.",
+                    "Hemezortzi proba desberdin dituen festa-jokoa. Esku batetik bestera " +
+                    "pasatzen den mugikor batekin jolasten da edo, mugikorra duten bat baino " +
+                    "gehiago bazarete, haien artean konektatuz. Ez da inoiz internet behar.",
                 AYUDA_COMO_SE_JUEGA_TITULO to "Partida",
                 AYUDA_PARTIDA_1 to "Aukeratu modua: taldeka, banaka edo bakarkako erronka.",
                 AYUDA_PARTIDA_2 to "Talde edo jokalari bakoitzak fitxa bat du eta denak IRTEERAtik ateratzen dira.",
@@ -343,7 +346,7 @@ internal val catalogoEuskera =
                 ACERCA_SIN_ANUNCIOS to "Iragarkirik gabe, analitikarik gabe eta konturik gabe.",
                 ACERCA_AUTOR to "Ghato Studio · Brais Galdo",
                 TOUR_TITULO to "Bisitaldi gidatua",
-                TOUR_SUBTITULO to "Hamabi jokoak eta hiru moduak, bi minutuan.",
+                TOUR_SUBTITULO to "Hemezortzi jokoak eta hiru moduak, bi minutuan.",
                 TOUR_EMPEZAR to "HASI BISITALDIA",
                 TOUR_SALTAR to "Saltatu",
                 TOUR_ANTERIOR to "Aurrekoa",
@@ -352,7 +355,7 @@ internal val catalogoEuskera =
                 TOUR_PROGRESO to "%2\$d-tik %1\$d",
                 TOUR_BIENVENIDA_TITULO to "Ongi etorri Funny-ra",
                 TOUR_BIENVENIDA_TEXTO to
-                    "Hamabi joko, jolasteko hiru modu eta interneten beharrik ez. Bi " +
+                    "Hemezortzi joko, jolasteko hiru modu eta interneten beharrik ez. Bi " +
                     "minututan dena kontatzen dizut; nahi duzunean saltatu dezakezu.",
                 TOUR_MODOS_TITULO to "Jolasteko hiru modu",
                 TOUR_MODOS_TEXTO to
@@ -373,7 +376,7 @@ internal val catalogoEuskera =
                     "jolasten: proba bera mahai osoarentzat, eta asmatzen duen bakoitzak " +
                     "lauki bat aurreratzen du.\n🏁 Helmuga: azken proba zoriz. Gainditu gabe " +
                     "ez da irabazten.",
-                TOUR_JUEGOS_TITULO to "Hamabi jokoak",
+                TOUR_JUEGOS_TITULO to "Hemezortzi jokoak",
                 TOUR_JUEGOS_TEXTO to "Hauek dira denak. Gustatzen ez zaizkizunak Ezarpenetan desaktibatu ditzakezu.",
                 TOUR_SALON_TITULO to "Mugikor bat baino gehiago aldi berean",
                 TOUR_SALON_TEXTO to
@@ -501,6 +504,38 @@ internal val catalogoEuskera =
                     "Erronka txiki bat denen aurrean. Ezer arriskutsurik ez, ezer " +
                     "iraingarririk ez: barregarri onarena bakarrik. Mahaiak epaitzen " +
                     "du.",
+                JUEGO_REFRANES_NOMBRE to "Esaerak",
+                JUEGO_REFRANES_LEMA to "Osatu esaera",
+                JUEGO_REFRANES_INSTRUCCIONES to
+                    "Esaera baten erdia eta lau amaiera posible. Beste hirurak " +
+                    "benetako esaeren amaierak dira, beraz begiratu ondo.",
+                JUEGO_ANTES_NOMBRE to "Lehen ala gero?",
+                JUEGO_ANTES_LEMA to "Zer gertatu zen lehenago?",
+                JUEGO_ANTES_INSTRUCCIONES to
+                    "Bi gertaera eta zein izan zen lehenago esan behar da. Ebaztean bi " +
+                    "urteak ikusten dira, eta hori da zerbait erakusten duen zatia.",
+                JUEGO_ANAGRAMAS_NOMBRE to "Anagramak",
+                JUEGO_ANAGRAMAS_LEMA to "Ordenatu letrak",
+                JUEGO_ANAGRAMAS_INSTRUCCIONES to
+                    "Letra nahasiak eta lau hitz hautagai. Hiru okerrek ia letra " +
+                    "berak erabiltzen dituzte, beraz zenbatzeak ez du balio.",
+                JUEGO_ACENTOS_NOMBRE to "Ahotsak",
+                JUEGO_ACENTOS_LEMA to "Esan ahots horrekin",
+                JUEGO_ACENTOS_INSTRUCCIONES to
+                    "Kartak eskatzen duen ahotsarekin esaldi bat esan behar da: " +
+                    "aurkezle bat, bateriarik gabeko robot bat, marrazki " +
+                    "bizidunetako gaizto bat. Mahaiak erabakitzen du.",
+                JUEGO_SONIDOS_NOMBRE to "Soinuak",
+                JUEGO_SONIDOS_LEMA to "Imitatu ahoarekin",
+                JUEGO_SONIDOS_INSTRUCCIONES to
+                    "Zarata bat imitatu ahoa bakarrik erabiliz. Txalorik ez, mahai " +
+                    "kolperik ez, objekturik ez: eskuekin grazia galtzen du.",
+                JUEGO_CADENA_NOMBRE to "Kateatuak",
+                JUEGO_CADENA_LEMA to "Hitz bat bestearen atzetik",
+                JUEGO_CADENA_INSTRUCCIONES to
+                    "Hitz bakoitza aurrekoaren azken silabaz hasten da. Kontua zuek " +
+                    "eramaten duzue, eta balio duen ala ez eztabaidatzea jokoaren " +
+                    "parte da.",
                 RITMO_RAPIDO to "Azkarra",
                 RITMO_NORMAL to "Normala",
                 RITMO_TRANQUILO to "Lasaia",

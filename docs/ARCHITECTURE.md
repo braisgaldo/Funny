@@ -49,9 +49,9 @@ es.ghatostudio.funny
 │   ├── MotorJuego.kt      las reglas, como transiciones de estado
 │   ├── Modelos.kt         estado, ajustes, participantes, modalidades, modos
 │   ├── Reglas.kt          mazos, generación del tablero, funciones puras
-│   ├── Juego.kt           los doce juegos y sus propiedades
+│   ├── Juego.kt           los dieciocho juegos y sus propiedades
 │   ├── Contenido.kt       el modelo de las cartas
-│   ├── textos/Clave.kt    las 392 claves de i18n
+│   ├── textos/Clave.kt    las 413 claves de i18n
 │   └── salon/Protocolo.kt mensajes y códec del salón
 │
 ├── datos/         3 ficheros · 682 líneas
@@ -229,10 +229,10 @@ llevan su ratio de contraste anotado en el propio fichero, línea a línea.
 ## 7. Idiomas
 
 Trece: inglés, castellano, francés, alemán, chino simplificado, japonés, ruso,
-italiano, griego, árabe, gallego, catalán y euskera.
+italiano, griego, árabe, gallego, catalán y euskera. **413 claves cada uno.**
 
 ```
-dominio/textos/Clave.kt     enum con 392 claves — el orden canónico
+dominio/textos/Clave.kt     enum con 413 claves — el orden canónico
 ui/i18n/Textos.kt           resuelve clave → texto, con respaldo al inglés
 ui/i18n/Catalogo*.kt        trece catálogos, 392 entradas cada uno
 ```
@@ -257,10 +257,10 @@ Decisiones que importan:
 
 ### Lo que vigila la build
 
-`PruebaCatalogos` (21 pruebas) exige a los trece: las 392 claves completas,
+`PruebaCatalogos` (21 pruebas) exige a los trece: las 413 claves completas,
 ninguna clave huérfana, ningún texto vacío, **los mismos parámetros que el inglés**
 (un `%2$d` perdido acaba en una excepción de formato), los seis plurales, nombre y
-lema y instrucciones para los doce juegos, y **cero vocabulario de compra** en los
+lema y instrucciones para los dieciocho juegos, y **cero vocabulario de compra** en los
 textos de la donación.
 
 Los catálogos de castellano e inglés están escritos a mano; los otros once se
@@ -272,8 +272,14 @@ un olvido.
 
 ## 8. Contenido
 
-**2.601 cartas** en `app/src/main/assets/contenido/<idioma>/<juego>.json`: 1.366 en
-castellano y 1.235 en inglés. Un idioma sin contenido propio cae al respaldo, no se
+**3.194 cartas** en `app/src/main/assets/contenido/<idioma>/<juego>.json`: 1.668 en
+castellano y 1.526 en inglés, repartidas en dieciocho mazos.
+
+Los seis juegos añadidos después de la primera versión —Refranes, ¿Antes o
+después?, Anagramas, Acentos, Sonidos y Encadenados— **no traen ni una pantalla
+nueva**: reutilizan `PruebaOpciones`, `PruebaVeredicto` y `PruebaReto`, y tres de
+los modelos de carta que ya existían. Es lo que hizo que añadir seis juegos
+costara envoltorios de diez líneas en lugar de seis pantallas por verificar. Un idioma sin contenido propio cae al respaldo, no se
 queda vacío.
 
 | Mazo | es | Mazo | es |

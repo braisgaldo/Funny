@@ -32,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import es.ghatostudio.funny.dominio.Juego
+import es.ghatostudio.funny.dominio.PreguntaTrivial
 import es.ghatostudio.funny.dominio.Prueba
 import es.ghatostudio.funny.dominio.textos.Clave
 import es.ghatostudio.funny.plataforma.Sonidos
@@ -332,6 +333,91 @@ fun PruebaEmojis(vm: JuegoViewModel, prueba: Prueba.DeEmojis, sonidos: Sonidos) 
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 vm.resolverPrueba(elegida == prueba.correcta)
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Los tres juegos nuevos de opciones
+//
+// Comparten el bloque de opciones con las preguntas y con los emojis: la misma
+// pantalla verificada, otro mazo y otro color. Si algun dia hay que cambiar como
+// se pinta una opcion, se cambia en `BloqueOpciones` y cambia en los seis.
+// ---------------------------------------------------------------------------
+
+/** Refranes: media frase hecha y cuatro finales posibles. */
+@Composable
+fun PruebaRefranes(vm: JuegoViewModel, prueba: Prueba.DeRefranes, sonidos: Sonidos) {
+    PruebaDeOpcionesSimple(vm, Juego.REFRANES, prueba.pregunta, sonidos)
+}
+
+/** ¿Antes o después?: dos hechos y hay que decir cuál pasó primero. */
+@Composable
+fun PruebaAntesDespues(vm: JuegoViewModel, prueba: Prueba.DeAntesDespues, sonidos: Sonidos) {
+    PruebaDeOpcionesSimple(vm, Juego.ANTES, prueba.pregunta, sonidos)
+}
+
+/** Anagramas: unas letras revueltas y cuatro palabras candidatas. */
+@Composable
+fun PruebaAnagramas(vm: JuegoViewModel, prueba: Prueba.DeAnagramas, sonidos: Sonidos) {
+    PruebaDeOpcionesSimple(vm, Juego.ANAGRAMAS, prueba.pregunta, sonidos)
+}
+
+/**
+ * El cuerpo que comparten los tres.
+ *
+ * Es el mismo que `PruebaPreguntas` y se ha extraído aquí en lugar de copiarlo
+ * tres veces. No se ha tocado `PruebaPreguntas` para no cambiar una pantalla ya
+ * probada en el móvil por una razón puramente estética.
+ */
+@Composable
+private fun PruebaDeOpcionesSimple(
+    vm: JuegoViewModel,
+    juego: Juego,
+    pregunta: PreguntaTrivial,
+    sonidos: Sonidos,
+) {
+    val t = textos()
+    val color = paleta().colorDe(juego)
+    var elegida by remember { mutableStateOf<Int?>(null) }
+    var agotado by remember { mutableStateOf(false) }
+    val revelar = elegida != null || agotado
+
+    MarcoPrueba(
+        juego = juego,
+        segundos = vm.estado.segundosDe(juego),
+        enMarcha = !revelar,
+        sonidos = sonidos,
+        marcador = null,
+        onTiempoAgotado = { agotado = true },
+    ) {
+        Column(
+            Modifier.weight(1f).verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.Center,
+        ) {
+            BloqueOpciones(
+                enunciado = pregunta.texto,
+                tema = pregunta.tema,
+                opciones = pregunta.opciones,
+                correcta = pregunta.correcta,
+                elegida = elegida,
+                revelar = revelar,
+                color = color,
+            ) { indice ->
+                elegida = indice
+                if (indice == pregunta.correcta) sonidos.acierto() else sonidos.fallo()
+            }
+        }
+
+        if (revelar) {
+            Spacer(Modifier.height(12.dp))
+            BotonPrueba(
+                texto = t[Clave.ACCION_CONTINUAR],
+                color = color,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                vm.resolverPrueba(elegida == pregunta.correcta)
             }
         }
     }

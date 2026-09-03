@@ -1,6 +1,6 @@
 Funny mahai baten inguruan jokatzeko festa-jokoa da, aurrean duzun jendearekin. Esku batetik bestera pasatzen den mugikor bakarrarekin, edo pertsona bakoitzak bere mugikorrarekin.
 
-HAMABI PROBA
+HEMEZORTZI PROBA
 
 🎭 Mimika — antzeztu hitz egin gabe
 🎨 Marraztu — pantailan
@@ -14,8 +14,14 @@ HAMABI PROBA
 🔢 Ordenatu — jarri bere lekuan
 🎤 Kantatu — jarraitu abestia
 🤸 Desafioa — ausartu
+📜 Esaerak — osatu esaera
+⏳ Lehen ala gero? — zer gertatu zen lehenago?
+🔤 Anagramak — ordenatu letrak
+🗣 Ahotsak — esan ahots horrekin
+🔊 Soinuak — imitatu ahoarekin
+🔗 Kateatuak — hitz bat bestearen atzetik
 
-1.200 karta baino gehiago eskuz idatzita, ez sortuta.
+1.500 karta baino gehiago eskuz idatzita, ez sortuta.
 
 HIRU MODU
 
@@ -43,7 +49,7 @@ Hiru itxura ilun eta hiru argi, edo sistemarena jarraitu. Eta hamahiru hizkuntza
 
 DOAN, ETA BENETAN DOAN
 
-Hamabi jokoak, sei itxurak, hamahiru hizkuntzak eta mugikor anitzeko modua hor daude app-a lehen aldiz irekitzen duzunetik. Ez dago bertsio murriztua, ez dago eduki gordea eta ez dago aparte lortu beharreko ezer.
+Hemezortzi jokoak, sei itxurak, hamahiru hizkuntzak eta mugikor anitzeko modua hor daude app-a lehen aldiz irekitzen duzunetik. Ez dago bertsio murriztua, ez dago eduki gordea eta ez dago aparte lortu beharreko ezer.
 
 Kafe bat gonbidatzeko aukera bat dago, gogoa baduzu, eta ez du ezer ematen ordainetan: ez du ezer aldatzen jokoaren barruan. Sistemaren nabigatzailean irekitzen da eta app-ak ez du inolako kobrantza kudeatzen.
 

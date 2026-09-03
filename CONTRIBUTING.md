@@ -53,7 +53,7 @@ pista de canción se pasa de 60 caracteres, la build falla. Ejecuta
 
 ## Traducciones
 
-Los trece idiomas están completos: **392 claves cada uno**. Lo que hace falta aquí
+Los trece idiomas están completos: **413 claves cada uno**. Lo que hace falta aquí
 no es traducir de cero, es **corregir** lo que esté torpe. Si el gallego, el
 euskera, el griego o el japonés te suenan raros en algún sitio, esa corrección vale
 mucho.
@@ -63,7 +63,7 @@ Una corrección puntual se hace ahí directamente.
 
 Lo que tienes que saber:
 
-- **Ninguna clave puede faltar.** `PruebaCatalogos` exige las 392 a los trece
+- **Ninguna clave puede faltar.** `PruebaCatalogos` exige las 413 a los trece
   idiomas, así que si añades una clave nueva tienes que rellenar los trece o la
   build falla. Es deliberado: preferimos una build roja a que alguien vea
   `AJUSTES_TITULO` en su pantalla.
